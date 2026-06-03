@@ -118,7 +118,7 @@
 
   <header class="top">
     <h1>천호역 접근 · 역세권 매물 <span style="font-size:14px;color:var(--sub)">(부모님 거주용)</span>
-      <small>천호교회(천호역 5·8호선) 지하철 접근 · 자본 <b id="capTitle">5억</b> · 어르신 2인(평지) · 전세 끼고 3~4년 후 입주 선호</small>
+      <small>천호교회(천호역 5·8호선) 지하철 접근 · 매매가 <b id="capTitle">5억선</b> · 어르신 2인(평지) · 전세끼고 3~4년 후 입주 선호</small>
     </h1>
     <div class="updated">데이터 기준<br><b id="updatedAt">—</b></div>
   </header>
@@ -139,7 +139,7 @@
     <div class="track b">
       <h3>② 별내선(구리·다산·별내) <span class="tag yes">비규제 · 갭 가능</span></h3>
       <p><b>‘전세 끼고 → 3~4년 후 입주’ 니즈를 실제로 살릴 수 있는 현실 대안.</b> 8호선 별내선 연장으로 <b>천호까지 환승 0회 직통</b>(다산 ~15분·별내 ~18분),
-      비규제라 갭투자 가능, <b>다산·별내는 평지 신도시</b>라 어르신께 적합합니다. 84㎡ 갭 대략 <b>3~4억대</b>로 5억 안에 충분.</p>
+      비규제라 전세끼고(3~4년 후 입주) 가능, <b>다산·별내는 평지 신도시</b>라 어르신께 적합합니다. 84㎡ <b>매매가 4~6억대</b>(예: 별내우미린 84㎡ 4.4억)라 매매 5억선으로 닿습니다.</p>
     </div>
   </section>
 
@@ -174,8 +174,8 @@
           <span class="chip" data-area="30">30평대(84㎡)</span>
           <span class="chip on" data-area="all">전체</span>
         </div>
-        <div class="fgrp"><span id="capLab">갭 상한</span>
-          <input type="range" id="cap" min="2" max="15" step="0.5" value="5">
+        <div class="fgrp"><span id="capLab">매매가 상한</span>
+          <input type="range" id="cap" min="3" max="12" step="0.5" value="5.5">
           <span class="capval"><span id="capNow">5</span>억</span>
         </div>
         <div class="fgrp">천호까지 ≤
@@ -375,7 +375,7 @@ const state = {
 
 /* ── 헤더/배너 ── */
 document.getElementById('updatedAt').textContent = DATA.updatedAt || '—';
-document.getElementById('capTitle').textContent = CAP0+'억';
+document.getElementById('capTitle').textContent = CAP0+'억선';
 (function(){ const b=document.getElementById('banner');
   if(isSample){ b.className='banner demo';
     b.innerHTML=`<span>⚠️</span><div><b>지금은 예시(데모) 데이터입니다.</b> 실제 국토부 실거래가를 받으려면 <code>⑤ 천호 역세권 업데이트.bat</code>을 실행하세요(인증키는 이미 등록됨). 인증키 없이도 화면·기능은 그대로 체험할 수 있습니다.</div>`;
@@ -394,6 +394,7 @@ function applyFilters(){
   if(state.flatOnly)   r=r.filter(d=>d.terr==='평지');
   if(state.lowOnly)    r=r.filter(d=>d.lowFloor);
   if(state.q){ const q=state.q.trim(); r=r.filter(d=>(d.apt+d.umd).includes(q)); }
+  r=r.filter(d=>d.eok<=state.cap);                 // 예산 = 전체 매매가 ≤ 상한(5억선)
   const s=state.sort;
   r.sort((a,b)=> s==='price'? a.amountManwon-b.amountManwon
               : s==='mins'?  (a.min-b.min || a.gapEok-b.gapEok)
@@ -407,13 +408,13 @@ function renderKPIs(){
   const pool = ITEMS.filter(d=>state.groups.has(d.group));
   const minsArr = pool.map(d=>d.min).filter(m=>m<90).sort((a,b)=>a-b);
   const medMin = minsArr.length? minsArr[Math.floor(minsArr.length/2)] : '—';
-  const gapFit = pool.filter(d=>d.gapOk && !d.gapNoisy && d.gapEok<=state.cap).length;
-  const ideal  = pool.filter(d=>d.gapOk && !d.gapNoisy && d.gapEok<=state.cap && d.terr==='평지' && d.tr===0 && d.min<=state.maxMin).length;
+  const priceFit = pool.filter(d=>d.eok<=state.cap).length;
+  const ideal    = pool.filter(d=>d.eok<=state.cap && d.terr==='평지' && d.min<=state.maxMin).length;
   const k=[
-    {lab:'자본금', dot:'#0ea5e9', val:CAP0+'억', sub:'전세 끼고 매수 시 갭 상한'},
+    {lab:'매매가 상한', dot:'#0ea5e9', val:state.cap+'억', sub:'전체 매매금액 기준(5억선)'},
     {lab:'천호까지(중앙값)', dot:'var(--gangdong)', val: medMin+(medMin==='—'?'':'분'), sub:'선택 지역 · 환승 0회 기준'},
-    {lab:'갭 '+state.cap+'억↓ 가능', dot:'var(--byeollae)', val: gapFit+'건', sub:'비규제(갭 가능) 단지만'},
-    {lab:'★ 4박자 충족', dot:'var(--ok)', val: ideal+'건', sub:'평지·환승0·갭'+state.cap+'억↓·접근'+state.maxMin+'분'},
+    {lab:'매매 '+state.cap+'억↓ 매물', dot:'var(--byeollae)', val: priceFit+'건', sub:'선택 지역 · 최근 실거래'},
+    {lab:'★ 평지+예산+천호', dot:'var(--ok)', val: ideal+'건', sub:'평지·매매'+state.cap+'억↓·천호'+state.maxMin+'분'},
   ];
   document.getElementById('kpis').innerHTML = k.map(x=>`
     <div class="kpi"><div class="lab"><span class="dot" style="background:${x.dot}"></span>${x.lab}</div>
@@ -428,43 +429,37 @@ function renderGroupCards(){
     const arrG=ITEMS.filter(d=>d.group===g);
     if(!arrG.length){ return; }
     const med=median(arrG.map(d=>d.amountManwon))/10000;
-    const gapMed=median(arrG.map(d=>d.gapManwon!=null?d.gapManwon:0))/10000;
+    const priceFit=arrG.filter(d=>d.eok<=state.cap).length;
     const minMed=median(arrG.map(d=>d.min).filter(m=>m<90));
     const flatPct=Math.round(arrG.filter(d=>d.terr==='평지').length/arrG.length*100);
     const regd=arrG[0].regulated;
     let cls='v-ok', msg;
-    if(regd){ cls='v-no'; msg='토허구역 — 갭 불가, 실입주만'; }
-    else { cls='v-ok'; msg='비규제 — 전세끼고(갭) 가능 ✓'; }
-    if(!regd && flatPct>=70 && gapMed<=CAP0) { cls='v-ok'; msg='갭 가능·평지·예산내 ✓✓'; }
+    if(regd){ cls='v-no'; msg='토허 — 실입주만(전세끼고 불가)'; }
+    else { cls='v-ok'; msg='비규제 — 전세끼고 가능 ✓'; }
+    if(priceFit===0){ cls='v-no'; msg='매매 '+state.cap+'억선 매물 거의 없음'; }
     box.innerHTML += `
       <div class="rcard" style="border-top-color:${GCOLOR[g]}">
         <h4><span class="dot" style="background:${GCOLOR[g]}"></span>${g}</h4>
         <div class="big">${med?med.toFixed(1).replace(/\.0$/,'')+'억':'—'} <span style="font-size:11px;color:var(--sub);font-weight:500">매매 중앙</span></div>
-        <div class="meta">갭 중앙 <b>${gapMed?gapMed.toFixed(1).replace(/\.0$/,'')+'억':'—'}</b> · 천호 ${minMed||'—'}분 · 평지 ${flatPct}%</div>
+        <div class="meta">매매 ${state.cap}억↓ <b>${priceFit}건</b> · 천호 ${minMed||'—'}분 · 평지 ${flatPct}%</div>
         <div class="verdict ${cls}">${msg}</div>
       </div>`;
   });
 }
 
 /* ── 테이블 ── */
-const COLS_GAP = ['단지 / 동','가까운 역','천호까지','어르신','전용/층','매매가','추정전세','갭','보기'];
-const COLS_LIVE= ['단지 / 동','가까운 역','천호까지','어르신','전용/층','매매가','필요대출','판정','보기'];
+const COLS_GAP = ['단지 / 동','가까운 역','천호까지','어르신','전용/층','매매가','추정전세','전세끼고 현금','보기'];
+const COLS_LIVE= ['단지 / 동','가까운 역','천호까지','어르신','전용/층','매매가','취득세','총 매수비용','보기'];
 function renderHead(){
   const cols = state.mode==='gap'?COLS_GAP:COLS_LIVE;
   document.getElementById('thead').innerHTML = cols.map((c,i)=>`<th class="${i===0||i===1||i===8?'l':''}">${c}</th>`).join('');
 }
 function liveCalc(d){
-  // 즉시 실입주: 보유현금 cap(억) + 대출. 필요대출 = 매매+취득비용 − 현금
-  const buy=d.amountManwon, cash=state.cap*10000;
-  const at = REG? REG.acquisitionTax(buy, d.areaM2, 1, d.regulated) : {totalManwon:buy*0.012};
-  const cost = at.totalManwon + buy*0.005; // 취득세+중개/등기 약식
-  const need = Math.max(0, buy+cost-cash);
-  let maxLoan;
-  if(REG){ const F=REG.FINANCE; const ltv=(d.regulated?F.ltvRegulated:F.ltvNonReg)*buy;
-    let capT=Infinity; for(const t of F.loanCapTiers){ if(buy<=t.maxPriceManwon){ capT=t.capManwon; break; } }
-    maxLoan=Math.min(ltv, d.regulated?capT:Infinity);
-  } else { maxLoan=buy*(d.regulated?0.4:0.7); }
-  return {need, maxLoan, ok: need<=maxLoan+1};
+  // 즉시 실입주: 매매 + 취득세 + 중개 = 총 매수비용
+  const buy=d.amountManwon;
+  const at = REG? REG.acquisitionTax(buy, d.areaM2, 1, d.regulated) : {totalManwon:Math.round(buy*0.012)};
+  const broker = buy*0.005;
+  return { acqTax: at.totalManwon, total: buy + at.totalManwon + broker };
 }
 function renderTable(){
   renderHead();
@@ -476,24 +471,23 @@ function renderTable(){
   tb.innerHTML = rows.map(d=>{
     const t=TERR[d.terr]||TERR['확인필요'];
     const far=d.min>=22;
-    const gapWithinCap = d.gapEok<=state.cap;
-    // 갭 모드에서 토허(갭불가)거나 갭초과면 흐리게
-    const dim = isGap && (!d.gapOk || d.gapNoisy || !gapWithinCap);
+    // 전세끼고 모드에서 토허(전세끼고 불가)면 흐리게
+    const dim = isGap && (!d.gapOk || d.gapNoisy);
     const minCell = d.min>=90? '<span class="mins far">—</span>' : `<span class="mins ${far?'far':''}">${d.min}분</span>` + (d.tr>0?` <span class="pill p-toheo">환승${d.tr}</span>`:'');
     let c6,c7,c8;
     if(isGap){
       c6 = `<b>${fmtEok(d.amountManwon)}</b>`;
       c7 = `${fmtEok(d.jeonseManwon)}${d.jeonseSrc==='complex'?'':'<span class="umd">*추정</span>'}`;
       c8 = !d.gapOk
-        ? `<span class="pill p-toheo">토허·갭불가</span>`
+        ? `<span class="pill p-toheo">토허·전세끼고불가</span>`
         : d.gapNoisy
           ? `<span class="umd">${fmtEok(d.gapManwon)}</span> <span class="pill p-toheo">전세≥매매·확인</span>`
-          : `<b>${fmtEok(d.gapManwon)}</b> ${gapWithinCap?'<span class="pill p-gap">'+state.cap+'억내</span>':''}`;
+          : `<b>${fmtEok(d.gapManwon)}</b> <span class="pill p-gap">전세끼고 가능</span>`;
     } else {
       const lc=liveCalc(d);
       c6 = `<b>${fmtEok(d.amountManwon)}</b>`;
-      c7 = fmtEok(lc.need);
-      c8 = lc.ok? `<span class="pill p-gap">가능</span>` : `<span class="pill p-toheo">한도초과</span>`;
+      c7 = fmtEok(lc.acqTax);
+      c8 = `<b>${fmtEok(lc.total)}</b>`;
     }
     const aptQ = d.apt;
     return `<tr class="${dim?'dim':''}">
@@ -601,7 +595,7 @@ document.querySelectorAll('.chip[data-area]').forEach(c=>c.onclick=()=>{
 document.querySelectorAll('#modeSeg button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('#modeSeg button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
   state.mode=b.dataset.mode;
-  document.getElementById('capLab').textContent = state.mode==='gap'?'갭 상한':'보유현금';
+  document.getElementById('capLab').textContent = '매매가 상한';
   renderTable(); renderKPIs(); renderCalc();
 });
 const cap=document.getElementById('cap');
@@ -617,7 +611,7 @@ document.getElementById('sort').onchange=e=>{state.sort=e.target.value;renderTab
   const el=document.getElementById(id); el.addEventListener('input',renderCalc); el.addEventListener('change',renderCalc); });
 
 /* ── 시작 ── */
-document.getElementById('capNow').textContent=CAP0; cap.value=CAP0; state.cap=CAP0;
+var CAPDEF=CAP0+0.5; cap.value=CAPDEF; state.cap=CAPDEF; document.getElementById('capNow').textContent=CAPDEF;
 renderLineview(); renderLiveLinks(); renderCalc(); rerender();
 </script>
 </body>
