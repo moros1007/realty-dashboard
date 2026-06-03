@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>분당·평촌·과천 매매 대시보드</title>
+<style>
+  :root{
+    --bd:#3b82f6; --pc:#10b981; --gc:#f59e0b; --my:#8b5cf6;
+    --ink:#1e293b; --sub:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+    --ok:#16a34a; --warn:#dc2626; --newbg:#fef3c7; --newink:#b45309;
+    --shadow:0 1px 3px rgba(15,23,42,.08),0 1px 2px rgba(15,23,42,.04);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:20px 16px 80px}
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+  h1{font-size:22px;margin:0;letter-spacing:-.4px}
+  h1 small{display:block;font-size:13px;color:var(--sub);font-weight:500;margin-top:4px}
+  .updated{font-size:12.5px;color:var(--sub);text-align:right}
+  .updated b{color:var(--ink)}
+  .banner{background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:12px;
+    padding:12px 16px;font-size:13px;margin:12px 0;display:flex;gap:10px;align-items:flex-start}
+  .banner.live{background:#ecfdf5;border-color:#a7f3d0;color:#065f46}
+  .banner code{background:rgba(0,0,0,.06);padding:1px 6px;border-radius:5px;font-size:12px}
+
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+  .kpi .lab{font-size:12.5px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .kpi .val{font-size:24px;font-weight:800;letter-spacing:-.5px;margin-top:4px}
+  .kpi .sub{font-size:12px;color:var(--sub);margin-top:2px}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+
+  .budget{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);margin-bottom:14px}
+  .budget h3{margin:0 0 12px;font-size:14px}
+  .bar{height:30px;border-radius:8px;background:#eef2f7;position:relative;overflow:hidden;display:flex}
+  .bar .seg{height:100%;display:flex;align-items:center;justify-content:center;font-size:11.5px;color:#fff;font-weight:700;white-space:nowrap}
+  .bar .seg.home{background:linear-gradient(90deg,#8b5cf6,#a78bfa)}
+  .bar .seg.add{background:linear-gradient(90deg,#0ea5e9,#38bdf8)}
+  .blabels{display:flex;justify-content:space-between;font-size:12px;color:var(--sub);margin-top:8px}
+
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:14px}
+  .rcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);border-top:4px solid var(--line)}
+  .rcard h4{margin:0 0 8px;font-size:15px;display:flex;align-items:center;gap:8px}
+  .rcard .big{font-size:20px;font-weight:800}
+  .rcard .meta{font-size:12.5px;color:var(--sub);margin-top:4px}
+  .rcard .verdict{margin-top:10px;font-size:12.5px;font-weight:700;padding:6px 10px;border-radius:8px;display:inline-block}
+  .v-ok{background:#dcfce7;color:#15803d}.v-mid{background:#fef9c3;color:#a16207}.v-no{background:#fee2e2;color:#b91c1c}
+  .rcard .navbtn{margin-top:10px}
+
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);margin-bottom:14px;overflow:hidden}
+  .panel > .ph{padding:13px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .panel > .ph h3{margin:0;font-size:15px}
+  .panel .pb{padding:14px 16px}
+
+  .filters{display:flex;gap:10px 14px;flex-wrap:wrap;align-items:center}
+  .chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:13px;cursor:pointer;user-select:none;transition:.12s}
+  .chip:hover{border-color:#cbd5e1}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip.r분당.on{background:var(--bd);border-color:var(--bd)} .chip.r평촌.on{background:var(--pc);border-color:var(--pc)} .chip.r과천.on{background:var(--gc);border-color:var(--gc)}
+  .fgrp{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--sub)}
+  .fgrp input[type=number]{width:62px;padding:5px 7px;border:1px solid var(--line);border-radius:8px;font-size:13px}
+  .fgrp input[type=range]{width:150px}
+  select,.txt{padding:6px 9px;border:1px solid var(--line);border-radius:8px;font-size:13px;background:#fff}
+  .txt{width:160px}
+  .toggle{display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer}
+  .capval{font-weight:800;color:var(--ink)}
+
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:9px 10px;text-align:right;border-bottom:1px solid #eef2f7;white-space:nowrap}
+  th{font-size:11.5px;color:var(--sub);font-weight:600;cursor:pointer;position:sticky;top:0;background:#fff}
+  th.l,td.l{text-align:left}
+  tbody tr:hover{background:#f8fafc}
+  td.apt{font-weight:700;max-width:230px;white-space:normal;line-height:1.35}
+  td.apt .umd{font-weight:500;color:var(--sub);font-size:11.5px}
+  .pill{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:999px;margin-left:5px;vertical-align:middle}
+  .p-new{background:var(--newbg);color:var(--newink)} .p-low{background:#e0f2fe;color:#0369a1}
+  .p-under{background:#dcfce7;color:#15803d} .p-over{background:#fee2e2;color:#b91c1c}
+  .rtag{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .act{display:inline-flex;gap:4px}
+  .btn{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;border:1px solid var(--line);background:#fff;border-radius:7px;padding:4px 8px;cursor:pointer;text-decoration:none;color:var(--ink);transition:.12s}
+  .btn:hover{background:#f1f5f9;border-color:#cbd5e1}
+  .btn.nv{border-color:#03c75a33;color:#03c75a} .star{cursor:pointer;font-size:15px;color:#cbd5e1} .star.on{color:#fbbf24}
+  .tablewrap{max-height:560px;overflow:auto}
+  .empty{padding:40px;text-align:center;color:var(--sub);font-size:13.5px}
+
+  .charts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .chartbox{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:14px 16px}
+  .chartbox h3{margin:0 0 10px;font-size:14px}
+  .chartbox .cv{position:relative;height:240px}
+
+  .contacts{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+  .ccard{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+  .ccard .nm{font-weight:700;font-size:14px} .ccard .ph2{font-size:13px;color:var(--sub);margin:3px 0 8px;letter-spacing:.3px}
+  .ccard .ctag{font-size:11px;padding:2px 7px;border-radius:999px;background:#f1f5f9;color:var(--sub)}
+  .ccard .row{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+  .addform{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+  .addform input{padding:7px 9px;border:1px solid var(--line);border-radius:8px;font-size:13px}
+  .addform .pbtn{background:var(--ink);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer}
+  .note{font-size:12px;color:var(--sub);margin-top:8px}
+  .legend{display:flex;gap:14px;font-size:12px;color:var(--sub);flex-wrap:wrap}
+  footer{margin-top:22px;font-size:11.5px;color:#94a3b8;line-height:1.7;text-align:center}
+  @media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:1fr}.charts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <h1>분당 · 평촌 · 과천 매매 대시보드
+      <small>산성역자이푸르지오 매도 → 30평형대(전용 84㎡) · 예산 <b id="capTitle">16억</b> 이하 매수</small>
+    </h1>
+    <div class="updated">데이터 기준<br><b id="updatedAt">—</b></div>
+  </header>
+
+  <div id="banner"></div>
+
+  <!-- KPI -->
+  <section class="kpis" id="kpis"></section>
+
+  <!-- 예산 -->
+  <section class="budget" id="budgetBox">
+    <h3>💰 자금 계획 (내 집 매도가 → 매수 예산)</h3>
+    <div class="bar" id="budgetBar"></div>
+    <div class="blabels"><span>0</span><span id="capLabel">16억</span></div>
+    <div class="note" id="budgetNote"></div>
+  </section>
+
+  <!-- 지역 비교 -->
+  <section class="grid3" id="regionCards"></section>
+
+  <!-- 신규 알림 -->
+  <section class="panel">
+    <div class="ph">
+      <h3>🔔 신규 거래 알림 <span id="newCnt" class="pill p-new" style="display:none"></span></h3>
+      <span class="note" style="margin:0">직전 업데이트 이후 새로 신고된 실거래입니다</span>
+    </div>
+    <div class="pb" id="alerts"></div>
+  </section>
+
+  <!-- 필터 + 테이블 -->
+  <section class="panel">
+    <div class="ph">
+      <h3>📋 실거래 목록</h3>
+      <span class="note" id="rowCount" style="margin:0"></span>
+    </div>
+    <div class="pb">
+      <div class="filters">
+        <div class="fgrp">지역
+          <span class="chip r분당 on" data-region="분당">● 분당</span>
+          <span class="chip r평촌 on" data-region="평촌">● 평촌</span>
+          <span class="chip r과천 on" data-region="과천">● 과천</span>
+        </div>
+        <div class="fgrp">평형
+          <span class="chip" data-area="20">20평대(59㎡)</span>
+          <span class="chip on" data-area="30">30평대(84㎡)</span>
+          <span class="chip" data-area="all">전체</span>
+        </div>
+        <div class="fgrp">예산상한
+          <input type="range" id="cap" min="8" max="30" step="0.5" value="16">
+          <span class="capval"><span id="capNow">16</span>억</span>
+        </div>
+        <label class="toggle"><input type="checkbox" id="underOnly"> 예산 이내만</label>
+        <label class="toggle"><input type="checkbox" id="lowOnly"> 저층(1~5층)만</label>
+        <label class="toggle"><input type="checkbox" id="favOnly"> ★관심만</label>
+        <input class="txt" id="q" placeholder="단지명 검색">
+        <select id="sort">
+          <option value="date">최신순</option>
+          <option value="price">가격 낮은순</option>
+          <option value="pp">평당가 낮은순</option>
+          <option value="area">면적 큰순</option>
+        </select>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead><tr>
+            <th class="l">단지 / 동</th><th>전용면적</th><th>층</th>
+            <th>거래금액</th><th>평당가</th><th>계약일</th><th>준공</th><th class="l">연락 · 보기</th><th>★</th>
+          </tr></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+        <div class="empty" id="emptyMsg" style="display:none">조건에 맞는 거래가 없습니다. 필터를 넓혀보세요.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 차트 -->
+  <section class="charts">
+    <div class="chartbox"><h3>지역별 평당가 (전용 기준, 만원/평)</h3><div class="cv" id="chartPP"></div></div>
+    <div class="chartbox"><h3>월별 평균 거래가 추이 (억)</h3><div class="cv" id="chartTrend"></div></div>
+  </section>
+
+  <!-- 부동산 연락 -->
+  <section class="panel" style="margin-top:14px">
+    <div class="ph"><h3>📞 부동산 연락 · 매물 바로가기</h3></div>
+    <div class="pb">
+      <p class="note" style="margin-top:0">지역별로 네이버 부동산을 한 번에 열어 <b>호가 매물 + 중개사 연락처</b>를 바로 확인하세요. 자주 통화하는 부동산은 아래에 저장하면 한 번에 전화/문자할 수 있습니다.</p>
+      <div id="regionLinks" class="filters" style="margin-bottom:16px"></div>
+
+      <h4 style="margin:6px 0 8px;font-size:14px">⭐ 내 부동산 연락처</h4>
+      <div class="addform">
+        <input id="cName" placeholder="상호/담당자 (예: 정자OO공인)">
+        <input id="cPhone" placeholder="전화번호 (예: 031-000-0000)">
+        <select id="cArea"><option value="분당">분당</option><option value="평촌">평촌</option><option value="과천">과천</option><option value="기타">기타</option></select>
+        <input id="cMemo" placeholder="메모 (예: 무지개4단지 저층 매물)">
+        <button class="pbtn" id="cAdd">+ 저장</button>
+      </div>
+      <div class="contacts" id="contacts"></div>
+      <p class="note">📱 [전화]·[문자] 버튼은 휴대폰 또는 전화 연동 앱이 있을 때 바로 연결됩니다. PC에서는 [번호복사]를 사용하세요. 저장 정보는 이 브라우저에만 보관됩니다.</p>
+    </div>
+  </section>
+
+  <footer>
+    데이터: 국토교통부 아파트 매매 실거래가(공공데이터포털) · 실거래는 신고 기준이라 계약일 대비 1~2개월 시차가 있을 수 있습니다.<br>
+    호가·신규 매물 정보는 네이버 부동산 등 외부 링크로 제공됩니다. 본 대시보드는 참고용이며 실제 거래 전 현장 확인을 권장합니다.
+  </footer>
+</div>
+
+<script src="data/sample.js"></script>
+<script>
+/* 호스팅(http/https)에서는 캐시 무력화로 늘 최신 latest.js 를 불러오고, 로컬(file://)에서는 쿼리 없이 로드 */
+(function(){ var q = location.protocol.indexOf('http')===0 ? ('?t=' + (new Date()).getTime()) : '';
+  document.write('<scr'+'ipt src="data/latest.js'+q+'"><\/scr'+'ipt>'); })();
+</script>
+<script>
+/* ── 데이터 선택: 실데이터(latest) 있으면 우선, 없으면 예시(sample) ── */
+/* PowerShell ConvertTo-Json은 원소 1개 배열을 단일 객체로 직렬화하므로 항상 배열로 정규화 */
+const arr = x => Array.isArray(x) ? x : (x==null ? [] : [x]);
+const RAW = window.REALTY_DATA || null;
+const LIVE = (RAW && arr(RAW.items).length) ? RAW : null;
+const DATA = LIVE || window.REALTY_SAMPLE;
+const isSample = !LIVE;
+const PRICE_MAX0 = (DATA.config && DATA.config.priceMaxEok) || 16;
+const RCOLOR = {분당:'#3b82f6', 평촌:'#10b981', 과천:'#f59e0b'};
+const PY = 3.305785; // ㎡ → 전용평
+const won = m => (m/10000); // 만원 → 억
+const fmtEok = m => { const e=m/10000; return (e>=10? e.toFixed(1): e.toFixed(2)).replace(/\.0$/,'') + '억'; };
+const enc = encodeURIComponent;
+const nQuery = s => 'https://search.naver.com/search.naver?query=' + enc(s);
+const nMap   = s => 'https://map.naver.com/p/search/' + enc(s);
+
+function enrich(it){
+  const pyeong = it.areaM2 / PY;
+  const eok = it.amountManwon / 10000;
+  return Object.assign({}, it, {
+    pyeong, eok,
+    pyeongPrice: it.amountManwon / pyeong,        // 만원/전용평
+    lowFloor: it.floor>0 && it.floor<=5,
+    key: [it.region,it.apt,it.areaM2,it.floor,it.dealDate,it.amountManwon].join('|')
+  });
+}
+const ITEMS = arr(DATA.items).map(enrich);
+const MYHOME = DATA.myHome ? {label:DATA.myHome.label, addr:DATA.myHome.addr, items:arr(DATA.myHome.items)} : {items:[]};
+
+/* 내 집 예상 매도가 = 최근 거래 중앙값 */
+function median(arr){ if(!arr.length) return 0; const s=[...arr].sort((a,b)=>a-b); const m=Math.floor(s.length/2); return s.length%2? s[m] : (s[m-1]+s[m])/2; }
+const myEok = MYHOME.items && MYHOME.items.length ? +(median(MYHOME.items.map(x=>x.amountManwon))/10000).toFixed(2) : 0;
+
+/* ── 상태 ── */
+const state = {
+  regions:new Set(['분당','평촌','과천']),
+  areaMin:80, areaMax:102, areaPreset:'30',
+  cap:PRICE_MAX0, underOnly:false, lowOnly:false, favOnly:false, q:'', sort:'date'
+};
+const FAV = new Set(JSON.parse(localStorage.getItem('realtyFav')||'[]'));
+const saveFav = ()=>localStorage.setItem('realtyFav', JSON.stringify([...FAV]));
+
+/* ── 배너 / 헤더 ── */
+document.getElementById('updatedAt').textContent = DATA.updatedAt || '—';
+(function(){ const b=document.getElementById('banner');
+  if(isSample){ b.className='banner';
+    b.innerHTML=`<span>⚠️</span><div><b>지금은 예시(데모) 데이터입니다.</b> 실제 실거래가를 받으려면 <code>config.json</code>에 공공데이터포털 인증키를 넣고 <code>① 시세 업데이트.bat</code>을 실행하세요. (발급 방법은 README.md) 인증키가 없어도 화면 구성·기능은 그대로 체험할 수 있습니다.</div>`;
+  } else { b.className='banner live';
+    b.innerHTML=`<span>✅</span><div>국토교통부 <b>실거래가 실데이터</b>를 표시 중입니다. (${DATA.updatedAt} 기준)</div>`;
+  }
+})();
+
+/* ── 필터 적용 ── */
+function applyFilters(){
+  let r = ITEMS.filter(d=>state.regions.has(d.region));
+  if(state.areaPreset==='20'){ r=r.filter(d=>d.areaM2>=55 && d.areaM2<75); }
+  else if(state.areaPreset==='30'){ r=r.filter(d=>d.areaM2>=state.areaMin && d.areaM2<=state.areaMax); }
+  if(state.underOnly) r=r.filter(d=>d.eok<=state.cap);
+  if(state.lowOnly)   r=r.filter(d=>d.lowFloor);
+  if(state.favOnly)   r=r.filter(d=>FAV.has(d.key));
+  if(state.q){ const q=state.q.trim(); r=r.filter(d=>(d.apt+d.umd).includes(q)); }
+  const s=state.sort;
+  r.sort((a,b)=> s==='price'? a.amountManwon-b.amountManwon
+              : s==='pp'?    a.pyeongPrice-b.pyeongPrice
+              : s==='area'?  b.areaM2-a.areaM2
+              : (a.dealDate<b.dealDate?1:-1));
+  return r;
+}
+
+/* ── KPI ── */
+function renderKPIs(){
+  const inBudget = ITEMS.filter(d=>state.regions.has(d.region) && d.areaM2>=80 && d.areaM2<=102 && d.eok<=state.cap);
+  const newCnt = ITEMS.filter(d=>d.isNew).length;
+  const k=[
+    {lab:'내 집 예상 매도가', dot:'var(--my)', val: myEok? myEok+'억' : '—', sub: MYHOME.label||'산성역자이푸르지오'},
+    {lab:'매수 예산 상한', dot:'#0ea5e9', val: state.cap+'억', sub:'슬라이더로 조정'},
+    {lab:'예산 내 30평대 거래', dot:'var(--pc)', val: inBudget.length+'건', sub:'선택 지역 · 최근'+ (DATA.config? '' :'') +' 신고 기준'},
+    {lab:'신규(NEW) 거래', dot:'var(--gc)', val: newCnt+'건', sub: isSample?'예시 표시':'직전 업데이트 대비'},
+  ];
+  document.getElementById('kpis').innerHTML = k.map(x=>`
+    <div class="kpi"><div class="lab"><span class="dot" style="background:${x.dot}"></span>${x.lab}</div>
+    <div class="val">${x.val}</div><div class="sub">${x.sub}</div></div>`).join('');
+  document.getElementById('capTitle').textContent = state.cap+'억';
+}
+
+/* ── 예산 바 ── */
+function renderBudget(){
+  const cap=state.cap, home=myEok||0, add=Math.max(0,cap-home);
+  const hp = home? Math.min(100,(home/cap)*100):0, ap=Math.min(100-hp,(add/cap)*100);
+  document.getElementById('budgetBar').innerHTML =
+    (home? `<div class="seg home" style="width:${hp}%">매도 ${home}억</div>`:'') +
+    `<div class="seg add" style="width:${ap}%">추가자금 ${add.toFixed(1).replace(/\.0$/,'')}억</div>`;
+  document.getElementById('capLabel').textContent = cap+'억';
+  document.getElementById('budgetNote').innerHTML = home
+    ? `현재 살고 있는 <b>${MYHOME.label}</b>를 약 <b>${home}억</b>에 매도하면, 예산 <b>${cap}억</b>까지 약 <b>${add.toFixed(1).replace(/\.0$/,'')}억</b>을 추가(대출·보유현금)로 마련하면 됩니다. ${isSample?'<span style="color:#b45309">※ 매도가는 예시값 — 실데이터 연동 시 자동 갱신</span>':''}`
+    : '내 집 실거래 데이터가 모이면 예상 매도가가 자동 계산됩니다.';
+}
+
+/* ── 지역 비교 카드 ── */
+function renderRegionCards(){
+  const box=document.getElementById('regionCards'); box.innerHTML='';
+  ['분당','평촌','과천'].forEach(rg=>{
+    const g=ITEMS.filter(d=>d.region===rg && d.areaM2>=80 && d.areaM2<=102);
+    const med = g.length? median(g.map(x=>x.amountManwon))/10000 : 0;
+    const under = g.filter(d=>d.eok<=state.cap).length;
+    const ratio = g.length? Math.round(under/g.length*100):0;
+    let cls='v-no', msg='예산 내 매물 거의 없음';
+    if(ratio>=60){cls='v-ok'; msg='예산 내 선택지 충분 ✅';}
+    else if(ratio>0){cls='v-mid'; msg=`일부 단지·저층만 가능 (${under}건)`;}
+    if(rg==='과천' && ratio<20){cls='v-no'; msg='30평대는 예산 초과 ⚠ (신축 24~28억대)';}
+    box.innerHTML += `
+      <div class="rcard" style="border-top-color:${RCOLOR[rg]}">
+        <h4><span class="dot" style="background:${RCOLOR[rg]}"></span>${rg}</h4>
+        <div class="big">${med? med.toFixed(1).replace(/\.0$/,'')+'억':'—'} <span style="font-size:12px;color:var(--sub);font-weight:500">중앙값</span></div>
+        <div class="meta">30평대 거래 ${g.length}건 · 예산(${state.cap}억) 이내 ${under}건 (${ratio}%)</div>
+        <div class="verdict ${cls}">${msg}</div><br>
+        <a class="btn nv navbtn" target="_blank" href="${nMap(rg+' 아파트 매매')}">🗺️ ${rg} 지도·매물</a>
+      </div>`;
+  });
+}
+
+/* ── 신규 알림 ── */
+function renderAlerts(){
+  const news = ITEMS.filter(d=>d.isNew).sort((a,b)=>a.dealDate<b.dealDate?1:-1).slice(0,8);
+  const tag=document.getElementById('newCnt');
+  if(news.length){ tag.style.display='inline-block'; tag.textContent='NEW '+ITEMS.filter(d=>d.isNew).length; }
+  const el=document.getElementById('alerts');
+  if(!news.length){ el.innerHTML=`<div class="note" style="margin:0">새로 신고된 거래가 없습니다. <b>시세업데이트.bat</b>을 주기적으로 실행하면 신규 거래가 여기에 표시됩니다. (호가 매물은 아래 ‘네이버 부동산 바로가기’에서 확인)</div>`; return; }
+  el.innerHTML = news.map(d=>`
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 4px;border-bottom:1px dashed #eef2f7;flex-wrap:wrap">
+      <div><span class="rtag" style="background:${RCOLOR[d.region]}"></span>
+        <b>${d.apt}</b> <span class="umd" style="color:var(--sub);font-size:12px">· 전용 ${d.areaM2}㎡ · ${d.floor}층</span>
+        ${d.eok<=state.cap?'<span class="pill p-under">예산내</span>':'<span class="pill p-over">예산초과</span>'}
+        ${d.lowFloor?'<span class="pill p-low">저층</span>':''}
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <b style="font-size:15px">${fmtEok(d.amountManwon)}</b>
+        <span class="note" style="margin:0">${d.dealDate}</span>
+        <a class="btn nv" target="_blank" href="${nQuery(d.apt+' 매매')}">매물·연락처</a>
+      </div>
+    </div>`).join('');
+}
+
+/* ── 테이블 ── */
+function renderTable(){
+  const rows=applyFilters();
+  document.getElementById('rowCount').textContent = `${rows.length}건 표시`;
+  const tb=document.getElementById('tbody');
+  document.getElementById('emptyMsg').style.display = rows.length? 'none':'block';
+  tb.innerHTML = rows.map(d=>{
+    const aptName = d.apt.replace(/^[^\s]+동\s/,''); // 검색용 단지명(동명 제거)
+    return `<tr>
+      <td class="l apt"><span class="rtag" style="background:${RCOLOR[d.region]}"></span>${d.apt}
+        ${d.isNew?'<span class="pill p-new">NEW</span>':''}
+        <div class="umd">${d.umd} · 준공 ${d.buildYear||'-'} · ${d.dealType||''}</div></td>
+      <td>${d.areaM2}㎡<br><span class="umd">${d.pyeong.toFixed(1)}평</span></td>
+      <td>${d.floor}층 ${d.lowFloor?'<span class="pill p-low">저층</span>':''}</td>
+      <td><b>${fmtEok(d.amountManwon)}</b> ${d.eok<=state.cap?'<span class="pill p-under">이내</span>':'<span class="pill p-over">초과</span>'}</td>
+      <td>${Math.round(d.pyeongPrice).toLocaleString()}<span class="umd">만</span></td>
+      <td>${d.dealDate}</td>
+      <td>${d.buildYear||'-'}</td>
+      <td class="l"><span class="act">
+        <a class="btn nv" target="_blank" href="${nQuery(d.apt+' 매매')}">네이버매물</a>
+        <a class="btn" target="_blank" href="${nMap(d.umd+' '+aptName)}">지도</a>
+      </span></td>
+      <td><span class="star ${FAV.has(d.key)?'on':''}" data-key="${d.key}">★</span></td>
+    </tr>`;
+  }).join('');
+  tb.querySelectorAll('.star').forEach(s=>s.onclick=()=>{
+    const k=s.dataset.key; if(FAV.has(k))FAV.delete(k); else FAV.add(k); saveFav(); renderTable();
+  });
+}
+
+/* ── 차트 (외부 라이브러리 없이 SVG 자체 렌더링 → 오프라인에서도 동작) ── */
+function renderCharts(){
+  const regs=['분당','평촌','과천'];
+  const pp = regs.map(rg=>{ const g=ITEMS.filter(d=>d.region===rg && d.areaM2>=80&&d.areaM2<=102);
+    return {label:rg,color:RCOLOR[rg],value: g.length? Math.round(median(g.map(x=>x.pyeongPrice))):0}; });
+  document.getElementById('chartPP').innerHTML = svgBars(pp);
+
+  const months=[...new Set(ITEMS.map(d=>d.dealDate.slice(0,7)))].sort();
+  const series = regs.map(rg=>({label:rg,color:RCOLOR[rg],
+    points:months.map(m=>{const g=ITEMS.filter(d=>d.region===rg&&d.areaM2>=80&&d.areaM2<=102&&d.dealDate.slice(0,7)===m);
+      return g.length? +(g.reduce((s,x)=>s+x.eok,0)/g.length).toFixed(2):null;})}));
+  document.getElementById('chartTrend').innerHTML = svgLines(months, series);
+}
+function svgBars(data){
+  const W=480,H=240, base=H-34, top=30, maxV=Math.max(...data.map(d=>d.value),1), slot=W/data.length, bw=Math.min(86,slot*0.5);
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" font-family="inherit">`;
+  s+=`<line x1="0" y1="${base}" x2="${W}" y2="${base}" stroke="#e2e8f0"/>`;
+  s+=`<text x="2" y="14" font-size="11" fill="#94a3b8">만원/평</text>`;
+  data.forEach((d,i)=>{ const x=i*slot+slot/2, h=(d.value/maxV)*(base-top), y=base-h;
+    s+=`<rect x="${(x-bw/2).toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${Math.max(0,h).toFixed(1)}" rx="6" fill="${d.color}"/>`;
+    s+=`<text x="${x}" y="${(y-9).toFixed(1)}" text-anchor="middle" font-size="15" font-weight="700" fill="#1e293b">${d.value?d.value.toLocaleString():'-'}</text>`;
+    s+=`<text x="${x}" y="${base+21}" text-anchor="middle" font-size="13" fill="#475569">${d.label}</text>`; });
+  return s+`</svg>`;
+}
+function svgLines(months, series){
+  if(!months.length) return `<div class="note">표시할 데이터가 없습니다.</div>`;
+  const W=480,H=240, padL=40,padR=14,padT=20,padB=28;
+  const vals=series.flatMap(s=>s.points).filter(v=>v!=null);
+  let minV=vals.length?Math.min(...vals):0, maxV=vals.length?Math.max(...vals):1;
+  minV=Math.floor(minV-0.3); maxV=Math.ceil(maxV+0.3); if(minV<0)minV=0; if(minV===maxV)maxV=minV+1;
+  const ix=W-padL-padR, iy=H-padT-padB;
+  const X=i=>months.length===1?padL+ix/2:padL+(i/(months.length-1))*ix, Y=v=>padT+(1-(v-minV)/(maxV-minV))*iy;
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" font-family="inherit">`;
+  for(let g=0;g<=2;g++){ const v=minV+(maxV-minV)*g/2, y=Y(v);
+    s+=`<line x1="${padL}" y1="${y.toFixed(1)}" x2="${W-padR}" y2="${y.toFixed(1)}" stroke="#eef2f7"/>`;
+    s+=`<text x="${padL-6}" y="${(y+4).toFixed(1)}" text-anchor="end" font-size="10" fill="#94a3b8">${v.toFixed(0)}억</text>`; }
+  const step=Math.max(1,Math.ceil(months.length/6));
+  months.forEach((m,i)=>{ if(i%step===0||i===months.length-1) s+=`<text x="${X(i).toFixed(1)}" y="${H-9}" text-anchor="middle" font-size="10" fill="#94a3b8">${m.slice(2)}</text>`; });
+  series.forEach(se=>{ const pts=[]; se.points.forEach((v,i)=>{ if(v!=null)pts.push([X(i),Y(v)]); });
+    if(pts.length>1) s+=`<polyline fill="none" stroke="${se.color}" stroke-width="2.5" stroke-linejoin="round" points="${pts.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ')}"/>`;
+    pts.forEach(p=>{ s+=`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="3" fill="${se.color}"/>`; }); });
+  series.forEach((se,i)=>{ const lx=padL+i*64; s+=`<circle cx="${lx}" cy="11" r="4" fill="${se.color}"/><text x="${lx+8}" y="15" font-size="11" fill="#64748b">${se.label}</text>`; });
+  return s+`</svg>`;
+}
+
+/* ── 부동산 연락 ── */
+function renderRegionLinks(){
+  const el=document.getElementById('regionLinks');
+  el.innerHTML = ['분당','평촌','과천'].map(rg=>`
+    <a class="btn nv" target="_blank" href="${nMap(rg+' 부동산중개')}">📍 ${rg} 중개업소 찾기</a>
+    <a class="btn" target="_blank" href="${nQuery(rg+' 아파트 매매 84㎡')}">🔎 ${rg} 30평대 매물</a>`).join('');
+}
+function renderContacts(){
+  const list=JSON.parse(localStorage.getItem('realtyContacts')||'[]');
+  const el=document.getElementById('contacts');
+  if(!list.length){ el.innerHTML=`<div class="note" style="grid-column:1/-1;margin:0">아직 저장된 연락처가 없습니다. 위 양식으로 자주 통화할 부동산을 등록하세요.</div>`; }
+  else el.innerHTML=list.map((c,i)=>{
+    const tel=(c.phone||'').replace(/[^0-9+]/g,'');
+    return `<div class="ccard"><div class="nm">${c.name||'(이름없음)'} <span class="ctag">${c.area||''}</span></div>
+      <div class="ph2">${c.phone||''}</div>${c.memo?`<div class="note" style="margin:0">${c.memo}</div>`:''}
+      <div class="row">
+        <a class="btn nv" href="tel:${tel}">📞 전화</a>
+        <a class="btn" href="sms:${tel}">✉️ 문자</a>
+        <button class="btn" data-copy="${c.phone||''}">번호복사</button>
+        <button class="btn" data-del="${i}">삭제</button>
+      </div></div>`;
+  }).join('');
+  el.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{const l=JSON.parse(localStorage.getItem('realtyContacts')||'[]');l.splice(+b.dataset.del,1);localStorage.setItem('realtyContacts',JSON.stringify(l));renderContacts();});
+  el.querySelectorAll('[data-copy]').forEach(b=>b.onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(b.dataset.copy);b.textContent='복사됨!';setTimeout(()=>b.textContent='번호복사',1200);});
+}
+document.getElementById('cAdd').onclick=()=>{
+  const name=cName.value.trim(), phone=cPhone.value.trim();
+  if(!name && !phone){ return; }
+  const l=JSON.parse(localStorage.getItem('realtyContacts')||'[]');
+  l.push({name,phone,area:cArea.value,memo:cMemo.value.trim()});
+  localStorage.setItem('realtyContacts',JSON.stringify(l));
+  cName.value=cPhone.value=cMemo.value=''; renderContacts();
+};
+
+/* ── 이벤트 바인딩 ── */
+function rerender(){ renderKPIs(); renderBudget(); renderRegionCards(); renderAlerts(); renderTable(); renderCharts(); }
+document.querySelectorAll('.chip[data-region]').forEach(c=>c.onclick=()=>{
+  const r=c.dataset.region; if(state.regions.has(r))state.regions.delete(r); else state.regions.add(r);
+  c.classList.toggle('on'); rerender();
+});
+document.querySelectorAll('.chip[data-area]').forEach(c=>c.onclick=()=>{
+  document.querySelectorAll('.chip[data-area]').forEach(x=>x.classList.remove('on')); c.classList.add('on');
+  state.areaPreset=c.dataset.area; rerender();
+});
+const cap=document.getElementById('cap');
+cap.oninput=()=>{ state.cap=+cap.value; document.getElementById('capNow').textContent=(+cap.value)%1?(+cap.value).toFixed(1):cap.value; rerender(); };
+document.getElementById('underOnly').onchange=e=>{state.underOnly=e.target.checked;renderTable();};
+document.getElementById('lowOnly').onchange=e=>{state.lowOnly=e.target.checked;renderTable();};
+document.getElementById('favOnly').onchange=e=>{state.favOnly=e.target.checked;renderTable();};
+document.getElementById('q').oninput=e=>{state.q=e.target.value;renderTable();};
+document.getElementById('sort').onchange=e=>{state.sort=e.target.value;renderTable();};
+
+/* ── 시작 ── */
+state.cap=PRICE_MAX0; cap.value=PRICE_MAX0; document.getElementById('capNow').textContent=PRICE_MAX0;
+renderRegionLinks(); renderContacts(); rerender();
+</script>
+</body>
+</html>
