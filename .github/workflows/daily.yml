@@ -1,0 +1,75 @@
+name: 매일 시세 → 게시 → 카톡
+
+on:
+  schedule:
+    - cron: '30 22 * * *'      # 22:30 UTC = 한국 07:30 (Actions 특성상 수 분~수십 분 지연될 수 있음)
+  workflow_dispatch: {}         # 수동 실행 버튼(테스트용)
+
+permissions:
+  contents: write               # data 파일 커밋(=GitHub Pages 갱신)용
+
+concurrency:
+  group: daily-realty
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Secrets → config.json / kakao_token.json 생성
+        shell: pwsh
+        env:
+          SERVICE_KEY:         ${{ secrets.SERVICE_KEY }}
+          KAKAO_REST_KEY:      ${{ secrets.KAKAO_REST_KEY }}
+          KAKAO_REFRESH_TOKEN: ${{ secrets.KAKAO_REFRESH_TOKEN }}
+          KAKAO_CLIENT_SECRET: ${{ secrets.KAKAO_CLIENT_SECRET }}
+        run: |
+          if (-not $env:SERVICE_KEY)         { Write-Host '::error::SECRET SERVICE_KEY 누락'; exit 1 }
+          if (-not $env:KAKAO_REST_KEY)      { Write-Host '::error::SECRET KAKAO_REST_KEY 누락'; exit 1 }
+          if (-not $env:KAKAO_REFRESH_TOKEN) { Write-Host '::error::SECRET KAKAO_REFRESH_TOKEN 누락'; exit 1 }
+          $cfg = Get-Content -Raw -Encoding UTF8 config.cloud.json | ConvertFrom-Json
+          $cfg | Add-Member serviceKey $env:SERVICE_KEY -Force
+          $cfg | Add-Member kakao ([pscustomobject]@{ restApiKey = $env:KAKAO_REST_KEY; redirectUri = 'http://localhost:3000/'; clientSecret = "$($env:KAKAO_CLIENT_SECRET)" }) -Force
+          $cfg | ConvertTo-Json -Depth 8 | Set-Content -Encoding UTF8 config.json
+          @{ refresh_token = $env:KAKAO_REFRESH_TOKEN; access_token = '' } | ConvertTo-Json | Set-Content -Encoding UTF8 kakao_token.json
+          Write-Host 'config 생성 완료'
+
+      - name: 실거래가 수집 (fetch.ps1 → data/latest.js·json)
+        shell: pwsh
+        run: ./fetch.ps1
+
+      - name: 카카오톡 발송 (send_kakao.ps1)
+        shell: pwsh
+        run: ./send_kakao.ps1
+
+      - name: 갱신된 refresh_token 보관 (GH_PAT 있을 때만)
+        if: always()
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          OLD:      ${{ secrets.KAKAO_REFRESH_TOKEN }}
+        run: |
+          if (-not $env:GH_TOKEN) { Write-Host 'GH_PAT 미설정 → 토큰 자동보관 생략(약 1~2달마다 수동 갱신 필요)'; exit 0 }
+          if (-not (Test-Path kakao_token.json)) { exit 0 }
+          $tk = Get-Content -Raw -Encoding UTF8 kakao_token.json | ConvertFrom-Json
+          if ($tk.refresh_token -and $tk.refresh_token -ne $env:OLD) {
+            $tk.refresh_token | gh secret set KAKAO_REFRESH_TOKEN --repo $env:GITHUB_REPOSITORY
+            Write-Host 'refresh_token 변경 감지 → Secret 갱신 완료'
+          } else { Write-Host 'refresh_token 변경 없음' }
+
+      - name: data 커밋 → GitHub Pages 갱신
+        if: always()
+        shell: pwsh
+        run: |
+          Remove-Item -Force -ErrorAction SilentlyContinue config.json, kakao_token.json
+          git config user.name  'github-actions'
+          git config user.email 'actions@users.noreply.github.com'
+          git add data/latest.js data/latest.json data/seen.json
+          $changed = git status --porcelain
+          if ($changed) {
+            git commit -m ("data update " + (Get-Date -Format 'yyyy-MM-dd HH:mm'))
+            git push
+            Write-Host '커밋·푸시 완료'
+          } else { Write-Host '변경 없음 → 커밋 생략' }
