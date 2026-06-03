@@ -1,17 +1,43 @@
 {
-  "_안내": "GitHub Actions(클라우드) 일일 실행용 설정. ★비밀키는 여기 넣지 마세요★ → GitHub 저장소 Settings>Secrets에 등록합니다 (serviceKey→SERVICE_KEY, 카카오 REST키→KAKAO_REST_KEY, refresh_token→KAKAO_REFRESH_TOKEN). 지역·예산·funds·watch 는 여기서 수정하세요. 이 파일은 공개 저장소에 올라갑니다(비밀정보 없음).",
+  "_안내": "GitHub Actions(클라우드) 실행용 통합 설정(메인+presale+cheonho). ★비밀키 금지★ → GitHub Secrets에 등록(serviceKey→SERVICE_KEY, 카카오 REST→KAKAO_REST_KEY, refresh_token→KAKAO_REFRESH_TOKEN). 지역·예산·funds·watch·cheonho 등은 여기서 수정. 공개 저장소에 올라감(비밀정보 없음).",
 
   "myHome": { "label": "산성역자이푸르지오", "addr": "성남시 수정구 신흥동", "code": "41131", "aptKeyword": "산성역자이푸르지오" },
-
   "regions": [
     { "label": "분당", "code": "41135" },
     { "label": "평촌", "code": "41173" },
     { "label": "과천", "code": "41290" }
   ],
-
   "monthsBack": 6,
   "filter": { "areaMinM2": 80, "areaMaxM2": 102, "priceMaxEok": 16, "keepAllForChart": true },
   "dashboardUrl": "https://moros1007.github.io/realty-dashboard/",
   "watch": [],
-  "funds": { "buyEok": 16, "annualIncomeManwon": 8000, "loanRatePct": 4.0, "loanYears": 30, "stressAddPct": 1.5, "regulated": true }
+  "funds": { "buyEok": 16, "annualIncomeManwon": 8000, "loanRatePct": 4.0, "loanYears": 30, "stressAddPct": 1.5, "regulated": true },
+
+  "presale": {
+    "_안내": "수도권 미분양·분양권 대시보드(presale.html)용. serviceKey 공유. 분양권전매·청약홈 API는 data.go.kr에서 추가 활용신청 필요.",
+    "monthsBack": 6,
+    "fetchApplyhome": true,
+    "regionCodes": null
+  },
+
+  "cheonho": {
+    "_안내": "천호역(5·8호선) 접근 역세권 대시보드(cheonho.html)용. 자본 5억·평지·전세끼고 입주 조건. serviceKey 공유. capEok=갭(매매−전세) 상한(억). umdAllow=구리·남양주는 별내선 권역 법정동만.",
+    "monthsBack": 4,
+    "areaMinM2": 45,
+    "areaMaxM2": 90,
+    "capEok": 5,
+    "weeklyDay": "MON",
+    "weeklyTime": "08:00",
+    "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
+    "publishPublic": true,
+    "regions": [
+      { "label": "송파",     "code": "11710", "group": "송파",   "umdAllow": [] },
+      { "label": "강동",     "code": "11740", "group": "강동",   "umdAllow": [] },
+      { "label": "성남수정", "code": "41131", "group": "성남",   "umdAllow": [] },
+      { "label": "성남중원", "code": "41133", "group": "성남",   "umdAllow": [] },
+      { "label": "구리",     "code": "41310", "group": "별내선", "umdAllow": ["인창동","교문동","수택동","갈매동"] },
+      { "label": "남양주",   "code": "41360", "group": "별내선", "umdAllow": ["지금동","도농동","별내동","가운동","다산동","수석동"] },
+      { "label": "분당",     "code": "41135", "group": "분당",   "umdAllow": [] }
+    ]
+  }
 }
