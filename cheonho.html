@@ -505,7 +505,7 @@ function renderTable(){
       <td><span class="terr ${t.cls}">${t.txt}</span></td>
       <td>${d.areaM2}㎡<div class="umd">${d.pyeong.toFixed(0)}평 · ${d.floor}층${d.lowFloor?' <span class="pill p-low">저</span>':''}</div></td>
       <td>${c6}</td><td>${c7}</td><td>${c8}</td>
-      <td class="l"><a class="btn nv" target="_blank" href="${nQuery(aptQ+' 매물')}">매물</a>
+      <td class="l"><a class="btn nv" target="_blank" href="${nLand(aptQ)}">매물</a>
         <a class="btn" target="_blank" href="${nMap(d.umd+' '+aptQ)}">지도</a></td>
     </tr>`;
   }).join('');
