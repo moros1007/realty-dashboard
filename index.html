@@ -79,6 +79,7 @@
   .pill{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:999px;margin-left:5px;vertical-align:middle}
   .p-new{background:var(--newbg);color:var(--newink)} .p-low{background:#e0f2fe;color:#0369a1}
   .p-under{background:#dcfce7;color:#15803d} .p-over{background:#fee2e2;color:#b91c1c}
+  .p-peak{background:#fce7f3;color:#be185d} .p-watch{background:#fef9c3;color:#a16207}
   .rtag{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
   .act{display:inline-flex;gap:4px}
   .btn{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;border:1px solid var(--line);background:#fff;border-radius:7px;padding:4px 8px;cursor:pointer;text-decoration:none;color:var(--ink);transition:.12s}
@@ -127,6 +128,37 @@
     <div class="bar" id="budgetBar"></div>
     <div class="blabels"><span>0</span><span id="capLabel">16억</span></div>
     <div class="note" id="budgetNote"></div>
+  </section>
+
+  <!-- 자금·세금 계산기 -->
+  <style>
+    .calcgrid{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end;margin-bottom:14px}
+    .calcgrid label{display:flex;flex-direction:column;font-size:11.5px;color:var(--sub);gap:3px}
+    .calcgrid input[type=number]{width:94px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;font-size:13.5px}
+    .calcgrid label.ck{flex-direction:row;align-items:center;gap:6px;font-size:12.5px;color:var(--ink);cursor:pointer}
+    .calcout{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:10px}
+    .co{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+    .co .l{font-size:11.5px;color:var(--sub)} .co .v{font-size:17px;font-weight:800;margin-top:2px;letter-spacing:-.3px}
+    .co .v small{font-size:11px;font-weight:600;color:var(--sub)}
+    .co.hl{background:#eef6ff;border-color:#bfdbfe} .co.good{background:#f0fdf4;border-color:#bbf7d0}
+    .co.warn{background:#fff7ed;border-color:#fed7aa} .co.bad{background:#fef2f2;border-color:#fecaca}
+  </style>
+  <section class="panel" id="calcBox">
+    <div class="ph"><h3>🧮 자금·세금 계산기 <span class="note" style="margin:0;font-weight:400">매수가 기준 실제 비용·대출 가능 여부·월상환 추정</span></h3></div>
+    <div class="pb">
+      <div class="calcgrid">
+        <label>매수가(억)<input type="number" id="ci_buy" step="0.5" value="16"></label>
+        <label>매도가(억)<input type="number" id="ci_sell" step="0.1"></label>
+        <label>연소득(만원)<input type="number" id="ci_income" step="100" value="8000"></label>
+        <label>대출금리(%)<input type="number" id="ci_rate" step="0.1" value="4.0"></label>
+        <label>대출기간(년)<input type="number" id="ci_years" step="1" value="30"></label>
+        <label class="ck"><input type="checkbox" id="ci_reg" checked>규제지역(10·15)</label>
+        <label class="ck"><input type="checkbox" id="ci_over85">전용 85㎡ 초과</label>
+        <label class="ck"><input type="checkbox" id="ci_multi">2주택 중과(매도 전 매수)</label>
+      </div>
+      <div id="calcOut" class="calcout"></div>
+      <p class="note" id="calcNote" style="margin-bottom:0"></p>
+    </div>
   </section>
 
   <!-- 지역 비교 -->
@@ -191,6 +223,7 @@
   <section class="charts">
     <div class="chartbox"><h3>지역별 평당가 (전용 기준, 만원/평)</h3><div class="cv" id="chartPP"></div></div>
     <div class="chartbox"><h3>월별 평균 거래가 추이 (억)</h3><div class="cv" id="chartTrend"></div></div>
+    <div class="chartbox" style="grid-column:1/-1"><h3>월별 거래량 (30평대, 건) — 거래량은 시장 방향 선행지표</h3><div class="cv" id="chartVol"></div></div>
   </section>
 
   <!-- 부동산 연락 -->
@@ -255,8 +288,17 @@ function enrich(it){
 const ITEMS = arr(DATA.items).map(enrich);
 const MYHOME = DATA.myHome ? {label:DATA.myHome.label, addr:DATA.myHome.addr, items:arr(DATA.myHome.items)} : {items:[]};
 
+/* 기간 최고가(단지+면적 기준) — 신고가 표시용 */
+const PEAK={}; ITEMS.forEach(d=>{const k=d.apt+'|'+Math.round(d.areaM2); (PEAK[k]=PEAK[k]||{amt:0,n:0}); PEAK[k].n++; if(d.amountManwon>PEAK[k].amt)PEAK[k].amt=d.amountManwon;});
+ITEMS.forEach(d=>{const k=d.apt+'|'+Math.round(d.areaM2); d.isPeak = PEAK[k].n>=3 && d.amountManwon===PEAK[k].amt;});
+/* 관심단지(카톡 알림 대상) + 전세가율 */
+const WATCH = arr(DATA.watch).map(String).filter(Boolean);
+const isWatch = d => WATCH.some(w=>d.apt.includes(w));
+const JEONSE = DATA.jeonse || {};
+
 /* 내 집 예상 매도가 = 최근 거래 중앙값 */
 function median(arr){ if(!arr.length) return 0; const s=[...arr].sort((a,b)=>a-b); const m=Math.floor(s.length/2); return s.length%2? s[m] : (s[m-1]+s[m])/2; }
+function pct(a,p){ if(!a.length)return 0; const s=[...a].sort((x,y)=>x-y); return s[Math.min(s.length-1,Math.max(0,Math.floor((s.length-1)*p)))]; }
 const myEok = MYHOME.items && MYHOME.items.length ? +(median(MYHOME.items.map(x=>x.amountManwon))/10000).toFixed(2) : 0;
 
 /* ── 상태 ── */
@@ -332,6 +374,9 @@ function renderRegionCards(){
     const med = g.length? median(g.map(x=>x.amountManwon))/10000 : 0;
     const under = g.filter(d=>d.eok<=state.cap).length;
     const ratio = g.length? Math.round(under/g.length*100):0;
+    const maxP = g.length? pct(g.map(x=>x.amountManwon),0.9)/10000 : 0;   // 상위10%(이상치 제외 고점권)
+    const drop = maxP? Math.round((maxP-med)/maxP*100) : 0;
+    const jr = JEONSE[rg];
     let cls='v-no', msg='예산 내 매물 거의 없음';
     if(ratio>=60){cls='v-ok'; msg='예산 내 선택지 충분 ✅';}
     else if(ratio>0){cls='v-mid'; msg=`일부 단지·저층만 가능 (${under}건)`;}
@@ -340,7 +385,8 @@ function renderRegionCards(){
       <div class="rcard" style="border-top-color:${RCOLOR[rg]}">
         <h4><span class="dot" style="background:${RCOLOR[rg]}"></span>${rg}</h4>
         <div class="big">${med? med.toFixed(1).replace(/\.0$/,'')+'억':'—'} <span style="font-size:12px;color:var(--sub);font-weight:500">중앙값</span></div>
-        <div class="meta">30평대 거래 ${g.length}건 · 예산(${state.cap}억) 이내 ${under}건 (${ratio}%)</div>
+        <div class="meta">30평대 ${g.length}건 · 예산(${state.cap}억) 이내 ${under}건 (${ratio}%)</div>
+        <div class="meta">고점권 ${maxP? maxP.toFixed(1).replace(/\.0$/,'')+'억':'—'} · 중앙값 고점比 ${maxP? '<b>-'+drop+'%</b>':'—'}${jr? ` · 전세가율 <b style="color:#0369a1">${jr.ratioPct}%</b>`:''}</div>
         <div class="verdict ${cls}">${msg}</div><br>
         <a class="btn nv navbtn" target="_blank" href="${nMap(rg+' 아파트 매매')}">🗺️ ${rg} 지도·매물</a>
       </div>`;
@@ -379,7 +425,7 @@ function renderTable(){
     const aptName = d.apt.replace(/^[^\s]+동\s/,''); // 검색용 단지명(동명 제거)
     return `<tr>
       <td class="l apt"><span class="rtag" style="background:${RCOLOR[d.region]}"></span>${d.apt}
-        ${d.isNew?'<span class="pill p-new">NEW</span>':''}
+        ${d.isNew?'<span class="pill p-new">NEW</span>':''}${d.isPeak?'<span class="pill p-peak">기간최고가</span>':''}${isWatch(d)?'<span class="pill p-watch">⭐관심</span>':''}
         <div class="umd">${d.umd} · 준공 ${d.buildYear||'-'} · ${d.dealType||''}</div></td>
       <td>${d.areaM2}㎡<br><span class="umd">${d.pyeong.toFixed(1)}평</span></td>
       <td>${d.floor}층 ${d.lowFloor?'<span class="pill p-low">저층</span>':''}</td>
@@ -411,6 +457,10 @@ function renderCharts(){
     points:months.map(m=>{const g=ITEMS.filter(d=>d.region===rg&&d.areaM2>=80&&d.areaM2<=102&&d.dealDate.slice(0,7)===m);
       return g.length? +(g.reduce((s,x)=>s+x.eok,0)/g.length).toFixed(2):null;})}));
   document.getElementById('chartTrend').innerHTML = svgLines(months, series);
+
+  const vol = regs.map(rg=>({label:rg,color:RCOLOR[rg],
+    points:months.map(m=>ITEMS.filter(d=>d.region===rg&&d.areaM2>=80&&d.areaM2<=102&&d.dealDate.slice(0,7)===m).length)}));
+  document.getElementById('chartVol').innerHTML = svgLines(months, vol, '건');
 }
 function svgBars(data){
   const W=480,H=240, base=H-34, top=30, maxV=Math.max(...data.map(d=>d.value),1), slot=W/data.length, bw=Math.min(86,slot*0.5);
@@ -423,7 +473,8 @@ function svgBars(data){
     s+=`<text x="${x}" y="${base+21}" text-anchor="middle" font-size="13" fill="#475569">${d.label}</text>`; });
   return s+`</svg>`;
 }
-function svgLines(months, series){
+function svgLines(months, series, unit){
+  unit = unit || '억';
   if(!months.length) return `<div class="note">표시할 데이터가 없습니다.</div>`;
   const W=480,H=240, padL=40,padR=14,padT=20,padB=28;
   const vals=series.flatMap(s=>s.points).filter(v=>v!=null);
@@ -434,7 +485,7 @@ function svgLines(months, series){
   let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" font-family="inherit">`;
   for(let g=0;g<=2;g++){ const v=minV+(maxV-minV)*g/2, y=Y(v);
     s+=`<line x1="${padL}" y1="${y.toFixed(1)}" x2="${W-padR}" y2="${y.toFixed(1)}" stroke="#eef2f7"/>`;
-    s+=`<text x="${padL-6}" y="${(y+4).toFixed(1)}" text-anchor="end" font-size="10" fill="#94a3b8">${v.toFixed(0)}억</text>`; }
+    s+=`<text x="${padL-6}" y="${(y+4).toFixed(1)}" text-anchor="end" font-size="10" fill="#94a3b8">${v.toFixed(0)}${unit}</text>`; }
   const step=Math.max(1,Math.ceil(months.length/6));
   months.forEach((m,i)=>{ if(i%step===0||i===months.length-1) s+=`<text x="${X(i).toFixed(1)}" y="${H-9}" text-anchor="middle" font-size="10" fill="#94a3b8">${m.slice(2)}</text>`; });
   series.forEach(se=>{ const pts=[]; se.points.forEach((v,i)=>{ if(v!=null)pts.push([X(i),Y(v)]); });
@@ -442,6 +493,48 @@ function svgLines(months, series){
     pts.forEach(p=>{ s+=`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="3" fill="${se.color}"/>`; }); });
   series.forEach((se,i)=>{ const lx=padL+i*64; s+=`<circle cx="${lx}" cy="11" r="4" fill="${se.color}"/><text x="${lx+8}" y="15" font-size="11" fill="#64748b">${se.label}</text>`; });
   return s+`</svg>`;
+}
+
+/* ── 자금·세금 계산기 ── */
+function num(id,def){ const v=parseFloat(document.getElementById(id).value); return isFinite(v)?v:def; }
+function acqTax(buyManwon, over85, multi){
+  const eok=buyManwon/10000; let rate;
+  if(multi) rate=8; else if(eok<=6) rate=1; else if(eok<=9) rate=eok*2/3-3; else rate=3;
+  const tax=buyManwon*rate/100, edu=multi?buyManwon*0.004:tax*0.1, farm=over85?buyManwon*(multi?0.006:0.002):0;
+  return {rate, total: tax+edu+farm};
+}
+function brokerFee(manwon){ const e=manwon/10000; let r; if(e<2)r=0.005; else if(e<9)r=0.004; else if(e<12)r=0.005; else if(e<15)r=0.006; else r=0.007; return manwon*r; }
+function pmt(p,annualPct,years){ const i=annualPct/100/12,n=years*12; return i<=0?p/n:p*i/(1-Math.pow(1+i,-n)); }
+function dsrLoan(income,ratePct,years,stress){ const month=income*0.4/12,i=(ratePct+stress)/100/12,n=years*12; return i<=0?month*n:month*(1-Math.pow(1+i,-n))/i; }
+const eokTxt = m => (Math.abs(m)/10000>=1 ? ((m/10000>=10?(m/10000).toFixed(1):(m/10000).toFixed(2)).replace(/\.?0+$/,'')+'억') : (Math.round(m).toLocaleString()+'만'));
+function renderCalc(){
+  const buy=num('ci_buy',16)*10000, sell=num('ci_sell',0)*10000;
+  const income=num('ci_income',8000), rate=num('ci_rate',4), years=num('ci_years',30), stress=1.5;
+  const reg=document.getElementById('ci_reg').checked, over85=document.getElementById('ci_over85').checked, multi=document.getElementById('ci_multi').checked;
+  const at=acqTax(buy,over85,multi), bf=brokerFee(buy), regc=buy*0.0015+30;
+  const buyCost=at.total+bf+regc, totalBuy=buy+buyCost;
+  const sellNet= sell>0? sell-brokerFee(sell) : 0;
+  const need=Math.max(0,totalBuy-sellNet);
+  const ltvPct=reg?50:70, ltvLim=buy*ltvPct/100;
+  const cap= reg? (buy/10000<=15?60000:(buy/10000<=25?40000:20000)) : Infinity;
+  const dsrLim=dsrLoan(income,rate,years,stress), maxLoan=Math.min(ltvLim,cap,dsrLim);
+  const bind = maxLoan===cap?'지역 한도캡' : (maxLoan===ltvLim?`LTV ${ltvPct}%`:'DSR 40%');
+  const monthly=pmt(need,rate,years), ok=need<=maxLoan+1;
+  const cards=[
+    {l:'취득세 등', v:eokTxt(at.total), s:`세율 ${at.rate.toFixed(1).replace(/\.0$/,'')}%`+(over85?'+농특':'')},
+    {l:'중개+등기(추정)', v:eokTxt(bf+regc), s:'매수 부대비용'},
+    {l:'총 매수비용', v:eokTxt(totalBuy), s:`부대 ${eokTxt(buyCost)}`, cls:'hl'},
+    {l:'매도 실수령(추정)', v: sell>0?eokTxt(sellNet):'—', s: sell>0?'중개비 차감':'매도가 입력시'},
+    {l:'필요 대출', v:eokTxt(need), s:'총비용−매도금', cls: need>0?'warn':'good'},
+    {l:'대출 가능 한도', v:eokTxt(maxLoan), s:`${bind}`},
+    {l:'월 상환(원리금)', v:need>0?Math.round(monthly).toLocaleString()+'만':'—', s:`${rate}%·${years}년`},
+    {l:'판정', v: ok?'가능 ✅':'한도초과 ⚠', s: ok?`여유 ${eokTxt(maxLoan-need)}`:`${eokTxt(need-maxLoan)} 부족`, cls: ok?'good':'bad'},
+  ];
+  document.getElementById('calcOut').innerHTML = cards.map(c=>`<div class="co ${c.cls||''}"><div class="l">${c.l}</div><div class="v">${c.v} ${c.s?`<small>${c.s}</small>`:''}</div></div>`).join('');
+  document.getElementById('calcNote').innerHTML = `${reg?'<b style="color:#b45309">⚠ 10·15 규제지역</b>: 2년 실거주 의무·갭투자 불가, 주담대 한도캡(15억↓ 6억 / 15~25억 4억). ':''}양도세는 1주택 12억까지 비과세(2년 보유 가정), 초과분만 과세. <span style="color:#94a3b8">모두 추정치 — 정확한 세액·DSR은 세무사·은행 확인.</span>`;
+  const sv={}; ['ci_buy','ci_sell','ci_income','ci_rate','ci_years'].forEach(id=>sv[id]=document.getElementById(id).value);
+  ['ci_reg','ci_over85','ci_multi'].forEach(id=>sv[id]=document.getElementById(id).checked);
+  localStorage.setItem('realtyCalc',JSON.stringify(sv));
 }
 
 /* ── 부동산 연락 ── */
@@ -496,9 +589,19 @@ document.getElementById('favOnly').onchange=e=>{state.favOnly=e.target.checked;r
 document.getElementById('q').oninput=e=>{state.q=e.target.value;renderTable();};
 document.getElementById('sort').onchange=e=>{state.sort=e.target.value;renderTable();};
 
+/* ── 계산기 초기화 ── */
+(function(){
+  const saved=JSON.parse(localStorage.getItem('realtyCalc')||'null');
+  if(saved){ ['ci_buy','ci_sell','ci_income','ci_rate','ci_years'].forEach(id=>{ if(saved[id]!=null && saved[id]!=='') document.getElementById(id).value=saved[id]; });
+    ['ci_reg','ci_over85','ci_multi'].forEach(id=>{ if(saved[id]!=null) document.getElementById(id).checked=saved[id]; }); }
+  else { document.getElementById('ci_buy').value=PRICE_MAX0; if(myEok) document.getElementById('ci_sell').value=myEok; }
+  ['ci_buy','ci_sell','ci_income','ci_rate','ci_years','ci_reg','ci_over85','ci_multi'].forEach(id=>{
+    const el=document.getElementById(id); el.addEventListener('input',renderCalc); el.addEventListener('change',renderCalc); });
+})();
+
 /* ── 시작 ── */
 state.cap=PRICE_MAX0; cap.value=PRICE_MAX0; document.getElementById('capNow').textContent=PRICE_MAX0;
-renderRegionLinks(); renderContacts(); rerender();
+renderRegionLinks(); renderContacts(); renderCalc(); rerender();
 </script>
 </body>
 </html>
