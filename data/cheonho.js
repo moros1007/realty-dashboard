@@ -1,13 +1,13 @@
 /* 자동 생성 — 직접 수정 금지. 'ⓢ 천호 역세권 업데이트.bat' 실행 시 갱신됩니다. */
 window.CHEONHO_DATA = {
   "isSample": false,
-  "updatedAt": "2026-06-03 21:58",
+  "updatedAt": "2026-06-03 22:08",
   "anchor": "천호역(5·8호선)",
   "config": {
-    "areaMin": 45.0,
-    "monthsBack": 4,
     "areaMax": 90.0,
-    "capEok": 5.0
+    "areaMin": 45.0,
+    "capEok": 5.0,
+    "monthsBack": 4
   },
   "items": [
     {
