@@ -53,19 +53,19 @@
   <div class="sub" id="sub">부모님(어르신 2인) 거주 · 평지 · 전세끼고 3~4년 후 입주</div>
 
   <div class="concl">
-    <b>전세 끼고 → 3~4년 후 입주</b>가 실제로 되는 곳은 <b>비규제 별내선(구리·다산·별내)</b>뿐입니다.
-    8호선으로 <b>천호 직통(다산 ~15·별내 ~18분)</b>, 다산·별내는 <b>평지 신도시</b>라 어르신께 적합하고 84㎡ 갭이 5억 안에 들어옵니다.<br>
-    <span class="x">송파·강동·성남·분당은 토지거래허가구역 → 갭(전세끼고) 불가, ‘즉시 실입주’만 가능.</span>
+    <b>매매 5억선</b>으로 천호 가까이 살 곳 — 두 갈래입니다.
+    <b>천호 코앞 강동</b>(천호·성내·둔촌·평지)은 5억대 <b>즉시 실입주</b> 가능(토허라 전세끼고는 불가). <b>전세끼고 3~4년 후 입주</b>를 원하면 비규제 <b>별내선(다산·별내·평지)</b> — 8호선 천호 직통(다산 ~15·별내 ~18분).<br>
+    <span class="x">송파는 매매 5억선 매물이 거의 없고, 성남 본시가지는 급경사라 어르신껜 부적합.</span>
   </div>
 
-  <h2><span class="n">1</span> 이번 주 추천 — 별내선 평지·갭 5억↓ <span style="font-size:12px;color:var(--sub);font-weight:400">(갭 낮은순)</span></h2>
+  <h2><span class="n">1</span> 이번 주 추천 — 별내선 평지·매매 5억선 <span style="font-size:12px;color:var(--sub);font-weight:400">(전세끼고 3~4년 · 신축순)</span></h2>
   <div id="picks"></div>
 
   <h2><span class="n">2</span> 천호교회 코앞 — 강동 실입주 후보 <span style="font-size:12px;color:var(--sub);font-weight:400">(토허·갭불가)</span></h2>
   <div id="liveIn"></div>
 
   <h2><span class="n">3</span> 지역 한눈 비교</h2>
-  <table id="groups"><thead><tr><th class="l">지역</th><th>매매중앙</th><th>갭중앙</th><th>갭5억↓ 단지</th><th>전략</th></tr></thead><tbody></tbody></table>
+  <table id="groups"><thead><tr><th class="l">지역</th><th>매매중앙</th><th>매매5억선 단지</th><th>전략</th></tr></thead><tbody></tbody></table>
 
   <div class="sharenote">📤 <b>공유 방법</b>: 이 페이지 링크를 카톡 대화창에 붙여넣으면 미리보기가 뜹니다. 또는 매주 받는 ‘주간 요약 카드’를 <b>전달</b>하세요.</div>
 
@@ -93,12 +93,12 @@
   const picks=(W.picks||[]);
   document.getElementById('picks').innerHTML = picks.length ? picks.map(p=>`
     <div class="card" style="border-left:4px solid ${GC[p.region]||'#888'}">
-      <div class="top"><div class="nm">${p.apt}</div><div class="gap">갭 ${eok(p.gapEok)}</div></div>
-      <div class="meta">${p.region} ${p.umd} · ${p.st} · 전용 ${Math.floor(p.areaM2)}㎡ ${p.floor}층
+      <div class="top"><div class="nm">${p.apt}</div><div class="gap">매매 ${eok(p.priceEok)}</div></div>
+      <div class="meta">${p.region} ${p.umd} · ${p.st} · 전용 ${Math.floor(p.areaM2)}㎡ ${p.floor}층 · 준공 ${p.buildYear||'-'}
         <span class="badge b-min">천호 ${p.min}분</span>${p.terr==='평지'?'<span class="badge b-flat">평지 ✓</span>':''}</div>
-      <div class="pricerow"><span>매매 <b>${eok(p.priceEok)}</b></span><span>전세 <b>${eok(p.jeonseEok)}</b></span></div>
+      <div class="pricerow"><span>전세 <b>${eok(p.jeonseEok)}</b></span><span>전세끼고 시 현금 <b>${eok(p.gapEok)}</b></span></div>
       <a class="btn nv" target="_blank" href="${nLand(p.apt)}">네이버 매물 보기</a>
-    </div>`).join('') : '<div class="card empty">이번 주 조건(별내선·평지·갭5억↓)에 맞는 매물이 없습니다.</div>';
+    </div>`).join('') : '<div class="card empty">이번 주 조건(별내선·평지·매매5억선)에 맞는 매물이 없습니다.</div>';
 
   // ② 천호 코앞 강동
   const live=(W.liveIn||[]);
@@ -111,9 +111,9 @@
   // ③ 그룹
   document.querySelector('#groups tbody').innerHTML = (W.groups||[]).map(g=>`
     <tr><td class="l"><b style="color:${GC[g.group]||'#333'}">${g.group}</b></td>
-      <td>${eok(g.saleMedEok)}</td><td>${eok(g.gapMedEok)}</td>
-      <td>${g.regulated?'<span style="color:#b91c1c">갭불가</span>':'<b>'+g.gapFit+'곳</b>'}</td>
-      <td>${g.regulated?'<span class="tag t-no">실입주</span>':'<span class="tag t-yes">갭가능</span>'}</td></tr>`).join('');
+      <td>${eok(g.saleMedEok)}</td>
+      <td><b>${g.gapFit}곳</b></td>
+      <td>${g.regulated?'<span class="tag t-no">실입주만</span>':'<span class="tag t-yes">전세끼고 가능</span>'}</td></tr>`).join('');
 
   document.getElementById('foot').innerHTML =
     `생성 ${W.generatedAt} · 데이터: 국토부 실거래가(매매·전세, 신고기준 1~2개월 시차) · 갭=매매−단지 전세 중앙값<br>`+
