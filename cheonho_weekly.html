@@ -94,10 +94,9 @@
   document.getElementById('picks').innerHTML = picks.length ? picks.map(p=>`
     <div class="card" style="border-left:4px solid ${GC[p.region]||'#888'}">
       <div class="top"><div class="nm">${p.apt}</div><div class="gap">매매 ${eok(p.priceEok)}</div></div>
-      <div class="meta">${p.region} ${p.umd} · ${p.st} · 전용 ${Math.floor(p.areaM2)}㎡ ${p.floor}층 · 준공 ${p.buildYear||'-'}
+      <div class="meta">${p.region} ${p.umd} · ${p.st} · 전용 ${Math.floor(p.areaM2)}㎡ ${p.floor}층 · 준공 ${p.buildYear||'-'} · <a href="${nLand(p.apt+' '+p.umd)}" target="_blank" style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a>
         <span class="badge b-min">천호 ${p.min}분</span>${p.terr==='평지'?'<span class="badge b-flat">평지 ✓</span>':''}</div>
       <div class="pricerow"><span>전세 <b>${eok(p.jeonseEok)}</b></span><span>전세끼고 시 현금 <b>${eok(p.gapEok)}</b></span></div>
-      <a class="btn nv" target="_blank" href="${nLand(p.apt)}">네이버 매물 보기</a>
     </div>`).join('') : '<div class="card empty">이번 주 조건(별내선·평지·매매5억선)에 맞는 매물이 없습니다.</div>';
 
   // ② 천호 코앞 강동
@@ -105,7 +104,7 @@
   document.getElementById('liveIn').innerHTML = live.length ? live.map(p=>`
     <div class="card" style="border-left:4px solid var(--gangdong)">
       <div class="top"><div class="nm" style="font-size:14px">${p.apt}</div><div style="font-weight:800">${eok(p.priceEok)}</div></div>
-      <div class="meta">${p.umd} · ${p.st} · 천호 ${p.min}분 · 전용 ${Math.floor(p.areaM2)}㎡</div>
+      <div class="meta">${p.umd} · ${p.st} · 천호 ${p.min}분 · 전용 ${Math.floor(p.areaM2)}㎡ · <a href="${nLand(p.apt+' '+p.umd)}" target="_blank" style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div>
     </div>`).join('') : '<div class="card empty">해당 없음</div>';
 
   // ③ 그룹
