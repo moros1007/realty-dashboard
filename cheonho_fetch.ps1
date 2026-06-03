@@ -252,8 +252,8 @@ Write-Host "  --- 업데이트 완료 -----------------------------" -Foreground
 $capManwon = [int]($capEok * 10000)
 foreach ($reg in $regions) {
   $g = @($sales | Where-Object { $_.region -eq $reg.label })
-  $gapOk = @($g | Where-Object { $_.gapManwon -le $capManwon }).Count
-  Write-Host ("   {0,-8} 총 {1,4}건 · 갭 {2}억↓ {3,4}건" -f $reg.label, $g.Count, $capEok, $gapOk)
+  $priceOk = @($g | Where-Object { $_.amountManwon -le ($capManwon+5000) }).Count
+  Write-Host ("   {0,-8} 총 {1,4}건 · 매매 {2}억선 {3,4}건" -f $reg.label, $g.Count, $capEok, $priceOk)
 }
 Write-Host ("   신규(NEW): {0}건" -f $newCount) -ForegroundColor $(if ($newCount -gt 0) { 'Yellow' } else { 'Gray' })
 if ($script:reqFail -gt 0) { Write-Host ("   ⚠ 일시오류로 건너뛴 요청 {0}건 — 다시 실행하면 보완됩니다." -f $script:reqFail) -ForegroundColor Yellow }
