@@ -1,13 +1,12 @@
 {
   "isSample": false,
-  "updatedAt": "2026-06-03 11:50",
+  "updatedAt": "2026-06-03 22:14",
   "config": {
+    "priceMaxEok": 16,
     "areaMin": 80.0,
-    "areaMax": 102.0,
-    "priceMaxEok": 16
+    "areaMax": 102.0
   },
   "myHome": {
-    "label": "산성역자이푸르지오",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -1354,7 +1353,8 @@
         "dealType": "중개거래"
       }
     ],
-    "addr": "성남시 수정구 신흥동"
+    "addr": "성남시 수정구 신흥동",
+    "label": "산성역자이푸르지오"
   },
   "items": [
     {
