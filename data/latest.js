@@ -1,7 +1,7 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
     "isSample":  false,
-    "updatedAt":  "2026-06-03 18:07",
+    "updatedAt":  "2026-06-03 22:44",
     "config":  {
                    "areaMax":  102,
                    "areaMin":  80,
