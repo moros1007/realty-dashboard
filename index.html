@@ -274,6 +274,7 @@ const fmtEok = m => { const e=m/10000; return (e>=10? e.toFixed(1): e.toFixed(2)
 const enc = encodeURIComponent;
 const nQuery = s => 'https://search.naver.com/search.naver?query=' + enc(s);
 const nMap   = s => 'https://map.naver.com/p/search/' + enc(s);
+const nLand  = s => 'https://m.land.naver.com/search/result/' + enc(s);
 
 function enrich(it){
   const pyeong = it.areaM2 / PY;
@@ -434,7 +435,7 @@ function renderTable(){
       <td>${d.dealDate}</td>
       <td>${d.buildYear||'-'}</td>
       <td class="l"><span class="act">
-        <a class="btn nv" target="_blank" href="${nQuery(d.apt+' 매매')}">네이버매물</a>
+        <a class="btn nv" target="_blank" href="${nLand(aptName)}">네이버부동산</a>
         <a class="btn" target="_blank" href="${nMap(d.umd+' '+aptName)}">지도</a>
       </span></td>
       <td><span class="star ${FAV.has(d.key)?'on':''}" data-key="${d.key}">★</span></td>
