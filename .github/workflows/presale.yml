@@ -1,8 +1,8 @@
-name: 분양·미분양 매일 갱신 (presale)
+name: 분양·미분양 매일 갱신 + 카톡 (presale)
 
 on:
   schedule:
-    - cron: '0 21 * * *'      # 21:00 UTC = 한국 06:00 (Actions 특성상 수 분~수십 분 지연될 수 있음)
+    - cron: '0 23 * * *'      # 23:00 UTC = 한국 08:00 (Actions 특성상 수 분~수십 분 지연될 수 있음)
   workflow_dispatch: {}        # 수동 실행 버튼
 
 permissions:
@@ -18,24 +18,38 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: config.json 생성 (SERVICE_KEY 시크릿 — daily.yml과 공용)
+      - name: config.json / kakao_token.json 생성 (시크릿 — daily.yml과 공용)
         shell: pwsh
         env:
-          SERVICE_KEY: ${{ secrets.SERVICE_KEY }}
+          SERVICE_KEY:         ${{ secrets.SERVICE_KEY }}
+          KAKAO_REST_KEY:      ${{ secrets.KAKAO_REST_KEY }}
+          KAKAO_REFRESH_TOKEN: ${{ secrets.KAKAO_REFRESH_TOKEN }}
+          KAKAO_CLIENT_SECRET: ${{ secrets.KAKAO_CLIENT_SECRET }}
         run: |
           if (-not $env:SERVICE_KEY) { Write-Host '::error::SECRET SERVICE_KEY 누락'; exit 1 }
-          @{ serviceKey = $env:SERVICE_KEY; presale = @{ monthsBack = 6; fetchApplyhome = $true } } | ConvertTo-Json -Depth 6 | Set-Content -Encoding UTF8 config.json
-          Write-Host 'config.json 생성 완료'
+          $kakao = $null
+          if ($env:KAKAO_REST_KEY -and $env:KAKAO_REFRESH_TOKEN) {
+            $kakao = [pscustomobject]@{ restApiKey = $env:KAKAO_REST_KEY; redirectUri = 'http://localhost:3000/'; clientSecret = "$($env:KAKAO_CLIENT_SECRET)" }
+            @{ refresh_token = $env:KAKAO_REFRESH_TOKEN; access_token = '' } | ConvertTo-Json | Set-Content -Encoding UTF8 kakao_token.json
+          }
+          @{ serviceKey = $env:SERVICE_KEY; presale = @{ monthsBack = 6; fetchApplyhome = $true }; kakao = $kakao } | ConvertTo-Json -Depth 8 | Set-Content -Encoding UTF8 config.json
+          Write-Host 'config 생성 완료'
 
       - name: 분양권·무순위 수집 (presale_fetch.ps1 → data/presale.js)
         shell: pwsh
         run: ./presale_fetch.ps1
 
+      - name: 카카오톡 발송 (분양 카드 · [대시보드 전체 보기])
+        if: always()
+        shell: pwsh
+        run: |
+          if (Test-Path kakao_token.json) { ./presale_send_kakao.ps1 } else { Write-Host 'kakao 시크릿 없음 → 발송 생략' }
+
       - name: data/presale.js 커밋 → GitHub Pages 갱신
         if: always()
         shell: pwsh
         run: |
-          Remove-Item -Force -ErrorAction SilentlyContinue config.json
+          Remove-Item -Force -ErrorAction SilentlyContinue config.json, kakao_token.json
           if (-not (Test-Path data/presale.js)) { Write-Host '생성된 데이터 없음 → 종료'; exit 0 }
           git config user.name  'github-actions'
           git config user.email 'actions@users.noreply.github.com'
