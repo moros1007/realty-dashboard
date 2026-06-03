@@ -389,7 +389,7 @@ function renderRegionCards(){
         <div class="meta">30평대 ${g.length}건 · 예산(${state.cap}억) 이내 ${under}건 (${ratio}%)</div>
         <div class="meta">고점권 ${maxP? maxP.toFixed(1).replace(/\.0$/,'')+'억':'—'} · 중앙값 고점比 ${maxP? '<b>-'+drop+'%</b>':'—'}${jr? ` · 전세가율 <b style="color:#0369a1">${jr.ratioPct}%</b>`:''}</div>
         <div class="verdict ${cls}">${msg}</div><br>
-        <a class="btn nv navbtn" target="_blank" href="${nMap(rg+' 아파트 매매')}">🗺️ ${rg} 지도·매물</a>
+        <a class="btn nv navbtn" target="_blank" href="${nLand(rg+' 아파트')}">🏢 ${rg} 매물</a>
       </div>`;
   });
 }
@@ -411,7 +411,7 @@ function renderAlerts(){
       <div style="display:flex;align-items:center;gap:10px">
         <b style="font-size:15px">${fmtEok(d.amountManwon)}</b>
         <span class="note" style="margin:0">${d.dealDate}</span>
-        <a class="btn nv" target="_blank" href="${nQuery(d.apt+' 매매')}">매물·연락처</a>
+        <a class="btn nv" target="_blank" href="${nLand(d.apt)}">매물·연락처</a>
       </div>
     </div>`).join('');
 }
@@ -427,7 +427,7 @@ function renderTable(){
     return `<tr>
       <td class="l apt"><span class="rtag" style="background:${RCOLOR[d.region]}"></span>${d.apt}
         ${d.isNew?'<span class="pill p-new">NEW</span>':''}${d.isPeak?'<span class="pill p-peak">기간최고가</span>':''}${isWatch(d)?'<span class="pill p-watch">⭐관심</span>':''}
-        <div class="umd">${d.umd} · 준공 ${d.buildYear||'-'} · ${d.dealType||''}</div></td>
+        <div class="umd">${d.umd} · 준공 ${d.buildYear||'-'} · ${d.dealType||''} · <a href="${nLand(aptName+' '+d.umd)}" target="_blank" style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div></td>
       <td>${d.areaM2}㎡<br><span class="umd">${d.pyeong.toFixed(1)}평</span></td>
       <td>${d.floor}층 ${d.lowFloor?'<span class="pill p-low">저층</span>':''}</td>
       <td><b>${fmtEok(d.amountManwon)}</b> ${d.eok<=state.cap?'<span class="pill p-under">이내</span>':'<span class="pill p-over">초과</span>'}</td>
@@ -543,7 +543,7 @@ function renderRegionLinks(){
   const el=document.getElementById('regionLinks');
   el.innerHTML = ['분당','평촌','과천'].map(rg=>`
     <a class="btn nv" target="_blank" href="${nMap(rg+' 부동산중개')}">📍 ${rg} 중개업소 찾기</a>
-    <a class="btn" target="_blank" href="${nQuery(rg+' 아파트 매매 84㎡')}">🔎 ${rg} 30평대 매물</a>`).join('');
+    <a class="btn" target="_blank" href="${nLand(rg+' 아파트')}">🔎 ${rg} 30평대 매물</a>`).join('');
 }
 function renderContacts(){
   const list=JSON.parse(localStorage.getItem('realtyContacts')||'[]');
