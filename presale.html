@@ -188,6 +188,11 @@ const pyText = a => a ? (a / PY).toFixed(0) + '평' : '';
 const enc = encodeURIComponent;
 const nMap = s => 'https://map.naver.com/p/search/' + enc(s);
 const nQuery = s => 'https://search.naver.com/search.naver?query=' + enc(s);
+const nLand = s => 'https://m.land.naver.com/search/result/' + enc(s);  // 네이버 부동산(매물)
+const cleanApt = s => (s || '').replace(/\([^)]*\)/g, ' ')
+  .replace(/무순위|잔여세대|우선분양\S*|전환\s*후|본청약|조합원\S*|취소분|신혼희망타운\S*|공공분양|민간임대|사후접수|특별공급/g, ' ')
+  .replace(/[A-Za-z]?\d*BL\b|블록|지구/gi, ' ').replace(/\s{2,}/g, ' ').trim();
+const naverLandUrl = it => nLand(((cleanApt(it.apt) || it.apt) + ' ' + (it.umd || '')).trim());
 const KIND_COLOR = { '분양권': '#0ea5e9', '무순위': '#a21caf', '미분양': '#f59e0b', '분양': '#16a34a' };
 const SIDO_COLOR = { '서울': '#3b82f6', '경기': '#10b981', '인천': '#f59e0b', '기타': '#94a3b8' };
 
@@ -302,7 +307,7 @@ function Detail({ row, params }) {
 
           <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
             <a class="btn cy" target="_blank" href="https://www.applyhome.co.kr">청약홈</a>
-            <a class="btn nv" target="_blank" href=${nQuery(item.apt + ' 분양권')}>네이버 매물</a>
+            <a class="btn nv" target="_blank" href=${naverLandUrl(item)}>🏢 네이버 부동산</a>
             <a class="btn" target="_blank" href=${nMap(item.region + ' ' + item.apt)}>지도</a>
           </div>
         </div>
@@ -468,7 +473,7 @@ function App() {
                 const hp = x.item.priceManwon > 0;
                 return html`<tr key=${i} class=${sel === x ? 'sel' : ''} onClick=${() => setSel(x)}>
                   <td class="l apt"><span class="feas" style="background:${hp ? (x.plan.feasible ? 'var(--ok)' : 'var(--warn)') : '#cbd5e1'}"></span>${x.item.apt}
-                    <div class="umd">${x.item.region}${x.item.umd ? ' · ' + x.item.umd : ''}</div></td>
+                    <div class="umd">${x.item.region}${x.item.umd ? ' · ' + x.item.umd : ''} · <a href=${naverLandUrl(x.item)} target="_blank" onClick=${e => e.stopPropagation()} style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div></td>
                   <td class="l"><${Badges} list=${x.res.badges} /></td>
                   <td>${x.item.areaM2 || '-'}㎡<div class="bind">${pyText(x.item.areaM2)}</div></td>
                   <td><b>${hp ? eok(x.item.priceManwon) : '확인'}</b></td>
