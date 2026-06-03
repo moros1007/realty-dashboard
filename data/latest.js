@@ -1,7 +1,7 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
     "isSample":  false,
-    "updatedAt":  "2026-06-03 16:13",
+    "updatedAt":  "2026-06-03 18:07",
     "config":  {
                    "areaMax":  102,
                    "areaMin":  80,
@@ -17894,6 +17894,29 @@ window.REALTY_DATA = {
                       "dealType":  "중개거래",
                       "isNew":  false
                   }
+              ],
+    "jeonse":  {
+                   "분당":  {
+                              "ratioPct":  41.7,
+                              "jeonseManwon":  73000,
+                              "saleManwon":  175000,
+                              "count":  1310
+                          },
+                   "평촌":  {
+                              "ratioPct":  58.3,
+                              "jeonseManwon":  52500,
+                              "saleManwon":  89995,
+                              "count":  744
+                          },
+                   "과천":  {
+                              "ratioPct":  38.2,
+                              "jeonseManwon":  91400,
+                              "saleManwon":  239000,
+                              "count":  244
+                          }
+               },
+    "watch":  [
+
               ],
     "newCount":  0
 };
