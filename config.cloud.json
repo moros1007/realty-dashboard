@@ -1,0 +1,17 @@
+{
+  "_안내": "GitHub Actions(클라우드) 일일 실행용 설정. ★비밀키는 여기 넣지 마세요★ → GitHub 저장소 Settings>Secrets에 등록합니다 (serviceKey→SERVICE_KEY, 카카오 REST키→KAKAO_REST_KEY, refresh_token→KAKAO_REFRESH_TOKEN). 지역·예산·funds·watch 는 여기서 수정하세요. 이 파일은 공개 저장소에 올라갑니다(비밀정보 없음).",
+
+  "myHome": { "label": "산성역자이푸르지오", "addr": "성남시 수정구 신흥동", "code": "41131", "aptKeyword": "산성역자이푸르지오" },
+
+  "regions": [
+    { "label": "분당", "code": "41135" },
+    { "label": "평촌", "code": "41173" },
+    { "label": "과천", "code": "41290" }
+  ],
+
+  "monthsBack": 6,
+  "filter": { "areaMinM2": 80, "areaMaxM2": 102, "priceMaxEok": 16, "keepAllForChart": true },
+  "dashboardUrl": "https://moros1007.github.io/realty-dashboard/",
+  "watch": [],
+  "funds": { "buyEok": 16, "annualIncomeManwon": 8000, "loanRatePct": 4.0, "loanYears": 30, "stressAddPct": 1.5, "regulated": true }
+}
