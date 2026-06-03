@@ -78,6 +78,7 @@
 (function(){
   const enc=encodeURIComponent;
   const nQuery=s=>'https://search.naver.com/search.naver?query='+enc(s);
+  const nLand=s=>'https://m.land.naver.com/search/result/'+enc(s);
   const W=window.CHEONHO_WEEKLY;
   const GC={별내선:'var(--byeollae)',강동:'var(--gangdong)',송파:'var(--songpa)',성남:'var(--seongnam)',분당:'var(--bundang)'};
   if(!W){
@@ -96,7 +97,7 @@
       <div class="meta">${p.region} ${p.umd} · ${p.st} · 전용 ${Math.floor(p.areaM2)}㎡ ${p.floor}층
         <span class="badge b-min">천호 ${p.min}분</span>${p.terr==='평지'?'<span class="badge b-flat">평지 ✓</span>':''}</div>
       <div class="pricerow"><span>매매 <b>${eok(p.priceEok)}</b></span><span>전세 <b>${eok(p.jeonseEok)}</b></span></div>
-      <a class="btn nv" target="_blank" href="${nQuery(p.apt+' 매물')}">네이버 매물 보기</a>
+      <a class="btn nv" target="_blank" href="${nLand(p.apt)}">네이버 매물 보기</a>
     </div>`).join('') : '<div class="card empty">이번 주 조건(별내선·평지·갭5억↓)에 맞는 매물이 없습니다.</div>';
 
   // ② 천호 코앞 강동
