@@ -578,8 +578,8 @@ function renderCalc(){
 function renderLiveLinks(){
   const groups={'송파':'송파구 아파트','강동':'강동구 아파트','성남':'성남 아파트','별내선':'다산신도시 아파트'};
   const extra=[['다산신도시','다산신도시 아파트 매매'],['별내신도시','별내 아파트 매매'],['구리역','구리역 아파트'],['문정·장지','문정동 아파트 매매'],['천호역','천호동 아파트 매매']];
-  let h = Object.entries(groups).map(([k,v])=>`<a class="btn nv" target="_blank" href="${nQuery(v+' 매매')}">📍 ${k} 호가매물</a>`).join('');
-  h += extra.map(e=>`<a class="btn" target="_blank" href="${nQuery(e[1])}">🔎 ${e[0]}</a>`).join('');
+  let h = Object.entries(groups).map(([k,v])=>`<a class="btn nv" target="_blank" href="${nLand(v)}">📍 ${k} 호가매물</a>`).join('');
+  h += extra.map(e=>`<a class="btn" target="_blank" href="${nLand(e[1])}">🔎 ${e[0]}</a>`).join('');
   document.getElementById('liveLinks').innerHTML=h;
 }
 
