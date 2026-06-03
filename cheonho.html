@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>천호역 접근 · 역세권 매물 (부모님 거주용)</title>
+<style>
+  :root{
+    --songpa:#3b82f6; --gangdong:#10b981; --seongnam:#f59e0b; --byeollae:#8b5cf6; --bundang:#ec4899;
+    --ink:#1e293b; --sub:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+    --ok:#16a34a; --warn:#dc2626;
+    --shadow:0 1px 3px rgba(15,23,42,.08),0 1px 2px rgba(15,23,42,.04);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1240px;margin:0 auto;padding:20px 16px 80px}
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+  h1{font-size:22px;margin:0;letter-spacing:-.4px}
+  h1 small{display:block;font-size:13px;color:var(--sub);font-weight:500;margin-top:4px}
+  .updated{font-size:12.5px;color:var(--sub);text-align:right}
+  .updated b{color:var(--ink)}
+
+  .banner{border-radius:12px;padding:12px 16px;font-size:13px;margin:12px 0;display:flex;gap:10px;align-items:flex-start}
+  .banner.warn{background:#fef2f2;border:1px solid #fecaca;color:#991b1b}
+  .banner.live{background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46}
+  .banner.demo{background:#fffbeb;border:1px solid #fde68a;color:#92400e}
+  .banner code{background:rgba(0,0,0,.06);padding:1px 6px;border-radius:5px;font-size:12px}
+  .banner b{font-weight:800}
+
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+  .kpi .lab{font-size:12.5px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .kpi .val{font-size:24px;font-weight:800;letter-spacing:-.5px;margin-top:4px}
+  .kpi .sub{font-size:12px;color:var(--sub);margin-top:2px}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+
+  /* 두 갈래 안내 */
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+  .track{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 17px;box-shadow:var(--shadow)}
+  .track.a{border-top:4px solid var(--warn)} .track.b{border-top:4px solid var(--ok)}
+  .track h3{margin:0 0 6px;font-size:15px;display:flex;align-items:center;gap:7px}
+  .track p{margin:6px 0 0;font-size:12.8px;color:#475569;line-height:1.6}
+  .track .tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px}
+  .tag.no{background:#fee2e2;color:#b91c1c}.tag.yes{background:#dcfce7;color:#15803d}
+
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);margin-bottom:14px;overflow:hidden}
+  .panel > .ph{padding:13px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .panel > .ph h3{margin:0;font-size:15px}
+  .panel .pb{padding:14px 16px}
+  .note{font-size:12px;color:var(--sub);margin-top:8px}
+
+  .grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px;margin-bottom:14px}
+  .rcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 15px;box-shadow:var(--shadow);border-top:4px solid var(--line)}
+  .rcard h4{margin:0 0 6px;font-size:14.5px;display:flex;align-items:center;gap:7px}
+  .rcard .big{font-size:18px;font-weight:800}
+  .rcard .meta{font-size:12px;color:var(--sub);margin-top:3px}
+  .rcard .verdict{margin-top:9px;font-size:12px;font-weight:700;padding:5px 9px;border-radius:8px;display:inline-block}
+  .v-ok{background:#dcfce7;color:#15803d}.v-mid{background:#fef9c3;color:#a16207}.v-no{background:#fee2e2;color:#b91c1c}
+
+  .filters{display:flex;gap:10px 14px;flex-wrap:wrap;align-items:center}
+  .chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:13px;cursor:pointer;user-select:none;transition:.12s}
+  .chip:hover{border-color:#cbd5e1}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .fgrp{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--sub)}
+  .fgrp input[type=range]{width:130px}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+  .seg button{border:none;background:#fff;padding:7px 13px;font-size:13px;cursor:pointer;color:var(--sub)}
+  .seg button.on{background:var(--ink);color:#fff}
+  select,.txt{padding:6px 9px;border:1px solid var(--line);border-radius:8px;font-size:13px;background:#fff}
+  .txt{width:150px}
+  .toggle{display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer}
+  .capval{font-weight:800;color:var(--ink)}
+
+  table{width:100%;border-collapse:collapse;font-size:12.8px}
+  th,td{padding:9px 9px;text-align:right;border-bottom:1px solid #eef2f7;white-space:nowrap}
+  th{font-size:11px;color:var(--sub);font-weight:600;cursor:pointer;position:sticky;top:0;background:#fff;z-index:1}
+  th.l,td.l{text-align:left}
+  tbody tr:hover{background:#f8fafc}
+  tr.dim{opacity:.5}
+  td.apt{font-weight:700;max-width:220px;white-space:normal;line-height:1.35}
+  td.apt .umd{font-weight:500;color:var(--sub);font-size:11px}
+  .pill{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;margin-left:4px;vertical-align:middle}
+  .p-new{background:#fef3c7;color:#b45309}.p-toheo{background:#fee2e2;color:#b91c1c}.p-gap{background:#dcfce7;color:#15803d}
+  .p-low{background:#e0f2fe;color:#0369a1}
+  .terr{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:7px}
+  .terr.ok{background:#dcfce7;color:#15803d}.terr.mid{background:#fef9c3;color:#a16207}.terr.no{background:#fee2e2;color:#b91c1c}
+  .rtag{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .mins{font-weight:700}.mins.far{color:#b91c1c}
+  .btn{display:inline-flex;align-items:center;gap:4px;font-size:11px;border:1px solid var(--line);background:#fff;border-radius:7px;padding:4px 7px;cursor:pointer;text-decoration:none;color:var(--ink);transition:.12s}
+  .btn:hover{background:#f1f5f9;border-color:#cbd5e1}
+  .btn.nv{border-color:#03c75a55;color:#03c75a}
+  .tablewrap{max-height:620px;overflow:auto}
+  .empty{padding:40px;text-align:center;color:var(--sub);font-size:13.5px}
+
+  /* 계산기 */
+  .calcgrid{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:flex-end;margin-bottom:14px}
+  .calcgrid label{display:flex;flex-direction:column;font-size:11.5px;color:var(--sub);gap:3px}
+  .calcgrid input[type=number]{width:96px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;font-size:13.5px}
+  .calcgrid label.ck{flex-direction:row;align-items:center;gap:6px;font-size:12.5px;color:var(--ink);cursor:pointer}
+  .calcout{display:grid;grid-template-columns:repeat(auto-fit,minmax(146px,1fr));gap:10px}
+  .co{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .co .l{font-size:11.5px;color:var(--sub)} .co .v{font-size:17px;font-weight:800;margin-top:2px;letter-spacing:-.3px}
+  .co .v small{font-size:11px;font-weight:600;color:var(--sub)}
+  .co.hl{background:#eef6ff;border-color:#bfdbfe} .co.good{background:#f0fdf4;border-color:#bbf7d0}
+  .co.warn{background:#fff7ed;border-color:#fed7aa} .co.bad{background:#fef2f2;border-color:#fecaca}
+
+  .lineview{font-size:12.5px;color:#475569;line-height:2;background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .lineview b{color:var(--ink)} .lineview .st{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:7px;padding:1px 8px;margin:2px 2px;font-size:12px}
+  footer{margin-top:22px;font-size:11.5px;color:#94a3b8;line-height:1.7;text-align:center}
+  @media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.grid4{grid-template-columns:repeat(2,1fr)}.twocol{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <h1>천호역 접근 · 역세권 매물 <span style="font-size:14px;color:var(--sub)">(부모님 거주용)</span>
+      <small>천호교회(천호역 5·8호선) 지하철 접근 · 자본 <b id="capTitle">5억</b> · 어르신 2인(평지) · 전세 끼고 3~4년 후 입주 선호</small>
+    </h1>
+    <div class="updated">데이터 기준<br><b id="updatedAt">—</b></div>
+  </header>
+
+  <div id="banner"></div>
+
+  <!-- KPI -->
+  <section class="kpis" id="kpis"></section>
+
+  <!-- 두 갈래 안내 (토허제 vs 비규제 갭) -->
+  <section class="twocol">
+    <div class="track a">
+      <h3>① 송파·강동·성남·분당 <span class="tag no">토지거래허가구역</span></h3>
+      <p><b>전세 끼고 매수(갭)·3~4년 후 입주 전략이 원칙적으로 막힙니다.</b> 서울 전역과 성남(수정·중원·분당)은 「10·15 대책」 규제지역=토허구역이라
+      <b>실거주 목적 매수만 허가 + 2년 실거주의무</b>(2025-10-20 계약분~)입니다. 즉 이 지역은 <b>전세 안 낀 ‘즉시 실입주’ 물량</b>만 현실적입니다.
+      매수 전 해당 구청 토지거래허가 가능 여부 확인 필수.</p>
+    </div>
+    <div class="track b">
+      <h3>② 별내선(구리·다산·별내) <span class="tag yes">비규제 · 갭 가능</span></h3>
+      <p><b>‘전세 끼고 → 3~4년 후 입주’ 니즈를 실제로 살릴 수 있는 현실 대안.</b> 8호선 별내선 연장으로 <b>천호까지 환승 0회 직통</b>(다산 ~15분·별내 ~18분),
+      비규제라 갭투자 가능, <b>다산·별내는 평지 신도시</b>라 어르신께 적합합니다. 84㎡ 갭 대략 <b>3~4억대</b>로 5억 안에 충분.</p>
+    </div>
+  </section>
+
+  <!-- 그룹 비교 -->
+  <section class="grid4" id="groupCards"></section>
+
+  <!-- 필터 + 테이블 -->
+  <section class="panel">
+    <div class="ph">
+      <h3>📋 역세권 매물 (국토부 실거래가 기준)</h3>
+      <span class="note" id="rowCount" style="margin:0"></span>
+    </div>
+    <div class="pb">
+      <div class="filters" style="margin-bottom:12px">
+        <div class="fgrp">지역
+          <span class="chip on" data-group="송파" style="border-color:var(--songpa)">송파</span>
+          <span class="chip on" data-group="강동" style="border-color:var(--gangdong)">강동</span>
+          <span class="chip on" data-group="성남" style="border-color:var(--seongnam)">성남</span>
+          <span class="chip on" data-group="별내선" style="border-color:var(--byeollae)">별내선(구리·다산·별내)</span>
+          <span class="chip on" data-group="분당" style="border-color:var(--bundang)">분당(환승1·40분+)</span>
+        </div>
+      </div>
+      <div class="filters">
+        <div class="fgrp">전략
+          <div class="seg" id="modeSeg">
+            <button data-mode="gap" class="on">전세끼고(갭)</button>
+            <button data-mode="live">즉시 실입주+대출</button>
+          </div>
+        </div>
+        <div class="fgrp">평형
+          <span class="chip" data-area="20">20평대(59㎡)</span>
+          <span class="chip" data-area="30">30평대(84㎡)</span>
+          <span class="chip on" data-area="all">전체</span>
+        </div>
+        <div class="fgrp"><span id="capLab">갭 상한</span>
+          <input type="range" id="cap" min="2" max="15" step="0.5" value="5">
+          <span class="capval"><span id="capNow">5</span>억</span>
+        </div>
+        <div class="fgrp">천호까지 ≤
+          <input type="range" id="mins" min="5" max="40" step="1" value="40">
+          <span class="capval"><span id="minsNow">40</span>분</span>
+        </div>
+        <label class="toggle"><input type="checkbox" id="noTransfer"> 환승 0회만</label>
+        <label class="toggle"><input type="checkbox" id="flatOnly"> 평지만(어르신)</label>
+        <label class="toggle"><input type="checkbox" id="lowOnly"> 저층(1~5층)</label>
+        <input class="txt" id="q" placeholder="단지명 검색">
+        <select id="sort">
+          <option value="gap">갭 낮은순</option>
+          <option value="mins">천호 가까운순</option>
+          <option value="price">매매가 낮은순</option>
+          <option value="date">최신순</option>
+        </select>
+      </div>
+      <div class="tablewrap" style="margin-top:12px">
+        <table>
+          <thead><tr id="thead"></tr></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+        <div class="empty" id="emptyMsg" style="display:none">조건에 맞는 매물이 없습니다. 자본 상한·접근시간·지역 필터를 넓혀보세요.</div>
+      </div>
+      <p class="note" id="modeNote"></p>
+    </div>
+  </section>
+
+  <!-- 천호 접근 노선 안내 -->
+  <section class="panel">
+    <div class="ph"><h3>🚇 천호역 기준 8호선 소요시간 (환승 0회)</h3></div>
+    <div class="pb"><div class="lineview" id="lineview"></div></div>
+  </section>
+
+  <!-- 자금·세금 계산기 -->
+  <section class="panel" id="calcBox">
+    <div class="ph"><h3>🧮 자금 계산기 <span class="note" style="margin:0;font-weight:400">전략(갭/실입주)에 따라 필요한 현금·대출·실입주 시점 자금을 추정</span></h3></div>
+    <div class="pb">
+      <div class="calcgrid">
+        <label>매수가(억)<input type="number" id="ci_buy" step="0.5" value="9"></label>
+        <label>전세가(억)<input type="number" id="ci_jeonse" step="0.5" value="5"></label>
+        <label>보유현금(억)<input type="number" id="ci_cash" step="0.5" value="5"></label>
+        <label>연소득(만원)<input type="number" id="ci_income" step="100" value="6000"></label>
+        <label>대출금리(%)<input type="number" id="ci_rate" step="0.1" value="4.5"></label>
+        <label>대출기간(년)<input type="number" id="ci_years" step="1" value="30"></label>
+        <label class="ck"><input type="checkbox" id="ci_reg">규제지역(토허·LTV40%)</label>
+        <label class="ck"><input type="checkbox" id="ci_over85">전용 85㎡ 초과</label>
+      </div>
+      <div id="calcOut" class="calcout"></div>
+      <p class="note" id="calcNote" style="margin-bottom:0"></p>
+    </div>
+  </section>
+
+  <!-- 실시간 호가 / 부동산 -->
+  <section class="panel">
+    <div class="ph"><h3>📞 실시간 호가 매물 · 부동산 바로가기</h3></div>
+    <div class="pb">
+      <p class="note" style="margin-top:0">국토부 실거래가는 신고 기준이라 <b>1~2개월 시차</b>가 있습니다. <b>지금 나온 호가·매물</b>은 아래 네이버 부동산에서 실시간 확인하세요.</p>
+      <div id="liveLinks" class="filters"></div>
+    </div>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+
+<!-- 사용자의 규제 엔진 재사용(규제지역·취득세·금융한도 단일 출처) -->
+<script src="engine/regulations.js"></script>
+<!-- 실데이터(cheonho.js) 우선, 없으면 예시(sample) -->
+<script src="data/cheonho-sample.js"></script>
+<script>
+(function(){ var q = location.protocol.indexOf('http')===0 ? ('?t=' + (new Date()).getTime()) : '';
+  document.write('<scr'+'ipt src="data/cheonho.js'+q+'"><\/scr'+'ipt>'); })();
+</script>
+<script>
+/* ── 데이터 선택 ── */
+const arr = x => Array.isArray(x) ? x : (x==null ? [] : [x]);
+const RAW = window.CHEONHO_DATA || null;
+const LIVE = (RAW && arr(RAW.items).length) ? RAW : null;
+const DATA = LIVE || window.CHEONHO_SAMPLE;
+const isSample = !LIVE;
+const CAP0 = (DATA.config && DATA.config.capEok) || 5;
+const PY = 3.305785;
+const enc = encodeURIComponent;
+const nQuery = s => 'https://search.naver.com/search.naver?query=' + enc(s);
+const nLand  = s => 'https://m.land.naver.com/search/result/' + enc(s);
+const nMap   = s => 'https://map.naver.com/p/search/' + enc(s);
+
+const GCOLOR = {송파:'#3b82f6', 강동:'#10b981', 성남:'#f59e0b', 별내선:'#8b5cf6', 분당:'#ec4899'};
+const fmtEok = m => { if(m==null) return '—'; const e=m/10000; const s=(Math.abs(e)>=10? e.toFixed(1): e.toFixed(2)).replace(/\.?0+$/,''); return s+'억'; };
+
+/* ── 법정동(umd) → 가까운 역 · 천호까지 분/환승 · 지형(어르신) ──
+   min = 천호역까지 분, tr = 환승횟수, terr = 평지/완경사/급경사 (단지별 미세지형은 현장확인) */
+const STATION = {
+  // 강동 (천호 인접·평지)
+  "천호동":{st:"천호역",line:"5·8",min:0,tr:0,terr:"평지"},
+  "성내동":{st:"강동구청역",line:"8",min:2,tr:0,terr:"평지"},
+  "암사동":{st:"암사역",line:"8",min:2,tr:0,terr:"완경사"},
+  "풍납동":{st:"천호역(도보)",line:"5·8",min:4,tr:0,terr:"평지"},
+  "길동":{st:"길동역",line:"5",min:4,tr:0,terr:"평지"},
+  "둔촌동":{st:"둔촌동역",line:"5·9",min:6,tr:0,terr:"평지"},
+  "명일동":{st:"명일역",line:"5",min:6,tr:0,terr:"완경사"},
+  "고덕동":{st:"고덕역",line:"5",min:10,tr:0,terr:"완경사"},
+  "상일동":{st:"상일동역",line:"5",min:13,tr:0,terr:"평지"},
+  "강일동":{st:"강일역",line:"5",min:14,tr:0,terr:"평지"},
+  // 송파 (평지)
+  "잠실동":{st:"잠실역",line:"2·8",min:7,tr:0,terr:"평지"},
+  "잠실본동":{st:"잠실역",line:"2·8",min:7,tr:0,terr:"평지"},
+  "신천동":{st:"잠실역",line:"2·8",min:7,tr:0,terr:"평지"},
+  "삼전동":{st:"석촌역",line:"8·9",min:9,tr:0,terr:"평지"},
+  "석촌동":{st:"석촌역",line:"8·9",min:9,tr:0,terr:"평지"},
+  "송파동":{st:"송파역",line:"8",min:11,tr:0,terr:"평지"},
+  "방이동":{st:"방이역",line:"5",min:10,tr:0,terr:"평지"},
+  "오금동":{st:"오금역",line:"3·5",min:12,tr:0,terr:"평지"},
+  "가락동":{st:"가락시장역",line:"3·8",min:13,tr:0,terr:"평지"},
+  "문정동":{st:"문정역",line:"8",min:15,tr:0,terr:"평지"},
+  "장지동":{st:"장지역",line:"8",min:17,tr:0,terr:"평지"},
+  "거여동":{st:"거여역",line:"5",min:15,tr:0,terr:"완경사"},
+  "마천동":{st:"마천역",line:"5",min:17,tr:0,terr:"완경사"},
+  // 성남 수정·중원 (8호선 본시가지 = 급경사 ⚠ / 위례·복정만 평지)
+  "복정동":{st:"복정역",line:"8",min:19,tr:0,terr:"완경사"},
+  "창곡동":{st:"위례(복정·버스)",line:"8",min:22,tr:0,terr:"평지"},
+  "산성동":{st:"산성역",line:"8",min:21,tr:0,terr:"급경사"},
+  "양지동":{st:"산성역",line:"8",min:23,tr:0,terr:"급경사"},
+  "단대동":{st:"단대오거리역",line:"8",min:25,tr:0,terr:"급경사"},
+  "신흥동":{st:"신흥역",line:"8",min:27,tr:0,terr:"급경사"},
+  "수진동":{st:"수진역",line:"8",min:29,tr:0,terr:"급경사"},
+  "태평동":{st:"가천대역(환승)",line:"분당",min:26,tr:1,terr:"완경사"},
+  "성남동":{st:"신흥역",line:"8",min:27,tr:0,terr:"급경사"},
+  "중앙동":{st:"단대오거리역",line:"8",min:25,tr:0,terr:"급경사"},
+  "금광동":{st:"단대오거리역",line:"8",min:27,tr:0,terr:"급경사"},
+  "은행동":{st:"단대오거리역",line:"8",min:28,tr:0,terr:"급경사"},
+  "상대원동":{st:"신흥역(버스)",line:"8",min:31,tr:0,terr:"급경사"},
+  "하대원동":{st:"모란역",line:"8",min:31,tr:0,terr:"완경사"},
+  "도촌동":{st:"비역세(버스)",line:"-",min:35,tr:1,terr:"평지"},
+  "고등동":{st:"고등지구(버스+복정)",line:"-",min:38,tr:1,terr:"평지"},
+  "여수동":{st:"성남시청(버스)",line:"-",min:33,tr:1,terr:"완경사"},
+  // 별내선 (비규제 · 평지 신도시)
+  "인창동":{st:"구리역",line:"8·경의중앙",min:11,tr:0,terr:"완경사"},
+  "수택동":{st:"구리역",line:"8",min:12,tr:0,terr:"평지"},
+  "교문동":{st:"구리역",line:"8",min:13,tr:0,terr:"완경사"},
+  "갈매동":{st:"갈매역(환승)",line:"경춘",min:25,tr:1,terr:"평지"},
+  "지금동":{st:"다산역",line:"8",min:15,tr:0,terr:"평지"},
+  "다산동":{st:"다산역",line:"8",min:15,tr:0,terr:"평지"},
+  "도농동":{st:"다산역",line:"8",min:15,tr:0,terr:"평지"},
+  "가운동":{st:"다산역",line:"8",min:16,tr:0,terr:"평지"},
+  "별내동":{st:"별내역",line:"8·경춘",min:18,tr:0,terr:"평지"},
+  "수석동":{st:"도농역(버스)",line:"8",min:20,tr:1,terr:"완경사"},
+  // 분당(성남 분당구) — 토허구역(갭 불가) · 천호 직통 없음(모란·복정 환승 1회, 40~50분) · 대체로 평지
+  "야탑동":{st:"야탑역",line:"수인분당",min:36,tr:1,terr:"평지"},
+  "이매동":{st:"이매역",line:"수인분당·경강",min:38,tr:1,terr:"평지"},
+  "서현동":{st:"서현역",line:"수인분당",min:40,tr:1,terr:"평지"},
+  "수내동":{st:"수내역",line:"수인분당",min:42,tr:1,terr:"평지"},
+  "정자동":{st:"정자역",line:"수인분당·신분당",min:44,tr:1,terr:"평지"},
+  "분당동":{st:"서현역",line:"수인분당",min:42,tr:1,terr:"완경사"},
+  "금곡동":{st:"미금역",line:"수인분당·신분당",min:48,tr:1,terr:"완경사"},
+  "구미동":{st:"오리역",line:"수인분당",min:50,tr:1,terr:"완경사"},
+  "백현동":{st:"판교역",line:"신분당·경강",min:45,tr:1,terr:"완경사"},
+  "삼평동":{st:"판교역",line:"신분당·경강",min:46,tr:1,terr:"완경사"},
+  "판교동":{st:"판교역",line:"신분당",min:47,tr:1,terr:"완경사"},
+  "운중동":{st:"판교역(버스)",line:"신분당",min:52,tr:1,terr:"완경사"},
+  "대장동":{st:"대장지구(버스)",line:"-",min:55,tr:1,terr:"평지"}
+};
+const FALLBACK = {st:"확인필요",line:"-",min:99,tr:9,terr:"확인필요"};
+const TERR = {
+  "평지":{cls:"ok",senior:true,txt:"평지 ✓"},
+  "완경사":{cls:"mid",senior:false,txt:"완경사"},
+  "급경사":{cls:"no",senior:false,txt:"급경사 ⚠"},
+  "확인필요":{cls:"mid",senior:false,txt:"확인필요"}
+};
+
+const REG = window.REG; // regulations.js
+function enrich(it){
+  const s = STATION[it.umd] || FALLBACK;
+  const regd = REG ? REG.isRegulated(it.code) : (('' + it.code).slice(0,2)==='11' || ['41131','41133','41135'].includes(''+it.code));
+  return Object.assign({}, it, {
+    st:s.st, line:s.line, min:s.min, tr:s.tr, terr:s.terr,
+    eok: it.amountManwon/10000,
+    jeonseEok: (it.jeonseManwon||0)/10000,
+    gapEok: (it.gapManwon!=null? it.gapManwon : (it.amountManwon-(it.jeonseManwon||0)))/10000,
+    pyeong: it.areaM2/PY,
+    regulated: regd,
+    gapOk: !regd,                          // 토허구역은 갭(전세끼고) 원칙 불가
+    gapNoisy: (it.jeonseManwon||0) > it.amountManwon,  // 전세>매매 = 매칭 노이즈(구축·특수거래)
+    lowFloor: it.floor>0 && it.floor<=5,
+    senior: (TERR[s.terr]||{}).senior===true,
+    key:[it.region,it.apt,it.areaM2,it.floor,it.dealDate,it.amountManwon].join('|')
+  });
+}
+const ITEMS = arr(DATA.items).map(enrich);
+
+/* ── 상태 ── */
+const state = {
+  groups:new Set(['송파','강동','성남','별내선','분당']),
+  mode:'gap', areaPreset:'all', cap:CAP0, maxMin:40,
+  noTransfer:false, flatOnly:false, lowOnly:false, q:'', sort:'gap'
+};
+
+/* ── 헤더/배너 ── */
+document.getElementById('updatedAt').textContent = DATA.updatedAt || '—';
+document.getElementById('capTitle').textContent = CAP0+'억';
+(function(){ const b=document.getElementById('banner');
+  if(isSample){ b.className='banner demo';
+    b.innerHTML=`<span>⚠️</span><div><b>지금은 예시(데모) 데이터입니다.</b> 실제 국토부 실거래가를 받으려면 <code>⑤ 천호 역세권 업데이트.bat</code>을 실행하세요(인증키는 이미 등록됨). 인증키 없이도 화면·기능은 그대로 체험할 수 있습니다.</div>`;
+  } else { b.className='banner live';
+    b.innerHTML=`<span>✅</span><div>국토교통부 <b>실거래가 실데이터</b> 표시 중 (${DATA.updatedAt} 기준 · 최근 ${DATA.config.monthsBack||4}개월 · 매매↔전세 매칭 갭 추정).</div>`;
+  }
+})();
+
+/* ── 필터 ── */
+function applyFilters(){
+  let r = ITEMS.filter(d=>state.groups.has(d.group));
+  if(state.areaPreset==='20') r=r.filter(d=>d.areaM2>=49 && d.areaM2<75);
+  else if(state.areaPreset==='30') r=r.filter(d=>d.areaM2>=75 && d.areaM2<=99);
+  r=r.filter(d=>d.min<=state.maxMin);
+  if(state.noTransfer) r=r.filter(d=>d.tr===0);
+  if(state.flatOnly)   r=r.filter(d=>d.terr==='평지');
+  if(state.lowOnly)    r=r.filter(d=>d.lowFloor);
+  if(state.q){ const q=state.q.trim(); r=r.filter(d=>(d.apt+d.umd).includes(q)); }
+  const s=state.sort;
+  r.sort((a,b)=> s==='price'? a.amountManwon-b.amountManwon
+              : s==='mins'?  (a.min-b.min || a.gapEok-b.gapEok)
+              : s==='date'?  (a.dealDate<b.dealDate?1:-1)
+              : ((a.gapNoisy-b.gapNoisy) || (a.gapEok-b.gapEok)));   // gap (전세>매매 노이즈는 뒤로)
+  return r;
+}
+
+/* ── KPI ── */
+function renderKPIs(){
+  const pool = ITEMS.filter(d=>state.groups.has(d.group));
+  const minsArr = pool.map(d=>d.min).filter(m=>m<90).sort((a,b)=>a-b);
+  const medMin = minsArr.length? minsArr[Math.floor(minsArr.length/2)] : '—';
+  const gapFit = pool.filter(d=>d.gapOk && !d.gapNoisy && d.gapEok<=state.cap).length;
+  const ideal  = pool.filter(d=>d.gapOk && !d.gapNoisy && d.gapEok<=state.cap && d.terr==='평지' && d.tr===0 && d.min<=state.maxMin).length;
+  const k=[
+    {lab:'자본금', dot:'#0ea5e9', val:CAP0+'억', sub:'전세 끼고 매수 시 갭 상한'},
+    {lab:'천호까지(중앙값)', dot:'var(--gangdong)', val: medMin+(medMin==='—'?'':'분'), sub:'선택 지역 · 환승 0회 기준'},
+    {lab:'갭 '+state.cap+'억↓ 가능', dot:'var(--byeollae)', val: gapFit+'건', sub:'비규제(갭 가능) 단지만'},
+    {lab:'★ 4박자 충족', dot:'var(--ok)', val: ideal+'건', sub:'평지·환승0·갭'+state.cap+'억↓·접근'+state.maxMin+'분'},
+  ];
+  document.getElementById('kpis').innerHTML = k.map(x=>`
+    <div class="kpi"><div class="lab"><span class="dot" style="background:${x.dot}"></span>${x.lab}</div>
+    <div class="val">${x.val}</div><div class="sub">${x.sub}</div></div>`).join('');
+}
+
+/* ── 그룹 비교 카드 ── */
+function median(a){ if(!a.length)return 0; const s=[...a].sort((x,y)=>x-y); const m=Math.floor(s.length/2); return s.length%2?s[m]:(s[m-1]+s[m])/2; }
+function renderGroupCards(){
+  const box=document.getElementById('groupCards'); box.innerHTML='';
+  ['송파','강동','성남','별내선','분당'].forEach(g=>{
+    const arrG=ITEMS.filter(d=>d.group===g);
+    if(!arrG.length){ return; }
+    const med=median(arrG.map(d=>d.amountManwon))/10000;
+    const gapMed=median(arrG.map(d=>d.gapManwon!=null?d.gapManwon:0))/10000;
+    const minMed=median(arrG.map(d=>d.min).filter(m=>m<90));
+    const flatPct=Math.round(arrG.filter(d=>d.terr==='평지').length/arrG.length*100);
+    const regd=arrG[0].regulated;
+    let cls='v-ok', msg;
+    if(regd){ cls='v-no'; msg='토허구역 — 갭 불가, 실입주만'; }
+    else { cls='v-ok'; msg='비규제 — 전세끼고(갭) 가능 ✓'; }
+    if(!regd && flatPct>=70 && gapMed<=CAP0) { cls='v-ok'; msg='갭 가능·평지·예산내 ✓✓'; }
+    box.innerHTML += `
+      <div class="rcard" style="border-top-color:${GCOLOR[g]}">
+        <h4><span class="dot" style="background:${GCOLOR[g]}"></span>${g}</h4>
+        <div class="big">${med?med.toFixed(1).replace(/\.0$/,'')+'억':'—'} <span style="font-size:11px;color:var(--sub);font-weight:500">매매 중앙</span></div>
+        <div class="meta">갭 중앙 <b>${gapMed?gapMed.toFixed(1).replace(/\.0$/,'')+'억':'—'}</b> · 천호 ${minMed||'—'}분 · 평지 ${flatPct}%</div>
+        <div class="verdict ${cls}">${msg}</div>
+      </div>`;
+  });
+}
+
+/* ── 테이블 ── */
+const COLS_GAP = ['단지 / 동','가까운 역','천호까지','어르신','전용/층','매매가','추정전세','갭','보기'];
+const COLS_LIVE= ['단지 / 동','가까운 역','천호까지','어르신','전용/층','매매가','필요대출','판정','보기'];
+function renderHead(){
+  const cols = state.mode==='gap'?COLS_GAP:COLS_LIVE;
+  document.getElementById('thead').innerHTML = cols.map((c,i)=>`<th class="${i===0||i===1||i===8?'l':''}">${c}</th>`).join('');
+}
+function liveCalc(d){
+  // 즉시 실입주: 보유현금 cap(억) + 대출. 필요대출 = 매매+취득비용 − 현금
+  const buy=d.amountManwon, cash=state.cap*10000;
+  const at = REG? REG.acquisitionTax(buy, d.areaM2, 1, d.regulated) : {totalManwon:buy*0.012};
+  const cost = at.totalManwon + buy*0.005; // 취득세+중개/등기 약식
+  const need = Math.max(0, buy+cost-cash);
+  let maxLoan;
+  if(REG){ const F=REG.FINANCE; const ltv=(d.regulated?F.ltvRegulated:F.ltvNonReg)*buy;
+    let capT=Infinity; for(const t of F.loanCapTiers){ if(buy<=t.maxPriceManwon){ capT=t.capManwon; break; } }
+    maxLoan=Math.min(ltv, d.regulated?capT:Infinity);
+  } else { maxLoan=buy*(d.regulated?0.4:0.7); }
+  return {need, maxLoan, ok: need<=maxLoan+1};
+}
+function renderTable(){
+  renderHead();
+  const rows=applyFilters();
+  document.getElementById('rowCount').textContent = `${rows.length}건`;
+  const tb=document.getElementById('tbody');
+  document.getElementById('emptyMsg').style.display = rows.length? 'none':'block';
+  const isGap = state.mode==='gap';
+  tb.innerHTML = rows.map(d=>{
+    const t=TERR[d.terr]||TERR['확인필요'];
+    const far=d.min>=22;
+    const gapWithinCap = d.gapEok<=state.cap;
+    // 갭 모드에서 토허(갭불가)거나 갭초과면 흐리게
+    const dim = isGap && (!d.gapOk || d.gapNoisy || !gapWithinCap);
+    const minCell = d.min>=90? '<span class="mins far">—</span>' : `<span class="mins ${far?'far':''}">${d.min}분</span>` + (d.tr>0?` <span class="pill p-toheo">환승${d.tr}</span>`:'');
+    let c6,c7,c8;
+    if(isGap){
+      c6 = `<b>${fmtEok(d.amountManwon)}</b>`;
+      c7 = `${fmtEok(d.jeonseManwon)}${d.jeonseSrc==='complex'?'':'<span class="umd">*추정</span>'}`;
+      c8 = !d.gapOk
+        ? `<span class="pill p-toheo">토허·갭불가</span>`
+        : d.gapNoisy
+          ? `<span class="umd">${fmtEok(d.gapManwon)}</span> <span class="pill p-toheo">전세≥매매·확인</span>`
+          : `<b>${fmtEok(d.gapManwon)}</b> ${gapWithinCap?'<span class="pill p-gap">'+state.cap+'억내</span>':''}`;
+    } else {
+      const lc=liveCalc(d);
+      c6 = `<b>${fmtEok(d.amountManwon)}</b>`;
+      c7 = fmtEok(lc.need);
+      c8 = lc.ok? `<span class="pill p-gap">가능</span>` : `<span class="pill p-toheo">한도초과</span>`;
+    }
+    const aptQ = d.apt;
+    return `<tr class="${dim?'dim':''}">
+      <td class="l apt"><span class="rtag" style="background:${GCOLOR[d.group]}"></span>${d.apt}
+        ${d.isNew?'<span class="pill p-new">NEW</span>':''}${d.regulated?'<span class="pill p-toheo">토허</span>':'<span class="pill p-gap">비규제</span>'}
+        <div class="umd">${d.region} ${d.umd} · 준공 ${d.buildYear||'-'}</div></td>
+      <td class="l">${d.st}<div class="umd">${d.line==='-'?'버스권':(/[^\d·]/.test(d.line)?d.line+'선':d.line+'호선')}</div></td>
+      <td>${minCell}</td>
+      <td><span class="terr ${t.cls}">${t.txt}</span></td>
+      <td>${d.areaM2}㎡<div class="umd">${d.pyeong.toFixed(0)}평 · ${d.floor}층${d.lowFloor?' <span class="pill p-low">저</span>':''}</div></td>
+      <td>${c6}</td><td>${c7}</td><td>${c8}</td>
+      <td class="l"><a class="btn nv" target="_blank" href="${nQuery(aptQ+' 매물')}">매물</a>
+        <a class="btn" target="_blank" href="${nMap(d.umd+' '+aptQ)}">지도</a></td>
+    </tr>`;
+  }).join('');
+}
+
+/* ── 천호 노선 안내 ── */
+function renderLineview(){
+  const stops=[
+    ['천호',0],['강동구청',2],['(암사)',2],['잠실',7],['석촌',9],['송파',11],
+    ['가락시장',13],['문정',15],['장지',17],['복정',19],['산성',21],['단대오거리',25],['신흥',27],['모란',31]
+  ];
+  const north=[['(천호 북)',0],['암사',2],['구리',11],['다산',15],['별내',18]];
+  document.getElementById('lineview').innerHTML =
+    `<div><b>남쪽(송파·성남 방향)</b> ${stops.map(s=>`<span class="st">${s[0]} ${s[1]}분</span>`).join('')}</div>`+
+    `<div style="margin-top:6px"><b>북쪽(별내선·비규제)</b> ${north.map(s=>`<span class="st">${s[0]} ${s[1]}분</span>`).join('')}</div>`+
+    `<div class="note" style="margin-top:8px">· 8호선 한 노선으로 <b>환승 없이</b> 천호 도달. 5호선(강동·둔촌·방이·오금·거여·마천)도 천호 경유 0환승. · 분 단위는 표정속도 기반 <b>개략 추정</b>(실제는 배차·도보 포함).</div>`;
+}
+
+/* ── 자금 계산기 ── */
+function num(id,def){ const v=parseFloat(document.getElementById(id).value); return isFinite(v)?v:def; }
+const eokTxt = m => (Math.abs(m)/10000>=1 ? ((m/10000>=10?(m/10000).toFixed(1):(m/10000).toFixed(2)).replace(/\.?0+$/,'')+'억') : (Math.round(m).toLocaleString()+'만'));
+function pmt(p,annualPct,years){ const i=annualPct/100/12,n=years*12; return i<=0?p/n:p*i/(1-Math.pow(1+i,-n)); }
+function renderCalc(){
+  const buy=num('ci_buy',9)*10000, jeonse=num('ci_jeonse',5)*10000, cash=num('ci_cash',5)*10000;
+  const income=num('ci_income',6000), rate=num('ci_rate',4.5), years=num('ci_years',30);
+  const reg=document.getElementById('ci_reg').checked, over85=document.getElementById('ci_over85').checked;
+  const at = REG? REG.acquisitionTax(buy, over85?86:84, 1, reg) : {totalManwon:Math.round(buy*0.012), ratePct:1.2};
+  const broker = buy*0.005, etc=200;
+  const buyCost = at.totalManwon+broker+etc;
+  // 갭(전세끼고): 지금 필요한 현금 = 매매 − 전세 + 부대비용
+  const gapNow = buy - jeonse + buyCost;
+  // 3~4년 후 입주 시: 전세금 반환 필요 = 전세 (그때 대출/현금으로)
+  const moveInFund = jeonse;
+  // 실입주(즉시): 필요대출 = 매매+부대 − 현금
+  const need = Math.max(0, buy+buyCost-cash);
+  let maxLoan, bind;
+  if(REG){ const F=REG.FINANCE; const ltv=(reg?F.ltvRegulated:F.ltvNonReg)*buy;
+    let capT=Infinity; for(const t of F.loanCapTiers){ if(buy<=t.maxPriceManwon){ capT=t.capManwon; break; } }
+    const stress=(reg?F.stressRateFloorPct:F.stressRateAddPct);
+    const dsrM=income*F.dsrLimit/12, ir=(rate+stress)/100/12, n=years*12;
+    const dsr= ir<=0? dsrM*n : dsrM*(1-Math.pow(1+ir,-n))/ir;
+    const cands=[['LTV',ltv]]; if(reg)cands.push(['한도캡',capT]); cands.push(['DSR',dsr]);
+    maxLoan=Math.min(...cands.map(c=>c[1])); bind=cands.find(c=>c[1]===maxLoan)[0];
+  } else { maxLoan=buy*(reg?0.4:0.7); bind='LTV'; }
+  const monthly=pmt(need,rate,years), ok=need<=maxLoan+1;
+  const gapMode = state.mode==='gap';
+  const cards = gapMode ? [
+    {l:'지금 필요 현금(갭)', v:eokTxt(gapNow), s:'매매−전세+부대', cls:'hl'},
+    {l:'보유현금', v:eokTxt(cash), s: gapNow<=cash?'충분 ✓':'부족'},
+    {l:'취득세 등', v:eokTxt(at.totalManwon), s:`세율 ${at.ratePct}%`},
+    {l:'갭 자본 판정', v: gapNow<=cash?'가능 ✅':'현금부족 ⚠', s: gapNow<=cash?`여유 ${eokTxt(cash-gapNow)}`:`${eokTxt(gapNow-cash)} 부족`, cls: gapNow<=cash?'good':'bad'},
+    {l:'3~4년 후 입주자금', v:eokTxt(moveInFund), s:'전세금 반환(그때 대출/현금)', cls:'warn'},
+    {l:'규제 확인', v: reg?'토허구역 ⚠':'비규제 ✓', s: reg?'갭 원칙 불가·실거주의무':'전세끼고 가능', cls: reg?'bad':'good'},
+  ] : [
+    {l:'취득세 등', v:eokTxt(at.totalManwon), s:`세율 ${at.ratePct}%`},
+    {l:'총 매수비용', v:eokTxt(buy+buyCost), s:`부대 ${eokTxt(buyCost)}`, cls:'hl'},
+    {l:'보유현금', v:eokTxt(cash), s:'자기자본'},
+    {l:'필요 대출', v:eokTxt(need), s:'총비용−현금', cls: need>0?'warn':'good'},
+    {l:'대출 가능한도', v:eokTxt(maxLoan), s:bind+(reg?' (규제)':'')},
+    {l:'월 상환', v: need>0?Math.round(monthly).toLocaleString()+'만':'—', s:`${rate}%·${years}년`},
+    {l:'판정', v: ok?'가능 ✅':'한도초과 ⚠', s: ok?`여유 ${eokTxt(maxLoan-need)}`:`${eokTxt(need-maxLoan)} 부족`, cls: ok?'good':'bad'},
+  ];
+  document.getElementById('calcOut').innerHTML = cards.map(c=>`<div class="co ${c.cls||''}"><div class="l">${c.l}</div><div class="v">${c.v} ${c.s?`<small>${c.s}</small>`:''}</div></div>`).join('');
+  document.getElementById('calcNote').innerHTML = gapMode
+    ? `<b>전세 끼고 매수(갭)</b>: 지금은 ‘매매−전세’ 차액만 있으면 되지만, <b>토허구역(송파·강동·성남)은 실거주 목적만 허가</b>되어 갭이 원칙적으로 불가합니다. 비규제(구리·다산·별내)에서만 현실적. 3~4년 뒤 입주할 때 전세보증금 반환분(=위 입주자금)을 별도로 마련해야 합니다.`
+    : `<b>즉시 실입주+대출</b>: 규제지역 LTV 40%·수도권 한도캡(15억↓ 6억)·DSR 40% 중 가장 낮은 값이 한도입니다. 취득세·DSR은 추정치 — 정확한 값은 은행·세무사 확인.`;
+}
+
+/* ── 실시간 호가 링크 ── */
+function renderLiveLinks(){
+  const groups={'송파':'송파구 아파트','강동':'강동구 아파트','성남':'성남 아파트','별내선':'다산신도시 아파트'};
+  const extra=[['다산신도시','다산신도시 아파트 매매'],['별내신도시','별내 아파트 매매'],['구리역','구리역 아파트'],['문정·장지','문정동 아파트 매매'],['천호역','천호동 아파트 매매']];
+  let h = Object.entries(groups).map(([k,v])=>`<a class="btn nv" target="_blank" href="${nQuery(v+' 매매')}">📍 ${k} 호가매물</a>`).join('');
+  h += extra.map(e=>`<a class="btn" target="_blank" href="${nQuery(e[1])}">🔎 ${e[0]}</a>`).join('');
+  document.getElementById('liveLinks').innerHTML=h;
+}
+
+/* ── footer ── */
+document.getElementById('foot').innerHTML =
+  `데이터: 국토교통부 아파트 매매·전월세 실거래가(공공데이터포털) · 신고 기준이라 계약일 대비 1~2개월 시차. 갭=매매가−단지 전세 실거래 중앙값(없으면 지역 전세가율 추정, *표시).<br>`+
+  `규제: ${REG?REG.asOf:'10·15 대책'} — 송파·강동·성남=토지거래허가구역(실거주의무 2년·갭 원칙 불가). 지형(평지/경사)·소요시간은 개략 추정이며 단지별 현장확인 필수. 본 화면은 참고용입니다.`;
+
+/* ── 이벤트 ── */
+function rerender(){ renderKPIs(); renderGroupCards(); renderTable(); }
+document.querySelectorAll('.chip[data-group]').forEach(c=>c.onclick=()=>{
+  const g=c.dataset.group; if(state.groups.has(g))state.groups.delete(g); else state.groups.add(g);
+  c.classList.toggle('on'); rerender();
+});
+document.querySelectorAll('.chip[data-area]').forEach(c=>c.onclick=()=>{
+  document.querySelectorAll('.chip[data-area]').forEach(x=>x.classList.remove('on')); c.classList.add('on');
+  state.areaPreset=c.dataset.area; renderTable();
+});
+document.querySelectorAll('#modeSeg button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#modeSeg button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+  state.mode=b.dataset.mode;
+  document.getElementById('capLab').textContent = state.mode==='gap'?'갭 상한':'보유현금';
+  renderTable(); renderKPIs(); renderCalc();
+});
+const cap=document.getElementById('cap');
+cap.oninput=()=>{ state.cap=+cap.value; document.getElementById('capNow').textContent=(+cap.value)%1?(+cap.value).toFixed(1):cap.value; rerender(); };
+const mins=document.getElementById('mins');
+mins.oninput=()=>{ state.maxMin=+mins.value; document.getElementById('minsNow').textContent=mins.value; rerender(); };
+document.getElementById('noTransfer').onchange=e=>{state.noTransfer=e.target.checked;renderTable();renderKPIs();};
+document.getElementById('flatOnly').onchange=e=>{state.flatOnly=e.target.checked;renderTable();};
+document.getElementById('lowOnly').onchange=e=>{state.lowOnly=e.target.checked;renderTable();};
+document.getElementById('q').oninput=e=>{state.q=e.target.value;renderTable();};
+document.getElementById('sort').onchange=e=>{state.sort=e.target.value;renderTable();};
+['ci_buy','ci_jeonse','ci_cash','ci_income','ci_rate','ci_years','ci_reg','ci_over85'].forEach(id=>{
+  const el=document.getElementById(id); el.addEventListener('input',renderCalc); el.addEventListener('change',renderCalc); });
+
+/* ── 시작 ── */
+document.getElementById('capNow').textContent=CAP0; cap.value=CAP0; state.cap=CAP0;
+renderLineview(); renderLiveLinks(); renderCalc(); rerender();
+</script>
+</body>
+</html>
