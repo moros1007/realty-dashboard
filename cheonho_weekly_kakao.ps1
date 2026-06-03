@@ -43,40 +43,41 @@ function Median([double[]]$a){ if(-not $a -or $a.Count -eq 0){return 0}; $s=$a|S
 function Eok1($m){ [math]::Round($m/10000,1) }
 $flatDong = @('수택동','지금동','다산동','도농동','가운동','별내동')
 
-# ── (A) 이번 주 추천: 별내선 평지 · 전용 78~92㎡ · 갭 5억↓ · 전세≤매매 ─────────
+# ── (A) 이번 주 추천: 별내선 평지 · 전용 55㎡↑ · 매매 5억선(전세끼고 3~4년 가능) ──
+$bandMan  = $capManwon + 5000     # '5억선' = +0.5억 여유
+$floorMan = 35000                 # 과저가(복도식·초소형) 제외
+$gangNear = @('천호동','성내동','풍납동','둔촌동')   # 강동 평지(천호 인접)
 $pickRaw = $items | Where-Object {
   $_.group -eq '별내선' -and $flatDong -contains $_.umd -and
-  $_.areaM2 -ge 78 -and $_.areaM2 -le 92 -and
-  $_.gapManwon -gt 0 -and $_.gapManwon -le $capManwon -and $_.jeonseManwon -le $_.amountManwon
-} | Sort-Object gapManwon
-# 같은 단지 중복 제거(단지명 기준 최저 갭 1건)
+  $_.areaM2 -ge 55 -and $_.amountManwon -ge $floorMan -and $_.amountManwon -le $bandMan
+} | Sort-Object @{Expression='buildYear';Descending=$true}, amountManwon
+# 같은 단지 중복 제거(단지명 기준 1건)
 $seen=@{}; $picksAll=@()
 foreach($p in $pickRaw){ if(-not $seen.ContainsKey($p.apt)){ $seen[$p.apt]=$true
-  $picksAll += [ordered]@{ region=$p.region; apt=$p.apt; umd=$p.umd; areaM2=$p.areaM2; floor=$p.floor;
+  $picksAll += [ordered]@{ region=$p.region; apt=$p.apt; umd=$p.umd; areaM2=$p.areaM2; floor=$p.floor; buildYear=$p.buildYear;
     priceEok=Eok1 $p.amountManwon; jeonseEok=Eok1 $p.jeonseManwon; gapEok=Eok1 $p.gapManwon;
-    st=DongSt $p.umd; min=DongMin $p.umd; terr=DongTerr $p.umd } } }
-$pickPoolN = $picksAll.Count          # 별내선 평지 84㎡ 갭5억↓ 추천 후보(단지, 중복 제거) 수
+    st=DongSt $p.umd; min=DongMin $p.umd; terr=DongTerr $p.umd; strategy='전세끼고' } } }
+$pickPoolN = $picksAll.Count          # 별내선 평지 매매5억선 추천 후보(단지) 수
 $picks = @($picksAll | Select-Object -First 8)
 
-# ── (B) 천호 코앞 강동(천호·성내·풍납) 실입주 후보: 전용 49㎡↑ 저가순 ────────────
-$liveRaw = $items | Where-Object { $_.group -eq '강동' -and @('천호동','성내동','풍납동') -contains $_.umd -and $_.areaM2 -ge 49 } | Sort-Object amountManwon
+# ── (B) 천호 코앞 강동(천호·성내·풍납·둔촌) 즉시 실입주: 매매 5억선 ───────────────
+$liveRaw = $items | Where-Object { $_.group -eq '강동' -and $gangNear -contains $_.umd -and $_.areaM2 -ge 49 -and $_.amountManwon -ge $floorMan -and $_.amountManwon -le $bandMan } | Sort-Object @{Expression='buildYear';Descending=$true}, amountManwon
 $seen2=@{}; $liveIn=@()
 foreach($p in $liveRaw){ if(-not $seen2.ContainsKey($p.apt)){ $seen2[$p.apt]=$true
-  $liveIn += [ordered]@{ region=$p.region; apt=$p.apt; umd=$p.umd; areaM2=$p.areaM2;
-    priceEok=Eok1 $p.amountManwon; st=DongSt $p.umd; min=DongMin $p.umd } } }
-$liveIn = @($liveIn | Select-Object -First 5)
+  $liveIn += [ordered]@{ region=$p.region; apt=$p.apt; umd=$p.umd; areaM2=$p.areaM2; buildYear=$p.buildYear;
+    priceEok=Eok1 $p.amountManwon; jeonseEok=Eok1 $p.jeonseManwon; st=DongSt $p.umd; min=DongMin $p.umd; strategy='실입주' } } }
+$liveIn = @($liveIn | Select-Object -First 6)
 
-# ── (C) 그룹 비교 통계 ──────────────────────────────────────────────────────
+# ── (C) 그룹 비교 통계 (매매 5억선 단지 수) ───────────────────────────────────
 $groups=@()
 foreach($g in @('별내선','강동','송파','성남','분당')){
   $arrG=@($items | Where-Object { $_.group -eq $g }); if($arrG.Count -eq 0){continue}
   $reg=IsRegulated $arrG[0].code
-  $flat=@($arrG | Where-Object { $flatDong -contains $_.umd -or @('천호동','성내동','풍납동','둔촌동') -contains $_.umd })
   $groups += [ordered]@{
     group=$g; regulated=$reg
     saleMedEok = Eok1 (Median ([double[]]($arrG | %{ $_.amountManwon })))
     gapMedEok  = Eok1 (Median ([double[]]($arrG | %{ [double]$_.gapManwon })))
-    gapFit     = @($arrG | Where-Object { -not (IsRegulated $_.code) -and $_.gapManwon -gt 0 -and $_.gapManwon -le $capManwon } | Select-Object -ExpandProperty apt -Unique).Count
+    gapFit     = @($arrG | Where-Object { $_.amountManwon -le $bandMan } | Select-Object -ExpandProperty apt -Unique).Count
     count      = $arrG.Count
   }
 }
@@ -112,13 +113,14 @@ $fullUrl = ("$($cfg.dashboardUrl)").TrimEnd('/') + '/cheonho.html'
 if ([string]::IsNullOrWhiteSpace("$($cfg.dashboardUrl)") -or "$($cfg.dashboardUrl)" -like '*<*') { $fullUrl = $shareUrl }
 
 $cardItems = @()
-foreach($p in (@($picks | Select-Object -First 4))){
-  $cardItems += @{ item = ("{0} {1}" -f $p.region, $p.apt); item_op = ("{0}㎡ {1}억·갭{2}억·천호{3}분" -f [int][math]::Floor([double]$p.areaM2), $p.priceEok, $p.gapEok, $p.min) }
+foreach($p in (@($picks | Select-Object -First 3))){
+  $cardItems += @{ item = ("별내선 {0}" -f $p.apt); item_op = ("{0}㎡ 매매{1}억·천호{2}분·전세끼고" -f [int][math]::Floor([double]$p.areaM2), $p.priceEok, $p.min) }
 }
-$liveBaseEok = if ($liveIn.Count) { [int][math]::Floor([double]$liveIn[0].priceEok) } else { 5 }
-$cardItems += @{ item='천호 코앞(강동)'; item_op = ("실입주 84㎡ {0}억대~ · 토허라 갭불가" -f $liveBaseEok) }
+foreach($p in (@($liveIn | Select-Object -First 2))){
+  $cardItems += @{ item = ("강동 {0}" -f $p.apt); item_op = ("{0}㎡ 매매{1}억·천호{2}분·실입주" -f [int][math]::Floor([double]$p.areaM2), $p.priceEok, $p.min) }
+}
 
-$desc = "자본 ${capEok}억 · 전세끼고 3~4년 후 입주`n✅ 가능: 비규제 별내선(다산·별내, 평지·천호 8호선 직통)`n⚠ 송파·강동·성남·분당=토허구역(갭 불가, 실입주만)`n별내선 평지 84㎡ 추천 후보 ${byeollaeFit}곳"
+$desc = "매매 ${capEok}억선 · 천호 접근 · 어르신 평지`n천호 코앞 강동: 5억대 실입주 가능(토허라 전세끼고 불가)`n전세끼고 3~4년: 비규제 별내선(다산·별내·평지)`n별내선 매매5억선 평지 ${byeollaeFit}곳"
 $template = @{
   object_type = 'feed'
   content = @{
