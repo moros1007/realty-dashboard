@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>수도권 미분양·분양권 + 자금계획 대시보드</title>
+<style>
+  :root{
+    --bd:#3b82f6; --pc:#10b981; --gc:#f59e0b; --my:#8b5cf6; --rd:#ef4444;
+    --ink:#1e293b; --sub:#64748b; --line:#e2e8f0; --bg:#f1f5f9; --card:#ffffff;
+    --ok:#16a34a; --warn:#dc2626;
+    --shadow:0 1px 3px rgba(15,23,42,.08),0 1px 2px rgba(15,23,42,.04);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Pretendard','Apple SD Gothic Neo','Malgun Gothic',-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1240px;margin:0 auto;padding:20px 16px 80px}
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+  h1{font-size:22px;margin:0;letter-spacing:-.4px}
+  h1 small{display:block;font-size:13px;color:var(--sub);font-weight:500;margin-top:4px}
+  .updated{font-size:12.5px;color:var(--sub);text-align:right}
+  .updated b{color:var(--ink)}
+  .banner{background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:12px;
+    padding:12px 16px;font-size:13px;margin:12px 0;display:flex;gap:10px;align-items:flex-start}
+  .banner.live{background:#ecfdf5;border-color:#a7f3d0;color:#065f46}
+  .banner code{background:rgba(0,0,0,.06);padding:1px 6px;border-radius:5px;font-size:12px}
+
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+  .kpi .lab{font-size:12.5px;color:var(--sub);display:flex;align-items:center;gap:6px}
+  .kpi .val{font-size:24px;font-weight:800;letter-spacing:-.5px;margin-top:4px}
+  .kpi .sub{font-size:12px;color:var(--sub);margin-top:2px}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);margin-bottom:14px;overflow:hidden}
+  .panel>.ph{padding:13px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .panel>.ph h3{margin:0;font-size:15px}
+  .panel .pb{padding:14px 16px}
+  .note{font-size:12px;color:var(--sub)}
+
+  /* 자금계획 컨트롤 */
+  .controls{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 22px}
+  .ctl{display:flex;flex-direction:column;gap:5px}
+  .ctl label{font-size:12.5px;color:var(--sub);display:flex;justify-content:space-between;align-items:center}
+  .ctl label b{color:var(--ink);font-size:13.5px}
+  .ctl input[type=range]{width:100%}
+  .ctl select{padding:6px 9px;border:1px solid var(--line);border-radius:8px;font-size:13px;background:#fff}
+  .sumline{margin-top:12px;padding:10px 12px;background:#f8fafc;border:1px solid var(--line);border-radius:10px;font-size:12.5px;color:var(--ink);display:flex;gap:18px;flex-wrap:wrap}
+  .sumline b{color:var(--bd)}
+
+  /* 필터 */
+  .filters{display:flex;gap:10px 14px;flex-wrap:wrap;align-items:center}
+  .chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:13px;cursor:pointer;user-select:none;transition:.12s}
+  .chip:hover{border-color:#cbd5e1}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .fgrp{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--sub)}
+  .toggle{display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer}
+  select.sortsel,.txt{padding:6px 9px;border:1px solid var(--line);border-radius:8px;font-size:13px;background:#fff}
+  .txt{width:150px}
+
+  /* 배지 */
+  .bdg{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:999px;margin:0 4px 2px 0;vertical-align:middle;white-space:nowrap}
+  .b-kind-분양권{background:#e0f2fe;color:#0369a1}
+  .b-kind-무순위{background:#fae8ff;color:#a21caf}
+  .b-kind-미분양{background:#fef3c7;color:#b45309}
+  .b-kind-분양{background:#dcfce7;color:#15803d}
+  .b-reg{background:#fee2e2;color:#b91c1c}
+  .b-pc{background:#ede9fe;color:#6d28d9}
+  .b-duty{background:#fff7ed;color:#c2410c;border:1px solid #fed7aa}
+  .b-free{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0}
+
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{padding:9px 10px;text-align:right;border-bottom:1px solid #eef2f7;white-space:nowrap}
+  th{font-size:11.5px;color:var(--sub);font-weight:600;cursor:pointer;position:sticky;top:0;background:#fff;z-index:1}
+  th.l,td.l{text-align:left}
+  tbody tr{cursor:pointer}
+  tbody tr:hover{background:#f8fafc}
+  tbody tr.sel{background:#eff6ff}
+  td.apt{font-weight:700;max-width:220px;white-space:normal;line-height:1.35}
+  td.apt .umd{font-weight:500;color:var(--sub);font-size:11.5px}
+  .feas{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:5px}
+  .tablewrap{max-height:600px;overflow:auto}
+  .empty{padding:40px;text-align:center;color:var(--sub);font-size:13.5px}
+  .bind{font-size:10px;color:var(--sub);display:block}
+
+  /* 상세 */
+  .detail{display:grid;grid-template-columns:1.1fr 1fr;gap:16px}
+  .dbox{border:1px solid var(--line);border-radius:12px;padding:14px}
+  .dbox h4{margin:0 0 10px;font-size:14px;display:flex;align-items:center;gap:8px}
+  .kv{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px dashed #eef2f7}
+  .kv:last-child{border-bottom:0}
+  .kv b{font-weight:700}
+  .big{font-size:22px;font-weight:800;letter-spacing:-.5px}
+  .tl{position:relative;margin-top:6px}
+  .tlrow{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px dashed #eef2f7}
+  .tlrow:last-child{border-bottom:0}
+  .tldot{width:10px;height:10px;border-radius:50%;background:var(--bd);margin-top:5px;flex:0 0 auto}
+  .tlrow.move .tldot{background:var(--rd)}
+  .tlmid .tldot{background:#cbd5e1}
+  .tlbody{flex:1;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .tlbody .lab{font-weight:700;font-size:13px}
+  .tlbody .ym{font-size:12px;color:var(--sub)}
+  .tlbody .amt{font-weight:700;font-size:13px}
+  .feasbar{height:24px;border-radius:7px;overflow:hidden;display:flex;background:#eef2f7;margin:6px 0}
+  .feasbar .s{height:100%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700}
+  .feasbar .equity{background:linear-gradient(90deg,#8b5cf6,#a78bfa)}
+  .feasbar .loan{background:linear-gradient(90deg,#0ea5e9,#38bdf8)}
+  .verdict{margin-top:8px;font-size:12.5px;font-weight:700;padding:7px 11px;border-radius:8px;display:inline-block}
+  .v-ok{background:#dcfce7;color:#15803d}.v-no{background:#fee2e2;color:#b91c1c}
+  .btn{display:inline-flex;align-items:center;gap:4px;font-size:12px;border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 11px;cursor:pointer;text-decoration:none;color:var(--ink);transition:.12s}
+  .btn:hover{background:#f1f5f9;border-color:#cbd5e1}
+  .btn.nv{border-color:#03c75a55;color:#067a37}
+  .btn.cy{border-color:#3b82f655;color:#1d4ed8}
+
+  .charts{display:grid;grid-template-columns:1.4fr 1fr;gap:12px}
+  .chartbox{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:14px 16px}
+  .chartbox h3{margin:0 0 10px;font-size:14px}
+  .chartbox .cv{position:relative;height:240px}
+
+  footer{margin-top:22px;font-size:11.5px;color:#94a3b8;line-height:1.7;text-align:center}
+  @media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.controls{grid-template-columns:1fr 1fr}.detail{grid-template-columns:1fr}.charts{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<!-- 도메인 엔진 -->
+<script src="engine/regulations.js"></script>
+<script src="engine/residence.js"></script>
+<script src="engine/finance.js"></script>
+<!-- 데이터: 실데이터(presale) 우선, 없으면 예시(sample) -->
+<script src="data/presale-sample.js"></script>
+<script src="data/presale.js" onerror="window.__noLive=1"></script>
+<!-- 라이브러리(로컬 vendor → 실패 시 CDN 폴백) -->
+<script src="lib/react.production.min.js"></script>
+<script>window.React||document.write('<scr'+'ipt src="https://unpkg.com/react@18/umd/react.production.min.js"><\/scr'+'ipt>')</script>
+<script src="lib/react-dom.production.min.js"></script>
+<script>window.ReactDOM||document.write('<scr'+'ipt src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"><\/scr'+'ipt>')</script>
+<script src="lib/htm.umd.js"></script>
+<script>window.htm||document.write('<scr'+'ipt src="https://unpkg.com/htm@3/dist/htm.umd.js"><\/scr'+'ipt>')</script>
+<script src="lib/chart.umd.min.js"></script>
+<script>window.Chart||document.write('<scr'+'ipt src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"><\/scr'+'ipt>')</script>
+
+<script>
+const { useState, useMemo, useEffect, useRef } = React;
+/* htm→React 어댑터: 문자열 style("a:b;c:d") → 객체, class → className 자동 변환
+   (React 는 style 을 객체로만 받음 — 문자열이면 error #62) */
+function h(type, props) {
+  var args = Array.prototype.slice.call(arguments, 2);
+  if (props) {
+    var np = props;
+    if (props.class != null && props.className == null) { np = Object.assign({}, props); np.className = np.class; delete np.class; }
+    if (typeof np.style === 'string') {
+      if (np === props) np = Object.assign({}, props);
+      var o = {};
+      np.style.split(';').forEach(function (d) {
+        var i = d.indexOf(':'); if (i > 0) {
+          var k = d.slice(0, i).trim().replace(/-([a-z])/g, function (_, c) { return c.toUpperCase(); });
+          o[k] = d.slice(i + 1).trim();
+        }
+      });
+      np.style = o;
+    }
+    props = np;
+  }
+  return React.createElement.apply(React, [type, props].concat(args));
+}
+const html = htm.bind(h);
+const REG = window.REG, RES = window.RES, FIN = window.FIN;
+/* 세부지역 그룹: 경기=시(분당구·수정구 → 성남시), 서울/인천=구 단위 그대로 */
+function regionGroup(code, region) {
+  if (REG.sidoOf(code) === '경기') { const i = region.indexOf(' '); return i > 0 ? region.slice(0, i) + '시' : region; }
+  return region;
+}
+const shortRegion = key => key.replace(/^서울 |^인천 /, '');
+
+/* ── 데이터 선택 ── */
+const LIVE = (window.PRESALE_DATA && window.PRESALE_DATA.items && window.PRESALE_DATA.items.length) ? window.PRESALE_DATA : null;
+const DATA = LIVE || window.PRESALE_SAMPLE;
+const isSample = !LIVE;
+
+/* ── 포맷터 ── */
+const PY = 3.305785;
+const eok = m => { if (m == null) return '-'; const e = m / 10000; return (Math.abs(e) >= 10 ? e.toFixed(1) : e.toFixed(2)).replace(/\.?0+$/, '') + '억'; };
+const man = m => (m == null ? '-' : Math.round(m).toLocaleString() + '만');
+const pyText = a => a ? (a / PY).toFixed(0) + '평' : '';
+const enc = encodeURIComponent;
+const nMap = s => 'https://map.naver.com/p/search/' + enc(s);
+const nQuery = s => 'https://search.naver.com/search.naver?query=' + enc(s);
+const KIND_COLOR = { '분양권': '#0ea5e9', '무순위': '#a21caf', '미분양': '#f59e0b', '분양': '#16a34a' };
+const SIDO_COLOR = { '서울': '#3b82f6', '경기': '#10b981', '인천': '#f59e0b', '기타': '#94a3b8' };
+
+/* ── 슬라이더 ── */
+function Slider({ label, value, set, min, max, step, fmt }) {
+  return html`<div class="ctl">
+    <label>${label} <b>${fmt ? fmt(value) : value}</b></label>
+    <input type="range" min=${min} max=${max} step=${step} value=${value}
+      onInput=${e => set(parseFloat(e.target.value))} />
+  </div>`;
+}
+
+function Controls({ p, setP }) {
+  const set = (k) => (v) => setP(s => ({ ...s, [k]: v }));
+  const cash = p.cashEok * 10000;
+  const monthlyDsrCap = p.incomeManwon > 0 ? Math.round(p.incomeManwon * REG.FINANCE.dsrLimit / 12) : 0;
+  const qualRate = (p.ratePct + REG.FINANCE.stressRateFloorPct).toFixed(1);
+  return html`<div class="panel">
+    <div class="ph"><h3>💰 자금계획 가정 <span class="note">(슬라이더를 움직이면 아래 모든 물량의 대출·월납부·초기자금이 즉시 재계산됩니다)</span></h3></div>
+    <div class="pb">
+      <div class="controls">
+        <${Slider} label="보유 현금(자기자본)" value=${p.cashEok} set=${set('cashEok')} min=${0} max=${30} step=${0.5} fmt=${v => v + '억'} />
+        <${Slider} label="주담대 금리(연)" value=${p.ratePct} set=${set('ratePct')} min=${2.5} max=${8} step=${0.1} fmt=${v => v.toFixed(1) + '%'} />
+        <${Slider} label="상환기간" value=${p.termYears} set=${set('termYears')} min=${10} max=${40} step=${5} fmt=${v => v + '년'} />
+        <${Slider} label="연소득(DSR 산정)" value=${p.incomeManwon} set=${set('incomeManwon')} min=${2000} max=${30000} step=${500} fmt=${v => (v / 10000).toFixed(2).replace(/\.?0+$/, '') + '억'} />
+        <div class="ctl">
+          <label>취득 후 보유 주택수</label>
+          <select value=${p.homeCountAfter} onChange=${e => setP(s => ({ ...s, homeCountAfter: parseInt(e.target.value) }))}>
+            <option value=${1}>1주택(실수요)</option>
+            <option value=${2}>2주택</option>
+            <option value=${3}>3주택 이상</option>
+          </select>
+        </div>
+        <div class="ctl">
+          <label>중도금 대출 방식</label>
+          <select value=${p.midInterestMode} onChange=${e => setP(s => ({ ...s, midInterestMode: e.target.value }))}>
+            <option value="deferred">이자후불제(이자 매월 납부)</option>
+            <option value="free">무이자</option>
+          </select>
+        </div>
+      </div>
+      <div class="sumline">
+        <span>보유현금 <b>${eok(cash)}</b></span>
+        <span>DSR 월상환 한도(40%) <b>${man(monthlyDsrCap)}원</b></span>
+        <span>스트레스 적용금리(한도산정) <b>${qualRate}%</b></span>
+        <span>규제지역 LTV <b>${(REG.FINANCE.ltvRegulated * 100)}%</b> · 대출상한 6/4/2억</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+function Badges({ list }) {
+  return list.map((b, i) => html`<span key=${i} class="bdg ${b.cls}">${b.text}</span>`);
+}
+
+/* ── 상세 패널 ── */
+function Detail({ row, params }) {
+  if (!row) return html`<div class="panel"><div class="pb note">표에서 물량을 클릭하면 자금 타임라인·대출구성·실거주의무 상세가 여기에 표시됩니다.</div></div>`;
+  const { item, res } = row;
+  const plan = FIN.buildPlan(item, Object.assign({}, params, { withTimeline: true }));
+  const hasPrice = item.priceManwon > 0;
+  const eq = plan.equityNeededManwon, ln = plan.loan.finalManwon, tot = eq + ln || 1;
+  return html`<div class="panel">
+    <div class="ph"><h3>${item.apt} <span class="note">${item.region}${item.umd ? ' · ' + item.umd : ''} · 전용 ${item.areaM2 || '-'}㎡ ${pyText(item.areaM2)}</span></h3>
+      <div><${Badges} list=${res.badges} /></div>
+    </div>
+    <div class="pb">
+      ${!hasPrice && html`<div class="banner" style="margin-top:0">분양가(공급가) 정보가 없어 자금계산을 생략합니다. 청약홈에서 단지 상세를 확인하세요.</div>`}
+      <div class="detail">
+        <div class="dbox">
+          <h4>🧾 자금 구성</h4>
+          <div class="kv"><span>가격(${item.kind === '분양권' ? '분양권 거래가' : '분양가'})</span><b>${eok(item.priceManwon)}</b></div>
+          <div class="kv"><span>계약금(${Math.round((plan.breakdown.contract / item.priceManwon) * 100) || 10}%)</span><b>${eok(plan.breakdown.contract)}</b></div>
+          <div class="kv"><span>중도금(${Math.round((plan.breakdown.mid / item.priceManwon) * 100) || 60}%, 6회)</span><b>${eok(plan.breakdown.mid)} <span class="note">(회당 ${man(plan.breakdown.midPerRound)})</span></b></div>
+          <div class="kv"><span>잔금(${Math.round((plan.breakdown.balance / item.priceManwon) * 100) || 30}%)</span><b>${eok(plan.breakdown.balance)}</b></div>
+          <div class="kv"><span>취득세 등(${plan.tax.ratePct}%${plan.tax.over85 ? ', 85㎡↑' : ''})</span><b>${man(plan.tax.totalManwon)}</b></div>
+          <div class="kv"><span>분양권 프리미엄</span><b>${plan.upfrontCashManwon - plan.breakdown.contract > 0 ? eok(plan.upfrontCashManwon - plan.breakdown.contract) : '— (입력 시 반영)'}</b></div>
+          <h4 style="margin-top:14px">🏦 대출 가능액</h4>
+          <div class="big" style="color:var(--bd)">${eok(plan.loan.finalManwon)} <span class="note" style="font-size:12px">(${plan.loan.binding} 기준)</span></div>
+          <div class="kv"><span>LTV ${plan.loan.ltvPct}%</span><b>${eok(plan.loan.byLtv)}</b></div>
+          ${plan.loan.byCap != null && html`<div class="kv"><span>수도권 절대한도</span><b>${eok(plan.loan.byCap)}</b></div>`}
+          ${plan.loan.byDsr != null && html`<div class="kv"><span>DSR 한도(스트레스 ${plan.loan.qualRatePct}%)</span><b>${eok(plan.loan.byDsr)}</b></div>`}
+        </div>
+        <div class="dbox">
+          <h4>📅 자금 소요 시기 (타임라인)</h4>
+          <div class="tl">
+            ${plan.timeline.map((t, i) => html`<div key=${i} class="tlrow ${t.label.indexOf('잔금') >= 0 ? 'move' : (t.label.indexOf('중도금') >= 0 ? 'tlmid' : '')}">
+              <div class="tldot"></div>
+              <div class="tlbody">
+                <div><div class="lab">${t.label}</div><div class="ym">${t.ym}${item.moveInYM ? '' : (i === plan.timeline.length - 1 ? ' (추정)' : '')}</div></div>
+                <div class="amt">${t.cashManwon > 0 ? man(t.cashManwon) : '—'}<div class="ym">${t.note}</div></div>
+              </div>
+            </div>`)}
+          </div>
+          <h4 style="margin-top:14px">📆 월 납부 예상</h4>
+          <div class="kv"><span>입주 후 주담대 월상환(원리금균등)</span><b style="font-size:16px;color:var(--bd)">${man(plan.monthlyAtMaxLoanManwon)}원</b></div>
+          ${!plan.midInterestFree && html`<div class="kv"><span>중도금 기간 월 이자(이자후불, 평균)</span><b>${man(plan.midMonthlyManwon)}원</b></div>`}
+          <div class="kv"><span>실거주의무</span><b>${res.hasDuty ? res.dutyYears + '년 (' + res.dutyBasis.join(', ') + ')' : '없음'}</b></div>
+          <div class="kv"><span>전매제한(참고)</span><b>${res.resaleMonths}개월 · ${res.resaleBasis}</b></div>
+
+          ${hasPrice && html`<h4 style="margin-top:14px">✅ 가능 여부 (보유현금 기준)</h4>
+          <div class="feasbar">
+            <div class="s equity" style=${{ width: (eq / tot * 100) + '%' }}>자기자본 ${eok(eq)}</div>
+            <div class="s loan" style=${{ width: (ln / tot * 100) + '%' }}>대출 ${eok(ln)}</div>
+          </div>
+          <div class="verdict ${plan.feasible ? 'v-ok' : 'v-no'}">
+            ${plan.feasible
+              ? '가능 — 보유현금으로 자기자본 충당, 여유 ' + eok(plan.surplusManwon)
+              : '현금 부족 — 자기자본 ' + eok(plan.equityNeededManwon) + ' 필요 (부족 ' + eok(-plan.surplusManwon) + ')'}
+          </div>
+          <div class="note" style="margin-top:6px">초기(계약) 현금 <b>${eok(plan.upfrontCashManwon)}</b> · 입주(잔금) 시 추가 <b>${eok(plan.atMoveInCashManwon)}</b></div>`}
+
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <a class="btn cy" target="_blank" href="https://www.applyhome.co.kr">청약홈</a>
+            <a class="btn nv" target="_blank" href=${nQuery(item.apt + ' 분양권')}>네이버 매물</a>
+            <a class="btn" target="_blank" href=${nMap(item.region + ' ' + item.apt)}>지도</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function App() {
+  const [p, setP] = useState({ cashEok: 3, ratePct: 4.5, termYears: 30, incomeManwon: 8000, homeCountAfter: 1, midInterestMode: 'deferred' });
+  const [f, setF] = useState({ sido: new Set(['서울', '경기', '인천']), kinds: new Set(['분양권', '무순위', '미분양', '분양']), region2: '', dutyFilter: 'all', budgetOnly: false, q: '', sort: 'price' });
+  const [sel, setSel] = useState(null);
+
+  const params = useMemo(() => ({
+    cashManwon: p.cashEok * 10000, ratePct: p.ratePct, termYears: p.termYears,
+    annualIncomeManwon: p.incomeManwon, homeCountAfter: p.homeCountAfter, midInterestMode: p.midInterestMode
+  }), [p]);
+
+  const rows = useMemo(() => (DATA.items || []).map(item => {
+    const res = RES.classify(item);
+    const plan = FIN.buildPlan(item, params);
+    return { item, res, plan, sido: REG.sidoOf(item.code) };
+  }), [params]);
+
+  const filtered = useMemo(() => {
+    let r = rows.filter(x => f.sido.has(x.sido) && f.kinds.has(x.item.kind));
+    if (f.region2) r = r.filter(x => regionGroup(x.item.code, x.item.region) === f.region2);
+    if (f.dutyFilter === 'duty') r = r.filter(x => x.res.hasDuty);
+    if (f.dutyFilter === 'free') r = r.filter(x => !x.res.hasDuty);
+    if (f.budgetOnly) r = r.filter(x => x.item.priceManwon > 0 && x.plan.feasible);
+    if (f.q) { const q = f.q.trim(); r = r.filter(x => (x.item.apt + x.item.region + (x.item.umd || '')).includes(q)); }
+    const s = f.sort;
+    const np = x => x.item.priceManwon > 0 ? 0 : 1; // 가격없음(확인) 항목은 항상 뒤로
+    r.sort((a, b) => {
+      if (s === 'movein') return (a.plan.moveInYM < b.plan.moveInYM ? -1 : 1);
+      if (np(a) !== np(b)) return np(a) - np(b);
+      if (s === 'monthly') return a.plan.monthlyAtMaxLoanManwon - b.plan.monthlyAtMaxLoanManwon;
+      if (s === 'upfront') return a.plan.upfrontCashManwon - b.plan.upfrontCashManwon;
+      return a.item.priceManwon - b.item.priceManwon;
+    });
+    return r;
+  }, [rows, f]);
+
+  // 세부지역(시/구) 옵션 — 선택된 시도 내 그룹별 건수
+  const regionGroups = useMemo(() => {
+    const m = {};
+    rows.forEach(x => { if (!f.sido.has(x.sido)) return; const g = regionGroup(x.item.code, x.item.region); (m[g] || (m[g] = { key: g, sido: x.sido, count: 0 })).count++; });
+    return Object.values(m).sort((a, b) => b.count - a.count);
+  }, [rows, f.sido]);
+
+  // KPI
+  const kpi = useMemo(() => {
+    const instant = filtered.filter(x => x.item.kind === '무순위' || x.item.kind === '미분양').length;
+    const dutyCnt = filtered.filter(x => x.res.hasDuty).length;
+    const bun = filtered.filter(x => x.item.kind === '분양권' && x.item.areaM2 > 0);
+    const avgPpM2 = bun.length ? Math.round(bun.reduce((s, x) => s + x.item.priceManwon / x.item.areaM2, 0) / bun.length) : 0;
+    const feas = filtered.filter(x => x.item.priceManwon > 0 && x.plan.feasible).length;
+    return { total: filtered.length, instant, dutyCnt, avgPpM2, feas };
+  }, [filtered]);
+
+  // 차트
+  const c1 = useRef(null), c2 = useRef(null), ch1 = useRef(null), ch2 = useRef(null);
+  useEffect(() => {
+    if (typeof Chart === 'undefined') return;
+    const oneS = f.sido.size === 1 ? [...f.sido][0] : null;
+    let c1labels, c1data, c1colors;
+    if (oneS) { // 단일 시도 선택 시 시/구 단위로 드릴다운(상위 12)
+      const m = {}; filtered.forEach(x => { const g = regionGroup(x.item.code, x.item.region); m[g] = (m[g] || 0) + 1; });
+      const arr = Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, 12);
+      c1labels = arr.map(e => shortRegion(e[0])); c1data = arr.map(e => e[1]); c1colors = arr.map(() => SIDO_COLOR[oneS]);
+    } else {
+      const sidos = ['서울', '경기', '인천'];
+      c1labels = sidos; c1data = sidos.map(s => filtered.filter(x => x.sido === s).length); c1colors = sidos.map(s => SIDO_COLOR[s]);
+    }
+    if (ch1.current) ch1.current.destroy();
+    if (c1.current) ch1.current = new Chart(c1.current, {
+      type: 'bar',
+      data: { labels: c1labels, datasets: [{ data: c1data, backgroundColor: c1colors }] },
+      options: { animation: false, plugins: { legend: { display: false } }, scales: { y: { ticks: { precision: 0 } }, x: { ticks: { autoSkip: false, maxRotation: 60, minRotation: 0 } } }, responsive: true, maintainAspectRatio: false }
+    });
+    const kinds = ['분양권', '무순위', '미분양', '분양'];
+    const byKind = kinds.map(k => filtered.filter(x => x.item.kind === k).length);
+    if (ch2.current) ch2.current.destroy();
+    if (c2.current) ch2.current = new Chart(c2.current, {
+      type: 'doughnut',
+      data: { labels: kinds, datasets: [{ data: byKind, backgroundColor: kinds.map(k => KIND_COLOR[k]) }] },
+      options: { animation: false, plugins: { legend: { position: 'bottom' } }, responsive: true, maintainAspectRatio: false }
+    });
+    return () => { if (ch1.current) ch1.current.destroy(); if (ch2.current) ch2.current.destroy(); };
+  }, [filtered, f.sido]);
+
+  const toggleSet = (key, val) => setF(s => {
+    const n = new Set(s[key]); n.has(val) ? n.delete(val) : n.add(val);
+    const next = { ...s, [key]: n };
+    if (key === 'sido' && s.region2) { // 선택한 세부지역의 시도가 빠지면 초기화
+      const r2sido = s.region2.startsWith('서울 ') ? '서울' : s.region2.startsWith('인천 ') ? '인천' : '경기';
+      if (!n.has(r2sido)) next.region2 = '';
+    }
+    return next;
+  });
+
+  return html`<div class="wrap">
+    <header class="top">
+      <h1>수도권 미분양·분양권 + 자금계획 대시보드
+        <small>거래가능 물량(분양권 전매 · 무순위/잔여세대 · 준공후 미분양)을 실거주의무·초기자금·대출·월납부·시기로 한눈에</small>
+      </h1>
+      <div class="updated">데이터 기준<br/><b>${DATA.updatedAt || '—'}</b><br/><span class="note">규제기준 ${REG.asOf}</span></div>
+    </header>
+
+    <div class="banner ${isSample ? '' : 'live'}">
+      <span>${isSample ? '⚠️' : '✅'}</span>
+      <div>
+        ${isSample
+          ? html`<b>지금은 예시(데모) 데이터입니다.</b> 실데이터(분양권 전매 실거래 + 청약홈 무순위)를 받으려면 <code>config.json</code>에 공공데이터포털 인증키를 넣고 <code>③ 분양·미분양 업데이트.bat</code>을 실행하세요.`
+          : html`공공데이터 <b>실데이터</b> 표시 중 (${DATA.updatedAt} 기준).`}
+        <div class="note" style="margin-top:4px">실시간성: <b>무순위/잔여세대</b>는 청약홈 공고 기준(거의 실시간) · <b>분양권 전매</b>는 실거래 신고 기준(1~3주 시차) · <b>미분양 통계</b>는 국토부 월간.</div>
+      </div>
+    </div>
+
+    <section class="kpis">
+      <div class="kpi"><div class="lab"><span class="dot" style="background:var(--bd)"></span>거래가능 물량</div><div class="val">${kpi.total}건</div><div class="sub">선택 필터 기준</div></div>
+      <div class="kpi"><div class="lab"><span class="dot" style="background:var(--gc)"></span>즉시 매수(무순위·미분양)</div><div class="val">${kpi.instant}건</div><div class="sub">청약 경쟁 없이 매수 가능</div></div>
+      <div class="kpi"><div class="lab"><span class="dot" style="background:var(--pc)"></span>보유현금 내 가능</div><div class="val">${kpi.feas}건</div><div class="sub">자기자본 충당 가능 물량</div></div>
+      <div class="kpi"><div class="lab"><span class="dot" style="background:var(--rd)"></span>실거주의무 대상</div><div class="val">${kpi.dutyCnt}건</div><div class="sub">규제지역/분상제 · 평균 분양권 ${kpi.avgPpM2 ? man(kpi.avgPpM2) + '/㎡' : '-'}</div></div>
+    </section>
+
+    <${Controls} p=${p} setP=${setP} />
+
+    <section class="panel">
+      <div class="ph"><h3>📋 거래가능 물량</h3><span class="note">${filtered.length}건${filtered.length > 300 ? ' (상위 300 표시 · 필터로 좁히세요)' : ''} · 행 클릭 시 상세</span></div>
+      <div class="pb">
+        <div class="filters" style="margin-bottom:12px">
+          <div class="fgrp">지역 ${['서울', '경기', '인천'].map(s => html`<span key=${s} class="chip ${f.sido.has(s) ? 'on' : ''}" onClick=${() => toggleSet('sido', s)}>${s}</span>`)}</div>
+          <div class="fgrp">세부지역
+            <select class="sortsel" value=${f.region2} onChange=${e => setF(s => ({ ...s, region2: e.target.value }))}>
+              <option value="">전체 (시/구)</option>
+              ${['서울', '경기', '인천'].filter(sd => f.sido.has(sd)).map(sd => html`<optgroup key=${sd} label=${sd === '경기' ? '경기 (시별)' : sd + ' (구별)'}>
+                ${regionGroups.filter(g => g.sido === sd).map(g => html`<option key=${g.key} value=${g.key}>${shortRegion(g.key)} (${g.count})</option>`)}
+              </optgroup>`)}
+            </select>
+          </div>
+          <div class="fgrp">유형 ${['분양권', '무순위', '미분양', '분양'].map(k => html`<span key=${k} class="chip ${f.kinds.has(k) ? 'on' : ''}" onClick=${() => toggleSet('kinds', k)}>${k}</span>`)}</div>
+          <div class="fgrp">실거주의무
+            <select class="sortsel" value=${f.dutyFilter} onChange=${e => setF(s => ({ ...s, dutyFilter: e.target.value }))}>
+              <option value="all">전체</option><option value="free">의무 없음만</option><option value="duty">의무 있음만</option>
+            </select>
+          </div>
+          <label class="toggle"><input type="checkbox" checked=${f.budgetOnly} onChange=${e => setF(s => ({ ...s, budgetOnly: e.target.checked }))} /> 보유현금 내 가능만</label>
+          <input class="txt" placeholder="단지/지역 검색" value=${f.q} onInput=${e => setF(s => ({ ...s, q: e.target.value }))} />
+          <select class="sortsel" value=${f.sort} onChange=${e => setF(s => ({ ...s, sort: e.target.value }))}>
+            <option value="price">가격 낮은순</option><option value="monthly">월납부 낮은순</option>
+            <option value="upfront">초기자금 낮은순</option><option value="movein">입주 빠른순</option>
+          </select>
+        </div>
+        <div class="tablewrap">
+          <table>
+            <thead><tr>
+              <th class="l">단지 / 지역</th><th class="l">유형·규제</th><th>전용</th>
+              <th>가격</th><th>대출가능</th><th>월납부</th><th>초기자금</th><th>입주</th>
+            </tr></thead>
+            <tbody>
+              ${filtered.slice(0, 300).map((x, i) => {
+                const hp = x.item.priceManwon > 0;
+                return html`<tr key=${i} class=${sel === x ? 'sel' : ''} onClick=${() => setSel(x)}>
+                  <td class="l apt"><span class="feas" style="background:${hp ? (x.plan.feasible ? 'var(--ok)' : 'var(--warn)') : '#cbd5e1'}"></span>${x.item.apt}
+                    <div class="umd">${x.item.region}${x.item.umd ? ' · ' + x.item.umd : ''}</div></td>
+                  <td class="l"><${Badges} list=${x.res.badges} /></td>
+                  <td>${x.item.areaM2 || '-'}㎡<div class="bind">${pyText(x.item.areaM2)}</div></td>
+                  <td><b>${hp ? eok(x.item.priceManwon) : '확인'}</b></td>
+                  <td>${hp ? eok(x.plan.loan.finalManwon) : '-'}<span class="bind">${hp ? x.plan.loan.binding : ''}</span></td>
+                  <td>${hp ? man(x.plan.monthlyAtMaxLoanManwon) : '-'}<span class="bind">${hp ? '원/월' : ''}</span></td>
+                  <td>${hp ? eok(x.plan.upfrontCashManwon) : '-'}</td>
+                  <td>${x.plan.moveInYM}<span class="bind">${x.item.moveInYM ? '' : '추정'}</span></td>
+                </tr>`;
+              })}
+            </tbody>
+          </table>
+          ${!filtered.length && html`<div class="empty">조건에 맞는 물량이 없습니다. 필터를 넓혀보세요.</div>`}
+        </div>
+      </div>
+    </section>
+
+    <${Detail} row=${sel} params=${params} />
+
+    <section class="charts">
+      <div class="chartbox"><h3>지역별 물량 수</h3><div class="cv"><canvas ref=${c1}></canvas></div></div>
+      <div class="chartbox"><h3>유형별 분포</h3><div class="cv"><canvas ref=${c2}></canvas></div></div>
+    </section>
+
+    <footer>
+      규제 근거: 「10·15 주택시장 안정화 대책」(2025-10-15) — 규제지역(서울 전역+경기 12곳)·토지거래허가구역, LTV 40%, 수도권 주담대 한도 6/4/2억, 스트레스DSR 하한 3%, 2년 실거주의무(2025-10-20 계약분~), 분양권 전매제한 강화.<br/>
+      데이터: 국토교통부 아파트 분양권전매 실거래가 · 한국부동산원 청약홈 분양정보(공공데이터포털). 분양권은 신고기준 시차가 있습니다.<br/>
+      ⚠ 실거주의무·전매제한·취득세·대출한도는 단지별 입주자모집공고문/금융기관 심사가 최종입니다. 본 대시보드는 참고용이며 계약 전 반드시 현장·전문가 확인을 권장합니다.
+    </footer>
+  </div>`;
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(html`<${App} />`);
+</script>
+</body>
+</html>
