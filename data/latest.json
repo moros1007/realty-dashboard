@@ -1,10 +1,10 @@
 {
   "isSample": false,
-  "updatedAt": "2026-06-04 19:51",
+  "updatedAt": "2026-06-05 20:02",
   "config": {
-    "areaMax": 102.0,
     "priceMaxEok": 16,
-    "areaMin": 80.0
+    "areaMin": 80.0,
+    "areaMax": 102.0
   },
   "myHome": {
     "addr": "성남시 수정구 신흥동",
@@ -1360,6 +1360,19 @@
     {
       "region": "분당",
       "code": "41135",
+      "apt": "판교퍼스트힐푸르지오1단지",
+      "umd": "대장동",
+      "areaM2": 84.99,
+      "floor": 5,
+      "amountManwon": 127000,
+      "buildYear": 2021,
+      "dealDate": "2026-06-03",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "분당",
+      "code": "41135",
       "apt": "아름마을(선경)",
       "umd": "이매동",
       "areaM2": 83.58,
@@ -1369,6 +1382,19 @@
       "dealDate": "2026-06-02",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "샛별마을(라이프)",
+      "umd": "분당동",
+      "areaM2": 85.0,
+      "floor": 15,
+      "amountManwon": 160000,
+      "buildYear": 1992,
+      "dealDate": "2026-05-29",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -1399,6 +1425,19 @@
     {
       "region": "분당",
       "code": "41135",
+      "apt": "판교퍼스트힐푸르지오A2",
+      "umd": "대장동",
+      "areaM2": 84.97,
+      "floor": 3,
+      "amountManwon": 121500,
+      "buildYear": 2021,
+      "dealDate": "2026-05-30",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "분당",
+      "code": "41135",
       "apt": "까치마을(3단지)(신원)",
       "umd": "구미동",
       "areaM2": 84.8,
@@ -1408,6 +1447,32 @@
       "dealDate": "2026-05-30",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "푸른마을(신성)",
+      "umd": "수내동",
+      "areaM2": 84.72,
+      "floor": 11,
+      "amountManwon": 192000,
+      "buildYear": 1992,
+      "dealDate": "2026-05-29",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "상록마을(우성)1",
+      "umd": "정자동",
+      "areaM2": 84.97,
+      "floor": 15,
+      "amountManwon": 228000,
+      "buildYear": 1994,
+      "dealDate": "2026-05-22",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -1444,19 +1509,6 @@
       "floor": 17,
       "amountManwon": 131000,
       "buildYear": 2021,
-      "dealDate": "2026-05-28",
-      "dealType": "중개거래",
-      "isNew": false
-    },
-    {
-      "region": "분당",
-      "code": "41135",
-      "apt": "샛별마을(라이프)",
-      "umd": "분당동",
-      "areaM2": 85.0,
-      "floor": 15,
-      "amountManwon": 160000,
-      "buildYear": 1992,
       "dealDate": "2026-05-28",
       "dealType": "중개거래",
       "isNew": false
@@ -1642,6 +1694,19 @@
       "dealDate": "2026-05-06",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "아름마을(선경)",
+      "umd": "이매동",
+      "areaM2": 83.58,
+      "floor": 2,
+      "amountManwon": 189000,
+      "buildYear": 1993,
+      "dealDate": "2026-05-22",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -1880,6 +1945,19 @@
     {
       "region": "분당",
       "code": "41135",
+      "apt": "판교원마을5단지(푸르지오)",
+      "umd": "판교동",
+      "areaM2": 101.06,
+      "floor": 2,
+      "amountManwon": 177000,
+      "buildYear": 2009,
+      "dealDate": "2026-05-13",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "분당",
+      "code": "41135",
       "apt": "샛별마을(동성)",
       "umd": "분당동",
       "areaM2": 84.82,
@@ -1915,6 +1993,19 @@
       "dealDate": "2026-05-12",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "삼성아데나루체",
+      "umd": "정자동",
+      "areaM2": 84.96,
+      "floor": 3,
+      "amountManwon": 158000,
+      "buildYear": 2004,
+      "dealDate": "2026-05-06",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -2487,6 +2578,19 @@
       "dealDate": "2026-05-01",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "시범한신",
+      "umd": "서현동",
+      "areaM2": 84.69,
+      "floor": 3,
+      "amountManwon": 200000,
+      "buildYear": 1991,
+      "dealDate": "2026-05-06",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -3410,6 +3514,19 @@
       "dealDate": "2026-04-17",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "시범우성",
+      "umd": "서현동",
+      "areaM2": 84.6,
+      "floor": 8,
+      "amountManwon": 199000,
+      "buildYear": 1991,
+      "dealDate": "2026-04-18",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -12982,19 +13099,6 @@
     {
       "region": "평촌",
       "code": "41173",
-      "apt": "관악",
-      "umd": "비산동",
-      "areaM2": 84.94,
-      "floor": 9,
-      "amountManwon": 92500,
-      "buildYear": 1992,
-      "dealDate": "2026-03-13",
-      "dealType": "중개거래",
-      "isNew": false
-    },
-    {
-      "region": "평촌",
-      "code": "41173",
       "apt": "은하수신성",
       "umd": "비산동",
       "areaM2": 84.6,
@@ -17898,22 +18002,22 @@
     "분당": {
       "ratioPct": 41.7,
       "jeonseManwon": 73000,
-      "saleManwon": 175000,
-      "count": 1310
+      "saleManwon": 175150,
+      "count": 1324
     },
     "평촌": {
       "ratioPct": 58.3,
       "jeonseManwon": 52500,
-      "saleManwon": 89995,
-      "count": 744
+      "saleManwon": 89990,
+      "count": 754
     },
     "과천": {
-      "ratioPct": 38.2,
-      "jeonseManwon": 91400,
+      "ratioPct": 38.3,
+      "jeonseManwon": 91500,
       "saleManwon": 239000,
-      "count": 244
+      "count": 247
     }
   },
   "watch": [],
-  "newCount": 0
+  "newCount": 10
 }
