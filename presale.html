@@ -132,6 +132,7 @@
 <!-- 데이터: 실데이터(presale) 우선, 없으면 예시(sample) -->
 <script src="data/presale-sample.js"></script>
 <script src="data/presale.js" onerror="window.__noLive=1"></script>
+<script src="data/complexInfo.js"></script><!-- K-apt 세대수·역·도보(준공후미분양 등 매칭시) -->
 <!-- 라이브러리(로컬 vendor → 실패 시 CDN 폴백) -->
 <script src="lib/react.production.min.js"></script>
 <script>window.React||document.write('<scr'+'ipt src="https://unpkg.com/react@18/umd/react.production.min.js"><\/scr'+'ipt>')</script>
@@ -193,6 +194,45 @@ const cleanApt = s => (s || '').replace(/\([^)]*\)/g, ' ')
   .replace(/무순위|잔여세대|우선분양\S*|전환\s*후|본청약|조합원\S*|취소분|신혼희망타운\S*|공공분양|민간임대|사후접수|특별공급/g, ' ')
   .replace(/[A-Za-z]?\d*BL\b|블록|지구/gi, ' ').replace(/\s{2,}/g, ' ').trim();
 const naverLandUrl = it => nMap(((cleanApt(it.apt) || it.apt) + ' ' + (it.umd || '')).trim());
+
+/* ── K-apt 공동주택 단지정보(세대수·역·도보) — 준공후미분양 등 매칭 시 보강 ── */
+const CINFO = window.COMPLEX_INFO || {};
+const _RGX = /^(분당|평촌|과천|성남|안양|송파|강동|서초|강남|구리|남양주|하남|서울|경기|인천)/;
+const coreKeep  = s => String(s||'').replace(/[()\s.\-_,·]/g,'').replace(_RGX,'');
+const coreStrip = s => String(s||'').replace(/\(.*?\)/g,'').replace(/[()\s.\-_,·]/g,'').replace(_RGX,'');
+const _idxK={}, _basK=[], _idxS={}, _basS=[];
+function _addCI(ix,bl,b,v){ if(!b) return;
+  if(!(b in ix)){ ix[b]=v; bl.push(b); }
+  [b.replace(/마을/g,''), b.replace(/(마을|단지)/g,'')].forEach(a=>{ if(a && !(a in ix)){ ix[a]=v; bl.push(a); } });
+}
+Object.keys(CINFO).forEach(k=>{ const v=CINFO[k]; _addCI(_idxK,_basK,coreKeep(v.nm),v); _addCI(_idxS,_basS,coreStrip(v.nm),v); });
+function lookupComplex(aptNm){
+  let n=coreKeep(aptNm);
+  if(n && (n in _idxK)) return {v:_idxK[n], precise:true};
+  if(n.length>=4){ for(const k of _basK){ if(k.length>=4 && (k.includes(n)||n.includes(k))) return {v:_idxK[k], precise:true}; } }
+  n=coreStrip(aptNm);
+  if(n && (n in _idxS)) return {v:_idxS[n], precise:false};
+  if(n.length>=4){ for(const k of _basS){ if(k.length>=4 && (k.includes(n)||n.includes(k))) return {v:_idxS[k], precise:false}; } }
+  return null;
+}
+function walkShort(w){ return String(w||'').replace('이내','').replace('초과','＋').replace(/\s/g,''); }
+function stationLabel(ci){
+  if(!ci) return '';
+  let st = String(ci.st||'').split(/[,/]/)[0].replace(/\s+/g,' ').trim();
+  st = st.replace(/^[가-힣0-9]+선\s+/,'').replace(/\s*역\s*$/,'').trim();
+  if(!st) return '';
+  const w = walkShort(ci.walk); return `🚇${st}역${w?' '+w:''}`;
+}
+/* 분양 자체 공급세대(supplyUnits) 우선, 없으면 K-apt 정밀매칭 세대수 + 역도보(있으면) */
+function presaleBits(item){
+  const bits=[]; const r = lookupComplex(cleanApt(item.apt)||item.apt);
+  let hh = Number(item.supplyUnits)||0;
+  if(!hh && r && r.precise && r.v.hh>0) hh = r.v.hh;
+  if(hh>0) bits.push(`${hh.toLocaleString()}세대`);
+  const sl = r ? stationLabel(r.v) : '';
+  if(sl) bits.push(sl);
+  return bits.length ? ' · '+bits.join(' · ') : '';
+}
 const KIND_COLOR = { '분양권': '#0ea5e9', '무순위': '#a21caf', '미분양': '#f59e0b', '분양': '#16a34a' };
 const SIDO_COLOR = { '서울': '#3b82f6', '경기': '#10b981', '인천': '#f59e0b', '기타': '#94a3b8' };
 
@@ -473,7 +513,7 @@ function App() {
                 const hp = x.item.priceManwon > 0;
                 return html`<tr key=${i} class=${sel === x ? 'sel' : ''} onClick=${() => setSel(x)}>
                   <td class="l apt"><span class="feas" style="background:${hp ? (x.plan.feasible ? 'var(--ok)' : 'var(--warn)') : '#cbd5e1'}"></span>${x.item.apt}
-                    <div class="umd">${x.item.region}${x.item.umd ? ' · ' + x.item.umd : ''} · <a href=${naverLandUrl(x.item)} target="_blank" onClick=${e => e.stopPropagation()} style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div></td>
+                    <div class="umd">${x.item.region}${x.item.umd ? ' · ' + x.item.umd : ''}${presaleBits(x.item)} · <a href=${naverLandUrl(x.item)} target="_blank" onClick=${e => e.stopPropagation()} style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div></td>
                   <td class="l"><${Badges} list=${x.res.badges} /></td>
                   <td>${x.item.areaM2 || '-'}㎡<div class="bind">${pyText(x.item.areaM2)}</div></td>
                   <td><b>${hp ? eok(x.item.priceManwon) : '확인'}</b></td>
