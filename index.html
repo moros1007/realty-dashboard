@@ -253,6 +253,7 @@
 </div>
 
 <script src="data/sample.js"></script>
+<script src="data/complexInfo.js"></script>
 <script>
 /* 호스팅(http/https)에서는 캐시 무력화로 늘 최신 latest.js 를 불러오고, 로컬(file://)에서는 쿼리 없이 로드 */
 (function(){ var q = location.protocol.indexOf('http')===0 ? ('?t=' + (new Date()).getTime()) : '';
@@ -296,6 +297,44 @@ ITEMS.forEach(d=>{const k=d.apt+'|'+Math.round(d.areaM2); d.isPeak = PEAK[k].n>=
 const WATCH = arr(DATA.watch).map(String).filter(Boolean);
 const isWatch = d => WATCH.some(w=>d.apt.includes(w));
 const JEONSE = DATA.jeonse || {};
+
+/* ── K-apt 공동주택 단지정보(세대수·지하철역·도보) 매칭 — complexInfo.js ── */
+const CINFO = window.COMPLEX_INFO || {};
+const _RGX = /^(분당|평촌|과천|성남|안양|송파|강동|서초|강남|구리|남양주|하남|서울|경기|인천)/;
+const coreKeep  = s => String(s||'').replace(/[()\s.\-_,·]/g,'').replace(_RGX,'');          // 괄호 글자만 제거(내용 유지)
+const coreStrip = s => String(s||'').replace(/\(.*?\)/g,'').replace(/[()\s.\-_,·]/g,'').replace(_RGX,''); // 괄호 내용까지 제거
+const _idxK={}, _basK=[], _idxS={}, _basS=[];
+function _add(ix,bl,b,v){ if(!b) return;
+  if(!(b in ix)){ ix[b]=v; bl.push(b); }
+  [b.replace(/마을/g,''), b.replace(/(마을|단지)/g,'')].forEach(a=>{ if(a && !(a in ix)){ ix[a]=v; bl.push(a); } });
+}
+Object.keys(CINFO).forEach(k=>{ const v=CINFO[k]; _add(_idxK,_basK,coreKeep(v.nm),v); _add(_idxS,_basS,coreStrip(v.nm),v); });
+function lookupComplex(aptNm){
+  // 1) 정밀: 괄호내용(시공사) 유지 매칭 → 세대수까지 신뢰
+  let n=coreKeep(aptNm);
+  if(n && (n in _idxK)) return {v:_idxK[n], precise:true};
+  if(n.length>=4){ for(const k of _basK){ if(k.length>=4 && (k.includes(n)||n.includes(k))) return {v:_idxK[k], precise:true}; } }
+  // 2) 느슨: 괄호내용 제거 매칭 → 역/도보만 신뢰(같은 마을 sub단지간 세대수 상이)
+  n=coreStrip(aptNm);
+  if(n && (n in _idxS)) return {v:_idxS[n], precise:false};
+  if(n.length>=4){ for(const k of _basS){ if(k.length>=4 && (k.includes(n)||n.includes(k))) return {v:_idxS[k], precise:false}; } }
+  return null;
+}
+function walkShort(w){ return String(w||'').replace('이내','').replace('초과','＋').replace(/\s/g,''); }
+function stationLabel(ci){
+  if(!ci) return '';
+  let st = String(ci.st||'').split(/[,/]/)[0].replace(/\s+/g,' ').trim();
+  st = st.replace(/^[가-힣0-9]+선\s+/,'').replace(/\s*역\s*$/,'').trim(); // 앞 호선명·끝 '역' 제거
+  if(!st) return '';
+  const w = walkShort(ci.walk); return `🚇${st}역${w?' '+w:''}`;
+}
+function complexExtra(aptName){
+  const r = lookupComplex(aptName); if(!r) return {yr:null, extra:''};
+  const ci=r.v, bits=[];
+  if(r.precise && ci.hh>0) bits.push(`${Number(ci.hh).toLocaleString()}세대`); // 세대수는 정밀매칭만
+  const sl = stationLabel(ci); if(sl) bits.push(sl);
+  return { yr: r.precise ? (ci.yr||null) : null, extra: bits.length? ' · '+bits.join(' · '):'' };
+}
 
 /* 내 집 예상 매도가 = 최근 거래 중앙값 */
 function median(arr){ if(!arr.length) return 0; const s=[...arr].sort((a,b)=>a-b); const m=Math.floor(s.length/2); return s.length%2? s[m] : (s[m-1]+s[m])/2; }
@@ -424,16 +463,18 @@ function renderTable(){
   document.getElementById('emptyMsg').style.display = rows.length? 'none':'block';
   tb.innerHTML = rows.map(d=>{
     const aptName = d.apt.replace(/^[^\s]+동\s/,''); // 검색용 단지명(동명 제거)
+    const cx = complexExtra(aptName);
+    const yrShown = cx.yr || d.buildYear || '-';
     return `<tr>
       <td class="l apt"><span class="rtag" style="background:${RCOLOR[d.region]}"></span>${d.apt}
         ${d.isNew?'<span class="pill p-new">NEW</span>':''}${d.isPeak?'<span class="pill p-peak">기간최고가</span>':''}${isWatch(d)?'<span class="pill p-watch">⭐관심</span>':''}
-        <div class="umd">${d.umd} · 준공 ${d.buildYear||'-'} · ${d.dealType||''} · <a href="${nMap(aptName+' '+d.umd)}" target="_blank" style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div></td>
+        <div class="umd">${d.umd} · 준공 ${yrShown}${cx.extra}${d.dealType?` · ${d.dealType}`:''} · <a href="${nMap(aptName+' '+d.umd)}" target="_blank" style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div></td>
       <td>${d.areaM2}㎡<br><span class="umd">${d.pyeong.toFixed(1)}평</span></td>
       <td>${d.floor}층 ${d.lowFloor?'<span class="pill p-low">저층</span>':''}</td>
       <td><b>${fmtEok(d.amountManwon)}</b> ${d.eok<=state.cap?'<span class="pill p-under">이내</span>':'<span class="pill p-over">초과</span>'}</td>
       <td>${Math.round(d.pyeongPrice).toLocaleString()}<span class="umd">만</span></td>
       <td>${d.dealDate}</td>
-      <td>${d.buildYear||'-'}</td>
+      <td>${yrShown}</td>
       <td class="l"><span class="act">
         <a class="btn nv" target="_blank" href="${nMap(aptName+' '+d.umd)}">네이버부동산</a>
         <a class="btn" target="_blank" href="${nMap(d.umd+' '+aptName)}">지도</a>
