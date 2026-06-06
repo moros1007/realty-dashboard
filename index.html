@@ -210,7 +210,7 @@
         <table>
           <thead><tr>
             <th class="l">단지 / 동</th><th>전용면적</th><th>층</th>
-            <th>거래금액</th><th>평당가</th><th>계약일</th><th>준공</th><th class="l">연락 · 보기</th><th>★</th>
+            <th>거래금액</th><th class="l">가까운 역·도보</th><th>평당가</th><th>계약일</th><th>준공</th><th class="l">연락 · 보기</th><th>★</th>
           </tr></thead>
           <tbody id="tbody"></tbody>
         </table>
@@ -253,7 +253,9 @@
 </div>
 
 <script src="data/sample.js"></script>
-<script src="data/complexInfo.js"></script>
+<script>/* complexInfo.js: 갱신 반영 위해 호스팅에선 캐시버스트 */
+(function(){ var q = location.protocol.indexOf('http')===0 ? ('?t='+(new Date()).getTime()) : '';
+  document.write('<scr'+'ipt src="data/complexInfo.js'+q+'"><\/scr'+'ipt>'); })();</script>
 <script>
 /* 호스팅(http/https)에서는 캐시 무력화로 늘 최신 latest.js 를 불러오고, 로컬(file://)에서는 쿼리 없이 로드 */
 (function(){ var q = location.protocol.indexOf('http')===0 ? ('?t=' + (new Date()).getTime()) : '';
@@ -303,37 +305,33 @@ const CINFO = window.COMPLEX_INFO || {};
 const _RGX = /^(분당|평촌|과천|성남|안양|송파|강동|서초|강남|구리|남양주|하남|서울|경기|인천)/;
 const coreKeep  = s => String(s||'').replace(/[()\s.\-_,·]/g,'').replace(_RGX,'');          // 괄호 글자만 제거(내용 유지)
 const coreStrip = s => String(s||'').replace(/\(.*?\)/g,'').replace(/[()\s.\-_,·]/g,'').replace(_RGX,''); // 괄호 내용까지 제거
-const _idxK={}, _basK=[], _idxS={}, _basS=[];
-function _add(ix,bl,b,v){ if(!b) return;
-  if(!(b in ix)){ ix[b]=v; bl.push(b); }
-  [b.replace(/마을/g,''), b.replace(/(마을|단지)/g,'')].forEach(a=>{ if(a && !(a in ix)){ ix[a]=v; bl.push(a); } });
-}
-Object.keys(CINFO).forEach(k=>{ const v=CINFO[k]; _add(_idxK,_basK,coreKeep(v.nm),v); _add(_idxS,_basS,coreStrip(v.nm),v); });
-function lookupComplex(aptNm){
-  // 1) 정밀: 괄호내용(시공사) 유지 매칭 → 세대수까지 신뢰
+const _idxK=new Map(), _basK=[], _idxS=new Map(), _basS=[];
+function _push(map,keys,b,v){ if(!b) return; let a=map.get(b); if(!a){a=[]; map.set(b,a); keys.push(b);} a.push(v); }
+function _addCI(map,keys,b,v){ _push(map,keys,b,v); _push(map,keys,b.replace(/마을/g,''),v); _push(map,keys,b.replace(/(마을|단지)/g,''),v); }
+Object.keys(CINFO).forEach(k=>{ const v=CINFO[k]; _addCI(_idxK,_basK,coreKeep(v.nm),v); _addCI(_idxS,_basS,coreStrip(v.nm),v); });
+// code(시군구) 일치 항목만 선택 — 타지역 우연매칭 차단
+function _pick(arr,code){ if(!arr||!arr.length) return null; if(code) return arr.find(v=>String(v.cd)===String(code))||null; return arr[0]; }
+function lookupComplex(aptNm, code){
+  // 1) 정밀: 괄호내용(시공사) 유지 → 세대수까지 신뢰
   let n=coreKeep(aptNm);
-  if(n && (n in _idxK)) return {v:_idxK[n], precise:true};
-  if(n.length>=4){ for(const k of _basK){ if(k.length>=4 && (k.includes(n)||n.includes(k))) return {v:_idxK[k], precise:true}; } }
-  // 2) 느슨: 괄호내용 제거 매칭 → 역/도보만 신뢰(같은 마을 sub단지간 세대수 상이)
+  if(n){ const h=_pick(_idxK.get(n),code); if(h) return {v:h, precise:true}; }
+  if(n.length>=4){ for(const k of _basK){ if(k.length>=4 && (k.includes(n)||n.includes(k))){ const h=_pick(_idxK.get(k),code); if(h) return {v:h, precise:true}; } } }
+  // 2) 느슨: 괄호내용 제거 → 역/도보만 신뢰(마을 sub단지간 세대수 상이)
   n=coreStrip(aptNm);
-  if(n && (n in _idxS)) return {v:_idxS[n], precise:false};
-  if(n.length>=4){ for(const k of _basS){ if(k.length>=4 && (k.includes(n)||n.includes(k))) return {v:_idxS[k], precise:false}; } }
+  if(n){ const h=_pick(_idxS.get(n),code); if(h) return {v:h, precise:false}; }
+  if(n.length>=4){ for(const k of _basS){ if(k.length>=4 && (k.includes(n)||n.includes(k))){ const h=_pick(_idxS.get(k),code); if(h) return {v:h, precise:false}; } } }
   return null;
 }
 function walkShort(w){ return String(w||'').replace('이내','').replace('초과','＋').replace(/\s/g,''); }
-function stationLabel(ci){
-  if(!ci) return '';
+function complexExtra(aptName, code){
+  const r = lookupComplex(aptName, code); if(!r) return {yr:null, sedae:'', station:'', walk:''};
+  const ci=r.v;
+  const sedae = (r.precise && ci.hh>0) ? `${Number(ci.hh).toLocaleString()}세대` : ''; // 세대수는 정밀매칭만
   let st = String(ci.st||'').split(/[,/]/)[0].replace(/\s+/g,' ').trim();
-  st = st.replace(/^[가-힣0-9]+선\s+/,'').replace(/\s*역\s*$/,'').trim(); // 앞 호선명·끝 '역' 제거
-  if(!st) return '';
-  const w = walkShort(ci.walk); return `🚇${st}역${w?' '+w:''}`;
-}
-function complexExtra(aptName){
-  const r = lookupComplex(aptName); if(!r) return {yr:null, extra:''};
-  const ci=r.v, bits=[];
-  if(r.precise && ci.hh>0) bits.push(`${Number(ci.hh).toLocaleString()}세대`); // 세대수는 정밀매칭만
-  const sl = stationLabel(ci); if(sl) bits.push(sl);
-  return { yr: r.precise ? (ci.yr||null) : null, extra: bits.length? ' · '+bits.join(' · '):'' };
+  st = st.replace(/^[가-힣0-9]+선\s+/,'').replace(/\s*역\s*$/,'').trim();
+  let station = st ? st+'역' : '';
+  if(!station){ const ln=String(ci.line||'').split(/[,/]/)[0].replace(/\s+/g,'').trim(); if(ln) station = ln + (/선$/.test(ln)?'':'호선'); } // 역명 없으면 호선 폴백
+  return { yr: r.precise ? (ci.yr||null) : null, sedae, station, walk: station ? walkShort(ci.walk) : '' };
 }
 
 /* 내 집 예상 매도가 = 최근 거래 중앙값 */
@@ -463,15 +461,16 @@ function renderTable(){
   document.getElementById('emptyMsg').style.display = rows.length? 'none':'block';
   tb.innerHTML = rows.map(d=>{
     const aptName = d.apt.replace(/^[^\s]+동\s/,''); // 검색용 단지명(동명 제거)
-    const cx = complexExtra(aptName);
+    const cx = complexExtra(aptName, d.code);
     const yrShown = cx.yr || d.buildYear || '-';
     return `<tr>
       <td class="l apt"><span class="rtag" style="background:${RCOLOR[d.region]}"></span>${d.apt}
         ${d.isNew?'<span class="pill p-new">NEW</span>':''}${d.isPeak?'<span class="pill p-peak">기간최고가</span>':''}${isWatch(d)?'<span class="pill p-watch">⭐관심</span>':''}
-        <div class="umd">${d.umd} · 준공 ${yrShown}${cx.extra}${d.dealType?` · ${d.dealType}`:''} · <a href="${nMap(aptName+' '+d.umd)}" target="_blank" style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div></td>
+        <div class="umd">${d.umd} · 준공 ${yrShown}${cx.sedae?` · ${cx.sedae}`:''}${d.dealType?` · ${d.dealType}`:''} · <a href="${nMap(aptName+' '+d.umd)}" target="_blank" style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div></td>
       <td>${d.areaM2}㎡<br><span class="umd">${d.pyeong.toFixed(1)}평</span></td>
       <td>${d.floor}층 ${d.lowFloor?'<span class="pill p-low">저층</span>':''}</td>
       <td><b>${fmtEok(d.amountManwon)}</b> ${d.eok<=state.cap?'<span class="pill p-under">이내</span>':'<span class="pill p-over">초과</span>'}</td>
+      <td class="l">${cx.station? `${cx.station}${cx.walk?`<div class="umd">도보 ${cx.walk}</div>`:''}` : '<span class="umd" style="color:#cbd5e1">—</span>'}</td>
       <td>${Math.round(d.pyeongPrice).toLocaleString()}<span class="umd">만</span></td>
       <td>${d.dealDate}</td>
       <td>${yrShown}</td>
