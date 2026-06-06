@@ -493,13 +493,13 @@ function renderTable(){
     return `<tr class="${dim?'dim':''}">
       <td class="l apt"><span class="rtag" style="background:${GCOLOR[d.group]}"></span>${d.apt}
         ${d.isNew?'<span class="pill p-new">NEW</span>':''}${d.regulated?'<span class="pill p-toheo">토허</span>':'<span class="pill p-gap">비규제</span>'}
-        <div class="umd">${d.region} ${d.umd} · 준공 ${d.buildYear||'-'} · <a href="${nLand(aptQ+' '+d.umd)}" target="_blank" style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div></td>
+        <div class="umd">${d.region} ${d.umd} · 준공 ${d.buildYear||'-'} · <a href="${nMap(aptQ+' '+d.umd)}" target="_blank" style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div></td>
       <td class="l">${d.st}<div class="umd">${d.line==='-'?'버스권':(/[^\d·]/.test(d.line)?d.line+'선':d.line+'호선')}</div></td>
       <td>${minCell}</td>
       <td><span class="terr ${t.cls}">${t.txt}</span></td>
       <td>${d.areaM2}㎡<div class="umd">${d.pyeong.toFixed(0)}평 · ${d.floor}층${d.lowFloor?' <span class="pill p-low">저</span>':''}</div></td>
       <td>${c6}</td><td>${c7}</td><td>${c8}</td>
-      <td class="l"><a class="btn nv" target="_blank" href="${nLand(aptQ)}">매물</a>
+      <td class="l"><a class="btn nv" target="_blank" href="${nMap(aptQ+' '+d.umd)}">매물</a>
         <a class="btn" target="_blank" href="${nMap(d.umd+' '+aptQ)}">지도</a></td>
     </tr>`;
   }).join('');
