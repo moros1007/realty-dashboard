@@ -124,7 +124,7 @@ $desc = "매매 ${capEok}억선 · 천호 접근 · 어르신 평지`n천호 코
 $template = @{
   object_type = 'feed'
   content = @{
-    title = "🏠 [주간] 천호 접근 ${capEok}억 매물 요약 ($weekLabel)"
+    title = "🏠 천호 접근 ${capEok}억 매물 ($weekLabel)"
     description = $desc
     link = @{ web_url=$fullUrl; mobile_web_url=$fullUrl }
   }
