@@ -245,7 +245,9 @@
 <script src="engine/regulations.js"></script>
 <!-- 실데이터(cheonho.js) 우선, 없으면 예시(sample) -->
 <script src="data/cheonho-sample.js"></script>
-<script src="data/complexInfo.js"></script><!-- K-apt 세대수·역·도보 -->
+<script>/* complexInfo.js 캐시버스트 */
+(function(){ var q = location.protocol.indexOf('http')===0 ? ('?t='+(new Date()).getTime()) : '';
+  document.write('<scr'+'ipt src="data/complexInfo.js'+q+'"><\/scr'+'ipt>'); })();</script>
 <script>
 (function(){ var q = location.protocol.indexOf('http')===0 ? ('?t=' + (new Date()).getTime()) : '';
   document.write('<scr'+'ipt src="data/cheonho.js'+q+'"><\/scr'+'ipt>'); })();
@@ -269,35 +271,30 @@ const CINFO = window.COMPLEX_INFO || {};
 const _RGX = /^(분당|평촌|과천|성남|안양|송파|강동|서초|강남|구리|남양주|하남|서울|경기|인천)/;
 const coreKeep  = s => String(s||'').replace(/[()\s.\-_,·]/g,'').replace(_RGX,'');
 const coreStrip = s => String(s||'').replace(/\(.*?\)/g,'').replace(/[()\s.\-_,·]/g,'').replace(_RGX,'');
-const _idxK={}, _basK=[], _idxS={}, _basS=[];
-function _add(ix,bl,b,v){ if(!b) return;
-  if(!(b in ix)){ ix[b]=v; bl.push(b); }
-  [b.replace(/마을/g,''), b.replace(/(마을|단지)/g,'')].forEach(a=>{ if(a && !(a in ix)){ ix[a]=v; bl.push(a); } });
-}
-Object.keys(CINFO).forEach(k=>{ const v=CINFO[k]; _add(_idxK,_basK,coreKeep(v.nm),v); _add(_idxS,_basS,coreStrip(v.nm),v); });
-function lookupComplex(aptNm){
+const _idxK=new Map(), _basK=[], _idxS=new Map(), _basS=[];
+function _push(map,keys,b,v){ if(!b) return; let a=map.get(b); if(!a){a=[]; map.set(b,a); keys.push(b);} a.push(v); }
+function _addCI(map,keys,b,v){ _push(map,keys,b,v); _push(map,keys,b.replace(/마을/g,''),v); _push(map,keys,b.replace(/(마을|단지)/g,''),v); }
+Object.keys(CINFO).forEach(k=>{ const v=CINFO[k]; _addCI(_idxK,_basK,coreKeep(v.nm),v); _addCI(_idxS,_basS,coreStrip(v.nm),v); });
+function _pick(arr,code){ if(!arr||!arr.length) return null; if(code) return arr.find(v=>String(v.cd)===String(code))||null; return arr[0]; }
+function lookupComplex(aptNm, code){
   let n=coreKeep(aptNm);
-  if(n && (n in _idxK)) return {v:_idxK[n], precise:true};
-  if(n.length>=4){ for(const k of _basK){ if(k.length>=4 && (k.includes(n)||n.includes(k))) return {v:_idxK[k], precise:true}; } }
+  if(n){ const h=_pick(_idxK.get(n),code); if(h) return {v:h, precise:true}; }
+  if(n.length>=4){ for(const k of _basK){ if(k.length>=4 && (k.includes(n)||n.includes(k))){ const h=_pick(_idxK.get(k),code); if(h) return {v:h, precise:true}; } } }
   n=coreStrip(aptNm);
-  if(n && (n in _idxS)) return {v:_idxS[n], precise:false};
-  if(n.length>=4){ for(const k of _basS){ if(k.length>=4 && (k.includes(n)||n.includes(k))) return {v:_idxS[k], precise:false}; } }
+  if(n){ const h=_pick(_idxS.get(n),code); if(h) return {v:h, precise:false}; }
+  if(n.length>=4){ for(const k of _basS){ if(k.length>=4 && (k.includes(n)||n.includes(k))){ const h=_pick(_idxS.get(k),code); if(h) return {v:h, precise:false}; } } }
   return null;
 }
 function walkShort(w){ return String(w||'').replace('이내','').replace('초과','＋').replace(/\s/g,''); }
-function stationLabel(ci){
-  if(!ci) return '';
+function complexExtra(aptName, code){
+  const r = lookupComplex(aptName, code); if(!r) return {yr:null, sedae:'', station:'', walk:''};
+  const ci=r.v;
+  const sedae = (r.precise && ci.hh>0) ? `${Number(ci.hh).toLocaleString()}세대` : '';
   let st = String(ci.st||'').split(/[,/]/)[0].replace(/\s+/g,' ').trim();
   st = st.replace(/^[가-힣0-9]+선\s+/,'').replace(/\s*역\s*$/,'').trim();
-  if(!st) return '';
-  const w = walkShort(ci.walk); return `🚇${st}역${w?' '+w:''}`;
-}
-function complexExtra(aptName){
-  const r = lookupComplex(aptName); if(!r) return {yr:null, extra:''};
-  const ci=r.v, bits=[];
-  if(r.precise && ci.hh>0) bits.push(`${Number(ci.hh).toLocaleString()}세대`);
-  const sl = stationLabel(ci); if(sl) bits.push(sl);
-  return { yr: r.precise ? (ci.yr||null) : null, extra: bits.length? ' · '+bits.join(' · '):'' };
+  let station = st ? st+'역' : '';
+  if(!station){ const ln=String(ci.line||'').split(/[,/]/)[0].replace(/\s+/g,'').trim(); if(ln) station = ln + (/선$/.test(ln)?'':'호선'); } // 역명 없으면 호선 폴백
+  return { yr: r.precise ? (ci.yr||null) : null, sedae, station, walk: station ? walkShort(ci.walk) : '' };
 }
 
 const GCOLOR = {송파:'#3b82f6', 강동:'#10b981', 성남:'#f59e0b', 별내선:'#8b5cf6', 분당:'#ec4899'};
@@ -527,13 +524,13 @@ function renderTable(){
       c8 = `<b>${fmtEok(lc.total)}</b>`;
     }
     const aptQ = d.apt;
-    const cx = complexExtra(aptQ);
+    const cx = complexExtra(aptQ, d.code);
     const yrShown = cx.yr || d.buildYear || '-';
     return `<tr class="${dim?'dim':''}">
       <td class="l apt"><span class="rtag" style="background:${GCOLOR[d.group]}"></span>${d.apt}
         ${d.isNew?'<span class="pill p-new">NEW</span>':''}${d.regulated?'<span class="pill p-toheo">토허</span>':'<span class="pill p-gap">비규제</span>'}
-        <div class="umd">${d.region} ${d.umd} · 준공 ${yrShown}${cx.extra} · <a href="${nMap(aptQ+' '+d.umd)}" target="_blank" style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div></td>
-      <td class="l">${d.st}<div class="umd">${d.line==='-'?'버스권':(/[^\d·]/.test(d.line)?d.line+'선':d.line+'호선')}</div></td>
+        <div class="umd">${d.region} ${d.umd} · 준공 ${yrShown}${cx.sedae?` · ${cx.sedae}`:''} · <a href="${nMap(aptQ+' '+d.umd)}" target="_blank" style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div></td>
+      <td class="l">${d.st}<div class="umd">${d.line==='-'?'버스권':(/[^\d·]/.test(d.line)?d.line+'선':d.line+'호선')}</div>${cx.station&&cx.walk?`<div class="umd" style="color:#0369a1">🚶${cx.station} ${cx.walk}</div>`:''}</td>
       <td>${minCell}</td>
       <td><span class="terr ${t.cls}">${t.txt}</span></td>
       <td>${d.areaM2}㎡<div class="umd">${d.pyeong.toFixed(0)}평 · ${d.floor}층${d.lowFloor?' <span class="pill p-low">저</span>':''}</div></td>
