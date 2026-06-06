@@ -2,13 +2,8 @@ name: 천호 수집 + 주간 카톡
 
 on:
   schedule:
-    - cron: '20 21 * * *'     # 매일 06:20 KST : 시세 수집
-    - cron: '0 23 * * 0'      # 일요일 23:00 UTC = 월요일 08:00 KST : 주간 카톡 카드
-  workflow_dispatch:
-    inputs:
-      mode:
-        description: 'fetch(수집만) 또는 weekly(주간 카톡까지)'
-        default: 'weekly'
+    - cron: '6 23 * * *'      # 매일 23:06 UTC = 08:06 KST : 수집 + 카톡 카드 (정각은 지연이 심해 살짝 비낌)
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -44,8 +39,7 @@ jobs:
         shell: pwsh
         run: ./cheonho_fetch.ps1
 
-      - name: 주간 카톡 카드 (월요일 또는 수동 weekly)
-        if: ${{ github.event.schedule == '0 23 * * 0' || (github.event_name == 'workflow_dispatch' && github.event.inputs.mode == 'weekly') }}
+      - name: 카카오 카드 발송 (매일)
         shell: pwsh
         run: ./cheonho_weekly_kakao.ps1
 
