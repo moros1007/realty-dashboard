@@ -78,7 +78,7 @@
 (function(){
   const enc=encodeURIComponent;
   const nQuery=s=>'https://search.naver.com/search.naver?query='+enc(s);
-  const nLand=s=>'https://m.land.naver.com/search/result/'+enc(s);
+  const nLand=s=>'https://map.naver.com/p/search/'+enc(s);  // 단지 검색이 잘 안 잡혀 지도검색으로(항상 해당 아파트 표시)
   const W=window.CHEONHO_WEEKLY;
   const GC={별내선:'var(--byeollae)',강동:'var(--gangdong)',송파:'var(--songpa)',성남:'var(--seongnam)',분당:'var(--bundang)'};
   if(!W){
