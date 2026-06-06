@@ -2,7 +2,7 @@ name: 매일 시세 → 게시 → 카톡
 
 on:
   schedule:
-    - cron: '30 22 * * *'      # 22:30 UTC = 한국 07:30 (Actions 특성상 수 분~수십 분 지연될 수 있음)
+    - cron: '2 23 * * *'       # 23:02 UTC = 08:02 KST (정각은 지연이 심해 살짝 비낌)
   workflow_dispatch: {}         # 수동 실행 버튼(테스트용)
 
 permissions:
