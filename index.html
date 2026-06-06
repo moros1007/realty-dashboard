@@ -411,7 +411,7 @@ function renderAlerts(){
       <div style="display:flex;align-items:center;gap:10px">
         <b style="font-size:15px">${fmtEok(d.amountManwon)}</b>
         <span class="note" style="margin:0">${d.dealDate}</span>
-        <a class="btn nv" target="_blank" href="${nLand(d.apt)}">매물·연락처</a>
+        <a class="btn nv" target="_blank" href="${nMap(d.apt)}">매물·연락처</a>
       </div>
     </div>`).join('');
 }
@@ -427,7 +427,7 @@ function renderTable(){
     return `<tr>
       <td class="l apt"><span class="rtag" style="background:${RCOLOR[d.region]}"></span>${d.apt}
         ${d.isNew?'<span class="pill p-new">NEW</span>':''}${d.isPeak?'<span class="pill p-peak">기간최고가</span>':''}${isWatch(d)?'<span class="pill p-watch">⭐관심</span>':''}
-        <div class="umd">${d.umd} · 준공 ${d.buildYear||'-'} · ${d.dealType||''} · <a href="${nLand(aptName+' '+d.umd)}" target="_blank" style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div></td>
+        <div class="umd">${d.umd} · 준공 ${d.buildYear||'-'} · ${d.dealType||''} · <a href="${nMap(aptName+' '+d.umd)}" target="_blank" style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div></td>
       <td>${d.areaM2}㎡<br><span class="umd">${d.pyeong.toFixed(1)}평</span></td>
       <td>${d.floor}층 ${d.lowFloor?'<span class="pill p-low">저층</span>':''}</td>
       <td><b>${fmtEok(d.amountManwon)}</b> ${d.eok<=state.cap?'<span class="pill p-under">이내</span>':'<span class="pill p-over">초과</span>'}</td>
@@ -435,7 +435,7 @@ function renderTable(){
       <td>${d.dealDate}</td>
       <td>${d.buildYear||'-'}</td>
       <td class="l"><span class="act">
-        <a class="btn nv" target="_blank" href="${nLand(aptName)}">네이버부동산</a>
+        <a class="btn nv" target="_blank" href="${nMap(aptName+' '+d.umd)}">네이버부동산</a>
         <a class="btn" target="_blank" href="${nMap(d.umd+' '+aptName)}">지도</a>
       </span></td>
       <td><span class="star ${FAV.has(d.key)?'on':''}" data-key="${d.key}">★</span></td>
