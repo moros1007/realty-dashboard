@@ -245,6 +245,7 @@
 <script src="engine/regulations.js"></script>
 <!-- 실데이터(cheonho.js) 우선, 없으면 예시(sample) -->
 <script src="data/cheonho-sample.js"></script>
+<script src="data/complexInfo.js"></script><!-- K-apt 세대수·역·도보 -->
 <script>
 (function(){ var q = location.protocol.indexOf('http')===0 ? ('?t=' + (new Date()).getTime()) : '';
   document.write('<scr'+'ipt src="data/cheonho.js'+q+'"><\/scr'+'ipt>'); })();
@@ -262,6 +263,42 @@ const enc = encodeURIComponent;
 const nQuery = s => 'https://search.naver.com/search.naver?query=' + enc(s);
 const nLand  = s => 'https://m.land.naver.com/search/result/' + enc(s);
 const nMap   = s => 'https://map.naver.com/p/search/' + enc(s);
+
+/* ── K-apt 공동주택 단지정보(세대수·역·도보) 매칭 — complexInfo.js ── */
+const CINFO = window.COMPLEX_INFO || {};
+const _RGX = /^(분당|평촌|과천|성남|안양|송파|강동|서초|강남|구리|남양주|하남|서울|경기|인천)/;
+const coreKeep  = s => String(s||'').replace(/[()\s.\-_,·]/g,'').replace(_RGX,'');
+const coreStrip = s => String(s||'').replace(/\(.*?\)/g,'').replace(/[()\s.\-_,·]/g,'').replace(_RGX,'');
+const _idxK={}, _basK=[], _idxS={}, _basS=[];
+function _add(ix,bl,b,v){ if(!b) return;
+  if(!(b in ix)){ ix[b]=v; bl.push(b); }
+  [b.replace(/마을/g,''), b.replace(/(마을|단지)/g,'')].forEach(a=>{ if(a && !(a in ix)){ ix[a]=v; bl.push(a); } });
+}
+Object.keys(CINFO).forEach(k=>{ const v=CINFO[k]; _add(_idxK,_basK,coreKeep(v.nm),v); _add(_idxS,_basS,coreStrip(v.nm),v); });
+function lookupComplex(aptNm){
+  let n=coreKeep(aptNm);
+  if(n && (n in _idxK)) return {v:_idxK[n], precise:true};
+  if(n.length>=4){ for(const k of _basK){ if(k.length>=4 && (k.includes(n)||n.includes(k))) return {v:_idxK[k], precise:true}; } }
+  n=coreStrip(aptNm);
+  if(n && (n in _idxS)) return {v:_idxS[n], precise:false};
+  if(n.length>=4){ for(const k of _basS){ if(k.length>=4 && (k.includes(n)||n.includes(k))) return {v:_idxS[k], precise:false}; } }
+  return null;
+}
+function walkShort(w){ return String(w||'').replace('이내','').replace('초과','＋').replace(/\s/g,''); }
+function stationLabel(ci){
+  if(!ci) return '';
+  let st = String(ci.st||'').split(/[,/]/)[0].replace(/\s+/g,' ').trim();
+  st = st.replace(/^[가-힣0-9]+선\s+/,'').replace(/\s*역\s*$/,'').trim();
+  if(!st) return '';
+  const w = walkShort(ci.walk); return `🚇${st}역${w?' '+w:''}`;
+}
+function complexExtra(aptName){
+  const r = lookupComplex(aptName); if(!r) return {yr:null, extra:''};
+  const ci=r.v, bits=[];
+  if(r.precise && ci.hh>0) bits.push(`${Number(ci.hh).toLocaleString()}세대`);
+  const sl = stationLabel(ci); if(sl) bits.push(sl);
+  return { yr: r.precise ? (ci.yr||null) : null, extra: bits.length? ' · '+bits.join(' · '):'' };
+}
 
 const GCOLOR = {송파:'#3b82f6', 강동:'#10b981', 성남:'#f59e0b', 별내선:'#8b5cf6', 분당:'#ec4899'};
 const fmtEok = m => { if(m==null) return '—'; const e=m/10000; const s=(Math.abs(e)>=10? e.toFixed(1): e.toFixed(2)).replace(/\.?0+$/,''); return s+'억'; };
@@ -490,10 +527,12 @@ function renderTable(){
       c8 = `<b>${fmtEok(lc.total)}</b>`;
     }
     const aptQ = d.apt;
+    const cx = complexExtra(aptQ);
+    const yrShown = cx.yr || d.buildYear || '-';
     return `<tr class="${dim?'dim':''}">
       <td class="l apt"><span class="rtag" style="background:${GCOLOR[d.group]}"></span>${d.apt}
         ${d.isNew?'<span class="pill p-new">NEW</span>':''}${d.regulated?'<span class="pill p-toheo">토허</span>':'<span class="pill p-gap">비규제</span>'}
-        <div class="umd">${d.region} ${d.umd} · 준공 ${d.buildYear||'-'} · <a href="${nMap(aptQ+' '+d.umd)}" target="_blank" style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div></td>
+        <div class="umd">${d.region} ${d.umd} · 준공 ${yrShown}${cx.extra} · <a href="${nMap(aptQ+' '+d.umd)}" target="_blank" style="color:#067a37;text-decoration:underline;font-weight:600">네이버부동산↗</a></div></td>
       <td class="l">${d.st}<div class="umd">${d.line==='-'?'버스권':(/[^\d·]/.test(d.line)?d.line+'선':d.line+'호선')}</div></td>
       <td>${minCell}</td>
       <td><span class="terr ${t.cls}">${t.txt}</span></td>
