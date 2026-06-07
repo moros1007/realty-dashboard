@@ -2,7 +2,7 @@ name: 분양·미분양 매일 갱신 + 카톡 (presale)
 
 on:
   schedule:
-    - cron: '4 23 * * *'      # 23:00 UTC = 한국 08:00 (Actions 특성상 수 분~수십 분 지연될 수 있음)
+    - cron: '4 23 * * *'      # 23:04 UTC = 한국 08:04 (Actions 특성상 수 분~수 시간 지연될 수 있음)
   workflow_dispatch: {}        # 수동 실행 버튼
 
 permissions:
@@ -57,6 +57,13 @@ jobs:
           $changed = git status --porcelain
           if ($changed) {
             git commit -m ("presale data update " + (Get-Date -Format 'yyyy-MM-dd HH:mm'))
-            git push
-            Write-Host '커밋·푸시 완료'
+            $pushed = $false
+            for ($i=1; $i -le 5; $i++) {
+              git push 2>&1 | Out-Host
+              if ($LASTEXITCODE -eq 0) { $pushed = $true; break }
+              Write-Host "push 실패 — 원격 변경 rebase 후 재시도 $i/5"
+              git pull --rebase --autostash origin $env:GITHUB_REF_NAME 2>&1 | Out-Host
+              Start-Sleep -Seconds (3 * $i)
+            }
+            if ($pushed) { Write-Host '커밋·푸시 완료' } else { Write-Host '::warning::push 5회 실패(다음 실행에 누적 반영)' }
           } else { Write-Host '변경 없음 → 커밋 생략' }
