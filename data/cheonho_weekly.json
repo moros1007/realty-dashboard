@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-03 23:22",
-  "weekLabel": "2026년 6월 3일",
+  "generatedAt": "2026-06-08 23:38",
+  "weekLabel": "2026년 6월 8일",
   "capEok": 5.0,
-  "dataUpdated": "2026-06-03 23:22",
+  "dataUpdated": "2026-06-08 23:38",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
   "byeollaeFit": 25,
@@ -120,8 +120,8 @@
       "floor": 20,
       "buildYear": 2005,
       "priceEok": 4.6,
-      "jeonseEok": 3.8,
-      "gapEok": 0.8,
+      "jeonseEok": 3.6,
+      "gapEok": 1.0,
       "st": "다산역",
       "min": 15,
       "terr": "평지",
@@ -184,7 +184,7 @@
       "areaM2": 59.86,
       "buildYear": 2003,
       "priceEok": 5.2,
-      "jeonseEok": 2.4,
+      "jeonseEok": 2.3,
       "st": "강동구청역",
       "min": 2,
       "strategy": "실입주"
@@ -196,7 +196,7 @@
       "areaM2": 84.89,
       "buildYear": 2003,
       "priceEok": 5.4,
-      "jeonseEok": 2.5,
+      "jeonseEok": 2.4,
       "st": "둔촌동역",
       "min": 6,
       "strategy": "실입주"
@@ -209,15 +209,15 @@
       "saleMedEok": 7.2,
       "gapMedEok": 2.8,
       "gapFit": 60,
-      "count": 1479
+      "count": 1524
     },
     {
       "group": "강동",
       "regulated": true,
-      "saleMedEok": 13.2,
-      "gapMedEok": 7.7,
+      "saleMedEok": 13.4,
+      "gapMedEok": 7.8,
       "gapFit": 13,
-      "count": 589
+      "count": 612
     },
     {
       "group": "송파",
@@ -225,23 +225,23 @@
       "saleMedEok": 18.3,
       "gapMedEok": 11.8,
       "gapFit": 5,
-      "count": 759
+      "count": 796
     },
     {
       "group": "성남",
       "regulated": true,
-      "saleMedEok": 10.0,
+      "saleMedEok": 9.9,
       "gapMedEok": 4.3,
-      "gapFit": 42,
-      "count": 768
+      "gapFit": 43,
+      "count": 795
     },
     {
       "group": "분당",
       "regulated": true,
-      "saleMedEok": 14.8,
-      "gapMedEok": 9.1,
+      "saleMedEok": 14.9,
+      "gapMedEok": 9.2,
       "gapFit": 0,
-      "count": 562
+      "count": 595
     }
   ]
 }
