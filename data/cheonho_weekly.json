@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-09 19:50",
-  "weekLabel": "2026년 6월 9일",
+  "generatedAt": "2026-06-10 20:55",
+  "weekLabel": "2026년 6월 10일",
   "capEok": 5.0,
-  "dataUpdated": "2026-06-09 19:50",
+  "dataUpdated": "2026-06-10 20:55",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
   "byeollaeFit": 25,
@@ -136,7 +136,7 @@
       "areaM2": 84.28,
       "buildYear": 2006,
       "priceEok": 4.8,
-      "jeonseEok": 2.2,
+      "jeonseEok": 2.1,
       "st": "강동구청역",
       "min": 2,
       "strategy": "실입주"
@@ -209,31 +209,31 @@
       "saleMedEok": 7.2,
       "gapMedEok": 2.9,
       "gapFit": 61,
-      "count": 1558
+      "count": 1585
     },
     {
       "group": "강동",
       "regulated": true,
-      "saleMedEok": 13.4,
+      "saleMedEok": 13.5,
       "gapMedEok": 7.9,
       "gapFit": 13,
-      "count": 630
+      "count": 641
     },
     {
       "group": "송파",
       "regulated": true,
-      "saleMedEok": 18.4,
-      "gapMedEok": 11.9,
+      "saleMedEok": 18.8,
+      "gapMedEok": 12.1,
       "gapFit": 5,
-      "count": 814
+      "count": 845
     },
     {
       "group": "성남",
       "regulated": true,
-      "saleMedEok": 9.7,
-      "gapMedEok": 4.3,
+      "saleMedEok": 9.5,
+      "gapMedEok": 4.2,
       "gapFit": 44,
-      "count": 811
+      "count": 844
     },
     {
       "group": "분당",
@@ -241,7 +241,7 @@
       "saleMedEok": 14.8,
       "gapMedEok": 9.3,
       "gapFit": 0,
-      "count": 610
+      "count": 628
     }
   ]
 }
