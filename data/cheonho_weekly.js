@@ -1,12 +1,12 @@
 /* 자동 생성 — '⑦ 주간 카톡 요약 보내기.bat' 실행 시 갱신 */
 window.CHEONHO_WEEKLY = {
-  "generatedAt": "2026-06-11 21:58",
-  "weekLabel": "2026년 6월 11일",
+  "generatedAt": "2026-06-12 21:03",
+  "weekLabel": "2026년 6월 12일",
   "capEok": 5.0,
-  "dataUpdated": "2026-06-11 21:57",
+  "dataUpdated": "2026-06-12 21:03",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
-  "byeollaeFit": 28,
+  "byeollaeFit": 29,
   "picks": [
     {
       "region": "남양주",
@@ -73,7 +73,7 @@ window.CHEONHO_WEEKLY = {
       "apt": "유승한내들",
       "umd": "별내동",
       "areaM2": 84.31,
-      "floor": 15,
+      "floor": 7,
       "buildYear": 2014,
       "priceEok": 5.5,
       "jeonseEok": 4.0,
@@ -106,8 +106,8 @@ window.CHEONHO_WEEKLY = {
       "floor": 3,
       "buildYear": 2008,
       "priceEok": 5.5,
-      "jeonseEok": 4.2,
-      "gapEok": 1.3,
+      "jeonseEok": 4.4,
+      "gapEok": 1.1,
       "st": "다산역",
       "min": 15,
       "terr": "평지",
@@ -209,16 +209,16 @@ window.CHEONHO_WEEKLY = {
       "regulated": false,
       "saleMedEok": 7.2,
       "gapMedEok": 2.9,
-      "gapFit": 64,
-      "count": 1614
+      "gapFit": 66,
+      "count": 1640
     },
     {
       "group": "강동",
       "regulated": true,
       "saleMedEok": 13.5,
-      "gapMedEok": 7.9,
+      "gapMedEok": 7.8,
       "gapFit": 13,
-      "count": 651
+      "count": 655
     },
     {
       "group": "송파",
@@ -226,23 +226,23 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 18.8,
       "gapMedEok": 12.1,
       "gapFit": 5,
-      "count": 864
+      "count": 872
     },
     {
       "group": "성남",
       "regulated": true,
-      "saleMedEok": 9.5,
+      "saleMedEok": 9.4,
       "gapMedEok": 4.2,
-      "gapFit": 45,
-      "count": 850
+      "gapFit": 46,
+      "count": 870
     },
     {
       "group": "분당",
       "regulated": true,
-      "saleMedEok": 14.9,
+      "saleMedEok": 14.8,
       "gapMedEok": 9.3,
       "gapFit": 0,
-      "count": 639
+      "count": 646
     }
   ]
 };
