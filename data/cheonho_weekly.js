@@ -1,9 +1,9 @@
 /* 자동 생성 — '⑦ 주간 카톡 요약 보내기.bat' 실행 시 갱신 */
 window.CHEONHO_WEEKLY = {
-  "generatedAt": "2026-06-12 21:03",
-  "weekLabel": "2026년 6월 12일",
+  "generatedAt": "2026-06-13 19:10",
+  "weekLabel": "2026년 6월 13일",
   "capEok": 5.0,
-  "dataUpdated": "2026-06-12 21:03",
+  "dataUpdated": "2026-06-13 19:09",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
   "byeollaeFit": 29,
@@ -16,8 +16,8 @@ window.CHEONHO_WEEKLY = {
       "floor": 8,
       "buildYear": 2021,
       "priceEok": 4.4,
-      "jeonseEok": 4.6,
-      "gapEok": -0.2,
+      "jeonseEok": 4.8,
+      "gapEok": -0.4,
       "st": "다산역",
       "min": 15,
       "terr": "평지",
@@ -58,11 +58,11 @@ window.CHEONHO_WEEKLY = {
       "apt": "별내유승한내들이노스타",
       "umd": "별내동",
       "areaM2": 75.33,
-      "floor": 3,
+      "floor": 11,
       "buildYear": 2014,
-      "priceEok": 5.4,
+      "priceEok": 5.1,
       "jeonseEok": 4.0,
-      "gapEok": 1.4,
+      "gapEok": 1.1,
       "st": "별내역",
       "min": 18,
       "terr": "평지",
@@ -209,16 +209,16 @@ window.CHEONHO_WEEKLY = {
       "regulated": false,
       "saleMedEok": 7.2,
       "gapMedEok": 2.9,
-      "gapFit": 66,
-      "count": 1640
+      "gapFit": 67,
+      "count": 1655
     },
     {
       "group": "강동",
       "regulated": true,
       "saleMedEok": 13.5,
-      "gapMedEok": 7.8,
+      "gapMedEok": 7.9,
       "gapFit": 13,
-      "count": 655
+      "count": 666
     },
     {
       "group": "송파",
@@ -226,23 +226,23 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 18.8,
       "gapMedEok": 12.1,
       "gapFit": 5,
-      "count": 872
+      "count": 894
     },
     {
       "group": "성남",
       "regulated": true,
-      "saleMedEok": 9.4,
+      "saleMedEok": 9.3,
       "gapMedEok": 4.2,
       "gapFit": 46,
-      "count": 870
+      "count": 883
     },
     {
       "group": "분당",
       "regulated": true,
       "saleMedEok": 14.8,
-      "gapMedEok": 9.3,
+      "gapMedEok": 9.2,
       "gapFit": 0,
-      "count": 646
+      "count": 655
     }
   ]
 };
