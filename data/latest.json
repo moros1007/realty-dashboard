@@ -1,9 +1,9 @@
 {
   "isSample": false,
-  "updatedAt": "2026-06-13 19:08",
+  "updatedAt": "2026-06-14 19:39",
   "config": {
-    "priceMaxEok": 16,
     "areaMax": 102.0,
+    "priceMaxEok": 16,
     "areaMin": 80.0
   },
   "myHome": {
@@ -1377,8 +1377,8 @@
         "dealType": "중개거래"
       }
     ],
-    "addr": "성남시 수정구 신흥동",
-    "label": "산성역자이푸르지오"
+    "label": "산성역자이푸르지오",
+    "addr": "성남시 수정구 신흥동"
   },
   "items": [
     {
@@ -1392,7 +1392,7 @@
       "buildYear": 1995,
       "dealDate": "2026-06-11",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1405,7 +1405,7 @@
       "buildYear": 1992,
       "dealDate": "2026-06-09",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1418,7 +1418,7 @@
       "buildYear": 2021,
       "dealDate": "2026-06-09",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1444,7 +1444,7 @@
       "buildYear": 1991,
       "dealDate": "2026-06-06",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1496,7 +1496,7 @@
       "buildYear": 1994,
       "dealDate": "2026-06-03",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -2172,7 +2172,7 @@
       "buildYear": 2009,
       "dealDate": "2026-05-20",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -2276,7 +2276,7 @@
       "buildYear": 1994,
       "dealDate": "2026-05-16",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -18734,7 +18734,7 @@
       "buildYear": 2022,
       "dealDate": "2026-05-25",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "과천",
@@ -19512,5 +19512,5 @@
     }
   },
   "watch": [],
-  "newCount": 8
+  "newCount": 0
 }
