@@ -1,14 +1,14 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-06-20 19:15",
+  "updatedAt": "2026-06-21 19:57",
   "config": {
-    "areaMax": 102.0,
     "priceMaxEok": 16,
-    "areaMin": 80.0
+    "areaMin": 80.0,
+    "areaMax": 102.0
   },
   "myHome": {
-    "addr": "성남시 수정구 신흥동",
+    "label": "산성역자이푸르지오",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -1487,7 +1487,7 @@ window.REALTY_DATA = {
         "dealType": "중개거래"
       }
     ],
-    "label": "산성역자이푸르지오"
+    "addr": "성남시 수정구 신흥동"
   },
   "items": [
     {
@@ -1527,7 +1527,7 @@ window.REALTY_DATA = {
       "buildYear": 1991,
       "dealDate": "2026-06-01",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1540,7 +1540,7 @@ window.REALTY_DATA = {
       "buildYear": 1996,
       "dealDate": "2026-06-12",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1553,7 +1553,7 @@ window.REALTY_DATA = {
       "buildYear": 1991,
       "dealDate": "2026-06-08",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1748,7 +1748,7 @@ window.REALTY_DATA = {
       "buildYear": 2021,
       "dealDate": "2026-06-03",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1865,7 +1865,7 @@ window.REALTY_DATA = {
       "buildYear": 2021,
       "dealDate": "2026-06-02",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1930,7 +1930,7 @@ window.REALTY_DATA = {
       "buildYear": 2009,
       "dealDate": "2026-05-28",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -8586,7 +8586,7 @@ window.REALTY_DATA = {
       "buildYear": 2021,
       "dealDate": "2026-06-11",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -8651,7 +8651,7 @@ window.REALTY_DATA = {
       "buildYear": 2016,
       "dealDate": "2026-06-08",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -8677,7 +8677,7 @@ window.REALTY_DATA = {
       "buildYear": 2001,
       "dealDate": "2026-06-07",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -10523,7 +10523,7 @@ window.REALTY_DATA = {
       "buildYear": 1992,
       "dealDate": "2026-05-18",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -19714,7 +19714,7 @@ window.REALTY_DATA = {
       "buildYear": 2008,
       "dealDate": "2026-05-28",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "과천",
@@ -19805,7 +19805,7 @@ window.REALTY_DATA = {
       "buildYear": 2020,
       "dealDate": "2026-05-23",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "과천",
@@ -20039,7 +20039,7 @@ window.REALTY_DATA = {
       "buildYear": 2007,
       "dealDate": "2026-04-21",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "과천",
@@ -20622,5 +20622,5 @@ window.REALTY_DATA = {
     }
   },
   "watch": [],
-  "newCount": 13
+  "newCount": 0
 };
