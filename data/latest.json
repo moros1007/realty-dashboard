@@ -1,13 +1,12 @@
 {
   "isSample": false,
-  "updatedAt": "2026-06-21 19:57",
+  "updatedAt": "2026-06-23 01:20",
   "config": {
     "priceMaxEok": 16,
-    "areaMin": 80.0,
-    "areaMax": 102.0
+    "areaMax": 102.0,
+    "areaMin": 80.0
   },
   "myHome": {
-    "label": "산성역자이푸르지오",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -1486,9 +1485,23 @@
         "dealType": "중개거래"
       }
     ],
-    "addr": "성남시 수정구 신흥동"
+    "addr": "성남시 수정구 신흥동",
+    "label": "산성역자이푸르지오"
   },
   "items": [
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "산운마을13단지(태영)",
+      "umd": "운중동",
+      "areaM2": 84.92,
+      "floor": 13,
+      "amountManwon": 166500,
+      "buildYear": 2010,
+      "dealDate": "2026-06-17",
+      "dealType": "중개거래",
+      "isNew": true
+    },
     {
       "region": "분당",
       "code": "41135",
@@ -9509,6 +9522,19 @@
       "dealDate": "2026-05-28",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "향촌마을현대5차",
+      "umd": "평촌동",
+      "areaM2": 84.75,
+      "floor": 11,
+      "amountManwon": 142800,
+      "buildYear": 1993,
+      "dealDate": "2026-05-28",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "평촌",
@@ -20605,12 +20631,12 @@
       "ratioPct": 41.5,
       "jeonseManwon": 73000,
       "saleManwon": 176000,
-      "count": 1440
+      "count": 1441
     },
     "평촌": {
-      "ratioPct": 57.2,
+      "ratioPct": 57.1,
       "jeonseManwon": 52500,
-      "saleManwon": 91800,
+      "saleManwon": 91900,
       "count": 821
     },
     "과천": {
@@ -20621,5 +20647,5 @@
     }
   },
   "watch": [],
-  "newCount": 0
+  "newCount": 2
 }
