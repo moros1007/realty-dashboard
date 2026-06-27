@@ -1,12 +1,12 @@
 /* 자동 생성 — '⑦ 주간 카톡 요약 보내기.bat' 실행 시 갱신 */
 window.CHEONHO_WEEKLY = {
-  "generatedAt": "2026-06-26 19:40",
-  "weekLabel": "2026년 6월 26일",
+  "generatedAt": "2026-06-27 17:21",
+  "weekLabel": "2026년 6월 27일",
   "capEok": 5.0,
-  "dataUpdated": "2026-06-26 19:40",
+  "dataUpdated": "2026-06-27 17:21",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
-  "byeollaeFit": 31,
+  "byeollaeFit": 30,
   "picks": [
     {
       "region": "남양주",
@@ -61,8 +61,8 @@ window.CHEONHO_WEEKLY = {
       "floor": 11,
       "buildYear": 2014,
       "priceEok": 5.1,
-      "jeonseEok": 4.2,
-      "gapEok": 0.9,
+      "jeonseEok": 4.0,
+      "gapEok": 1.1,
       "st": "별내역",
       "min": 18,
       "terr": "평지",
@@ -73,7 +73,7 @@ window.CHEONHO_WEEKLY = {
       "apt": "유승한내들",
       "umd": "별내동",
       "areaM2": 84.31,
-      "floor": 7,
+      "floor": 15,
       "buildYear": 2014,
       "priceEok": 5.5,
       "jeonseEok": 4.0,
@@ -209,16 +209,16 @@ window.CHEONHO_WEEKLY = {
       "regulated": false,
       "saleMedEok": 7.3,
       "gapMedEok": 2.9,
-      "gapFit": 72,
-      "count": 1896
+      "gapFit": 71,
+      "count": 1906
     },
     {
       "group": "강동",
       "regulated": true,
-      "saleMedEok": 13.5,
-      "gapMedEok": 8.0,
+      "saleMedEok": 13.6,
+      "gapMedEok": 7.9,
       "gapFit": 15,
-      "count": 779
+      "count": 795
     },
     {
       "group": "송파",
@@ -226,7 +226,7 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 18.9,
       "gapMedEok": 12.2,
       "gapFit": 5,
-      "count": 1009
+      "count": 1023
     },
     {
       "group": "성남",
@@ -234,7 +234,7 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 9.6,
       "gapMedEok": 4.3,
       "gapFit": 48,
-      "count": 999
+      "count": 1013
     },
     {
       "group": "분당",
@@ -242,7 +242,7 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 14.8,
       "gapMedEok": 9.2,
       "gapFit": 0,
-      "count": 752
+      "count": 764
     }
   ]
 };
