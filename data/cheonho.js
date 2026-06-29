@@ -1,13 +1,13 @@
 /* 자동 생성 — 직접 수정 금지. 'ⓢ 천호 역세권 업데이트.bat' 실행 시 갱신됩니다. */
 window.CHEONHO_DATA = {
   "isSample": false,
-  "updatedAt": "2026-06-28 19:10",
+  "updatedAt": "2026-06-29 23:37",
   "anchor": "천호역(5·8호선)",
   "config": {
     "areaMax": 90.0,
-    "capEok": 5.0,
+    "areaMin": 45.0,
     "monthsBack": 4,
-    "areaMin": 45.0
+    "capEok": 5.0
   },
   "items": [
     {
@@ -42259,23 +42259,6 @@ window.CHEONHO_DATA = {
       "group": "성남",
       "region": "성남중원",
       "code": "41133",
-      "apt": "대동다숲",
-      "umd": "성남동",
-      "areaM2": 84.77,
-      "floor": 6,
-      "amountManwon": 62500,
-      "buildYear": 2006,
-      "dealDate": "2026-05-08",
-      "dealType": "중개거래",
-      "jeonseManwon": 38500,
-      "jeonseSrc": "complex",
-      "gapManwon": 24000,
-      "isNew": false
-    },
-    {
-      "group": "성남",
-      "region": "성남중원",
-      "code": "41133",
       "apt": "은행주공",
       "umd": "은행동",
       "areaM2": 54.9,
@@ -80639,7 +80622,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 85000,
       "jeonseSrc": "complex",
       "gapManwon": 149000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -80656,7 +80639,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 73750,
       "jeonseSrc": "complex",
       "gapManwon": 116250,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -80775,7 +80758,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 84000,
       "jeonseSrc": "complex",
       "gapManwon": 68000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -80877,7 +80860,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 72500,
       "jeonseSrc": "complex",
       "gapManwon": 117500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -81064,7 +81047,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 71500,
       "jeonseSrc": "complex",
       "gapManwon": 96500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -81421,7 +81404,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 50000,
       "jeonseSrc": "complex",
       "gapManwon": 76500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -81965,7 +81948,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 60000,
       "jeonseSrc": "complex",
       "gapManwon": 88900,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -82288,7 +82271,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 68000,
       "jeonseSrc": "complex",
       "gapManwon": 139000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -82543,7 +82526,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 34825,
       "jeonseSrc": "complex",
       "gapManwon": 69175,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -93718,5 +93701,5 @@ window.CHEONHO_DATA = {
       "saleManwon": 148900
     }
   },
-  "newCount": 9
+  "newCount": 0
 };
