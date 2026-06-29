@@ -1,14 +1,14 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-06-28 19:09",
+  "updatedAt": "2026-06-29 23:35",
   "config": {
-    "priceMaxEok": 16,
     "areaMax": 102.0,
+    "priceMaxEok": 16,
     "areaMin": 80.0
   },
   "myHome": {
-    "label": "산성역자이푸르지오",
+    "addr": "성남시 수정구 신흥동",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -1559,7 +1559,7 @@ window.REALTY_DATA = {
         "dealType": "중개거래"
       }
     ],
-    "addr": "성남시 수정구 신흥동"
+    "label": "산성역자이푸르지오"
   },
   "items": [
     {
@@ -1638,7 +1638,7 @@ window.REALTY_DATA = {
       "buildYear": 2021,
       "dealDate": "2026-06-20",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1677,7 +1677,7 @@ window.REALTY_DATA = {
       "buildYear": 1993,
       "dealDate": "2026-06-19",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1755,7 +1755,7 @@ window.REALTY_DATA = {
       "buildYear": 1992,
       "dealDate": "2026-06-16",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -2236,7 +2236,7 @@ window.REALTY_DATA = {
       "buildYear": 1993,
       "dealDate": "2026-06-03",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -21825,5 +21825,5 @@ window.REALTY_DATA = {
     }
   },
   "watch": [],
-  "newCount": 4
+  "newCount": 0
 };
