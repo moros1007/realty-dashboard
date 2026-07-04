@@ -1,16 +1,28 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-07-04 08:39",
+  "updatedAt": "2026-07-05 08:38",
   "config": {
     "priceMaxEok": 16,
-    "areaMin": 80.0,
-    "areaMax": 102.0
+    "areaMax": 102.0,
+    "areaMin": 80.0
   },
   "myHome": {
     "addr": "성남시 수정구 신흥동",
     "label": "산성역자이푸르지오",
     "items": [
+      {
+        "region": "산성역자이푸르지오",
+        "code": "41131",
+        "apt": "산성역자이푸르지오2단지",
+        "umd": "신흥동",
+        "areaM2": 59.98,
+        "floor": 4,
+        "amountManwon": 131800,
+        "buildYear": 2024,
+        "dealDate": "2026-06-27",
+        "dealType": "중개거래"
+      },
       {
         "region": "산성역자이푸르지오",
         "code": "41131",
@@ -1585,7 +1597,7 @@ window.REALTY_DATA = {
       "buildYear": 1992,
       "dealDate": "2026-06-19",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -13498,19 +13510,6 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
-      "apt": "관악",
-      "umd": "비산동",
-      "areaM2": 84.94,
-      "floor": 13,
-      "amountManwon": 92900,
-      "buildYear": 1992,
-      "dealDate": "2026-04-10",
-      "dealType": "중개거래",
-      "isNew": false
-    },
-    {
-      "region": "평촌",
-      "code": "41173",
       "apt": "인덕원대우",
       "umd": "평촌동",
       "areaM2": 84.96,
@@ -14025,19 +14024,6 @@ window.REALTY_DATA = {
       "amountManwon": 71700,
       "buildYear": 2003,
       "dealDate": "2026-04-06",
-      "dealType": "중개거래",
-      "isNew": false
-    },
-    {
-      "region": "평촌",
-      "code": "41173",
-      "apt": "샛별한양4-2",
-      "umd": "비산동",
-      "areaM2": 84.9,
-      "floor": 6,
-      "amountManwon": 94800,
-      "buildYear": 1993,
-      "dealDate": "2026-04-04",
       "dealType": "중개거래",
       "isNew": false
     },
@@ -18925,9 +18911,9 @@ window.REALTY_DATA = {
       "count": 1195
     },
     "평촌": {
-      "ratioPct": 56.7,
+      "ratioPct": 56.8,
       "jeonseManwon": 52500,
-      "saleManwon": 92650,
+      "saleManwon": 92500,
       "count": 704
     },
     "과천": {
@@ -18938,5 +18924,5 @@ window.REALTY_DATA = {
     }
   },
   "watch": [],
-  "newCount": 1
+  "newCount": 0
 };
