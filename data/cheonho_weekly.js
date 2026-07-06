@@ -1,9 +1,9 @@
 /* 자동 생성 — '⑦ 주간 카톡 요약 보내기.bat' 실행 시 갱신 */
 window.CHEONHO_WEEKLY = {
-  "generatedAt": "2026-07-06 08:45",
-  "weekLabel": "2026년 7월 6일",
+  "generatedAt": "2026-07-07 08:46",
+  "weekLabel": "2026년 7월 7일",
   "capEok": 5.0,
-  "dataUpdated": "2026-07-06 08:45",
+  "dataUpdated": "2026-07-07 08:46",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
   "byeollaeFit": 30,
@@ -16,8 +16,8 @@ window.CHEONHO_WEEKLY = {
       "floor": 8,
       "buildYear": 2021,
       "priceEok": 4.4,
-      "jeonseEok": 4.6,
-      "gapEok": -0.2,
+      "jeonseEok": 4.5,
+      "gapEok": -0.1,
       "st": "다산역",
       "min": 15,
       "terr": "평지",
@@ -61,8 +61,8 @@ window.CHEONHO_WEEKLY = {
       "floor": 11,
       "buildYear": 2014,
       "priceEok": 5.1,
-      "jeonseEok": 4.0,
-      "gapEok": 1.1,
+      "jeonseEok": 3.8,
+      "gapEok": 1.3,
       "st": "별내역",
       "min": 18,
       "terr": "평지",
@@ -72,8 +72,8 @@ window.CHEONHO_WEEKLY = {
       "region": "남양주",
       "apt": "유승한내들",
       "umd": "별내동",
-      "areaM2": 84.26,
-      "floor": 3,
+      "areaM2": 84.31,
+      "floor": 15,
       "buildYear": 2014,
       "priceEok": 5.5,
       "jeonseEok": 4.0,
@@ -207,26 +207,26 @@ window.CHEONHO_WEEKLY = {
     {
       "group": "별내선",
       "regulated": false,
-      "saleMedEok": 7.4,
+      "saleMedEok": 7.5,
       "gapMedEok": 3.0,
-      "gapFit": 64,
-      "count": 1562
+      "gapFit": 65,
+      "count": 1618
     },
     {
       "group": "강동",
       "regulated": true,
-      "saleMedEok": 14.2,
+      "saleMedEok": 14.3,
       "gapMedEok": 8.4,
       "gapFit": 14,
-      "count": 664
+      "count": 690
     },
     {
       "group": "송파",
       "regulated": true,
       "saleMedEok": 19.3,
-      "gapMedEok": 12.2,
-      "gapFit": 2,
-      "count": 886
+      "gapMedEok": 12.1,
+      "gapFit": 3,
+      "count": 896
     },
     {
       "group": "성남",
@@ -234,15 +234,15 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 10.0,
       "gapMedEok": 4.3,
       "gapFit": 37,
-      "count": 843
+      "count": 851
     },
     {
       "group": "분당",
       "regulated": true,
-      "saleMedEok": 14.9,
-      "gapMedEok": 9.1,
+      "saleMedEok": 15.0,
+      "gapMedEok": 9.2,
       "gapFit": 0,
-      "count": 714
+      "count": 728
     }
   ]
 };
