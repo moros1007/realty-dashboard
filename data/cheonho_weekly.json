@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-11 08:40",
-  "weekLabel": "2026년 7월 11일",
+  "generatedAt": "2026-07-12 08:38",
+  "weekLabel": "2026년 7월 12일",
   "capEok": 5.0,
-  "dataUpdated": "2026-07-11 08:39",
+  "dataUpdated": "2026-07-12 08:38",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
   "byeollaeFit": 33,
@@ -209,7 +209,7 @@
       "saleMedEok": 7.5,
       "gapMedEok": 3.0,
       "gapFit": 68,
-      "count": 1721
+      "count": 1720
     },
     {
       "group": "강동",
