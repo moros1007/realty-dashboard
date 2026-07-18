@@ -1,10 +1,10 @@
 {
   "isSample": false,
-  "updatedAt": "2026-07-18 08:31",
+  "updatedAt": "2026-07-19 08:33",
   "config": {
+    "areaMax": 102.0,
     "areaMin": 80.0,
-    "priceMaxEok": 16,
-    "areaMax": 102.0
+    "priceMaxEok": 16
   },
   "myHome": {
     "label": "산성역자이푸르지오",
@@ -8417,7 +8417,7 @@
       "buildYear": 2016,
       "dealDate": "2026-07-09",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -8430,7 +8430,7 @@
       "buildYear": 2022,
       "dealDate": "2026-07-11",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -8703,7 +8703,7 @@
       "buildYear": 2004,
       "dealDate": "2026-07-05",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -11327,19 +11327,6 @@
       "floor": 3,
       "amountManwon": 71500,
       "buildYear": 1992,
-      "dealDate": "2026-05-29",
-      "dealType": "중개거래",
-      "isNew": false
-    },
-    {
-      "region": "평촌",
-      "code": "41173",
-      "apt": "흥화",
-      "umd": "호계동",
-      "areaM2": 84.98,
-      "floor": 14,
-      "amountManwon": 50000,
-      "buildYear": 1999,
       "dealDate": "2026-05-29",
       "dealType": "중개거래",
       "isNew": false
@@ -20908,5 +20895,5 @@
     }
   },
   "watch": [],
-  "newCount": 3
+  "newCount": 0
 }
