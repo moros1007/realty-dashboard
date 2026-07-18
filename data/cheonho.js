@@ -1,13 +1,13 @@
 /* 자동 생성 — 직접 수정 금지. 'ⓢ 천호 역세권 업데이트.bat' 실행 시 갱신됩니다. */
 window.CHEONHO_DATA = {
   "isSample": false,
-  "updatedAt": "2026-07-18 08:36",
+  "updatedAt": "2026-07-19 08:37",
   "anchor": "천호역(5·8호선)",
   "config": {
     "monthsBack": 4,
-    "areaMin": 45.0,
     "capEok": 5.0,
-    "areaMax": 90.0
+    "areaMax": 90.0,
+    "areaMin": 45.0
   },
   "items": [
     {
@@ -47189,6 +47189,23 @@ window.CHEONHO_DATA = {
       "group": "별내선",
       "region": "구리",
       "code": "41310",
+      "apt": "주공4-2",
+      "umd": "인창동",
+      "areaM2": 59.93,
+      "floor": 8,
+      "amountManwon": 71000,
+      "buildYear": 1996,
+      "dealDate": "2026-07-01",
+      "dealType": "중개거래",
+      "jeonseManwon": 31500,
+      "jeonseSrc": "complex",
+      "gapManwon": 39500,
+      "isNew": true
+    },
+    {
+      "group": "별내선",
+      "region": "구리",
+      "code": "41310",
       "apt": "주공2",
       "umd": "인창동",
       "areaM2": 84.99,
@@ -58216,23 +58233,6 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 47250,
       "jeonseSrc": "complex",
       "gapManwon": 26750,
-      "isNew": false
-    },
-    {
-      "group": "별내선",
-      "region": "구리",
-      "code": "41310",
-      "apt": "골든빌리지",
-      "umd": "수택동",
-      "areaM2": 59.79,
-      "floor": 6,
-      "amountManwon": 54000,
-      "buildYear": 2002,
-      "dealDate": "2026-04-29",
-      "dealType": "중개거래",
-      "jeonseManwon": 27000,
-      "jeonseSrc": "complex",
-      "gapManwon": 27000,
       "isNew": false
     },
     {
@@ -91967,5 +91967,5 @@ window.CHEONHO_DATA = {
       "saleManwon": 150000
     }
   },
-  "newCount": 0
+  "newCount": 1
 };

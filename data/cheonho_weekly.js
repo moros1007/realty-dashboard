@@ -1,12 +1,12 @@
 /* 자동 생성 — '⑦ 주간 카톡 요약 보내기.bat' 실행 시 갱신 */
 window.CHEONHO_WEEKLY = {
-  "generatedAt": "2026-07-18 08:36",
-  "weekLabel": "2026년 7월 18일",
+  "generatedAt": "2026-07-19 08:37",
+  "weekLabel": "2026년 7월 19일",
   "capEok": 5.0,
-  "dataUpdated": "2026-07-18 08:36",
+  "dataUpdated": "2026-07-19 08:37",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
-  "byeollaeFit": 34,
+  "byeollaeFit": 33,
   "picks": [
     {
       "region": "남양주",
@@ -209,7 +209,7 @@ window.CHEONHO_WEEKLY = {
       "regulated": false,
       "saleMedEok": 7.5,
       "gapMedEok": 3.0,
-      "gapFit": 69,
+      "gapFit": 68,
       "count": 1829
     },
     {
