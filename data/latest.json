@@ -1,14 +1,37 @@
 {
   "isSample": false,
-  "updatedAt": "2026-07-20 08:36",
+  "updatedAt": "2026-07-21 08:37",
   "config": {
-    "areaMin": 80.0,
     "priceMaxEok": 16,
-    "areaMax": 102.0
+    "areaMax": 102.0,
+    "areaMin": 80.0
   },
   "myHome": {
-    "label": "산성역자이푸르지오",
     "items": [
+      {
+        "region": "산성역자이푸르지오",
+        "code": "41131",
+        "apt": "산성역자이푸르지오1단지",
+        "umd": "신흥동",
+        "areaM2": 59.98,
+        "floor": 2,
+        "amountManwon": 127000,
+        "buildYear": 2024,
+        "dealDate": "2026-07-10",
+        "dealType": "중개거래"
+      },
+      {
+        "region": "산성역자이푸르지오",
+        "code": "41131",
+        "apt": "산성역자이푸르지오2단지",
+        "umd": "신흥동",
+        "areaM2": 74.96,
+        "floor": 10,
+        "amountManwon": 140000,
+        "buildYear": 2024,
+        "dealDate": "2026-07-09",
+        "dealType": "중개거래"
+      },
       {
         "region": "산성역자이푸르지오",
         "code": "41131",
@@ -1318,9 +1341,23 @@
         "dealType": "중개거래"
       }
     ],
-    "addr": "성남시 수정구 신흥동"
+    "addr": "성남시 수정구 신흥동",
+    "label": "산성역자이푸르지오"
   },
   "items": [
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "양지마을(금호1)",
+      "umd": "수내동",
+      "areaM2": 84.9,
+      "floor": 10,
+      "amountManwon": 239000,
+      "buildYear": 1992,
+      "dealDate": "2026-07-18",
+      "dealType": "중개거래",
+      "isNew": true
+    },
     {
       "region": "분당",
       "code": "41135",
@@ -1376,6 +1413,19 @@
     {
       "region": "분당",
       "code": "41135",
+      "apt": "파크타운(대림)",
+      "umd": "수내동",
+      "areaM2": 101.84,
+      "floor": 4,
+      "amountManwon": 235000,
+      "buildYear": 1993,
+      "dealDate": "2026-07-14",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "분당",
+      "code": "41135",
       "apt": "양지마을(5단지)(한양515-529)",
       "umd": "수내동",
       "areaM2": 101.93,
@@ -1385,6 +1435,19 @@
       "dealDate": "2026-07-15",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "무지개(5단지)(청구)",
+      "umd": "구미동",
+      "areaM2": 85.0,
+      "floor": 5,
+      "amountManwon": 148000,
+      "buildYear": 1995,
+      "dealDate": "2026-07-11",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -1480,6 +1543,19 @@
     {
       "region": "분당",
       "code": "41135",
+      "apt": "양지마을(2단지)(청구)",
+      "umd": "수내동",
+      "areaM2": 84.99,
+      "floor": 10,
+      "amountManwon": 235000,
+      "buildYear": 1992,
+      "dealDate": "2026-07-07",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "분당",
+      "code": "41135",
       "apt": "판교원마을1단지(파라곤)",
       "umd": "판교동",
       "areaM2": 101.12,
@@ -1541,6 +1617,19 @@
       "dealDate": "2026-07-03",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "한솔마을(1단지)(청구)",
+      "umd": "정자동",
+      "areaM2": 101.99,
+      "floor": 14,
+      "amountManwon": 188500,
+      "buildYear": 1994,
+      "dealDate": "2026-07-03",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -1658,6 +1747,19 @@
       "dealDate": "2026-07-10",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "장안타운(건영)",
+      "umd": "분당동",
+      "areaM2": 85.0,
+      "floor": 9,
+      "amountManwon": 135000,
+      "buildYear": 1993,
+      "dealDate": "2026-06-22",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -2091,6 +2193,19 @@
     {
       "region": "분당",
       "code": "41135",
+      "apt": "백현마을8단지(대림)",
+      "umd": "백현동",
+      "areaM2": 101.46,
+      "floor": 16,
+      "amountManwon": 257000,
+      "buildYear": 2009,
+      "dealDate": "2026-06-19",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "분당",
+      "code": "41135",
       "apt": "시범한신",
       "umd": "서현동",
       "areaM2": 84.69,
@@ -2178,6 +2293,19 @@
       "dealDate": "2026-06-18",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "장미마을(동부)",
+      "umd": "야탑동",
+      "areaM2": 84.99,
+      "floor": 8,
+      "amountManwon": 160000,
+      "buildYear": 1993,
+      "dealDate": "2026-06-18",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -19865,12 +19993,38 @@
       "apt": "래미안슈르",
       "umd": "원문동",
       "areaM2": 84.96,
+      "floor": 11,
+      "amountManwon": 227500,
+      "buildYear": 2008,
+      "dealDate": "2026-07-04",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "과천",
+      "code": "41290",
+      "apt": "래미안슈르",
+      "umd": "원문동",
+      "areaM2": 84.96,
       "floor": 22,
       "amountManwon": 175000,
       "buildYear": 2008,
       "dealDate": "2026-07-11",
       "dealType": "직거래",
       "isNew": false
+    },
+    {
+      "region": "과천",
+      "code": "41290",
+      "apt": "과천위버필드",
+      "umd": "원문동",
+      "areaM2": 84.98,
+      "floor": 10,
+      "amountManwon": 259000,
+      "buildYear": 2021,
+      "dealDate": "2026-07-11",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "과천",
@@ -19884,6 +20038,32 @@
       "dealDate": "2026-07-06",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "과천",
+      "code": "41290",
+      "apt": "과천위버필드",
+      "umd": "원문동",
+      "areaM2": 84.57,
+      "floor": 12,
+      "amountManwon": 258000,
+      "buildYear": 2021,
+      "dealDate": "2026-07-04",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "과천",
+      "code": "41290",
+      "apt": "래미안슈르",
+      "umd": "원문동",
+      "areaM2": 84.95,
+      "floor": 7,
+      "amountManwon": 220000,
+      "buildYear": 2008,
+      "dealDate": "2026-06-23",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "과천",
@@ -20876,24 +21056,24 @@
   ],
   "jeonse": {
     "분당": {
-      "ratioPct": 41.1,
-      "jeonseManwon": 73500,
+      "ratioPct": 41.3,
+      "jeonseManwon": 74000,
       "saleManwon": 179000,
-      "count": 1279
+      "count": 1308
     },
     "평촌": {
-      "ratioPct": 57.3,
-      "jeonseManwon": 53000,
+      "ratioPct": 56.8,
+      "jeonseManwon": 52500,
       "saleManwon": 92500,
-      "count": 772
+      "count": 791
     },
     "과천": {
-      "ratioPct": 39.4,
-      "jeonseManwon": 93225,
+      "ratioPct": 39.7,
+      "jeonseManwon": 94000,
       "saleManwon": 236500,
-      "count": 250
+      "count": 256
     }
   },
   "watch": [],
-  "newCount": 0
+  "newCount": 12
 }
