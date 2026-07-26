@@ -1,15 +1,15 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-07-26 08:36",
+  "updatedAt": "2026-07-27 08:36",
   "config": {
+    "areaMin": 80.0,
     "areaMax": 102.0,
-    "priceMaxEok": 16,
-    "areaMin": 80.0
+    "priceMaxEok": 16
   },
   "myHome": {
-    "label": "산성역자이푸르지오",
     "addr": "성남시 수정구 신흥동",
+    "label": "산성역자이푸르지오",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -1424,6 +1424,45 @@ window.REALTY_DATA = {
     {
       "region": "분당",
       "code": "41135",
+      "apt": "효자촌(임광)",
+      "umd": "서현동",
+      "areaM2": 101.34,
+      "floor": 12,
+      "amountManwon": 179000,
+      "buildYear": 1992,
+      "dealDate": "2026-07-17",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "백현마을2단지",
+      "umd": "백현동",
+      "areaM2": 84.5,
+      "floor": 3,
+      "amountManwon": 280000,
+      "buildYear": 2009,
+      "dealDate": "2026-07-17",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "푸른마을(신성)",
+      "umd": "수내동",
+      "areaM2": 84.72,
+      "floor": 20,
+      "amountManwon": 194500,
+      "buildYear": 1992,
+      "dealDate": "2026-07-16",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "분당",
+      "code": "41135",
       "apt": "양지마을(2단지)(청구)",
       "umd": "수내동",
       "areaM2": 84.6,
@@ -1433,6 +1472,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-07-15",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "시범한신",
+      "umd": "서현동",
+      "areaM2": 84.69,
+      "floor": 1,
+      "amountManwon": 215000,
+      "buildYear": 1991,
+      "dealDate": "2026-07-15",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -1641,6 +1693,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-07-09",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "청솔마을(유천)",
+      "umd": "금곡동",
+      "areaM2": 84.6,
+      "floor": 24,
+      "amountManwon": 193500,
+      "buildYear": 1995,
+      "dealDate": "2026-07-09",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -6501,19 +6566,6 @@ window.REALTY_DATA = {
       "amountManwon": 235000,
       "buildYear": 2015,
       "dealDate": "2026-04-28",
-      "dealType": "중개거래",
-      "isNew": false
-    },
-    {
-      "region": "분당",
-      "code": "41135",
-      "apt": "분당하우스토리",
-      "umd": "금곡동",
-      "areaM2": 84.68,
-      "floor": 9,
-      "amountManwon": 145000,
-      "buildYear": 2004,
-      "dealDate": "2026-04-14",
       "dealType": "중개거래",
       "isNew": false
     },
@@ -21762,5 +21814,5 @@ window.REALTY_DATA = {
     }
   },
   "watch": [],
-  "newCount": 0
+  "newCount": 5
 };
