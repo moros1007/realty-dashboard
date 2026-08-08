@@ -1,13 +1,14 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-08-08 08:10",
+  "updatedAt": "2026-08-09 08:02",
   "config": {
     "priceMaxEok": 16,
     "areaMax": 102.0,
     "areaMin": 80.0
   },
   "myHome": {
+    "label": "산성역자이푸르지오",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -41,6 +42,18 @@ window.REALTY_DATA = {
         "areaM2": 59.98,
         "floor": 13,
         "amountManwon": 128500,
+        "buildYear": 2024,
+        "dealDate": "2026-07-27",
+        "dealType": "중개거래"
+      },
+      {
+        "region": "산성역자이푸르지오",
+        "code": "41131",
+        "apt": "산성역자이푸르지오1단지",
+        "umd": "신흥동",
+        "areaM2": 74.96,
+        "floor": 29,
+        "amountManwon": 140500,
         "buildYear": 2024,
         "dealDate": "2026-07-27",
         "dealType": "중개거래"
@@ -1330,8 +1343,7 @@ window.REALTY_DATA = {
         "dealType": "중개거래"
       }
     ],
-    "addr": "성남시 수정구 신흥동",
-    "label": "산성역자이푸르지오"
+    "addr": "성남시 수정구 신흥동"
   },
   "items": [
     {
@@ -1397,7 +1409,7 @@ window.REALTY_DATA = {
       "buildYear": 2011,
       "dealDate": "2026-07-10",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1449,7 +1461,7 @@ window.REALTY_DATA = {
       "buildYear": 1993,
       "dealDate": "2026-07-27",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1670,7 +1682,7 @@ window.REALTY_DATA = {
       "buildYear": 2009,
       "dealDate": "2026-07-19",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -2177,7 +2189,7 @@ window.REALTY_DATA = {
       "buildYear": 1992,
       "dealDate": "2026-07-09",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -8339,7 +8351,7 @@ window.REALTY_DATA = {
       "buildYear": 2021,
       "dealDate": "2026-08-05",
       "dealType": "직거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -8378,7 +8390,7 @@ window.REALTY_DATA = {
       "buildYear": 1992,
       "dealDate": "2026-07-31",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -8786,6 +8798,19 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
+      "apt": "샘마을한양",
+      "umd": "호계동",
+      "areaM2": 88.73,
+      "floor": 3,
+      "amountManwon": 110000,
+      "buildYear": 1993,
+      "dealDate": "2026-07-17",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
       "apt": "인덕원대우",
       "umd": "평촌동",
       "areaM2": 84.96,
@@ -8924,7 +8949,7 @@ window.REALTY_DATA = {
       "buildYear": 2023,
       "dealDate": "2026-07-17",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -8989,7 +9014,7 @@ window.REALTY_DATA = {
       "buildYear": 2003,
       "dealDate": "2026-07-11",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -9042,6 +9067,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-07-16",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "인덕원마을(삼성)",
+      "umd": "관양동",
+      "areaM2": 84.93,
+      "floor": 21,
+      "amountManwon": 140000,
+      "buildYear": 1998,
+      "dealDate": "2026-07-14",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "평촌",
@@ -9587,7 +9625,7 @@ window.REALTY_DATA = {
       "buildYear": 2023,
       "dealDate": "2026-07-06",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -17257,7 +17295,7 @@ window.REALTY_DATA = {
       "buildYear": 2007,
       "dealDate": "2026-04-01",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -20414,5 +20452,5 @@ window.REALTY_DATA = {
     }
   },
   "watch": [],
-  "newCount": 10
+  "newCount": 2
 };
