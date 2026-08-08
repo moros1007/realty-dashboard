@@ -1,13 +1,13 @@
 /* 자동 생성 — 직접 수정 금지. 'ⓢ 천호 역세권 업데이트.bat' 실행 시 갱신됩니다. */
 window.CHEONHO_DATA = {
   "isSample": false,
-  "updatedAt": "2026-08-08 08:18",
+  "updatedAt": "2026-08-09 08:05",
   "anchor": "천호역(5·8호선)",
   "config": {
-    "capEok": 5.0,
-    "monthsBack": 4,
     "areaMax": 90.0,
-    "areaMin": 45.0
+    "capEok": 5.0,
+    "areaMin": 45.0,
+    "monthsBack": 4
   },
   "items": [
     {
@@ -42,7 +42,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 61000,
       "jeonseSrc": "complex",
       "gapManwon": 87500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "송파",
@@ -93,7 +93,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 132825,
       "jeonseSrc": "complex",
       "gapManwon": 219175,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "송파",
@@ -110,7 +110,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 51675,
       "jeonseSrc": "region",
       "gapManwon": 80825,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "송파",
@@ -280,7 +280,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 70000,
       "jeonseSrc": "complex",
       "gapManwon": 78800,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "송파",
@@ -468,6 +468,23 @@ window.CHEONHO_DATA = {
       "jeonseSrc": "complex",
       "gapManwon": 367500,
       "isNew": false
+    },
+    {
+      "group": "송파",
+      "region": "송파",
+      "code": "11710",
+      "apt": "올림픽파크센트레빌",
+      "umd": "오금동",
+      "areaM2": 84.59,
+      "floor": 3,
+      "amountManwon": 160000,
+      "buildYear": 2009,
+      "dealDate": "2026-07-20",
+      "dealType": "중개거래",
+      "jeonseManwon": 62400,
+      "jeonseSrc": "region",
+      "gapManwon": 97600,
+      "isNew": true
     },
     {
       "group": "송파",
@@ -1215,7 +1232,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 120000,
       "jeonseSrc": "complex",
       "gapManwon": 180000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "송파",
@@ -1453,7 +1470,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 61000,
       "jeonseSrc": "complex",
       "gapManwon": 100500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "송파",
@@ -2796,7 +2813,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 39585,
       "jeonseSrc": "region",
       "gapManwon": 61915,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "송파",
@@ -2915,7 +2932,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 49675,
       "jeonseSrc": "complex",
       "gapManwon": 52325,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "송파",
@@ -3595,7 +3612,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 55000,
       "jeonseSrc": "complex",
       "gapManwon": 382500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "송파",
@@ -5329,7 +5346,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 54000,
       "jeonseSrc": "complex",
       "gapManwon": 45000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "송파",
@@ -11704,7 +11721,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 57000,
       "jeonseSrc": "complex",
       "gapManwon": 88000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -12016,6 +12033,23 @@ window.CHEONHO_DATA = {
       "group": "강동",
       "region": "강동",
       "code": "11740",
+      "apt": "우림루미아트",
+      "umd": "성내동",
+      "areaM2": 84.5,
+      "floor": 4,
+      "amountManwon": 89000,
+      "buildYear": 2004,
+      "dealDate": "2026-07-14",
+      "dealType": "중개거래",
+      "jeonseManwon": 75000,
+      "jeonseSrc": "complex",
+      "gapManwon": 14000,
+      "isNew": true
+    },
+    {
+      "group": "강동",
+      "region": "강동",
+      "code": "11740",
       "apt": "강동리버스트4단지",
       "umd": "강일동",
       "areaM2": 49.82,
@@ -12180,7 +12214,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 50500,
       "jeonseSrc": "complex",
       "gapManwon": 42500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -12282,7 +12316,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 94000,
       "jeonseSrc": "complex",
       "gapManwon": 56000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -12402,6 +12436,23 @@ window.CHEONHO_DATA = {
       "jeonseSrc": "complex",
       "gapManwon": 93800,
       "isNew": false
+    },
+    {
+      "group": "강동",
+      "region": "강동",
+      "code": "11740",
+      "apt": "둔촌역청구",
+      "umd": "성내동",
+      "areaM2": 84.98,
+      "floor": 3,
+      "amountManwon": 116300,
+      "buildYear": 1999,
+      "dealDate": "2026-07-11",
+      "dealType": "중개거래",
+      "jeonseManwon": 48846,
+      "jeonseSrc": "region",
+      "gapManwon": 67454,
+      "isNew": true
     },
     {
       "group": "강동",
@@ -13608,7 +13659,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 57540,
       "jeonseSrc": "region",
       "gapManwon": 79460,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -20082,9 +20133,9 @@ window.CHEONHO_DATA = {
       "buildYear": 1986,
       "dealDate": "2026-05-11",
       "dealType": "중개거래",
-      "jeonseManwon": 52500,
+      "jeonseManwon": 55125,
       "jeonseSrc": "complex",
-      "gapManwon": 134500,
+      "gapManwon": 131875,
       "isNew": false
     },
     {
@@ -23346,10 +23397,10 @@ window.CHEONHO_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-07-08",
       "dealType": "중개거래",
-      "jeonseManwon": 27132,
+      "jeonseManwon": 27075,
       "jeonseSrc": "region",
-      "gapManwon": 29868,
-      "isNew": true
+      "gapManwon": 29925,
+      "isNew": false
     },
     {
       "group": "성남",
@@ -23423,6 +23474,23 @@ window.CHEONHO_DATA = {
       "group": "성남",
       "region": "성남수정",
       "code": "41131",
+      "apt": "가천대역동부센트레빌1단지",
+      "umd": "태평동",
+      "areaM2": 84.91,
+      "floor": 11,
+      "amountManwon": 81500,
+      "buildYear": 2006,
+      "dealDate": "2026-07-29",
+      "dealType": "중개거래",
+      "jeonseManwon": 55000,
+      "jeonseSrc": "complex",
+      "gapManwon": 26500,
+      "isNew": true
+    },
+    {
+      "group": "성남",
+      "region": "성남수정",
+      "code": "41131",
       "apt": "선경태평",
       "umd": "태평동",
       "areaM2": 46.01,
@@ -23431,9 +23499,9 @@ window.CHEONHO_DATA = {
       "buildYear": 1991,
       "dealDate": "2026-07-28",
       "dealType": "직거래",
-      "jeonseManwon": 17592,
+      "jeonseManwon": 17556,
       "jeonseSrc": "region",
-      "gapManwon": 19367,
+      "gapManwon": 19403,
       "isNew": false
     },
     {
@@ -23486,6 +23554,23 @@ window.CHEONHO_DATA = {
       "jeonseSrc": "complex",
       "gapManwon": 64500,
       "isNew": false
+    },
+    {
+      "group": "성남",
+      "region": "성남수정",
+      "code": "41131",
+      "apt": "산성역자이푸르지오1단지",
+      "umd": "신흥동",
+      "areaM2": 74.96,
+      "floor": 29,
+      "amountManwon": 140500,
+      "buildYear": 2024,
+      "dealDate": "2026-07-27",
+      "dealType": "중개거래",
+      "jeonseManwon": 70000,
+      "jeonseSrc": "complex",
+      "gapManwon": 70500,
+      "isNew": true
     },
     {
       "group": "성남",
@@ -23570,7 +23655,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 78000,
       "jeonseSrc": "complex",
       "gapManwon": 72000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -23584,9 +23669,9 @@ window.CHEONHO_DATA = {
       "buildYear": 1984,
       "dealDate": "2026-07-25",
       "dealType": "중개거래",
-      "jeonseManwon": 21325,
+      "jeonseManwon": 21280,
       "jeonseSrc": "region",
-      "gapManwon": 23475,
+      "gapManwon": 23520,
       "isNew": false
     },
     {
@@ -23714,6 +23799,23 @@ window.CHEONHO_DATA = {
       "code": "41131",
       "apt": "위례 래미안이편한세상",
       "umd": "창곡동",
+      "areaM2": 84.98,
+      "floor": 4,
+      "amountManwon": 195000,
+      "buildYear": 2016,
+      "dealDate": "2026-07-11",
+      "dealType": "중개거래",
+      "jeonseManwon": 77750,
+      "jeonseSrc": "complex",
+      "gapManwon": 117250,
+      "isNew": true
+    },
+    {
+      "group": "성남",
+      "region": "성남수정",
+      "code": "41131",
+      "apt": "위례 래미안이편한세상",
+      "umd": "창곡동",
       "areaM2": 75.99,
       "floor": 20,
       "amountManwon": 183000,
@@ -23737,9 +23839,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2001,
       "dealDate": "2026-07-11",
       "dealType": "중개거래",
-      "jeonseManwon": 52360,
+      "jeonseManwon": 52250,
       "jeonseSrc": "region",
-      "gapManwon": 57640,
+      "gapManwon": 57750,
       "isNew": false
     },
     {
@@ -23856,9 +23958,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2001,
       "dealDate": "2026-07-10",
       "dealType": "중개거래",
-      "jeonseManwon": 50456,
+      "jeonseManwon": 50350,
       "jeonseSrc": "region",
-      "gapManwon": 55544,
+      "gapManwon": 55650,
       "isNew": false
     },
     {
@@ -23941,9 +24043,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2001,
       "dealDate": "2026-07-04",
       "dealType": "중개거래",
-      "jeonseManwon": 52360,
+      "jeonseManwon": 52250,
       "jeonseSrc": "region",
-      "gapManwon": 57640,
+      "gapManwon": 57750,
       "isNew": false
     },
     {
@@ -23992,10 +24094,10 @@ window.CHEONHO_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-07-11",
       "dealType": "중개거래",
-      "jeonseManwon": 33320,
+      "jeonseManwon": 33250,
       "jeonseSrc": "region",
-      "gapManwon": 36680,
-      "isNew": true
+      "gapManwon": 36750,
+      "isNew": false
     },
     {
       "group": "성남",
@@ -24043,9 +24145,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2003,
       "dealDate": "2026-07-09",
       "dealType": "중개거래",
-      "jeonseManwon": 35938,
+      "jeonseManwon": 35862,
       "jeonseSrc": "region",
-      "gapManwon": 39562,
+      "gapManwon": 39638,
       "isNew": false
     },
     {
@@ -24553,9 +24655,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2003,
       "dealDate": "2026-07-07",
       "dealType": "중개거래",
-      "jeonseManwon": 41174,
+      "jeonseManwon": 41088,
       "jeonseSrc": "region",
-      "gapManwon": 45326,
+      "gapManwon": 45412,
       "isNew": false
     },
     {
@@ -24723,9 +24825,9 @@ window.CHEONHO_DATA = {
       "buildYear": 1993,
       "dealDate": "2026-07-03",
       "dealType": "중개거래",
-      "jeonseManwon": 40127,
+      "jeonseManwon": 40042,
       "jeonseSrc": "region",
-      "gapManwon": 44173,
+      "gapManwon": 44258,
       "isNew": false
     },
     {
@@ -24791,9 +24893,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2001,
       "dealDate": "2026-06-26",
       "dealType": "중개거래",
-      "jeonseManwon": 42840,
+      "jeonseManwon": 42750,
       "jeonseSrc": "region",
-      "gapManwon": 47160,
+      "gapManwon": 47250,
       "isNew": false
     },
     {
@@ -24808,9 +24910,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2007,
       "dealDate": "2026-06-24",
       "dealType": "중개거래",
-      "jeonseManwon": 36414,
+      "jeonseManwon": 36338,
       "jeonseSrc": "region",
-      "gapManwon": 40086,
+      "gapManwon": 40162,
       "isNew": false
     },
     {
@@ -24910,9 +25012,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-06-30",
       "dealType": "중개거래",
-      "jeonseManwon": 30940,
+      "jeonseManwon": 30875,
       "jeonseSrc": "region",
-      "gapManwon": 34060,
+      "gapManwon": 34125,
       "isNew": false
     },
     {
@@ -24927,9 +25029,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-06-29",
       "dealType": "중개거래",
-      "jeonseManwon": 22372,
+      "jeonseManwon": 22325,
       "jeonseSrc": "region",
-      "gapManwon": 24628,
+      "gapManwon": 24675,
       "isNew": false
     },
     {
@@ -25063,9 +25165,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2001,
       "dealDate": "2026-06-11",
       "dealType": "중개거래",
-      "jeonseManwon": 49980,
+      "jeonseManwon": 49875,
       "jeonseSrc": "region",
-      "gapManwon": 55020,
+      "gapManwon": 55125,
       "isNew": false
     },
     {
@@ -25301,9 +25403,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2017,
       "dealDate": "2026-06-20",
       "dealType": "중개거래",
-      "jeonseManwon": 27370,
+      "jeonseManwon": 27312,
       "jeonseSrc": "region",
-      "gapManwon": 30130,
+      "gapManwon": 30188,
       "isNew": false
     },
     {
@@ -25420,9 +25522,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2006,
       "dealDate": "2026-06-09",
       "dealType": "중개거래",
-      "jeonseManwon": 22372,
+      "jeonseManwon": 22325,
       "jeonseSrc": "region",
-      "gapManwon": 24628,
+      "gapManwon": 24675,
       "isNew": false
     },
     {
@@ -25811,9 +25913,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2010,
       "dealDate": "2026-06-06",
       "dealType": "중개거래",
-      "jeonseManwon": 30464,
+      "jeonseManwon": 30400,
       "jeonseSrc": "region",
-      "gapManwon": 33536,
+      "gapManwon": 33600,
       "isNew": false
     },
     {
@@ -26015,9 +26117,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-06-01",
       "dealType": "중개거래",
-      "jeonseManwon": 26180,
+      "jeonseManwon": 26125,
       "jeonseSrc": "region",
-      "gapManwon": 28820,
+      "gapManwon": 28875,
       "isNew": false
     },
     {
@@ -26202,9 +26304,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2004,
       "dealDate": "2026-06-04",
       "dealType": "중개거래",
-      "jeonseManwon": 27608,
+      "jeonseManwon": 27550,
       "jeonseSrc": "region",
-      "gapManwon": 30392,
+      "gapManwon": 30450,
       "isNew": false
     },
     {
@@ -26287,9 +26389,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2017,
       "dealDate": "2026-06-01",
       "dealType": "중개거래",
-      "jeonseManwon": 29512,
+      "jeonseManwon": 29450,
       "jeonseSrc": "region",
-      "gapManwon": 32488,
+      "gapManwon": 32550,
       "isNew": false
     },
     {
@@ -26304,9 +26406,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2001,
       "dealDate": "2026-06-02",
       "dealType": "중개거래",
-      "jeonseManwon": 23562,
+      "jeonseManwon": 23512,
       "jeonseSrc": "region",
-      "gapManwon": 25938,
+      "gapManwon": 25988,
       "isNew": false
     },
     {
@@ -26355,9 +26457,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2007,
       "dealDate": "2026-05-28",
       "dealType": "중개거래",
-      "jeonseManwon": 28560,
+      "jeonseManwon": 28500,
       "jeonseSrc": "region",
-      "gapManwon": 31440,
+      "gapManwon": 31500,
       "isNew": false
     },
     {
@@ -26474,9 +26576,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2004,
       "dealDate": "2026-05-31",
       "dealType": "중개거래",
-      "jeonseManwon": 27608,
+      "jeonseManwon": 27550,
       "jeonseSrc": "region",
-      "gapManwon": 30392,
+      "gapManwon": 30450,
       "isNew": false
     },
     {
@@ -26491,9 +26593,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-05-12",
       "dealType": "중개거래",
-      "jeonseManwon": 30940,
+      "jeonseManwon": 30875,
       "jeonseSrc": "region",
-      "gapManwon": 34060,
+      "gapManwon": 34125,
       "isNew": false
     },
     {
@@ -26525,9 +26627,9 @@ window.CHEONHO_DATA = {
       "buildYear": 1984,
       "dealDate": "2026-05-27",
       "dealType": "중개거래",
-      "jeonseManwon": 21420,
+      "jeonseManwon": 21375,
       "jeonseSrc": "region",
-      "gapManwon": 23580,
+      "gapManwon": 23625,
       "isNew": false
     },
     {
@@ -26661,9 +26763,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2023,
       "dealDate": "2026-05-30",
       "dealType": "중개거래",
-      "jeonseManwon": 47600,
+      "jeonseManwon": 47500,
       "jeonseSrc": "region",
-      "gapManwon": 52400,
+      "gapManwon": 52500,
       "isNew": false
     },
     {
@@ -26916,9 +27018,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2001,
       "dealDate": "2026-05-27",
       "dealType": "중개거래",
-      "jeonseManwon": 24514,
+      "jeonseManwon": 24462,
       "jeonseSrc": "region",
-      "gapManwon": 26986,
+      "gapManwon": 27038,
       "isNew": false
     },
     {
@@ -27001,9 +27103,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2004,
       "dealDate": "2026-05-27",
       "dealType": "중개거래",
-      "jeonseManwon": 29750,
+      "jeonseManwon": 29688,
       "jeonseSrc": "region",
-      "gapManwon": 32750,
+      "gapManwon": 32812,
       "isNew": false
     },
     {
@@ -27307,9 +27409,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2023,
       "dealDate": "2026-05-23",
       "dealType": "중개거래",
-      "jeonseManwon": 49742,
+      "jeonseManwon": 49638,
       "jeonseSrc": "region",
-      "gapManwon": 54758,
+      "gapManwon": 54862,
       "isNew": false
     },
     {
@@ -27477,9 +27579,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2023,
       "dealDate": "2026-05-20",
       "dealType": "중개거래",
-      "jeonseManwon": 49980,
+      "jeonseManwon": 49875,
       "jeonseSrc": "region",
-      "gapManwon": 55020,
+      "gapManwon": 55125,
       "isNew": false
     },
     {
@@ -27511,9 +27613,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2006,
       "dealDate": "2026-05-09",
       "dealType": "중개거래",
-      "jeonseManwon": 20944,
+      "jeonseManwon": 20900,
       "jeonseSrc": "region",
-      "gapManwon": 23056,
+      "gapManwon": 23100,
       "isNew": false
     },
     {
@@ -27834,9 +27936,9 @@ window.CHEONHO_DATA = {
       "buildYear": 1994,
       "dealDate": "2026-05-11",
       "dealType": "중개거래",
-      "jeonseManwon": 35700,
+      "jeonseManwon": 35625,
       "jeonseSrc": "region",
-      "gapManwon": 39300,
+      "gapManwon": 39375,
       "isNew": false
     },
     {
@@ -27970,9 +28072,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2004,
       "dealDate": "2026-05-06",
       "dealType": "중개거래",
-      "jeonseManwon": 25228,
+      "jeonseManwon": 25175,
       "jeonseSrc": "region",
-      "gapManwon": 27772,
+      "gapManwon": 27825,
       "isNew": false
     },
     {
@@ -27987,9 +28089,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2002,
       "dealDate": "2026-05-08",
       "dealType": "중개거래",
-      "jeonseManwon": 16660,
+      "jeonseManwon": 16625,
       "jeonseSrc": "region",
-      "gapManwon": 18340,
+      "gapManwon": 18375,
       "isNew": false
     },
     {
@@ -28021,9 +28123,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-05-13",
       "dealType": "중개거래",
-      "jeonseManwon": 28560,
+      "jeonseManwon": 28500,
       "jeonseSrc": "region",
-      "gapManwon": 31440,
+      "gapManwon": 31500,
       "isNew": false
     },
     {
@@ -28038,9 +28140,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2006,
       "dealDate": "2026-05-09",
       "dealType": "중개거래",
-      "jeonseManwon": 20944,
+      "jeonseManwon": 20900,
       "jeonseSrc": "region",
-      "gapManwon": 23056,
+      "gapManwon": 23100,
       "isNew": false
     },
     {
@@ -28191,9 +28293,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2006,
       "dealDate": "2026-05-11",
       "dealType": "중개거래",
-      "jeonseManwon": 33177,
+      "jeonseManwon": 33108,
       "jeonseSrc": "region",
-      "gapManwon": 36523,
+      "gapManwon": 36592,
       "isNew": false
     },
     {
@@ -28208,9 +28310,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-05-07",
       "dealType": "중개거래",
-      "jeonseManwon": 28084,
+      "jeonseManwon": 28025,
       "jeonseSrc": "region",
-      "gapManwon": 30916,
+      "gapManwon": 30975,
       "isNew": false
     },
     {
@@ -28616,9 +28718,9 @@ window.CHEONHO_DATA = {
       "buildYear": 1991,
       "dealDate": "2026-05-06",
       "dealType": "직거래",
-      "jeonseManwon": 17592,
+      "jeonseManwon": 17556,
       "jeonseSrc": "region",
-      "gapManwon": 19367,
+      "gapManwon": 19403,
       "isNew": false
     },
     {
@@ -29129,7 +29231,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 48100,
       "jeonseSrc": "complex",
       "gapManwon": 41400,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -29384,7 +29486,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 49150,
       "jeonseSrc": "complex",
       "gapManwon": 40850,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -36609,7 +36711,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 48000,
       "jeonseSrc": "complex",
       "gapManwon": 25300,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -36643,7 +36745,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 54125,
       "jeonseSrc": "complex",
       "gapManwon": 69075,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -36660,7 +36762,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 60000,
       "jeonseSrc": "complex",
       "gapManwon": 27000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -36728,7 +36830,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 39550,
       "jeonseSrc": "complex",
       "gapManwon": 53450,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -36949,7 +37051,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 34600,
       "jeonseSrc": "complex",
       "gapManwon": 34400,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -47370,7 +47472,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 45150,
       "jeonseSrc": "complex",
       "gapManwon": 24250,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -47387,7 +47489,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 45500,
       "jeonseSrc": "complex",
       "gapManwon": 22500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -47404,7 +47506,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 45500,
       "jeonseSrc": "complex",
       "gapManwon": 17000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -47418,9 +47520,26 @@ window.CHEONHO_DATA = {
       "buildYear": 2001,
       "dealDate": "2026-08-01",
       "dealType": "중개거래",
-      "jeonseManwon": 42442,
+      "jeonseManwon": 42515,
       "jeonseSrc": "region",
-      "gapManwon": 30358,
+      "gapManwon": 30285,
+      "isNew": false
+    },
+    {
+      "group": "별내선",
+      "region": "남양주",
+      "code": "41360",
+      "apt": "신안인스빌",
+      "umd": "별내동",
+      "areaM2": 85.0,
+      "floor": 17,
+      "amountManwon": 71000,
+      "buildYear": 2012,
+      "dealDate": "2026-08-05",
+      "dealType": "중개거래",
+      "jeonseManwon": 49000,
+      "jeonseSrc": "complex",
+      "gapManwon": 22000,
       "isNew": true
     },
     {
@@ -47438,7 +47557,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 36750,
       "jeonseSrc": "complex",
       "gapManwon": 19250,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -47455,7 +47574,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 47700,
       "jeonseSrc": "complex",
       "gapManwon": 62300,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -47472,7 +47591,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 55000,
       "jeonseSrc": "complex",
       "gapManwon": 30300,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -47557,7 +47676,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 45500,
       "jeonseSrc": "complex",
       "gapManwon": 18500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -48050,7 +48169,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 47700,
       "jeonseSrc": "complex",
       "gapManwon": 59800,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -48203,7 +48322,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 52500,
       "jeonseSrc": "complex",
       "gapManwon": 57500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -48424,7 +48543,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 60000,
       "jeonseSrc": "complex",
       "gapManwon": 60000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -48526,7 +48645,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 42000,
       "jeonseSrc": "complex",
       "gapManwon": 33000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -51668,9 +51787,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2008,
       "dealDate": "2026-07-06",
       "dealType": "중개거래",
-      "jeonseManwon": 37604,
+      "jeonseManwon": 37668,
       "jeonseSrc": "region",
-      "gapManwon": 26896,
+      "gapManwon": 26832,
       "isNew": false
     },
     {
@@ -51872,9 +51991,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-07-05",
       "dealType": "중개거래",
-      "jeonseManwon": 37895,
+      "jeonseManwon": 37960,
       "jeonseSrc": "region",
-      "gapManwon": 27105,
+      "gapManwon": 27040,
       "isNew": false
     },
     {
@@ -52076,9 +52195,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2008,
       "dealDate": "2026-07-03",
       "dealType": "중개거래",
-      "jeonseManwon": 39061,
+      "jeonseManwon": 39128,
       "jeonseSrc": "region",
-      "gapManwon": 27939,
+      "gapManwon": 27872,
       "isNew": false
     },
     {
@@ -53011,9 +53130,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2019,
       "dealDate": "2026-06-30",
       "dealType": "중개거래",
-      "jeonseManwon": 51887,
+      "jeonseManwon": 51976,
       "jeonseSrc": "region",
-      "gapManwon": 37113,
+      "gapManwon": 37024,
       "isNew": false
     },
     {
@@ -53215,9 +53334,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2001,
       "dealDate": "2026-06-29",
       "dealType": "중개거래",
-      "jeonseManwon": 42967,
+      "jeonseManwon": 43041,
       "jeonseSrc": "region",
-      "gapManwon": 30733,
+      "gapManwon": 30659,
       "isNew": false
     },
     {
@@ -53402,9 +53521,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2019,
       "dealDate": "2026-06-19",
       "dealType": "중개거래",
-      "jeonseManwon": 50663,
+      "jeonseManwon": 50750,
       "jeonseSrc": "region",
-      "gapManwon": 36237,
+      "gapManwon": 36150,
       "isNew": false
     },
     {
@@ -53997,9 +54116,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2008,
       "dealDate": "2026-06-28",
       "dealType": "중개거래",
-      "jeonseManwon": 37312,
+      "jeonseManwon": 37376,
       "jeonseSrc": "region",
-      "gapManwon": 26688,
+      "gapManwon": 26624,
       "isNew": false
     },
     {
@@ -54354,9 +54473,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2016,
       "dealDate": "2026-06-26",
       "dealType": "중개거래",
-      "jeonseManwon": 40052,
+      "jeonseManwon": 40121,
       "jeonseSrc": "region",
-      "gapManwon": 28648,
+      "gapManwon": 28579,
       "isNew": false
     },
     {
@@ -55459,9 +55578,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2001,
       "dealDate": "2026-06-15",
       "dealType": "중개거래",
-      "jeonseManwon": 40810,
+      "jeonseManwon": 40880,
       "jeonseSrc": "region",
-      "gapManwon": 29190,
+      "gapManwon": 29120,
       "isNew": false
     },
     {
@@ -56156,9 +56275,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2019,
       "dealDate": "2026-06-09",
       "dealType": "중개거래",
-      "jeonseManwon": 49555,
+      "jeonseManwon": 49640,
       "jeonseSrc": "region",
-      "gapManwon": 35445,
+      "gapManwon": 35360,
       "isNew": false
     },
     {
@@ -56275,9 +56394,9 @@ window.CHEONHO_DATA = {
       "buildYear": 1990,
       "dealDate": "2026-06-15",
       "dealType": "직거래",
-      "jeonseManwon": 16557,
+      "jeonseManwon": 16586,
       "jeonseSrc": "region",
-      "gapManwon": 11843,
+      "gapManwon": 11814,
       "isNew": false
     },
     {
@@ -56292,9 +56411,9 @@ window.CHEONHO_DATA = {
       "buildYear": 1990,
       "dealDate": "2026-06-15",
       "dealType": "직거래",
-      "jeonseManwon": 11543,
+      "jeonseManwon": 11563,
       "jeonseSrc": "region",
-      "gapManwon": 8257,
+      "gapManwon": 8237,
       "isNew": false
     },
     {
@@ -56309,9 +56428,9 @@ window.CHEONHO_DATA = {
       "buildYear": 1990,
       "dealDate": "2026-06-15",
       "dealType": "직거래",
-      "jeonseManwon": 16790,
+      "jeonseManwon": 16819,
       "jeonseSrc": "region",
-      "gapManwon": 12010,
+      "gapManwon": 11981,
       "isNew": false
     },
     {
@@ -56326,9 +56445,9 @@ window.CHEONHO_DATA = {
       "buildYear": 1990,
       "dealDate": "2026-06-15",
       "dealType": "직거래",
-      "jeonseManwon": 16557,
+      "jeonseManwon": 16586,
       "jeonseSrc": "region",
-      "gapManwon": 11843,
+      "gapManwon": 11814,
       "isNew": false
     },
     {
@@ -56343,9 +56462,9 @@ window.CHEONHO_DATA = {
       "buildYear": 1990,
       "dealDate": "2026-06-15",
       "dealType": "직거래",
-      "jeonseManwon": 16616,
+      "jeonseManwon": 16644,
       "jeonseSrc": "region",
-      "gapManwon": 11884,
+      "gapManwon": 11856,
       "isNew": false
     },
     {
@@ -58026,9 +58145,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-05-04",
       "dealType": "중개거래",
-      "jeonseManwon": 34980,
+      "jeonseManwon": 35040,
       "jeonseSrc": "region",
-      "gapManwon": 25020,
+      "gapManwon": 24960,
       "isNew": false
     },
     {
@@ -58536,9 +58655,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-05-29",
       "dealType": "중개거래",
-      "jeonseManwon": 37604,
+      "jeonseManwon": 37668,
       "jeonseSrc": "region",
-      "gapManwon": 26896,
+      "gapManwon": 26832,
       "isNew": false
     },
     {
@@ -58638,9 +58757,9 @@ window.CHEONHO_DATA = {
       "buildYear": 1990,
       "dealDate": "2026-05-27",
       "dealType": "직거래",
-      "jeonseManwon": 16965,
+      "jeonseManwon": 16994,
       "jeonseSrc": "region",
-      "gapManwon": 12135,
+      "gapManwon": 12106,
       "isNew": false
     },
     {
@@ -59318,9 +59437,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2001,
       "dealDate": "2026-05-28",
       "dealType": "중개거래",
-      "jeonseManwon": 40664,
+      "jeonseManwon": 40734,
       "jeonseSrc": "region",
-      "gapManwon": 29086,
+      "gapManwon": 29016,
       "isNew": false
     },
     {
@@ -59964,9 +60083,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2016,
       "dealDate": "2026-05-22",
       "dealType": "중개거래",
-      "jeonseManwon": 38770,
+      "jeonseManwon": 38836,
       "jeonseSrc": "region",
-      "gapManwon": 27730,
+      "gapManwon": 27664,
       "isNew": false
     },
     {
@@ -60678,9 +60797,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2019,
       "dealDate": "2026-05-10",
       "dealType": "중개거래",
-      "jeonseManwon": 45474,
+      "jeonseManwon": 45552,
       "jeonseSrc": "region",
-      "gapManwon": 32526,
+      "gapManwon": 32448,
       "isNew": false
     },
     {
@@ -60780,9 +60899,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2007,
       "dealDate": "2026-05-12",
       "dealType": "직거래",
-      "jeonseManwon": 31773,
+      "jeonseManwon": 31828,
       "jeonseSrc": "region",
-      "gapManwon": 22727,
+      "gapManwon": 22672,
       "isNew": false
     },
     {
@@ -61171,9 +61290,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2019,
       "dealDate": "2026-05-16",
       "dealType": "중개거래",
-      "jeonseManwon": 48972,
+      "jeonseManwon": 49056,
       "jeonseSrc": "region",
-      "gapManwon": 35028,
+      "gapManwon": 34944,
       "isNew": false
     },
     {
@@ -61409,9 +61528,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-05-13",
       "dealType": "중개거래",
-      "jeonseManwon": 34980,
+      "jeonseManwon": 35040,
       "jeonseSrc": "region",
-      "gapManwon": 25020,
+      "gapManwon": 24960,
       "isNew": false
     },
     {
@@ -61681,9 +61800,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2001,
       "dealDate": "2026-05-06",
       "dealType": "중개거래",
-      "jeonseManwon": 39644,
+      "jeonseManwon": 39712,
       "jeonseSrc": "region",
-      "gapManwon": 28356,
+      "gapManwon": 28288,
       "isNew": false
     },
     {
@@ -62755,7 +62874,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 58000,
       "jeonseSrc": "complex",
       "gapManwon": 68000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -62874,7 +62993,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 36750,
       "jeonseSrc": "complex",
       "gapManwon": 98250,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -62925,7 +63044,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 31500,
       "jeonseSrc": "complex",
       "gapManwon": 78500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -62993,7 +63112,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 38850,
       "jeonseSrc": "complex",
       "gapManwon": 88150,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -63112,7 +63231,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 78960,
       "jeonseSrc": "region",
       "gapManwon": 109040,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -63486,7 +63605,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 36750,
       "jeonseSrc": "complex",
       "gapManwon": 83250,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -63707,7 +63826,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 37600,
       "jeonseSrc": "complex",
       "gapManwon": 82700,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -63809,7 +63928,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 75000,
       "jeonseSrc": "complex",
       "gapManwon": 110000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -64115,7 +64234,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 50400,
       "jeonseSrc": "complex",
       "gapManwon": 91600,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -65509,7 +65628,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 50900,
       "jeonseSrc": "complex",
       "gapManwon": 94100,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -75194,12 +75313,12 @@ window.CHEONHO_DATA = {
     "강동": {
       "ratioPct": 42.0,
       "jeonseManwon": 60000,
-      "saleManwon": 143000
+      "saleManwon": 142900
     },
     "성남수정": {
-      "ratioPct": 47.6,
+      "ratioPct": 47.5,
       "jeonseManwon": 61000,
-      "saleManwon": 128250
+      "saleManwon": 128500
     },
     "성남중원": {
       "ratioPct": 56.9,
@@ -75212,9 +75331,9 @@ window.CHEONHO_DATA = {
       "saleManwon": 72000
     },
     "남양주": {
-      "ratioPct": 58.3,
+      "ratioPct": 58.4,
       "jeonseManwon": 50000,
-      "saleManwon": 85800
+      "saleManwon": 85650
     },
     "분당": {
       "ratioPct": 42.0,
@@ -75222,5 +75341,5 @@ window.CHEONHO_DATA = {
       "saleManwon": 150000
     }
   },
-  "newCount": 46
+  "newCount": 7
 };
