@@ -1,13 +1,13 @@
 /* 자동 생성 — 직접 수정 금지. 'ⓢ 천호 역세권 업데이트.bat' 실행 시 갱신됩니다. */
 window.CHEONHO_DATA = {
   "isSample": false,
-  "updatedAt": "2026-08-09 08:05",
+  "updatedAt": "2026-08-10 08:06",
   "anchor": "천호역(5·8호선)",
   "config": {
-    "areaMax": 90.0,
     "capEok": 5.0,
-    "areaMin": 45.0,
-    "monthsBack": 4
+    "areaMax": 90.0,
+    "monthsBack": 4,
+    "areaMin": 45.0
   },
   "items": [
     {
@@ -484,7 +484,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 62400,
       "jeonseSrc": "region",
       "gapManwon": 97600,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "송파",
@@ -12044,7 +12044,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 75000,
       "jeonseSrc": "complex",
       "gapManwon": 14000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -12452,7 +12452,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 48846,
       "jeonseSrc": "region",
       "gapManwon": 67454,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -23485,7 +23485,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 55000,
       "jeonseSrc": "complex",
       "gapManwon": 26500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -23570,7 +23570,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 70000,
       "jeonseSrc": "complex",
       "gapManwon": 70500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -23808,7 +23808,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 77750,
       "jeonseSrc": "complex",
       "gapManwon": 117250,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -47540,7 +47540,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 49000,
       "jeonseSrc": "complex",
       "gapManwon": 22000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -75341,5 +75341,5 @@ window.CHEONHO_DATA = {
       "saleManwon": 150000
     }
   },
-  "newCount": 7
+  "newCount": 0
 };
