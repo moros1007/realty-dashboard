@@ -1,10 +1,10 @@
 {
   "isSample": false,
-  "updatedAt": "2026-08-09 08:02",
+  "updatedAt": "2026-08-10 08:03",
   "config": {
-    "priceMaxEok": 16,
+    "areaMin": 80.0,
     "areaMax": 102.0,
-    "areaMin": 80.0
+    "priceMaxEok": 16
   },
   "myHome": {
     "label": "산성역자이푸르지오",
@@ -8805,7 +8805,7 @@
       "buildYear": 1993,
       "dealDate": "2026-07-17",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -9078,7 +9078,7 @@
       "buildYear": 1998,
       "dealDate": "2026-07-14",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -20451,5 +20451,5 @@
     }
   },
   "watch": [],
-  "newCount": 2
+  "newCount": 0
 }
