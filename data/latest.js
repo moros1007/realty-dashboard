@@ -1,14 +1,28 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-08-18 07:54",
+  "updatedAt": "2026-08-20 07:55",
   "config": {
-    "priceMaxEok": 16,
     "areaMin": 80.0,
-    "areaMax": 102.0
+    "areaMax": 102.0,
+    "priceMaxEok": 16
   },
   "myHome": {
+    "label": "산성역자이푸르지오",
+    "addr": "성남시 수정구 신흥동",
     "items": [
+      {
+        "region": "산성역자이푸르지오",
+        "code": "41131",
+        "apt": "산성역자이푸르지오1단지",
+        "umd": "신흥동",
+        "areaM2": 59.97,
+        "floor": 12,
+        "amountManwon": 134500,
+        "buildYear": 2024,
+        "dealDate": "2026-08-18",
+        "dealType": "중개거래"
+      },
       {
         "region": "산성역자이푸르지오",
         "code": "41131",
@@ -1401,11 +1415,35 @@ window.REALTY_DATA = {
         "dealDate": "2026-03-03",
         "dealType": "중개거래"
       }
-    ],
-    "label": "산성역자이푸르지오",
-    "addr": "성남시 수정구 신흥동"
+    ]
   },
   "items": [
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "더샵분당파크리버",
+      "umd": "정자동",
+      "areaM2": 85.0,
+      "floor": 11,
+      "amountManwon": 184500,
+      "buildYear": 2021,
+      "dealDate": "2026-08-17",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "산운마을14단지(경남아너스빌)",
+      "umd": "운중동",
+      "areaM2": 101.25,
+      "floor": 8,
+      "amountManwon": 162000,
+      "buildYear": 2009,
+      "dealDate": "2026-08-10",
+      "dealType": "중개거래",
+      "isNew": true
+    },
     {
       "region": "분당",
       "code": "41135",
@@ -1539,6 +1577,19 @@ window.REALTY_DATA = {
     {
       "region": "분당",
       "code": "41135",
+      "apt": "백현마을5단지(주공)",
+      "umd": "백현동",
+      "areaM2": 84.98,
+      "floor": 11,
+      "amountManwon": 280000,
+      "buildYear": 2009,
+      "dealDate": "2026-07-27",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "분당",
+      "code": "41135",
       "apt": "장미마을(현대)",
       "umd": "야탑동",
       "areaM2": 84.97,
@@ -1548,6 +1599,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-07-31",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "양지마을(금호1)",
+      "umd": "수내동",
+      "areaM2": 84.9,
+      "floor": 8,
+      "amountManwon": 230000,
+      "buildYear": 1992,
+      "dealDate": "2026-07-31",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -2926,6 +2990,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-07-10",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "효자촌(임광)",
+      "umd": "서현동",
+      "areaM2": 84.99,
+      "floor": 5,
+      "amountManwon": 175000,
+      "buildYear": 1992,
+      "dealDate": "2026-06-27",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -8689,6 +8766,19 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
+      "apt": "평촌엘프라우드",
+      "umd": "비산동",
+      "areaM2": 84.97,
+      "floor": 25,
+      "amountManwon": 130000,
+      "buildYear": 2024,
+      "dealDate": "2026-08-10",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
       "apt": "무궁화태영",
       "umd": "호계동",
       "areaM2": 84.9,
@@ -8698,6 +8788,71 @@ window.REALTY_DATA = {
       "dealDate": "2026-08-11",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "평촌어바인퍼스트",
+      "umd": "호계동",
+      "areaM2": 84.6,
+      "floor": 16,
+      "amountManwon": 127000,
+      "buildYear": 2021,
+      "dealDate": "2026-08-11",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "엘디범계마을",
+      "umd": "호계동",
+      "areaM2": 84.57,
+      "floor": 14,
+      "amountManwon": 51000,
+      "buildYear": 1999,
+      "dealDate": "2026-08-10",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "평촌두산위브리버뷰",
+      "umd": "호계동",
+      "areaM2": 84.99,
+      "floor": 17,
+      "amountManwon": 82800,
+      "buildYear": 2022,
+      "dealDate": "2026-08-08",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "무궁화태영",
+      "umd": "호계동",
+      "areaM2": 84.9,
+      "floor": 11,
+      "amountManwon": 81500,
+      "buildYear": 1992,
+      "dealDate": "2026-08-08",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "평촌더샵아이파크",
+      "umd": "호계동",
+      "areaM2": 84.98,
+      "floor": 20,
+      "amountManwon": 140000,
+      "buildYear": 2019,
+      "dealDate": "2026-08-08",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "평촌",
@@ -8715,6 +8870,123 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
+      "apt": "영풍",
+      "umd": "평촌동",
+      "areaM2": 84.77,
+      "floor": 19,
+      "amountManwon": 73000,
+      "buildYear": 2000,
+      "dealDate": "2026-08-08",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "한가람(삼성)",
+      "umd": "관양동",
+      "areaM2": 84.93,
+      "floor": 5,
+      "amountManwon": 110000,
+      "buildYear": 1995,
+      "dealDate": "2026-08-07",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "비산롯데캐슬",
+      "umd": "비산동",
+      "areaM2": 82.24,
+      "floor": 13,
+      "amountManwon": 85000,
+      "buildYear": 2003,
+      "dealDate": "2026-08-08",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "금정역호계푸르지오",
+      "umd": "호계동",
+      "areaM2": 84.93,
+      "floor": 10,
+      "amountManwon": 92500,
+      "buildYear": 2015,
+      "dealDate": "2026-08-08",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "은하수벽산",
+      "umd": "비산동",
+      "areaM2": 84.9,
+      "floor": 7,
+      "amountManwon": 123000,
+      "buildYear": 1992,
+      "dealDate": "2026-08-08",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "인덕원대우",
+      "umd": "평촌동",
+      "areaM2": 84.96,
+      "floor": 24,
+      "amountManwon": 121000,
+      "buildYear": 2001,
+      "dealDate": "2026-08-07",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "호계2차현대홈타운",
+      "umd": "호계동",
+      "areaM2": 84.97,
+      "floor": 14,
+      "amountManwon": 78500,
+      "buildYear": 2003,
+      "dealDate": "2026-08-07",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "무궁화경남",
+      "umd": "호계동",
+      "areaM2": 85.0,
+      "floor": 2,
+      "amountManwon": 110000,
+      "buildYear": 1994,
+      "dealDate": "2026-08-07",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "관악",
+      "umd": "비산동",
+      "areaM2": 84.94,
+      "floor": 5,
+      "amountManwon": 100000,
+      "buildYear": 1992,
+      "dealDate": "2026-08-07",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
       "apt": "평촌어바인퍼스트",
       "umd": "호계동",
       "areaM2": 84.13,
@@ -8728,6 +9000,19 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
+      "apt": "인덕원대림1차",
+      "umd": "평촌동",
+      "areaM2": 84.87,
+      "floor": 12,
+      "amountManwon": 79000,
+      "buildYear": 2000,
+      "dealDate": "2026-08-06",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
       "apt": "비산롯데캐슬",
       "umd": "비산동",
       "areaM2": 82.24,
@@ -8737,6 +9022,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-08-06",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "관악",
+      "umd": "비산동",
+      "areaM2": 84.72,
+      "floor": 18,
+      "amountManwon": 93000,
+      "buildYear": 1992,
+      "dealDate": "2026-08-06",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "평촌",
@@ -8793,6 +9091,19 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
+      "apt": "초원성원",
+      "umd": "평촌동",
+      "areaM2": 84.99,
+      "floor": 6,
+      "amountManwon": 116000,
+      "buildYear": 1992,
+      "dealDate": "2026-07-31",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
       "apt": "호계1차현대홈타운",
       "umd": "호계동",
       "areaM2": 84.62,
@@ -8828,6 +9139,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-07-31",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "샛별한양4-2",
+      "umd": "비산동",
+      "areaM2": 84.9,
+      "floor": 14,
+      "amountManwon": 110000,
+      "buildYear": 1993,
+      "dealDate": "2026-07-31",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "평촌",
@@ -9001,6 +9325,19 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
+      "apt": "초원마을대원",
+      "umd": "평촌동",
+      "areaM2": 84.97,
+      "floor": 12,
+      "amountManwon": 123000,
+      "buildYear": 1993,
+      "dealDate": "2026-07-29",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
       "apt": "무궁화한양",
       "umd": "호계동",
       "areaM2": 84.9,
@@ -9049,6 +9386,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-07-29",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "평촌더샵아이파크",
+      "umd": "호계동",
+      "areaM2": 84.98,
+      "floor": 1,
+      "amountManwon": 128000,
+      "buildYear": 2019,
+      "dealDate": "2026-07-29",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "평촌",
@@ -9144,6 +9494,19 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
+      "apt": "호계2차현대홈타운",
+      "umd": "호계동",
+      "areaM2": 84.97,
+      "floor": 1,
+      "amountManwon": 71000,
+      "buildYear": 2003,
+      "dealDate": "2026-07-28",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
       "apt": "인덕원대림2차",
       "umd": "평촌동",
       "areaM2": 84.92,
@@ -9166,6 +9529,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-07-28",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "동편마을(3단지)",
+      "umd": "관양동",
+      "areaM2": 84.96,
+      "floor": 1,
+      "amountManwon": 110000,
+      "buildYear": 2012,
+      "dealDate": "2026-07-28",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "평촌",
@@ -10964,6 +11340,19 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
+      "apt": "평촌트리지아",
+      "umd": "호계동",
+      "areaM2": 84.98,
+      "floor": 7,
+      "amountManwon": 135000,
+      "buildYear": 2024,
+      "dealDate": "2026-06-18",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
       "apt": "인덕원대림2차",
       "umd": "평촌동",
       "areaM2": 84.92,
@@ -11688,6 +12077,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-06-18",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "흥화",
+      "umd": "호계동",
+      "areaM2": 84.98,
+      "floor": 2,
+      "amountManwon": 49000,
+      "buildYear": 1999,
+      "dealDate": "2026-06-18",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "평촌",
@@ -17269,6 +17671,19 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
+      "apt": "호계아크로리버",
+      "umd": "호계동",
+      "areaM2": 84.92,
+      "floor": 21,
+      "amountManwon": 45500,
+      "buildYear": 2007,
+      "dealDate": "2026-04-14",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
       "apt": "인덕원대림2차",
       "umd": "평촌동",
       "areaM2": 84.92,
@@ -20233,6 +20648,19 @@ window.REALTY_DATA = {
     {
       "region": "과천",
       "code": "41290",
+      "apt": "과천푸르지오써밋",
+      "umd": "중앙동",
+      "areaM2": 84.99,
+      "floor": 11,
+      "amountManwon": 272000,
+      "buildYear": 2020,
+      "dealDate": "2026-08-08",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "과천",
+      "code": "41290",
       "apt": "과천르센토데시앙",
       "umd": "갈현동",
       "areaM2": 99.89,
@@ -21341,21 +21769,21 @@ window.REALTY_DATA = {
       "ratioPct": 41.7,
       "jeonseManwon": 75000,
       "saleManwon": 180000,
-      "count": 1119
+      "count": 1146
     },
     "평촌": {
-      "ratioPct": 57.0,
+      "ratioPct": 56.8,
       "jeonseManwon": 53000,
-      "saleManwon": 93000,
-      "count": 812
+      "saleManwon": 93250,
+      "count": 829
     },
     "과천": {
-      "ratioPct": 39.8,
-      "jeonseManwon": 95000,
-      "saleManwon": 238500,
-      "count": 241
+      "ratioPct": 40.2,
+      "jeonseManwon": 96000,
+      "saleManwon": 238750,
+      "count": 250
     }
   },
   "watch": [],
-  "newCount": 0
+  "newCount": 32
 };
