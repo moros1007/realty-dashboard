@@ -1,9 +1,9 @@
 /* 자동 생성 — '⑦ 주간 카톡 요약 보내기.bat' 실행 시 갱신 */
 window.CHEONHO_WEEKLY = {
-  "generatedAt": "2026-08-23 07:59",
-  "weekLabel": "2026년 8월 23일",
+  "generatedAt": "2026-08-24 07:58",
+  "weekLabel": "2026년 8월 24일",
   "capEok": 5.0,
-  "dataUpdated": "2026-08-23 07:59",
+  "dataUpdated": "2026-08-24 07:58",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
   "byeollaeFit": 28,
