@@ -1,12 +1,14 @@
 {
   "isSample": false,
-  "updatedAt": "2026-08-22 07:55",
+  "updatedAt": "2026-08-24 07:53",
   "config": {
     "areaMin": 80.0,
-    "areaMax": 102.0,
-    "priceMaxEok": 16
+    "priceMaxEok": 16,
+    "areaMax": 102.0
   },
   "myHome": {
+    "label": "산성역자이푸르지오",
+    "addr": "성남시 수정구 신흥동",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -1424,9 +1426,7 @@
         "dealDate": "2026-03-03",
         "dealType": "중개거래"
       }
-    ],
-    "label": "산성역자이푸르지오",
-    "addr": "성남시 수정구 신흥동"
+    ]
   },
   "items": [
     {
@@ -1635,7 +1635,7 @@
       "buildYear": 1992,
       "dealDate": "2026-07-31",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1804,7 +1804,7 @@
       "buildYear": 1994,
       "dealDate": "2026-07-24",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -21057,7 +21057,7 @@
       "buildYear": 2020,
       "dealDate": "2026-05-08",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "과천",
@@ -21864,7 +21864,7 @@
       "ratioPct": 56.9,
       "jeonseManwon": 53100,
       "saleManwon": 93250,
-      "count": 837
+      "count": 839
     },
     "과천": {
       "ratioPct": 40.4,
@@ -21874,5 +21874,5 @@
     }
   },
   "watch": [],
-  "newCount": 3
+  "newCount": 0
 }
