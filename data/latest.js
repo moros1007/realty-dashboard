@@ -1,15 +1,14 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-08-24 07:53",
+  "updatedAt": "2026-08-25 07:57",
   "config": {
-    "areaMin": 80.0,
+    "areaMax": 102.0,
     "priceMaxEok": 16,
-    "areaMax": 102.0
+    "areaMin": 80.0
   },
   "myHome": {
     "label": "산성역자이푸르지오",
-    "addr": "성남시 수정구 신흥동",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -1427,7 +1426,8 @@ window.REALTY_DATA = {
         "dealDate": "2026-03-03",
         "dealType": "중개거래"
       }
-    ]
+    ],
+    "addr": "성남시 수정구 신흥동"
   },
   "items": [
     {
@@ -2755,6 +2755,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-07-02",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "푸른마을(벽산)",
+      "umd": "수내동",
+      "areaM2": 84.72,
+      "floor": 11,
+      "amountManwon": 200000,
+      "buildYear": 1992,
+      "dealDate": "2026-07-07",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -4534,6 +4547,19 @@ window.REALTY_DATA = {
       "amountManwon": 164500,
       "buildYear": 2009,
       "dealDate": "2026-05-08",
+      "dealType": "중개거래",
+      "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "정든마을(8단지)(한진)",
+      "umd": "정자동",
+      "areaM2": 99.6,
+      "floor": 15,
+      "amountManwon": 185500,
+      "buildYear": 1995,
+      "dealDate": "2026-05-30",
       "dealType": "중개거래",
       "isNew": false
     },
@@ -11300,6 +11326,19 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
+      "apt": "흥화",
+      "umd": "호계동",
+      "areaM2": 84.98,
+      "floor": 13,
+      "amountManwon": 54500,
+      "buildYear": 1999,
+      "dealDate": "2026-07-02",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
       "apt": "샘마을쌍용",
       "umd": "호계동",
       "areaM2": 101.91,
@@ -14446,6 +14485,19 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
+      "apt": "관악",
+      "umd": "비산동",
+      "areaM2": 84.94,
+      "floor": 17,
+      "amountManwon": 93500,
+      "buildYear": 1992,
+      "dealDate": "2026-05-23",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
       "apt": "동편마을(3단지)",
       "umd": "관양동",
       "areaM2": 84.97,
@@ -16795,6 +16847,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-04-25",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "관악",
+      "umd": "비산동",
+      "areaM2": 84.94,
+      "floor": 9,
+      "amountManwon": 91000,
+      "buildYear": 1992,
+      "dealDate": "2026-04-25",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "평촌",
@@ -20738,6 +20803,19 @@ window.REALTY_DATA = {
     {
       "region": "과천",
       "code": "41290",
+      "apt": "래미안슈르",
+      "umd": "원문동",
+      "areaM2": 84.95,
+      "floor": 3,
+      "amountManwon": 220000,
+      "buildYear": 2008,
+      "dealDate": "2026-08-06",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "과천",
+      "code": "41290",
       "apt": "과천푸르지오써밋",
       "umd": "중앙동",
       "areaM2": 84.99,
@@ -21859,21 +21937,21 @@ window.REALTY_DATA = {
       "ratioPct": 41.4,
       "jeonseManwon": 75000,
       "saleManwon": 181000,
-      "count": 1179
+      "count": 1198
     },
     "평촌": {
-      "ratioPct": 56.9,
-      "jeonseManwon": 53100,
-      "saleManwon": 93250,
-      "count": 839
+      "ratioPct": 57.0,
+      "jeonseManwon": 53050,
+      "saleManwon": 93000,
+      "count": 850
     },
     "과천": {
-      "ratioPct": 40.4,
-      "jeonseManwon": 96500,
-      "saleManwon": 238750,
-      "count": 254
+      "ratioPct": 40.7,
+      "jeonseManwon": 97000,
+      "saleManwon": 238500,
+      "count": 257
     }
   },
   "watch": [],
-  "newCount": 0
+  "newCount": 5
 };
