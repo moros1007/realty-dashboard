@@ -1,14 +1,14 @@
 {
   "isSample": false,
-  "updatedAt": "2026-08-29 12:51",
+  "updatedAt": "2026-08-31 09:49",
   "config": {
+    "priceMaxEok": 16,
     "areaMin": 80.0,
-    "areaMax": 102.0,
-    "priceMaxEok": 16
+    "areaMax": 102.0
   },
   "myHome": {
-    "addr": "성남시 수정구 신흥동",
     "label": "산성역자이푸르지오",
+    "addr": "성남시 수정구 신흥동",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -1464,7 +1464,7 @@
       "buildYear": 1995,
       "dealDate": "2026-08-25",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1529,7 +1529,7 @@
       "buildYear": 1994,
       "dealDate": "2026-08-17",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -8978,7 +8978,7 @@
       "buildYear": 2007,
       "dealDate": "2026-08-22",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -9043,7 +9043,7 @@
       "buildYear": 2015,
       "dealDate": "2026-08-17",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -9056,7 +9056,7 @@
       "buildYear": 1993,
       "dealDate": "2026-08-14",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -9069,7 +9069,7 @@
       "buildYear": 1993,
       "dealDate": "2026-08-15",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -9082,7 +9082,7 @@
       "buildYear": 1993,
       "dealDate": "2026-08-15",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -9095,7 +9095,7 @@
       "buildYear": 2022,
       "dealDate": "2026-08-06",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -9108,7 +9108,7 @@
       "buildYear": 2012,
       "dealDate": "2026-08-14",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -9121,7 +9121,7 @@
       "buildYear": 2021,
       "dealDate": "2026-08-08",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -9147,7 +9147,7 @@
       "buildYear": 1998,
       "dealDate": "2026-08-13",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -9160,7 +9160,7 @@
       "buildYear": 2003,
       "dealDate": "2026-08-13",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -9225,7 +9225,7 @@
       "buildYear": 2003,
       "dealDate": "2026-08-12",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -9290,7 +9290,7 @@
       "buildYear": 2015,
       "dealDate": "2026-08-11",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -9394,7 +9394,7 @@
       "buildYear": 2003,
       "dealDate": "2026-08-08",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -9550,7 +9550,7 @@
       "buildYear": 2000,
       "dealDate": "2026-08-07",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -9719,7 +9719,7 @@
       "buildYear": 2002,
       "dealDate": "2026-08-06",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -22594,10 +22594,10 @@
   ],
   "jeonse": {
     "분당": {
-      "ratioPct": 41.3,
-      "jeonseManwon": 74775,
+      "ratioPct": 41.4,
+      "jeonseManwon": 75000,
       "saleManwon": 181000,
-      "count": 1226
+      "count": 1227
     },
     "평촌": {
       "ratioPct": 57.0,
@@ -22613,5 +22613,5 @@
     }
   },
   "watch": [],
-  "newCount": 17
+  "newCount": 0
 }
