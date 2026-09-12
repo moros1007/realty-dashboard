@@ -1,14 +1,13 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-09-11 09:29",
+  "updatedAt": "2026-09-12 09:36",
   "config": {
-    "areaMax": 102.0,
     "priceMaxEok": 16,
+    "areaMax": 102.0,
     "areaMin": 80.0
   },
   "myHome": {
-    "label": "산성역자이푸르지오",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -1367,7 +1366,8 @@ window.REALTY_DATA = {
         "dealType": "중개거래"
       }
     ],
-    "addr": "성남시 수정구 신흥동"
+    "addr": "성남시 수정구 신흥동",
+    "label": "산성역자이푸르지오"
   },
   "items": [
     {
@@ -8479,7 +8479,7 @@ window.REALTY_DATA = {
       "buildYear": 2021,
       "dealDate": "2026-09-04",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -8510,6 +8510,19 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
+      "apt": "샘마을한양",
+      "umd": "호계동",
+      "areaM2": 101.95,
+      "floor": 14,
+      "amountManwon": 126500,
+      "buildYear": 1993,
+      "dealDate": "2026-08-29",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
       "apt": "비산힐스테이트",
       "umd": "비산동",
       "areaM2": 82.2,
@@ -8519,6 +8532,32 @@ window.REALTY_DATA = {
       "dealDate": "2026-08-28",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "귀인마을현대홈타운",
+      "umd": "평촌동",
+      "areaM2": 80.37,
+      "floor": 14,
+      "amountManwon": 154500,
+      "buildYear": 2002,
+      "dealDate": "2026-08-27",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "꿈마을건영5차",
+      "umd": "평촌동",
+      "areaM2": 102.0,
+      "floor": 5,
+      "amountManwon": 160000,
+      "buildYear": 1993,
+      "dealDate": "2026-08-22",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "평촌",
@@ -8791,7 +8830,7 @@ window.REALTY_DATA = {
       "buildYear": 2003,
       "dealDate": "2026-08-19",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -8869,7 +8908,7 @@ window.REALTY_DATA = {
       "buildYear": 2001,
       "dealDate": "2026-08-17",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -12020,19 +12059,6 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
-      "apt": "삼성래미안",
-      "umd": "비산동",
-      "areaM2": 84.92,
-      "floor": 19,
-      "amountManwon": 86000,
-      "buildYear": 2003,
-      "dealDate": "2026-06-12",
-      "dealType": "중개거래",
-      "isNew": false
-    },
-    {
-      "region": "평촌",
-      "code": "41173",
       "apt": "평촌트리지아",
       "umd": "호계동",
       "areaM2": 84.98,
@@ -12040,6 +12066,19 @@ window.REALTY_DATA = {
       "amountManwon": 125500,
       "buildYear": 2024,
       "dealDate": "2026-06-03",
+      "dealType": "중개거래",
+      "isNew": false
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "삼성래미안",
+      "umd": "비산동",
+      "areaM2": 84.92,
+      "floor": 19,
+      "amountManwon": 86000,
+      "buildYear": 2003,
+      "dealDate": "2026-06-12",
       "dealType": "중개거래",
       "isNew": false
     },
@@ -16336,6 +16375,19 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
+      "apt": "비산화성파크드림",
+      "umd": "비산동",
+      "areaM2": 84.93,
+      "floor": 23,
+      "amountManwon": 52500,
+      "buildYear": 2014,
+      "dealDate": "2026-05-07",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
       "apt": "은하수벽산",
       "umd": "비산동",
       "areaM2": 84.9,
@@ -19451,7 +19503,7 @@ window.REALTY_DATA = {
       "buildYear": 2022,
       "dealDate": "2026-09-02",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "과천",
@@ -20512,13 +20564,13 @@ window.REALTY_DATA = {
       "ratioPct": 41.7,
       "jeonseManwon": 75000,
       "saleManwon": 180000,
-      "count": 1041
+      "count": 1053
     },
     "평촌": {
       "ratioPct": 57.4,
-      "jeonseManwon": 53420,
+      "jeonseManwon": 53340,
       "saleManwon": 93000,
-      "count": 772
+      "count": 777
     },
     "과천": {
       "ratioPct": 42.6,
