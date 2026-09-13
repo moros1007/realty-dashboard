@@ -1,13 +1,15 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-09-12 09:36",
+  "updatedAt": "2026-09-13 09:13",
   "config": {
+    "areaMin": 80.0,
     "priceMaxEok": 16,
-    "areaMax": 102.0,
-    "areaMin": 80.0
+    "areaMax": 102.0
   },
   "myHome": {
+    "label": "산성역자이푸르지오",
+    "addr": "성남시 수정구 신흥동",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -1365,9 +1367,7 @@ window.REALTY_DATA = {
         "dealDate": "2026-04-01",
         "dealType": "중개거래"
       }
-    ],
-    "addr": "성남시 수정구 신흥동",
-    "label": "산성역자이푸르지오"
+    ]
   },
   "items": [
     {
@@ -8518,7 +8518,7 @@ window.REALTY_DATA = {
       "buildYear": 1993,
       "dealDate": "2026-08-29",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -8544,7 +8544,7 @@ window.REALTY_DATA = {
       "buildYear": 2002,
       "dealDate": "2026-08-27",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -8557,7 +8557,7 @@ window.REALTY_DATA = {
       "buildYear": 1993,
       "dealDate": "2026-08-22",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -16383,7 +16383,7 @@ window.REALTY_DATA = {
       "buildYear": 2014,
       "dealDate": "2026-05-07",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -20564,7 +20564,7 @@ window.REALTY_DATA = {
       "ratioPct": 41.7,
       "jeonseManwon": 75000,
       "saleManwon": 180000,
-      "count": 1053
+      "count": 1054
     },
     "평촌": {
       "ratioPct": 57.4,
@@ -20580,5 +20580,5 @@ window.REALTY_DATA = {
     }
   },
   "watch": [],
-  "newCount": 4
+  "newCount": 0
 };
