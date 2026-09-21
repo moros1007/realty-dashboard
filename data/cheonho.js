@@ -1,13 +1,13 @@
 /* 자동 생성 — 직접 수정 금지. 'ⓢ 천호 역세권 업데이트.bat' 실행 시 갱신됩니다. */
 window.CHEONHO_DATA = {
   "isSample": false,
-  "updatedAt": "2026-09-20 09:25",
+  "updatedAt": "2026-09-21 09:30",
   "anchor": "천호역(5·8호선)",
   "config": {
-    "capEok": 5.0,
     "areaMax": 90.0,
-    "areaMin": 45.0,
-    "monthsBack": 4
+    "capEok": 5.0,
+    "monthsBack": 4,
+    "areaMin": 45.0
   },
   "items": [
     {
@@ -23253,6 +23253,40 @@ window.CHEONHO_DATA = {
       "group": "성남",
       "region": "성남중원",
       "code": "41133",
+      "apt": "산호",
+      "umd": "상대원동",
+      "areaM2": 74.79,
+      "floor": 2,
+      "amountManwon": 33000,
+      "buildYear": 1992,
+      "dealDate": "2026-09-12",
+      "dealType": "중개거래",
+      "jeonseManwon": 25000,
+      "jeonseSrc": "complex",
+      "gapManwon": 8000,
+      "isNew": true
+    },
+    {
+      "group": "성남",
+      "region": "성남중원",
+      "code": "41133",
+      "apt": "중앙동힐스테이트1차",
+      "umd": "중앙동",
+      "areaM2": 84.98,
+      "floor": 4,
+      "amountManwon": 115000,
+      "buildYear": 2012,
+      "dealDate": "2026-09-12",
+      "dealType": "중개거래",
+      "jeonseManwon": 59250,
+      "jeonseSrc": "complex",
+      "gapManwon": 55750,
+      "isNew": true
+    },
+    {
+      "group": "성남",
+      "region": "성남중원",
+      "code": "41133",
       "apt": "현대",
       "umd": "은행동",
       "areaM2": 84.63,
@@ -23287,6 +23321,23 @@ window.CHEONHO_DATA = {
       "group": "성남",
       "region": "성남중원",
       "code": "41133",
+      "apt": "센트럴타운(3단지)",
+      "umd": "여수동",
+      "areaM2": 84.92,
+      "floor": 5,
+      "amountManwon": 142000,
+      "buildYear": 2012,
+      "dealDate": "2026-09-07",
+      "dealType": "중개거래",
+      "jeonseManwon": 77000,
+      "jeonseSrc": "complex",
+      "gapManwon": 65000,
+      "isNew": true
+    },
+    {
+      "group": "성남",
+      "region": "성남중원",
+      "code": "41133",
       "apt": "LH동분당센트럴파크",
       "umd": "도촌동",
       "areaM2": 84.99,
@@ -23316,6 +23367,23 @@ window.CHEONHO_DATA = {
       "jeonseSrc": "complex",
       "gapManwon": 43000,
       "isNew": false
+    },
+    {
+      "group": "성남",
+      "region": "성남중원",
+      "code": "41133",
+      "apt": "신흥역하늘채랜더스원3단지",
+      "umd": "중앙동",
+      "areaM2": 59.83,
+      "floor": 5,
+      "amountManwon": 133200,
+      "buildYear": 2022,
+      "dealDate": "2026-09-07",
+      "dealType": "중개거래",
+      "jeonseManwon": 60000,
+      "jeonseSrc": "complex",
+      "gapManwon": 73200,
+      "isNew": true
     },
     {
       "group": "성남",
@@ -23520,6 +23588,23 @@ window.CHEONHO_DATA = {
       "jeonseSrc": "complex",
       "gapManwon": 24700,
       "isNew": false
+    },
+    {
+      "group": "성남",
+      "region": "성남중원",
+      "code": "41133",
+      "apt": "산들마을2단지",
+      "umd": "여수동",
+      "areaM2": 51.93,
+      "floor": 4,
+      "amountManwon": 97900,
+      "buildYear": 2015,
+      "dealDate": "2026-08-31",
+      "dealType": "중개거래",
+      "jeonseManwon": 48300,
+      "jeonseSrc": "complex",
+      "gapManwon": 49600,
+      "isNew": true
     },
     {
       "group": "성남",
@@ -23860,6 +23945,23 @@ window.CHEONHO_DATA = {
       "jeonseSrc": "complex",
       "gapManwon": 26000,
       "isNew": false
+    },
+    {
+      "group": "성남",
+      "region": "성남중원",
+      "code": "41133",
+      "apt": "e편한세상금빛그랑메종1단지",
+      "umd": "금광동",
+      "areaM2": 74.62,
+      "floor": 22,
+      "amountManwon": 138000,
+      "buildYear": 2023,
+      "dealDate": "2026-08-26",
+      "dealType": "중개거래",
+      "jeonseManwon": 58375,
+      "jeonseSrc": "complex",
+      "gapManwon": 79625,
+      "isNew": true
     },
     {
       "group": "성남",
@@ -63441,5 +63543,5 @@ window.CHEONHO_DATA = {
       "saleManwon": 150000
     }
   },
-  "newCount": 0
+  "newCount": 6
 };
