@@ -1,13 +1,13 @@
 /* 자동 생성 — 직접 수정 금지. 'ⓢ 천호 역세권 업데이트.bat' 실행 시 갱신됩니다. */
 window.CHEONHO_DATA = {
   "isSample": false,
-  "updatedAt": "2026-09-26 09:55",
+  "updatedAt": "2026-09-27 09:53",
   "anchor": "천호역(5·8호선)",
   "config": {
+    "monthsBack": 4,
     "areaMin": 45.0,
     "areaMax": 90.0,
-    "capEok": 5.0,
-    "monthsBack": 4
+    "capEok": 5.0
   },
   "items": [
     {
@@ -19581,6 +19581,23 @@ window.CHEONHO_DATA = {
       "group": "성남",
       "region": "성남수정",
       "code": "41131",
+      "apt": "엠디",
+      "umd": "수진동",
+      "areaM2": 84.87,
+      "floor": 4,
+      "amountManwon": 110000,
+      "buildYear": 2001,
+      "dealDate": "2026-09-22",
+      "dealType": "중개거래",
+      "jeonseManwon": 52140,
+      "jeonseSrc": "region",
+      "gapManwon": 57860,
+      "isNew": true
+    },
+    {
+      "group": "성남",
+      "region": "성남수정",
+      "code": "41131",
       "apt": "가천대역쌍용스윗닷홈",
       "umd": "태평동",
       "areaM2": 84.9,
@@ -19703,6 +19720,23 @@ window.CHEONHO_DATA = {
       "apt": "산성역포레스티아",
       "umd": "신흥동",
       "areaM2": 59.84,
+      "floor": 5,
+      "amountManwon": 142500,
+      "buildYear": 2020,
+      "dealDate": "2026-09-14",
+      "dealType": "중개거래",
+      "jeonseManwon": 58000,
+      "jeonseSrc": "complex",
+      "gapManwon": 84500,
+      "isNew": true
+    },
+    {
+      "group": "성남",
+      "region": "성남수정",
+      "code": "41131",
+      "apt": "산성역포레스티아",
+      "umd": "신흥동",
+      "areaM2": 59.84,
       "floor": 2,
       "amountManwon": 143000,
       "buildYear": 2020,
@@ -19814,6 +19848,23 @@ window.CHEONHO_DATA = {
       "jeonseSrc": "complex",
       "gapManwon": 38000,
       "isNew": false
+    },
+    {
+      "group": "성남",
+      "region": "성남수정",
+      "code": "41131",
+      "apt": "산성역포레스티아",
+      "umd": "신흥동",
+      "areaM2": 59.84,
+      "floor": 10,
+      "amountManwon": 149500,
+      "buildYear": 2020,
+      "dealDate": "2026-09-09",
+      "dealType": "중개거래",
+      "jeonseManwon": 58000,
+      "jeonseSrc": "complex",
+      "gapManwon": 91500,
+      "isNew": true
     },
     {
       "group": "성남",
@@ -65379,5 +65430,5 @@ window.CHEONHO_DATA = {
       "saleManwon": 150500
     }
   },
-  "newCount": 0
+  "newCount": 3
 };
