@@ -1,11 +1,11 @@
 {
   "isSample": false,
-  "updatedAt": "2026-09-27 09:53",
+  "updatedAt": "2026-09-28 10:11",
   "anchor": "천호역(5·8호선)",
   "config": {
+    "areaMax": 90.0,
     "monthsBack": 4,
     "areaMin": 45.0,
-    "areaMax": 90.0,
     "capEok": 5.0
   },
   "items": [
@@ -19591,7 +19591,7 @@
       "jeonseManwon": 52140,
       "jeonseSrc": "region",
       "gapManwon": 57860,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -19727,7 +19727,7 @@
       "jeonseManwon": 58000,
       "jeonseSrc": "complex",
       "gapManwon": 84500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -19863,7 +19863,7 @@
       "jeonseManwon": 58000,
       "jeonseSrc": "complex",
       "gapManwon": 91500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -65429,5 +65429,5 @@
       "saleManwon": 150500
     }
   },
-  "newCount": 3
+  "newCount": 0
 }

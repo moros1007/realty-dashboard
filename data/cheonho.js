@@ -1,12 +1,12 @@
 /* 자동 생성 — 직접 수정 금지. 'ⓢ 천호 역세권 업데이트.bat' 실행 시 갱신됩니다. */
 window.CHEONHO_DATA = {
   "isSample": false,
-  "updatedAt": "2026-09-27 09:53",
+  "updatedAt": "2026-09-28 10:11",
   "anchor": "천호역(5·8호선)",
   "config": {
+    "areaMax": 90.0,
     "monthsBack": 4,
     "areaMin": 45.0,
-    "areaMax": 90.0,
     "capEok": 5.0
   },
   "items": [
@@ -19592,7 +19592,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 52140,
       "jeonseSrc": "region",
       "gapManwon": 57860,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -19728,7 +19728,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 58000,
       "jeonseSrc": "complex",
       "gapManwon": 84500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -19864,7 +19864,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 58000,
       "jeonseSrc": "complex",
       "gapManwon": 91500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -65430,5 +65430,5 @@ window.CHEONHO_DATA = {
       "saleManwon": 150500
     }
   },
-  "newCount": 3
+  "newCount": 0
 };
