@@ -1,12 +1,12 @@
 /* 자동 생성 — '⑦ 주간 카톡 요약 보내기.bat' 실행 시 갱신 */
 window.CHEONHO_WEEKLY = {
-  "generatedAt": "2026-09-28 10:11",
-  "weekLabel": "2026년 9월 28일",
+  "generatedAt": "2026-09-29 11:19",
+  "weekLabel": "2026년 9월 29일",
   "capEok": 5.0,
-  "dataUpdated": "2026-09-28 10:11",
+  "dataUpdated": "2026-09-29 11:19",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
-  "byeollaeFit": 22,
+  "byeollaeFit": 23,
   "picks": [
     {
       "region": "남양주",
@@ -35,6 +35,21 @@ window.CHEONHO_WEEKLY = {
       "gapEok": 0.3,
       "st": "별내역",
       "min": 18,
+      "terr": "평지",
+      "strategy": "전세끼고"
+    },
+    {
+      "region": "남양주",
+      "apt": "다산자연앤e편한세상3차",
+      "umd": "다산동",
+      "areaM2": 59.96,
+      "floor": 17,
+      "buildYear": 2019,
+      "priceEok": 5.3,
+      "jeonseEok": 5.5,
+      "gapEok": -0.2,
+      "st": "다산역",
+      "min": 15,
       "terr": "평지",
       "strategy": "전세끼고"
     },
@@ -112,21 +127,6 @@ window.CHEONHO_WEEKLY = {
       "min": 15,
       "terr": "평지",
       "strategy": "전세끼고"
-    },
-    {
-      "region": "남양주",
-      "apt": "동원베네스트",
-      "umd": "다산동",
-      "areaM2": 84.95,
-      "floor": 3,
-      "buildYear": 2005,
-      "priceEok": 5.2,
-      "jeonseEok": 4.5,
-      "gapEok": 0.8,
-      "st": "다산역",
-      "min": 15,
-      "terr": "평지",
-      "strategy": "전세끼고"
     }
   ],
   "liveIn": [
@@ -137,7 +137,7 @@ window.CHEONHO_WEEKLY = {
       "areaM2": 84.83,
       "buildYear": 2004,
       "priceEok": 5.2,
-      "jeonseEok": 2.3,
+      "jeonseEok": 2.2,
       "st": "강동구청역",
       "min": 2,
       "strategy": "실입주"
@@ -185,8 +185,8 @@ window.CHEONHO_WEEKLY = {
       "regulated": false,
       "saleMedEok": 7.8,
       "gapMedEok": 3.2,
-      "gapFit": 47,
-      "count": 1376
+      "gapFit": 48,
+      "count": 1391
     },
     {
       "group": "강동",
@@ -202,15 +202,15 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 19.0,
       "gapMedEok": 12.0,
       "gapFit": 2,
-      "count": 558
+      "count": 561
     },
     {
       "group": "성남",
       "regulated": true,
       "saleMedEok": 9.9,
-      "gapMedEok": 4.7,
+      "gapMedEok": 4.8,
       "gapFit": 25,
-      "count": 665
+      "count": 673
     },
     {
       "group": "분당",
@@ -218,7 +218,7 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 15.0,
       "gapMedEok": 9.3,
       "gapFit": 0,
-      "count": 654
+      "count": 664
     }
   ]
 };
