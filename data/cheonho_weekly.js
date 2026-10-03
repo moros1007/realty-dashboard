@@ -1,9 +1,9 @@
 /* 자동 생성 — '⑦ 주간 카톡 요약 보내기.bat' 실행 시 갱신 */
 window.CHEONHO_WEEKLY = {
-  "generatedAt": "2026-10-02 10:51",
-  "weekLabel": "2026년 10월 2일",
+  "generatedAt": "2026-10-03 10:28",
+  "weekLabel": "2026년 10월 3일",
   "capEok": 5.0,
-  "dataUpdated": "2026-10-02 10:51",
+  "dataUpdated": "2026-10-03 10:28",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
   "byeollaeFit": 10,
@@ -185,8 +185,8 @@ window.CHEONHO_WEEKLY = {
       "regulated": false,
       "saleMedEok": 8.0,
       "gapMedEok": 3.3,
-      "gapFit": 19,
-      "count": 771
+      "gapFit": 21,
+      "count": 791
     },
     {
       "group": "강동",
@@ -194,7 +194,7 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 13.6,
       "gapMedEok": 7.9,
       "gapFit": 7,
-      "count": 395
+      "count": 406
     },
     {
       "group": "송파",
@@ -207,10 +207,10 @@ window.CHEONHO_WEEKLY = {
     {
       "group": "성남",
       "regulated": true,
-      "saleMedEok": 10.5,
+      "saleMedEok": 10.4,
       "gapMedEok": 5.1,
       "gapFit": 18,
-      "count": 456
+      "count": 462
     },
     {
       "group": "분당",
@@ -218,7 +218,7 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 15.0,
       "gapMedEok": 9.1,
       "gapFit": 0,
-      "count": 434
+      "count": 436
     }
   ]
 };
