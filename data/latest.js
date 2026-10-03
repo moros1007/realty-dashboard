@@ -1,13 +1,15 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-10-02 10:48",
+  "updatedAt": "2026-10-03 10:24",
   "config": {
-    "areaMax": 102.0,
+    "priceMaxEok": 16,
     "areaMin": 80.0,
-    "priceMaxEok": 16
+    "areaMax": 102.0
   },
   "myHome": {
+    "label": "산성역자이푸르지오",
+    "addr": "성남시 수정구 신흥동",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -1161,9 +1163,7 @@ window.REALTY_DATA = {
         "dealDate": "2026-05-01",
         "dealType": "중개거래"
       }
-    ],
-    "addr": "성남시 수정구 신흥동",
-    "label": "산성역자이푸르지오"
+    ]
   },
   "items": [
     {
@@ -1273,6 +1273,32 @@ window.REALTY_DATA = {
     {
       "region": "분당",
       "code": "41135",
+      "apt": "백현마을2단지",
+      "umd": "백현동",
+      "areaM2": 84.5,
+      "floor": 18,
+      "amountManwon": 275000,
+      "buildYear": 2009,
+      "dealDate": "2026-09-12",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "효자촌(삼환)",
+      "umd": "서현동",
+      "areaM2": 101.64,
+      "floor": 9,
+      "amountManwon": 190000,
+      "buildYear": 1992,
+      "dealDate": "2026-09-11",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "분당",
+      "code": "41135",
       "apt": "무지개(3단지)(신한)",
       "umd": "구미동",
       "areaM2": 84.77,
@@ -1308,6 +1334,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-09-07",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "까치마을(1단지)(대우롯데선경)",
+      "umd": "구미동",
+      "areaM2": 84.79,
+      "floor": 18,
+      "amountManwon": 200000,
+      "buildYear": 1995,
+      "dealDate": "2026-09-08",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -6954,6 +6993,32 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
+      "apt": "대림e-편한세상",
+      "umd": "호계동",
+      "areaM2": 84.85,
+      "floor": 24,
+      "amountManwon": 85000,
+      "buildYear": 2003,
+      "dealDate": "2026-09-21",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "신성미소지움",
+      "umd": "호계동",
+      "areaM2": 84.93,
+      "floor": 10,
+      "amountManwon": 75000,
+      "buildYear": 2004,
+      "dealDate": "2026-09-21",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
       "apt": "평촌어바인퍼스트",
       "umd": "호계동",
       "areaM2": 84.6,
@@ -7041,6 +7106,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-09-12",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "더포레스트힐",
+      "umd": "비산동",
+      "areaM2": 84.96,
+      "floor": 20,
+      "amountManwon": 59900,
+      "buildYear": 2003,
+      "dealDate": "2026-09-12",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "평촌",
@@ -7275,6 +7353,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-08-21",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "호계동현대",
+      "umd": "호계동",
+      "areaM2": 84.94,
+      "floor": 13,
+      "amountManwon": 49500,
+      "buildYear": 1999,
+      "dealDate": "2026-08-31",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "평촌",
@@ -16587,24 +16678,24 @@ window.REALTY_DATA = {
   ],
   "jeonse": {
     "분당": {
-      "ratioPct": 41.4,
+      "ratioPct": 41.3,
       "jeonseManwon": 75000,
-      "saleManwon": 181000,
-      "count": 938
+      "saleManwon": 181500,
+      "count": 953
     },
     "평촌": {
       "ratioPct": 58.1,
       "jeonseManwon": 54600,
       "saleManwon": 94000,
-      "count": 700
+      "count": 702
     },
     "과천": {
       "ratioPct": 42.0,
       "jeonseManwon": 100000,
       "saleManwon": 238250,
-      "count": 201
+      "count": 203
     }
   },
   "watch": [],
-  "newCount": 0
+  "newCount": 7
 };
