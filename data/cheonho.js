@@ -1,12 +1,12 @@
 /* 자동 생성 — 직접 수정 금지. 'ⓢ 천호 역세권 업데이트.bat' 실행 시 갱신됩니다. */
 window.CHEONHO_DATA = {
   "isSample": false,
-  "updatedAt": "2026-10-03 10:28",
+  "updatedAt": "2026-10-04 11:01",
   "anchor": "천호역(5·8호선)",
   "config": {
     "areaMin": 45.0,
-    "monthsBack": 4,
     "areaMax": 90.0,
+    "monthsBack": 4,
     "capEok": 5.0
   },
   "items": [
@@ -6621,7 +6621,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 47200,
       "jeonseSrc": "complex",
       "gapManwon": 140300,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -6655,7 +6655,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 51500,
       "jeonseSrc": "complex",
       "gapManwon": 16500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -6672,7 +6672,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 68950,
       "jeonseSrc": "complex",
       "gapManwon": 86550,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -6706,7 +6706,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 105000,
       "jeonseSrc": "complex",
       "gapManwon": 184000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -6740,7 +6740,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 70300,
       "jeonseSrc": "complex",
       "gapManwon": 121700,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -6859,7 +6859,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 91500,
       "jeonseSrc": "complex",
       "gapManwon": 74500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -6995,7 +6995,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 20821,
       "jeonseSrc": "region",
       "gapManwon": 26179,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -7012,7 +7012,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 51450,
       "jeonseSrc": "complex",
       "gapManwon": 78550,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -7029,7 +7029,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 70000,
       "jeonseSrc": "complex",
       "gapManwon": 59000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -7233,7 +7233,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 28795,
       "jeonseSrc": "region",
       "gapManwon": 36205,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -7420,7 +7420,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 15438,
       "jeonseSrc": "complex",
       "gapManwon": 84562,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "강동",
@@ -13523,7 +13523,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 42500,
       "jeonseSrc": "complex",
       "gapManwon": 47500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -16651,7 +16651,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 61000,
       "jeonseSrc": "complex",
       "gapManwon": 49000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -16668,7 +16668,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 26500,
       "jeonseSrc": "complex",
       "gapManwon": 13200,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -16685,7 +16685,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 61000,
       "jeonseSrc": "complex",
       "gapManwon": 54000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -17059,7 +17059,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 48000,
       "jeonseSrc": "complex",
       "gapManwon": 52000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -17229,7 +17229,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 37500,
       "jeonseSrc": "complex",
       "gapManwon": 37500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "성남",
@@ -21377,7 +21377,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 36240,
       "jeonseSrc": "region",
       "gapManwon": 23760,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -21394,7 +21394,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 15100,
       "jeonseSrc": "region",
       "gapManwon": 9900,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -21445,7 +21445,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 45150,
       "jeonseSrc": "complex",
       "gapManwon": 34100,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -21479,7 +21479,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 51500,
       "jeonseSrc": "complex",
       "gapManwon": 30500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -21496,7 +21496,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 37629,
       "jeonseSrc": "region",
       "gapManwon": 24671,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -21513,7 +21513,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 20000,
       "jeonseSrc": "complex",
       "gapManwon": 6700,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -21547,7 +21547,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 51500,
       "jeonseSrc": "complex",
       "gapManwon": 19500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -21581,7 +21581,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 38958,
       "jeonseSrc": "region",
       "gapManwon": 25542,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -21700,7 +21700,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 45000,
       "jeonseSrc": "complex",
       "gapManwon": 42500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -21734,7 +21734,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 38250,
       "jeonseSrc": "complex",
       "gapManwon": 24050,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -21751,7 +21751,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 43500,
       "jeonseSrc": "complex",
       "gapManwon": 37000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -21802,7 +21802,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 43950,
       "jeonseSrc": "complex",
       "gapManwon": 26050,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -21870,7 +21870,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 58000,
       "jeonseSrc": "complex",
       "gapManwon": 20500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -21938,7 +21938,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 44600,
       "jeonseSrc": "complex",
       "gapManwon": 38000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -22040,7 +22040,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 51340,
       "jeonseSrc": "region",
       "gapManwon": 33660,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -24896,7 +24896,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 55325,
       "jeonseSrc": "complex",
       "gapManwon": 58175,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -24913,7 +24913,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 50000,
       "jeonseSrc": "complex",
       "gapManwon": 30000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -24930,7 +24930,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 52000,
       "jeonseSrc": "complex",
       "gapManwon": 37500,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -24981,7 +24981,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 22365,
       "jeonseSrc": "region",
       "gapManwon": 40635,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -26409,7 +26409,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 70000,
       "jeonseSrc": "complex",
       "gapManwon": 50000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "별내선",
@@ -27630,9 +27630,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-08-28",
       "dealType": "중개거래",
-      "jeonseManwon": 32550,
+      "jeonseManwon": 34650,
       "jeonseSrc": "complex",
-      "gapManwon": 24450,
+      "gapManwon": 22350,
       "isNew": false
     },
     {
@@ -27698,9 +27698,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-08-27",
       "dealType": "중개거래",
-      "jeonseManwon": 32550,
+      "jeonseManwon": 34650,
       "jeonseSrc": "complex",
-      "gapManwon": 23450,
+      "gapManwon": 21350,
       "isNew": false
     },
     {
@@ -30112,9 +30112,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-07-25",
       "dealType": "중개거래",
-      "jeonseManwon": 32550,
+      "jeonseManwon": 34650,
       "jeonseSrc": "complex",
-      "gapManwon": 24250,
+      "gapManwon": 22150,
       "isNew": false
     },
     {
@@ -35181,7 +35181,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 97000,
       "jeonseSrc": "complex",
       "gapManwon": 178000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -35368,7 +35368,7 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 78000,
       "jeonseSrc": "complex",
       "gapManwon": 122000,
-      "isNew": true
+      "isNew": false
     },
     {
       "group": "분당",
@@ -36694,23 +36694,6 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 48000,
       "jeonseSrc": "complex",
       "gapManwon": 101600,
-      "isNew": false
-    },
-    {
-      "group": "분당",
-      "region": "분당",
-      "code": "41135",
-      "apt": "봇들마을4단지(주공)",
-      "umd": "삼평동",
-      "areaM2": 74.45,
-      "floor": 17,
-      "amountManwon": 217000,
-      "buildYear": 2009,
-      "dealDate": "2026-08-14",
-      "dealType": "중개거래",
-      "jeonseManwon": 71500,
-      "jeonseSrc": "complex",
-      "gapManwon": 145500,
       "isNew": false
     },
     {
@@ -42259,5 +42242,5 @@ window.CHEONHO_DATA = {
       "saleManwon": 150000
     }
   },
-  "newCount": 39
+  "newCount": 0
 };
