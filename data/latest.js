@@ -1,13 +1,15 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-10-05 10:14",
+  "updatedAt": "2026-10-06 11:28",
   "config": {
-    "areaMin": 80.0,
     "priceMaxEok": 16,
-    "areaMax": 102.0
+    "areaMax": 102.0,
+    "areaMin": 80.0
   },
   "myHome": {
+    "addr": "성남시 수정구 신흥동",
+    "label": "산성역자이푸르지오",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -1161,9 +1163,7 @@ window.REALTY_DATA = {
         "dealDate": "2026-05-01",
         "dealType": "중개거래"
       }
-    ],
-    "label": "산성역자이푸르지오",
-    "addr": "성남시 수정구 신흥동"
+    ]
   },
   "items": [
     {
@@ -9248,19 +9248,6 @@ window.REALTY_DATA = {
       "floor": 12,
       "amountManwon": 123000,
       "buildYear": 1993,
-      "dealDate": "2026-07-29",
-      "dealType": "중개거래",
-      "isNew": false
-    },
-    {
-      "region": "평촌",
-      "code": "41173",
-      "apt": "무궁화한양",
-      "umd": "호계동",
-      "areaM2": 84.9,
-      "floor": 9,
-      "amountManwon": 61000,
-      "buildYear": 1992,
       "dealDate": "2026-07-29",
       "dealType": "중개거래",
       "isNew": false
