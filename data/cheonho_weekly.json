@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-08 11:18",
-  "weekLabel": "2026년 10월 8일",
+  "generatedAt": "2026-10-09 11:35",
+  "weekLabel": "2026년 10월 9일",
   "capEok": 5.0,
-  "dataUpdated": "2026-10-08 11:18",
+  "dataUpdated": "2026-10-09 11:35",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
   "byeollaeFit": 10,
@@ -185,7 +185,7 @@
       "saleMedEok": 8.0,
       "gapMedEok": 3.3,
       "gapFit": 22,
-      "count": 817
+      "count": 820
     },
     {
       "group": "강동",
@@ -193,7 +193,7 @@
       "saleMedEok": 13.5,
       "gapMedEok": 7.9,
       "gapFit": 7,
-      "count": 417
+      "count": 427
     },
     {
       "group": "송파",
@@ -201,7 +201,7 @@
       "saleMedEok": 19.4,
       "gapMedEok": 12.5,
       "gapFit": 2,
-      "count": 403
+      "count": 407
     },
     {
       "group": "성남",
@@ -217,7 +217,7 @@
       "saleMedEok": 15.1,
       "gapMedEok": 9.2,
       "gapFit": 0,
-      "count": 450
+      "count": 458
     }
   ]
 }
