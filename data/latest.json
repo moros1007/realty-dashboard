@@ -1,12 +1,13 @@
 {
   "isSample": false,
-  "updatedAt": "2026-10-09 11:32",
+  "updatedAt": "2026-10-10 10:54",
   "config": {
     "areaMin": 80.0,
     "areaMax": 102.0,
     "priceMaxEok": 16
   },
   "myHome": {
+    "addr": "성남시 수정구 신흥동",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -1185,7 +1186,6 @@
         "dealType": "중개거래"
       }
     ],
-    "addr": "성남시 수정구 신흥동",
     "label": "산성역자이푸르지오"
   },
   "items": [
@@ -1213,7 +1213,7 @@
       "buildYear": 2021,
       "dealDate": "2026-09-10",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1239,7 +1239,7 @@
       "buildYear": 2021,
       "dealDate": "2026-09-23",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1278,7 +1278,7 @@
       "buildYear": 1992,
       "dealDate": "2026-09-23",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1369,7 +1369,7 @@
       "buildYear": 1994,
       "dealDate": "2026-09-14",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -7219,7 +7219,7 @@
       "buildYear": 1998,
       "dealDate": "2026-09-17",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -16967,5 +16967,5 @@
     }
   },
   "watch": [],
-  "newCount": 5
+  "newCount": 0
 }
