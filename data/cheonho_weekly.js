@@ -1,9 +1,9 @@
 /* 자동 생성 — '⑦ 주간 카톡 요약 보내기.bat' 실행 시 갱신 */
 window.CHEONHO_WEEKLY = {
-  "generatedAt": "2026-10-14 10:26",
-  "weekLabel": "2026년 10월 14일",
+  "generatedAt": "2026-10-16 09:46",
+  "weekLabel": "2026년 10월 16일",
   "capEok": 5.0,
-  "dataUpdated": "2026-10-14 10:26",
+  "dataUpdated": "2026-10-16 09:46",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
   "byeollaeFit": 10,
@@ -16,8 +16,8 @@ window.CHEONHO_WEEKLY = {
       "floor": 8,
       "buildYear": 2019,
       "priceEok": 5.1,
-      "jeonseEok": 5.0,
-      "gapEok": 0.1,
+      "jeonseEok": 5.2,
+      "gapEok": -0.1,
       "st": "별내역",
       "min": 18,
       "terr": "평지",
@@ -149,7 +149,7 @@ window.CHEONHO_WEEKLY = {
       "areaM2": 50.46,
       "buildYear": 2003,
       "priceEok": 4.4,
-      "jeonseEok": 1.9,
+      "jeonseEok": 2.0,
       "st": "천호역",
       "min": 0,
       "strategy": "실입주"
@@ -173,7 +173,7 @@ window.CHEONHO_WEEKLY = {
       "areaM2": 74.51,
       "buildYear": 2002,
       "priceEok": 5.2,
-      "jeonseEok": 2.3,
+      "jeonseEok": 2.4,
       "st": "강동구청역",
       "min": 2,
       "strategy": "실입주"
@@ -184,25 +184,25 @@ window.CHEONHO_WEEKLY = {
       "group": "별내선",
       "regulated": false,
       "saleMedEok": 8.0,
-      "gapMedEok": 3.2,
+      "gapMedEok": 3.3,
       "gapFit": 23,
-      "count": 847
+      "count": 859
     },
     {
       "group": "강동",
       "regulated": true,
       "saleMedEok": 13.6,
-      "gapMedEok": 8.0,
+      "gapMedEok": 7.9,
       "gapFit": 7,
-      "count": 452
+      "count": 472
     },
     {
       "group": "송파",
       "regulated": true,
-      "saleMedEok": 19.4,
-      "gapMedEok": 12.4,
+      "saleMedEok": 19.3,
+      "gapMedEok": 12.2,
       "gapFit": 2,
-      "count": 427
+      "count": 440
     },
     {
       "group": "성남",
@@ -210,15 +210,15 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 10.6,
       "gapMedEok": 5.2,
       "gapFit": 18,
-      "count": 487
+      "count": 496
     },
     {
       "group": "분당",
       "regulated": true,
-      "saleMedEok": 15.0,
+      "saleMedEok": 15.1,
       "gapMedEok": 9.2,
       "gapFit": 0,
-      "count": 471
+      "count": 479
     }
   ]
 };
