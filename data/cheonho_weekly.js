@@ -1,9 +1,9 @@
 /* 자동 생성 — '⑦ 주간 카톡 요약 보내기.bat' 실행 시 갱신 */
 window.CHEONHO_WEEKLY = {
-  "generatedAt": "2026-10-17 09:47",
-  "weekLabel": "2026년 10월 17일",
+  "generatedAt": "2026-10-18 09:20",
+  "weekLabel": "2026년 10월 18일",
   "capEok": 5.0,
-  "dataUpdated": "2026-10-17 09:47",
+  "dataUpdated": "2026-10-18 09:20",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
   "byeollaeFit": 10,
@@ -186,7 +186,7 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 8.0,
       "gapMedEok": 3.2,
       "gapFit": 24,
-      "count": 872
+      "count": 871
     },
     {
       "group": "강동",
