@@ -1,13 +1,15 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-10-17 09:45",
+  "updatedAt": "2026-10-18 09:14",
   "config": {
-    "areaMax": 102.0,
     "areaMin": 80.0,
-    "priceMaxEok": 16
+    "priceMaxEok": 16,
+    "areaMax": 102.0
   },
   "myHome": {
+    "label": "산성역자이푸르지오",
+    "addr": "성남시 수정구 신흥동",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -1221,9 +1223,7 @@ window.REALTY_DATA = {
         "dealDate": "2026-05-01",
         "dealType": "중개거래"
       }
-    ],
-    "label": "산성역자이푸르지오",
-    "addr": "성남시 수정구 신흥동"
+    ]
   },
   "items": [
     {
@@ -1237,7 +1237,7 @@ window.REALTY_DATA = {
       "buildYear": 1993,
       "dealDate": "2026-10-14",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1263,7 +1263,7 @@ window.REALTY_DATA = {
       "buildYear": 2009,
       "dealDate": "2026-10-13",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1328,7 +1328,7 @@ window.REALTY_DATA = {
       "buildYear": 2004,
       "dealDate": "2026-09-18",
       "dealType": "직거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -6494,19 +6494,6 @@ window.REALTY_DATA = {
     {
       "region": "분당",
       "code": "41135",
-      "apt": "삼성아데나루체",
-      "umd": "정자동",
-      "areaM2": 84.96,
-      "floor": 3,
-      "amountManwon": 158000,
-      "buildYear": 2004,
-      "dealDate": "2026-05-06",
-      "dealType": "중개거래",
-      "isNew": false
-    },
-    {
-      "region": "분당",
-      "code": "41135",
       "apt": "무지개(3단지)(신한)",
       "umd": "구미동",
       "areaM2": 84.77,
@@ -7308,7 +7295,7 @@ window.REALTY_DATA = {
       "buildYear": 2021,
       "dealDate": "2026-10-09",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -7321,7 +7308,7 @@ window.REALTY_DATA = {
       "buildYear": 2021,
       "dealDate": "2026-10-09",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -7334,7 +7321,7 @@ window.REALTY_DATA = {
       "buildYear": 2002,
       "dealDate": "2026-10-09",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -7373,7 +7360,7 @@ window.REALTY_DATA = {
       "buildYear": 2007,
       "dealDate": "2026-10-08",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -17524,5 +17511,5 @@ window.REALTY_DATA = {
     }
   },
   "watch": [],
-  "newCount": 7
+  "newCount": 0
 };
