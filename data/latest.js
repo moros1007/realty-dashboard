@@ -1,15 +1,13 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-10-18 09:14",
+  "updatedAt": "2026-10-19 09:26",
   "config": {
+    "areaMax": 102.0,
     "areaMin": 80.0,
-    "priceMaxEok": 16,
-    "areaMax": 102.0
+    "priceMaxEok": 16
   },
   "myHome": {
-    "label": "산성역자이푸르지오",
-    "addr": "성남시 수정구 신흥동",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -1223,7 +1221,9 @@ window.REALTY_DATA = {
         "dealDate": "2026-05-01",
         "dealType": "중개거래"
       }
-    ]
+    ],
+    "label": "산성역자이푸르지오",
+    "addr": "성남시 수정구 신흥동"
   },
   "items": [
     {
