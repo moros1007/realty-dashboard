@@ -1,11 +1,11 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-10-23 09:54",
+  "updatedAt": "2026-10-24 10:00",
   "config": {
+    "priceMaxEok": 16,
     "areaMax": 102.0,
-    "areaMin": 80.0,
-    "priceMaxEok": 16
+    "areaMin": 80.0
   },
   "myHome": {
     "items": [
@@ -43,6 +43,18 @@ window.REALTY_DATA = {
         "amountManwon": 140500,
         "buildYear": 2024,
         "dealDate": "2026-10-09",
+        "dealType": "중개거래"
+      },
+      {
+        "region": "산성역자이푸르지오",
+        "code": "41131",
+        "apt": "산성역자이푸르지오1단지",
+        "umd": "신흥동",
+        "areaM2": 74.96,
+        "floor": 2,
+        "amountManwon": 140000,
+        "buildYear": 2024,
+        "dealDate": "2026-10-06",
         "dealType": "중개거래"
       },
       {
@@ -1285,7 +1297,7 @@ window.REALTY_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-10-15",
       "dealType": "직거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1298,7 +1310,7 @@ window.REALTY_DATA = {
       "buildYear": 1991,
       "dealDate": "2026-10-22",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1324,7 +1336,7 @@ window.REALTY_DATA = {
       "buildYear": 2009,
       "dealDate": "2026-10-14",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1519,7 +1531,7 @@ window.REALTY_DATA = {
       "buildYear": 2021,
       "dealDate": "2026-10-15",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1584,7 +1596,7 @@ window.REALTY_DATA = {
       "buildYear": 1995,
       "dealDate": "2026-09-30",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -1597,7 +1609,7 @@ window.REALTY_DATA = {
       "buildYear": 1995,
       "dealDate": "2026-09-30",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -7538,7 +7550,7 @@ window.REALTY_DATA = {
       "buildYear": 2003,
       "dealDate": "2026-10-08",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -7556,6 +7568,32 @@ window.REALTY_DATA = {
     {
       "region": "평촌",
       "code": "41173",
+      "apt": "신도브래뉴",
+      "umd": "호계동",
+      "areaM2": 84.99,
+      "floor": 20,
+      "amountManwon": 60000,
+      "buildYear": 2004,
+      "dealDate": "2026-10-15",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
+      "apt": "호계임광그대가3차",
+      "umd": "호계동",
+      "areaM2": 84.96,
+      "floor": 1,
+      "amountManwon": 63000,
+      "buildYear": 2005,
+      "dealDate": "2026-10-14",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "평촌",
+      "code": "41173",
       "apt": "인덕원대우",
       "umd": "평촌동",
       "areaM2": 84.96,
@@ -7564,7 +7602,7 @@ window.REALTY_DATA = {
       "buildYear": 2001,
       "dealDate": "2026-10-14",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -7889,7 +7927,7 @@ window.REALTY_DATA = {
       "buildYear": 1993,
       "dealDate": "2026-09-23",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -17985,21 +18023,21 @@ window.REALTY_DATA = {
       "ratioPct": 41.2,
       "jeonseManwon": 75000,
       "saleManwon": 182000,
-      "count": 1092
+      "count": 1098
     },
     "평촌": {
-      "ratioPct": 57.8,
-      "jeonseManwon": 54600,
-      "saleManwon": 94500,
-      "count": 813
+      "ratioPct": 58.5,
+      "jeonseManwon": 55000,
+      "saleManwon": 94000,
+      "count": 823
     },
     "과천": {
       "ratioPct": 42.0,
       "jeonseManwon": 100000,
       "saleManwon": 238250,
-      "count": 235
+      "count": 237
     }
   },
   "watch": [],
-  "newCount": 9
+  "newCount": 2
 };
