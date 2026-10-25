@@ -1,10 +1,10 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-10-24 10:00",
+  "updatedAt": "2026-10-25 09:30",
   "config": {
-    "priceMaxEok": 16,
     "areaMax": 102.0,
+    "priceMaxEok": 16,
     "areaMin": 80.0
   },
   "myHome": {
@@ -7576,7 +7576,7 @@ window.REALTY_DATA = {
       "buildYear": 2004,
       "dealDate": "2026-10-15",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -7589,7 +7589,7 @@ window.REALTY_DATA = {
       "buildYear": 2005,
       "dealDate": "2026-10-14",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -18039,5 +18039,5 @@ window.REALTY_DATA = {
     }
   },
   "watch": [],
-  "newCount": 2
+  "newCount": 0
 };

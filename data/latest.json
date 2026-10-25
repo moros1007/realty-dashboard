@@ -1,9 +1,9 @@
 {
   "isSample": false,
-  "updatedAt": "2026-10-24 10:00",
+  "updatedAt": "2026-10-25 09:30",
   "config": {
-    "priceMaxEok": 16,
     "areaMax": 102.0,
+    "priceMaxEok": 16,
     "areaMin": 80.0
   },
   "myHome": {
@@ -7575,7 +7575,7 @@
       "buildYear": 2004,
       "dealDate": "2026-10-15",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -7588,7 +7588,7 @@
       "buildYear": 2005,
       "dealDate": "2026-10-14",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -18038,5 +18038,5 @@
     }
   },
   "watch": [],
-  "newCount": 2
+  "newCount": 0
 }
