@@ -1,13 +1,13 @@
 /* 자동 생성 — 직접 수정 금지. 'ⓢ 천호 역세권 업데이트.bat' 실행 시 갱신됩니다. */
 window.CHEONHO_DATA = {
   "isSample": false,
-  "updatedAt": "2026-10-25 09:32",
+  "updatedAt": "2026-10-26 09:43",
   "anchor": "천호역(5·8호선)",
   "config": {
+    "monthsBack": 4,
     "areaMin": 45.0,
     "areaMax": 90.0,
-    "capEok": 5.0,
-    "monthsBack": 4
+    "capEok": 5.0
   },
   "items": [
     {
@@ -13268,23 +13268,6 @@ window.CHEONHO_DATA = {
       "jeonseManwon": 73000,
       "jeonseSrc": "complex",
       "gapManwon": 78000,
-      "isNew": false
-    },
-    {
-      "group": "강동",
-      "region": "강동",
-      "code": "11740",
-      "apt": "중앙하이츠",
-      "umd": "암사동",
-      "areaM2": 59.52,
-      "floor": 9,
-      "amountManwon": 81000,
-      "buildYear": 1998,
-      "dealDate": "2026-07-21",
-      "dealType": "중개거래",
-      "jeonseManwon": 41475,
-      "jeonseSrc": "complex",
-      "gapManwon": 39525,
       "isNew": false
     },
     {
