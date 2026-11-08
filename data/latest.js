@@ -1,13 +1,14 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-11-07 11:19",
+  "updatedAt": "2026-11-08 10:48",
   "config": {
-    "areaMin": 80.0,
+    "priceMaxEok": 16,
     "areaMax": 102.0,
-    "priceMaxEok": 16
+    "areaMin": 80.0
   },
   "myHome": {
+    "label": "산성역자이푸르지오",
     "addr": "성남시 수정구 신흥동",
     "items": [
       {
@@ -898,8 +899,7 @@ window.REALTY_DATA = {
         "dealDate": "2026-06-01",
         "dealType": "중개거래"
       }
-    ],
-    "label": "산성역자이푸르지오"
+    ]
   },
   "items": [
     {
@@ -926,7 +926,7 @@ window.REALTY_DATA = {
       "buildYear": 1995,
       "dealDate": "2026-10-28",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -991,7 +991,7 @@ window.REALTY_DATA = {
       "buildYear": 1993,
       "dealDate": "2026-10-30",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "분당",
@@ -5541,7 +5541,7 @@ window.REALTY_DATA = {
       "buildYear": 1994,
       "dealDate": "2026-11-02",
       "dealType": "중개거래",
-      "isNew": true
+      "isNew": false
     },
     {
       "region": "평촌",
@@ -13190,6 +13190,19 @@ window.REALTY_DATA = {
     {
       "region": "과천",
       "code": "41290",
+      "apt": "주공8",
+      "umd": "부림동",
+      "areaM2": 83.2,
+      "floor": 11,
+      "amountManwon": 280000,
+      "buildYear": 1983,
+      "dealDate": "2026-10-28",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "과천",
+      "code": "41290",
       "apt": "과천자이",
       "umd": "별양동",
       "areaM2": 84.93,
@@ -13203,6 +13216,19 @@ window.REALTY_DATA = {
     {
       "region": "과천",
       "code": "41290",
+      "apt": "래미안슈르",
+      "umd": "원문동",
+      "areaM2": 84.95,
+      "floor": 2,
+      "amountManwon": 210000,
+      "buildYear": 2008,
+      "dealDate": "2026-10-15",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "과천",
+      "code": "41290",
       "apt": "과천푸르지오라비엔오",
       "umd": "갈현동",
       "areaM2": 99.89,
@@ -13212,6 +13238,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-10-09",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "과천",
+      "code": "41290",
+      "apt": "과천푸르지오벨라르테",
+      "umd": "갈현동",
+      "areaM2": 84.98,
+      "floor": 19,
+      "amountManwon": 191000,
+      "buildYear": 2022,
+      "dealDate": "2026-10-06",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "과천",
