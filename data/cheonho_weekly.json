@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-09 10:59",
-  "weekLabel": "2026년 11월 9일",
+  "generatedAt": "2026-11-10 13:24",
+  "weekLabel": "2026년 11월 10일",
   "capEok": 5.0,
-  "dataUpdated": "2026-11-09 10:59",
+  "dataUpdated": "2026-11-10 13:24",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
   "byeollaeFit": 6,
@@ -75,8 +75,8 @@
       "floor": 4,
       "buildYear": 1989,
       "priceEok": 4.0,
-      "jeonseEok": 2.3,
-      "gapEok": 1.7,
+      "jeonseEok": 2.2,
+      "gapEok": 1.8,
       "st": "구리역",
       "min": 12,
       "terr": "평지",
@@ -90,8 +90,8 @@
       "floor": 2,
       "buildYear": 1988,
       "priceEok": 4.2,
-      "jeonseEok": 1.4,
-      "gapEok": 2.8,
+      "jeonseEok": 1.5,
+      "gapEok": 2.7,
       "st": "다산역",
       "min": 15,
       "terr": "평지",
@@ -128,24 +128,24 @@
     {
       "group": "별내선",
       "regulated": false,
-      "saleMedEok": 7.9,
+      "saleMedEok": 8.0,
       "gapMedEok": 3.2,
-      "gapFit": 15,
-      "count": 661
+      "gapFit": 17,
+      "count": 687
     },
     {
       "group": "강동",
       "regulated": true,
       "saleMedEok": 13.4,
-      "gapMedEok": 7.6,
+      "gapMedEok": 7.8,
       "gapFit": 6,
-      "count": 367
+      "count": 375
     },
     {
       "group": "송파",
       "regulated": true,
       "saleMedEok": 19.0,
-      "gapMedEok": 12.4,
+      "gapMedEok": 12.3,
       "gapFit": 2,
       "count": 333
     },
@@ -155,15 +155,15 @@
       "saleMedEok": 10.4,
       "gapMedEok": 5.1,
       "gapFit": 16,
-      "count": 363
+      "count": 374
     },
     {
       "group": "분당",
       "regulated": true,
       "saleMedEok": 15.4,
-      "gapMedEok": 9.4,
+      "gapMedEok": 9.5,
       "gapFit": 0,
-      "count": 308
+      "count": 324
     }
   ]
 }
