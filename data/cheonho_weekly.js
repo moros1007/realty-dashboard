@@ -1,9 +1,9 @@
 /* 자동 생성 — '⑦ 주간 카톡 요약 보내기.bat' 실행 시 갱신 */
 window.CHEONHO_WEEKLY = {
-  "generatedAt": "2026-11-10 13:24",
-  "weekLabel": "2026년 11월 10일",
+  "generatedAt": "2026-11-11 11:18",
+  "weekLabel": "2026년 11월 11일",
   "capEok": 5.0,
-  "dataUpdated": "2026-11-10 13:24",
+  "dataUpdated": "2026-11-11 11:18",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
   "byeollaeFit": 6,
@@ -46,8 +46,8 @@ window.CHEONHO_WEEKLY = {
       "floor": 12,
       "buildYear": 2005,
       "priceEok": 5.4,
-      "jeonseEok": 5.0,
-      "gapEok": 0.4,
+      "jeonseEok": 5.5,
+      "gapEok": -0.1,
       "st": "다산역",
       "min": 15,
       "terr": "평지",
@@ -61,8 +61,8 @@ window.CHEONHO_WEEKLY = {
       "floor": 13,
       "buildYear": 1999,
       "priceEok": 4.7,
-      "jeonseEok": 1.6,
-      "gapEok": 3.1,
+      "jeonseEok": 1.7,
+      "gapEok": 3.0,
       "st": "다산역",
       "min": 15,
       "terr": "평지",
@@ -107,7 +107,7 @@ window.CHEONHO_WEEKLY = {
       "areaM2": 84.83,
       "buildYear": 2004,
       "priceEok": 5.2,
-      "jeonseEok": 2.5,
+      "jeonseEok": 2.4,
       "st": "강동구청역",
       "min": 2,
       "strategy": "실입주"
@@ -132,15 +132,15 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 8.0,
       "gapMedEok": 3.2,
       "gapFit": 17,
-      "count": 687
+      "count": 690
     },
     {
       "group": "강동",
       "regulated": true,
-      "saleMedEok": 13.4,
-      "gapMedEok": 7.8,
+      "saleMedEok": 13.5,
+      "gapMedEok": 7.9,
       "gapFit": 6,
-      "count": 375
+      "count": 384
     },
     {
       "group": "송파",
@@ -148,7 +148,7 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 19.0,
       "gapMedEok": 12.3,
       "gapFit": 2,
-      "count": 333
+      "count": 349
     },
     {
       "group": "성남",
@@ -156,7 +156,7 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 10.4,
       "gapMedEok": 5.1,
       "gapFit": 16,
-      "count": 374
+      "count": 386
     },
     {
       "group": "분당",
@@ -164,7 +164,7 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 15.4,
       "gapMedEok": 9.5,
       "gapFit": 0,
-      "count": 324
+      "count": 335
     }
   ]
 };
