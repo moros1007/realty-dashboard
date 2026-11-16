@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-15 11:12",
-  "weekLabel": "2026년 11월 15일",
+  "generatedAt": "2026-11-16 11:24",
+  "weekLabel": "2026년 11월 16일",
   "capEok": 5.0,
-  "dataUpdated": "2026-11-15 11:12",
+  "dataUpdated": "2026-11-16 11:24",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
   "byeollaeFit": 6,
@@ -152,10 +152,10 @@
     {
       "group": "성남",
       "regulated": true,
-      "saleMedEok": 10.4,
+      "saleMedEok": 10.5,
       "gapMedEok": 5.1,
       "gapFit": 17,
-      "count": 404
+      "count": 412
     },
     {
       "group": "분당",
