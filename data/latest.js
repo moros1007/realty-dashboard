@@ -1,16 +1,27 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-11-15 11:06",
+  "updatedAt": "2026-11-16 11:22",
   "config": {
-    "priceMaxEok": 16,
     "areaMax": 102.0,
-    "areaMin": 80.0
+    "areaMin": 80.0,
+    "priceMaxEok": 16
   },
   "myHome": {
     "label": "산성역자이푸르지오",
-    "addr": "성남시 수정구 신흥동",
     "items": [
+      {
+        "region": "산성역자이푸르지오",
+        "code": "41131",
+        "apt": "산성역자이푸르지오2단지",
+        "umd": "신흥동",
+        "areaM2": 74.96,
+        "floor": 2,
+        "amountManwon": 140000,
+        "buildYear": 2024,
+        "dealDate": "2026-11-13",
+        "dealType": "중개거래"
+      },
       {
         "region": "산성역자이푸르지오",
         "code": "41131",
@@ -21,6 +32,18 @@ window.REALTY_DATA = {
         "amountManwon": 144000,
         "buildYear": 2024,
         "dealDate": "2026-11-07",
+        "dealType": "중개거래"
+      },
+      {
+        "region": "산성역자이푸르지오",
+        "code": "41131",
+        "apt": "산성역자이푸르지오1단지",
+        "umd": "신흥동",
+        "areaM2": 74.92,
+        "floor": 17,
+        "amountManwon": 141000,
+        "buildYear": 2024,
+        "dealDate": "2026-10-28",
         "dealType": "중개거래"
       },
       {
@@ -935,7 +958,8 @@ window.REALTY_DATA = {
         "dealDate": "2026-06-01",
         "dealType": "중개거래"
       }
-    ]
+    ],
+    "addr": "성남시 수정구 신흥동"
   },
   "items": [
     {
@@ -14645,7 +14669,7 @@ window.REALTY_DATA = {
       "ratioPct": 41.7,
       "jeonseManwon": 100000,
       "saleManwon": 240000,
-      "count": 231
+      "count": 232
     }
   },
   "watch": [],
