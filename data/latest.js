@@ -1,14 +1,13 @@
 /* 자동 생성 파일 — 직접 수정하지 마세요. '① 시세 업데이트.bat' 실행 시 갱신됩니다. */
 window.REALTY_DATA = {
   "isSample": false,
-  "updatedAt": "2026-11-16 11:22",
+  "updatedAt": "2026-11-17 13:46",
   "config": {
+    "priceMaxEok": 16,
     "areaMax": 102.0,
-    "areaMin": 80.0,
-    "priceMaxEok": 16
+    "areaMin": 80.0
   },
   "myHome": {
-    "label": "산성역자이푸르지오",
     "items": [
       {
         "region": "산성역자이푸르지오",
@@ -959,7 +958,8 @@ window.REALTY_DATA = {
         "dealType": "중개거래"
       }
     ],
-    "addr": "성남시 수정구 신흥동"
+    "addr": "성남시 수정구 신흥동",
+    "label": "산성역자이푸르지오"
   },
   "items": [
     {
@@ -987,6 +987,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-11-10",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "효자촌(삼환)",
+      "umd": "서현동",
+      "areaM2": 101.64,
+      "floor": 12,
+      "amountManwon": 193000,
+      "buildYear": 1992,
+      "dealDate": "2026-11-08",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -1095,6 +1108,19 @@ window.REALTY_DATA = {
     {
       "region": "분당",
       "code": "41135",
+      "apt": "THESHARP판교퍼스트파크",
+      "umd": "백현동",
+      "areaM2": 84.8,
+      "floor": 11,
+      "amountManwon": 169000,
+      "buildYear": 2021,
+      "dealDate": "2026-11-03",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "분당",
+      "code": "41135",
       "apt": "시범한신",
       "umd": "서현동",
       "areaM2": 84.69,
@@ -1143,6 +1169,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-11-02",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "상록마을(우성)1",
+      "umd": "정자동",
+      "areaM2": 101.98,
+      "floor": 2,
+      "amountManwon": 254700,
+      "buildYear": 1994,
+      "dealDate": "2026-10-17",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -1381,6 +1420,19 @@ window.REALTY_DATA = {
     {
       "region": "분당",
       "code": "41135",
+      "apt": "시범한신",
+      "umd": "서현동",
+      "areaM2": 84.69,
+      "floor": 12,
+      "amountManwon": 240000,
+      "buildYear": 1991,
+      "dealDate": "2026-10-29",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "분당",
+      "code": "41135",
       "apt": "무지개(2단지)(엘지)",
       "umd": "구미동",
       "areaM2": 84.82,
@@ -1442,6 +1494,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-10-17",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "분당",
+      "code": "41135",
+      "apt": "판교원마을9단지(한림풀에버)",
+      "umd": "판교동",
+      "areaM2": 85.0,
+      "floor": 5,
+      "amountManwon": 180000,
+      "buildYear": 2009,
+      "dealDate": "2026-10-21",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "분당",
@@ -14017,6 +14082,32 @@ window.REALTY_DATA = {
     {
       "region": "과천",
       "code": "41290",
+      "apt": "과천푸르지오라비엔오",
+      "umd": "갈현동",
+      "areaM2": 84.85,
+      "floor": 11,
+      "amountManwon": 210000,
+      "buildYear": 2021,
+      "dealDate": "2026-11-07",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "과천",
+      "code": "41290",
+      "apt": "과천자이",
+      "umd": "별양동",
+      "areaM2": 84.96,
+      "floor": 24,
+      "amountManwon": 245000,
+      "buildYear": 2022,
+      "dealDate": "2026-10-30",
+      "dealType": "중개거래",
+      "isNew": true
+    },
+    {
+      "region": "과천",
+      "code": "41290",
       "apt": "센트럴파크푸르지오써밋",
       "umd": "부림동",
       "areaM2": 84.99,
@@ -14078,6 +14169,19 @@ window.REALTY_DATA = {
       "dealDate": "2026-10-17",
       "dealType": "중개거래",
       "isNew": false
+    },
+    {
+      "region": "과천",
+      "code": "41290",
+      "apt": "센트럴파크푸르지오써밋",
+      "umd": "부림동",
+      "areaM2": 84.99,
+      "floor": 15,
+      "amountManwon": 247000,
+      "buildYear": 2020,
+      "dealDate": "2026-10-20",
+      "dealType": "중개거래",
+      "isNew": true
     },
     {
       "region": "과천",
@@ -14654,24 +14758,24 @@ window.REALTY_DATA = {
   ],
   "jeonse": {
     "분당": {
-      "ratioPct": 40.4,
+      "ratioPct": 40.3,
       "jeonseManwon": 75000,
-      "saleManwon": 185850,
-      "count": 1042
+      "saleManwon": 186000,
+      "count": 1058
     },
     "평촌": {
       "ratioPct": 57.6,
       "jeonseManwon": 55000,
       "saleManwon": 95500,
-      "count": 814
+      "count": 835
     },
     "과천": {
-      "ratioPct": 41.7,
+      "ratioPct": 41.5,
       "jeonseManwon": 100000,
-      "saleManwon": 240000,
-      "count": 232
+      "saleManwon": 241250,
+      "count": 239
     }
   },
   "watch": [],
-  "newCount": 0
+  "newCount": 8
 };
