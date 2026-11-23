@@ -1,13 +1,13 @@
 /* 자동 생성 — 직접 수정 금지. 'ⓢ 천호 역세권 업데이트.bat' 실행 시 갱신됩니다. */
 window.CHEONHO_DATA = {
   "isSample": false,
-  "updatedAt": "2026-11-22 11:43",
+  "updatedAt": "2026-11-23 12:09",
   "anchor": "천호역(5·8호선)",
   "config": {
+    "capEok": 5.0,
     "areaMax": 90.0,
-    "monthsBack": 4,
     "areaMin": 45.0,
-    "capEok": 5.0
+    "monthsBack": 4
   },
   "items": [
     {
@@ -111,6 +111,23 @@ window.CHEONHO_DATA = {
       "jeonseSrc": "complex",
       "gapManwon": 100000,
       "isNew": false
+    },
+    {
+      "group": "송파",
+      "region": "송파",
+      "code": "11710",
+      "apt": "올림픽선수기자촌1단지",
+      "umd": "방이동",
+      "areaM2": 83.06,
+      "floor": 15,
+      "amountManwon": 276000,
+      "buildYear": 1988,
+      "dealDate": "2026-11-14",
+      "dealType": "중개거래",
+      "jeonseManwon": 88000,
+      "jeonseSrc": "complex",
+      "gapManwon": 188000,
+      "isNew": true
     },
     {
       "group": "송파",
@@ -10307,9 +10324,9 @@ window.CHEONHO_DATA = {
       "buildYear": 2000,
       "dealDate": "2026-10-03",
       "dealType": "중개거래",
-      "jeonseManwon": 63000,
+      "jeonseManwon": 65500,
       "jeonseSrc": "complex",
-      "gapManwon": 95500,
+      "gapManwon": 93000,
       "isNew": false
     },
     {
@@ -42531,5 +42548,5 @@ window.CHEONHO_DATA = {
       "saleManwon": 155750
     }
   },
-  "newCount": 0
+  "newCount": 1
 };
