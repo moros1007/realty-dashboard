@@ -1,9 +1,9 @@
 /* 자동 생성 — '⑦ 주간 카톡 요약 보내기.bat' 실행 시 갱신 */
 window.CHEONHO_WEEKLY = {
-  "generatedAt": "2026-11-23 12:09",
-  "weekLabel": "2026년 11월 23일",
+  "generatedAt": "2026-11-24 15:25",
+  "weekLabel": "2026년 11월 24일",
   "capEok": 5.0,
-  "dataUpdated": "2026-11-23 12:09",
+  "dataUpdated": "2026-11-24 15:25",
   "shareUrl": "https://moros1007.github.io/realty-dashboard/cheonho_weekly.html",
   "fullUrl": "https://moros1007.github.io/realty-dashboard/",
   "byeollaeFit": 7,
@@ -122,7 +122,7 @@ window.CHEONHO_WEEKLY = {
       "areaM2": 84.83,
       "buildYear": 2004,
       "priceEok": 5.2,
-      "jeonseEok": 2.4,
+      "jeonseEok": 2.5,
       "st": "강동구청역",
       "min": 2,
       "strategy": "실입주"
@@ -134,7 +134,7 @@ window.CHEONHO_WEEKLY = {
       "areaM2": 50.46,
       "buildYear": 2003,
       "priceEok": 4.4,
-      "jeonseEok": 2.0,
+      "jeonseEok": 2.1,
       "st": "천호역",
       "min": 0,
       "strategy": "실입주"
@@ -145,17 +145,17 @@ window.CHEONHO_WEEKLY = {
       "group": "별내선",
       "regulated": false,
       "saleMedEok": 8.0,
-      "gapMedEok": 3.2,
+      "gapMedEok": 3.1,
       "gapFit": 19,
-      "count": 774
+      "count": 790
     },
     {
       "group": "강동",
       "regulated": true,
-      "saleMedEok": 13.7,
-      "gapMedEok": 8.0,
+      "saleMedEok": 13.6,
+      "gapMedEok": 7.9,
       "gapFit": 6,
-      "count": 448
+      "count": 457
     },
     {
       "group": "송파",
@@ -163,15 +163,15 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 19.4,
       "gapMedEok": 12.6,
       "gapFit": 2,
-      "count": 428
+      "count": 436
     },
     {
       "group": "성남",
       "regulated": true,
-      "saleMedEok": 10.8,
+      "saleMedEok": 10.7,
       "gapMedEok": 5.2,
-      "gapFit": 18,
-      "count": 452
+      "gapFit": 20,
+      "count": 463
     },
     {
       "group": "분당",
@@ -179,7 +179,7 @@ window.CHEONHO_WEEKLY = {
       "saleMedEok": 15.6,
       "gapMedEok": 9.5,
       "gapFit": 0,
-      "count": 398
+      "count": 402
     }
   ]
 };
